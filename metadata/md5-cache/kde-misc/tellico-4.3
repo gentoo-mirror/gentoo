@@ -7,11 +7,11 @@ HOMEPAGE=https://tellico-project.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm kde.org xdg
 IUSE=bibtex cddb csv discid pdf scanner semantic-desktop taglib v4l xmp yaz debug +handbook test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=|| ( GPL-2 GPL-3 )
 RDEPEND=dev-libs/libxml2:= dev-libs/libxslt >=dev-qt/qtbase-6.11.2:6[concurrent,dbus,gui,network,widgets,xml] >=dev-qt/qtcharts-6.11.2:6 >=dev-qt/qtwebengine-6.11.2:6[widgets] >=kde-frameworks/karchive-6.29.0:6 >=kde-frameworks/kcodecs-6.29.0:6 >=kde-frameworks/kcolorscheme-6.29.0:6 >=kde-frameworks/kcompletion-6.29.0:6 >=kde-frameworks/kconfig-6.29.0:6 >=kde-frameworks/kconfigwidgets-6.29.0:6 >=kde-frameworks/kcoreaddons-6.29.0:6 >=kde-frameworks/kcrash-6.29.0:6 >=kde-frameworks/kguiaddons-6.29.0:6 >=kde-frameworks/kiconthemes-6.29.0:6 >=kde-frameworks/kitemmodels-6.29.0:6 >=kde-frameworks/ki18n-6.29.0:6 >=kde-frameworks/kjobwidgets-6.29.0:6 >=kde-frameworks/kio-6.29.0:6 >=kde-frameworks/knewstuff-6.29.0:6 >=kde-frameworks/kparts-6.29.0:6 >=kde-frameworks/kservice-6.29.0:6 >=kde-frameworks/ktextwidgets-6.29.0:6 >=kde-frameworks/kwidgetsaddons-6.29.0:6 >=kde-frameworks/kxmlgui-6.29.0:6 >=kde-frameworks/solid-6.29.0:6 >=kde-frameworks/sonnet-6.29.0:6 bibtex? ( >=dev-perl/Text-BibTeX-0.780.0-r1 ) cddb? ( kde-apps/libkcddb:6 ) csv? ( dev-libs/libcsv ) discid? ( dev-libs/libcdio:= ) pdf? ( app-text/poppler[qt6] ) scanner? ( kde-apps/libksane:6 ) semantic-desktop? ( >=kde-frameworks/kfilemetadata-6.29.0:6 ) taglib? ( >=media-libs/taglib-1.5:= ) v4l? ( >=media-libs/libv4l-0.8.3 ) xmp? ( >=media-libs/exempi-2:= ) yaz? ( >=dev-libs/yaz-2:0= ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://tellico-project.org/files/tellico-4.3.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	03a053449c50724fc93f867926f113f1	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=4d1d5bb6cf8b76506928c61aab8ccbd0
+_md5_=f136b45df4abf026291d3f14a8183001
