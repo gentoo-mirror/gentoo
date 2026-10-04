@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="+dbus mqtt"
 
 RDEPEND="
@@ -37,8 +37,8 @@ EPYTEST_RERUNS=10
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# fails if pygobject is installed
-	# https://github.com/caronc/apprise/issues/1383
-	tests/test_plugin_glib.py::test_plugin_glib_send_raises_generic
-)
+python_test() {
+	# https://github.com/caronc/apprise/issues/1769
+	local -x LC_MESSAGES=
+	epytest
+}

@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/filelock-3.0.8[${PYTHON_USEDEP}]
@@ -28,6 +28,7 @@ BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/responses[${PYTHON_USEDEP}]
+		dev-python/sybil[${PYTHON_USEDEP}]
 	)
 "
 
