@@ -54,15 +54,11 @@ RDEPEND="
 QA_PREBUILT="
 	opt/Signal/chrome_crashpad_handler
 	opt/Signal/chrome-sandbox
-	opt/Signal/libEGL.so
-	opt/Signal/libGLESv2.so
 	opt/Signal/libffmpeg.so
 	opt/Signal/libvk_swiftshader.so
 	opt/Signal/libvulkan.so.1
 	opt/Signal/resources/app.asar.unpacked/node_modules/*
-	opt/Signal/signal-desktop
-	opt/Signal/swiftshader/libEGL.so
-	opt/Signal/swiftshader/libGLESv2.so"
+	opt/Signal/signal-desktop"
 
 src_prepare() {
 	default
