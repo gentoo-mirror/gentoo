@@ -1,6 +1,6 @@
 BDEPEND=|| ( ( dev-lang/python:3.15 dev-python/sphinx[python_targets_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/sphinx[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/snappy:= app-arch/zstd:= ~dev-libs/libbson-1.24.4[static-libs?] dev-python/sphinx virtual/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:= ) test? ( dev-libs/libbson[static-libs] test-full? ( dev-db/mongodb ) )
+DEPEND=app-arch/snappy:= app-arch/zstd:= ~dev-libs/libbson-1.24.4[static-libs?] virtual/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:= ) test? ( dev-libs/libbson[static-libs] test-full? ( dev-db/mongodb ) )
 DESCRIPTION=Client library written in C for MongoDB
 EAPI=8
 HOMEPAGE=https://github.com/mongodb/mongo-c-driver
@@ -8,10 +8,10 @@ INHERIT=cmake python-any-r1
 IUSE=debug examples icu sasl ssl static-libs test +test-full
 KEYWORDS=~alpha amd64 arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 x86
 LICENSE=Apache-2.0
-RDEPEND=app-arch/snappy:= app-arch/zstd:= ~dev-libs/libbson-1.24.4[static-libs?] dev-python/sphinx virtual/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:= )
+RDEPEND=app-arch/snappy:= app-arch/zstd:= ~dev-libs/libbson-1.24.4[static-libs?] virtual/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:= )
 REQUIRED_USE=test? ( static-libs )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/mongodb/mongo-c-driver/releases/download/1.24.4/mongo-c-driver-1.24.4.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=3ba8620f0f6d61cb941dce6a6e89fa23
+_md5_=1156369acad04dc5cf75269b6f46f2fa
