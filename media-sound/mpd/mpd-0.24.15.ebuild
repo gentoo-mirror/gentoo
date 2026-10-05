@@ -4,11 +4,14 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..15} )
-inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd xdg
+inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd verify-sig xdg
 
 DESCRIPTION="The Music Player Daemon (mpd)"
 HOMEPAGE="https://www.musicpd.org https://github.com/MusicPlayerDaemon/MPD"
-SRC_URI="https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz"
+SRC_URI="
+	https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz
+	verify-sig? ( https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz.sig )
+"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -133,14 +136,17 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
+	virtual/pkgconfig
 	doc? (
 		$(python_gen_any_dep '
 			dev-python/sphinx[${PYTHON_USEDEP}]
 			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 		')
 	)
-	virtual/pkgconfig
+	verify-sig? ( sec-keys/openpgp-keys-mpd )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.asc
 
 PATCHES=(
 	# PR merged
