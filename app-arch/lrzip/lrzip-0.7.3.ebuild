@@ -29,18 +29,6 @@ src_prepare() {
 	eautoreconf
 }
 
-src_configure() {
-	# ASM optimizations are only available on amd64 and x86, bug #829003
-	local asm=no
-	if use amd64 || use x86; then
-		asm=yes
-	fi
-
-	econf \
-		$(use_enable static-libs static) \
-		--enable-asm=${asm}
-}
-
 src_install() {
 	default
 	# Don't collide with net-dialup/lrzsz and /usr/bin/lrz, bug #588206
