@@ -38,12 +38,7 @@ BDEPEND="
 
 EPYTEST_IGNORE=(
 	# Requires network access and real API keys
-	test/integration/test_bucket.py
-	test/integration/test_download.py
-	test/integration/test_file_version_attributes.py
-	test/integration/test_sync.py
-	test/integration/test_upload.py
-	test/integration/test_raw_api.py
+	test/integration
 )
 
 EPYTEST_PLUGINS=( pytest-{lazy-fixtures,mock,timeout} )

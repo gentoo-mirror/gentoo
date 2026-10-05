@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 optfeature pypi
 
@@ -16,11 +16,11 @@ HOMEPAGE="
 
 LICENSE="|| ( EPL-2.0 GPL-2+ )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 
 RDEPEND="
 	virtual/openssh
-	>=dev-python/cryptography-39.0[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-48.0.1[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -35,6 +35,14 @@ BDEPEND="
 		)
 	)
 "
+
+EPYTEST_DESELECT=(
+	# Network sandbox
+	tests/test_connection.py::_TestCanonicalizeHost::test_canonicalize_failure
+	tests/test_x11.py::_TestX11::test_consecutive_different_servers
+	tests/test_x11.py::_TestX11::test_from_connect
+	tests/test_x11.py::_TestX11::test_wildcard_address
+)
 
 EPYTEST_PLUGINS=()
 # xdist: fails on serializing 'type'
