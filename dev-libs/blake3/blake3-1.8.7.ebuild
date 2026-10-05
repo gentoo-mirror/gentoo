@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 inherit cmake python-any-r1
 
 DESCRIPTION="a fast cryptographic hash function"
@@ -13,12 +13,15 @@ S="${WORKDIR}/BLAKE3-${PV}/c"
 
 LICENSE="|| ( CC0-1.0 Apache-2.0 )"
 SLOT="0/0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="test? ( ${PYTHON_DEPS} )"
 
+# The "fix-non-x86-test" patch has been applied upstream in commit
+# ce50300b3d40ca4d5ad410c8b4f096d7add6fb8e (just *after* 1.8.6 was released)
+# so we can drop this patch for the next release
 PATCHES=(
 	"${FILESDIR}/${PN}-1.5.3-backport-pr405.patch"
 	"${FILESDIR}/${PN}-1.8.2-x32.patch"
