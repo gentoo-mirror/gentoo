@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Static analyzer of C/C++ code"
-HOMEPAGE="https://github.com/danmar/cppcheck"
-SRC_URI="https://github.com/danmar/cppcheck/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/cppcheck-opensource/cppcheck"
+SRC_URI="https://github.com/cppcheck-opensource/cppcheck/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -62,7 +62,8 @@ src_prepare() {
 		man/CMakeLists.txt || die
 
 	# Make tests use cppcheck built in build dir.
-	sed -i -e "s|CPPCHECK_BIN = .*|CPPCHECK_BIN = '${BUILD_DIR}/bin/cppcheck'|" test/tools/htmlreport/test_htmlreport.py || die
+	sed -i -e "s|CPPCHECK_BIN = .*|CPPCHECK_BIN = '${BUILD_DIR}/bin/cppcheck'|" \
+		test/tools/htmlreport/test_htmlreport.py || die
 }
 
 src_configure() {
@@ -106,7 +107,7 @@ src_test() {
 		# https://github.com/danmar/cppcheck/pull/5462
 		TestFileLister
 	)
-	cmake_src_test -j1
+	cmake_src_test
 
 	rm test/cli/other_test.py || die
 	rm test/cli/lookup_test.py || die
