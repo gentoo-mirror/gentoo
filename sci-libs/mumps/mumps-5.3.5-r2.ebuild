@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -24,7 +24,10 @@ RDEPEND="
 		>=sci-libs/metis-5
 		mpi? ( >=sci-libs/parmetis-4 )
 	)
-	mpi? ( sci-libs/scalapack )
+	mpi? (
+		sci-libs/scalapack
+		virtual/mpi[fortran]
+	)
 	!mpi? ( virtual/lapack )
 	scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] )
 "
