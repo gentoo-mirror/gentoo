@@ -77,6 +77,11 @@ else
 	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-openvpn-202600704 )"
 fi
 
+PATCHES=(
+	# Paired with LTO hack in src_configure, don't drop!
+	"${FILESDIR}"/${PN}-2.7.7-tests-no-lto.patch
+)
+
 pkg_setup() {
 	local CONFIG_CHECK="~TUN"
 	if use kernel-ovpn; then
