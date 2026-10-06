@@ -124,11 +124,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	# Inform about set-user-ID bit of mount.cifs
-	ewarn "setuid use flag was dropped due to multiple security implications"
-	ewarn "such as CVE-2009-2948, CVE-2011-3585 and CVE-2012-1586"
-	ewarn "You are free to set setuid flags by yourself"
-
 	# Inform about upcall usage
 	if use acl ; then
 		einfo "The cifs.idmap utility has been enabled by creating the"
