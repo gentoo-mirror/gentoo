@@ -15,10 +15,11 @@ KEYWORDS="~amd64"
 
 # SONAME
 SLOT="0/1"
-IUSE="cuda efa usnic rocm verbs ucx"
+IUSE="cuda efa io-uring usnic rocm verbs ucx"
 
 DEPEND="
 	efa? ( sys-cluster/rdma-core )
+	io-uring? ( sys-libs/liburing:= )
 	rocm? ( dev-libs/rocr-runtime:= )
 	usnic? ( dev-libs/libnl:= )
 	verbs? ( sys-cluster/rdma-core )
@@ -78,6 +79,7 @@ src_configure() {
 		--enable-verbs="$(usex verbs)"
 		--enable-xpmem=no
 		"$(use_with cuda cuda "${CUDA_PATH:-${ESYSROOT}/opt/cuda}")"
+		$(use_with io-uring uring)
 	)
 	econf "${myeconfargs[@]}"
 }
