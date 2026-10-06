@@ -6,11 +6,11 @@ HOMEPAGE=https://polychromatic.app/ https://github.com/polychromatic/polychromat
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-single-r1 readme.gentoo-r1 xdg
 IUSE=python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-3+
 RDEPEND=python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) >=x11-libs/gtk+-3.20:3[introspection] python_single_target_python3_13? ( dev-python/pyqt6-webengine[python_targets_python3_13(-)] dev-python/pyqt6[svg,python_targets_python3_13(-)] dev-python/colorama[python_targets_python3_13(-)] dev-python/colour[python_targets_python3_13(-)] dev-python/distro[python_targets_python3_13(-)] dev-python/pygobject:3[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] dev-python/setproctitle[python_targets_python3_13(-)] sys-apps/openrazer[client,python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pyqt6-webengine[python_targets_python3_14(-)] dev-python/pyqt6[svg,python_targets_python3_14(-)] dev-python/colorama[python_targets_python3_14(-)] dev-python/colour[python_targets_python3_14(-)] dev-python/distro[python_targets_python3_14(-)] dev-python/pygobject:3[python_targets_python3_14(-)] dev-python/requests[python_targets_python3_14(-)] dev-python/setproctitle[python_targets_python3_14(-)] sys-apps/openrazer[client,python_targets_python3_14(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://github.com/polychromatic/polychromatic/archive/v0.9.8.tar.gz -> polychromatic-0.9.8.gh.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=77fed161c62f7a0f49925ab76aaf9140
+_md5_=fc1a94f6c3d2e4c2d5f05cda7b85cf65

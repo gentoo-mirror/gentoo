@@ -8,8 +8,8 @@ IUSE=+acme +curl debug +http +json +openssl postgres +threads
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC
 RDEPEND=curl? ( net-misc/curl:= ) json? ( dev-libs/yajl:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
-REQUIRED_USE=acme? ( curl openssl )
+REQUIRED_USE=acme? ( curl http openssl ) curl? ( http ) json? ( http )
 SLOT=0
 SRC_URI=https://github.com/jorisvink/kore/archive/refs/tags/4.3.0-rc4.tar.gz -> kore-4.3.0_rc4.gh.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=f57f9d75cac065ea4c31eecbe6af622d
+_md5_=f239e5eb7bf66b26c7c07ca66797426a
