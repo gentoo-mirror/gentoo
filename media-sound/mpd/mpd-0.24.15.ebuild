@@ -3,16 +3,19 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
-inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd xdg
+PYTHON_COMPAT=( python3_{12..15} )
+inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd verify-sig xdg
 
 DESCRIPTION="The Music Player Daemon (mpd)"
 HOMEPAGE="https://www.musicpd.org https://github.com/MusicPlayerDaemon/MPD"
-SRC_URI="https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz"
+SRC_URI="
+	https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz
+	verify-sig? ( https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz.sig )
+"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+alsa ao audiofile bzip2 cdio chromaprint +curl doc +dbus
 	+eventfd expat faad +ffmpeg flac fluidsynth gme httpd +icu +id3tag +inotify
 	+io-uring jack lame libmpdclient libsamplerate libsoxr mad mikmod mms
@@ -106,7 +109,7 @@ RDEPEND="
 		${COMMON_ENCODERS}
 		media-libs/libshout
 	)
-	sid? ( <media-libs/libsidplayfp-3.0.0 )
+	sid? ( media-libs/libsidplayfp:= )
 	sndfile? ( media-libs/libsndfile )
 	sndio? ( media-sound/sndio:= )
 	sqlite? ( dev-db/sqlite:3 )
@@ -133,18 +136,21 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
+	virtual/pkgconfig
 	doc? (
 		$(python_gen_any_dep '
 			dev-python/sphinx[${PYTHON_USEDEP}]
 			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 		')
 	)
-	virtual/pkgconfig
+	verify-sig? ( sec-keys/openpgp-keys-mpd )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.asc
 
 PATCHES=(
 	# PR merged
-	"${FILESDIR}"/${P}-upnp_abi.patch
+	"${FILESDIR}"/${P}-fix_libcxx23.patch
 )
 
 python_check_deps() {
@@ -154,7 +160,7 @@ python_check_deps() {
 }
 
 pkg_setup() {
-	use doc && python_setup
+	use doc && python-any-r1_pkg_setup
 
 	if use eventfd; then
 		CONFIG_CHECK+=" ~EVENTFD"
@@ -312,24 +318,24 @@ src_install() {
 	insinto /etc
 	newins doc/mpdconf.example mpd.conf
 
-	# When running MPD as system service, better switch to the user we provide
-	sed -i \
-		-e 's:^#user.*$:user "mpd":' \
-		"${ED}/etc/mpd.conf" || die
-
 	if ! use systemd; then
-		# Extra options for running MPD under OpenRC
-		# (options that should not be set when using systemd)
-		sed -i \
-			-e '0,/^#log_file.*$/s::log_file "/var/log/mpd/mpd.log"\n&:' \
-			-e '0,/^#pid_file.*$/s::pid_file "/run/mpd/mpd.pid"\n&:' \
-			"${ED}/etc/mpd.conf" || die
+		# define a log_file that should not be set when using systemd
+		sed -e '0,/^#log_file.*$/s::log_file "/var/log/mpd/mpd.log"\n&:' \
+			-i "${ED}/etc/mpd.conf" || die
 	fi
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}-0.23.15.logrotate" "${PN}"
 
-	newinitd "${FILESDIR}/${PN}-0.24.8.init" "${PN}"
+	newinitd "${FILESDIR}/${PN}-0.24.15.init" "${PN}"
+	newconfd "${FILESDIR}/${PN}-0.24.15.confd" "${PN}"
+
+	# set memlock limit for io-uring
+	# see https://mpd.readthedocs.io/en/latest/user.html#startup
+	if use io-uring; then
+		sed -e '/#rc_ulimit="${rc_ulimit} -l/s/^#//' \
+			-i "${ED}/etc/conf.d/mpd" || die
+	fi
 
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
@@ -338,8 +344,8 @@ src_install() {
 
 	rm -r "${ED}"/usr/share/doc/mpd || die
 
-	fowners mpd:audio -R /var/lib/mpd
-	fowners mpd:audio -R /var/log/mpd
+	fowners mpd: -R /var/lib/mpd
+	fowners mpd: -R /var/log/mpd
 }
 
 pkg_postinst() {
@@ -350,5 +356,10 @@ pkg_postinst() {
 		ewarn "overrides the group(s) defined in the user database."
 		ewarn "Since the user 'mpd' is already part of the 'audio' group, please"
 		ewarn "consider removing 'group' parameter in ${EROOT}/etc/mpd.conf ."
+	fi
+	if ver_replacing -lt 0.24.15; then
+		ewarn "The daemon is now started directly as an unprivileged user."
+		ewarn "Update MPD_USER in ${EROOT}/etc/conf.d/mpd to override the default user 'mpd'."
+		ewarn "'user' and 'pid_file' must no longer be set in ${EROOT}/etc/mpd.conf ."
 	fi
 }

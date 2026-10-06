@@ -1,25 +1,27 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-QTCW_COMMIT=8491078434b24cba295b5e41cc0d2a94c7049a5b # why ...
 inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Powerful yet simple to use screenshot software"
 HOMEPAGE="https://flameshot.org https://github.com/flameshot-org/flameshot"
-SRC_URI="https://github.com/flameshot-org/flameshot/archive/v${PV}.tar.gz -> ${P}.tar.gz
-https://gitlab.com/mattbas/Qt-Color-Widgets/-/archive/${QTCW_COMMIT}/${PN}-qtcolorwidgets-${QTCW_COMMIT:0:8}.tar.bz2"
+SRC_URI="
+	https://github.com/flameshot-org/flameshot/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="Apache-2.0 Free-Art-1.3 GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
-IUSE="wayland"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="imgur wayland"
 
 DEPEND="
-	dev-libs/kdsingleapplication
+	dev-libs/kdsingleapplication:=
 	dev-qt/qtbase:6[dbus,gui,network,widgets]
 	dev-qt/qtsvg:6
+	>=gui-libs/qt-color-widgets-3.0.0_p20260318:=
 	sys-apps/dbus
 	wayland? ( kde-frameworks/kguiaddons:6 )
 "
@@ -27,19 +29,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-qt/qttools:6[linguist]
 "
-
-PATCHES=( "${FILESDIR}/${P}-fix-wayland.patch" ) # bug #954005
-
-src_prepare() {
-	# bundles https://gitlab.com/mattbas/Qt-Color-Widgets ...
-	mkdir external || die
-	mv "${WORKDIR}"/Qt-Color-Widgets-${QTCW_COMMIT} external/Qt-Color-Widgets || die
-
-	# safety
-	sed -e "s/include(FetchContent)/# & # no we don't/" -i CMakeLists.txt || die
-
-	cmake_src_prepare
-}
 
 src_configure() {
 	# -Werror=strict-aliasing
@@ -51,12 +40,15 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
-		-DENABLE_CACHE=0
+		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON
 		-DDISABLE_UPDATE_CHECKER=ON
-		-DUSE_KDSINGLEAPPLICATION=ON
+		-DENABLE_CACHE=0
+		-DENABLE_IMGUR=$(usex imgur)
+		-DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
 		-DUSE_BUNDLED_KDSINGLEAPPLICATION=OFF
-		-DQTCOLORWIDGETS_BUILD_STATIC_LIBS=ON
+		-DUSE_KDSINGLEAPPLICATION=ON
 		-DUSE_WAYLAND_CLIPBOARD=$(usex wayland)
+
 	)
 
 	cmake_src_configure
