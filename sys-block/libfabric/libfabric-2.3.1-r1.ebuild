@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="The Open Fabrics Interfaces (OFI) framework"
 HOMEPAGE="http://libfabric.org/ https://github.com/ofiwg/libfabric"
@@ -45,6 +45,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/972480
+	#
+	# Fixed upstream in 2.4.0; remove on next version bump
+	use efa && filter-lto
+
 	local myeconfargs=(
 		# let's try to avoid automagic deps
 		--enable-cuda-dlopen="$(usex cuda)"
