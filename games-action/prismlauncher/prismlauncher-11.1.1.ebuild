@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 QTMIN=6.0.0
-inherit cmake java-pkg-2 optfeature toolchain-funcs xdg
+inherit branding cmake java-pkg-2 optfeature toolchain-funcs xdg
 
 DESCRIPTION="Custom, open source Minecraft launcher"
 HOMEPAGE="https://prismlauncher.org/ https://github.com/PrismLauncher/PrismLauncher"
@@ -12,10 +12,7 @@ HOMEPAGE="https://prismlauncher.org/ https://github.com/PrismLauncher/PrismLaunc
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PrismLauncher/PrismLauncher"
-	EGIT_SUBMODULES=(
-		'*' '-libraries/cmark' '-libraries/extra-cmake-modules' '-libraries/filesystem' '-libraries/quazip'
-		'-libraries/tomlplusplus' '-libraries/zlib'
-	)
+	EGIT_SUBMODULES=( 'libraries/libnbtplusplus' )
 else
 	MY_PN="PrismLauncher"
 	# use vendored tarball to avoid dealing with submodules directly
@@ -23,7 +20,7 @@ else
 		https://github.com/PrismLauncher/PrismLauncher/releases/download/${PV}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz
 	"
 	S="${WORKDIR}/${MY_PN}-${PV}"
-	KEYWORDS="amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 # GPL-3 for PolyMC (PrismLauncher is forked from it) and Prism itself
@@ -38,22 +35,19 @@ RESTRICT="!test? ( test )"
 
 # Required at both build time and runtime
 COMMON_DEPEND="
+	app-arch/libarchive:=
 	app-text/cmark:=
 	dev-cpp/tomlplusplus
-	>=dev-libs/quazip-1.3-r2:=[qt6(+)]
-	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,network,widgets,xml(+)]
-	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,gui,opengl,network,vulkan,widgets,xml(+)]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
+	games-util/gamemode
+	media-gfx/qrencode:=
 	virtual/zlib:=
 "
-# gulrak-filesystem dependency is only needed at build time, because we don't
-# actually use it on Linux, only on legacy macOS. Still, we need it present at
-# build time to appease CMake, and having it like this makes it easier to
-# maintain than patching the CMakeLists file directly.
+# max jdk-25 for bug #968411
 DEPEND="${COMMON_DEPEND}
-	dev-cpp/gulrak-filesystem
 	media-libs/libglvnd
-	>=virtual/jdk-1.8.0:*
+	<virtual/jdk-26:*
 "
 # QtSvg imageplugin needed at runtime for svg icons, via QIcon.
 # At runtime we don't depend on JDK, only JRE
@@ -69,6 +63,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-11.0.2-fortify-source-redef.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 
@@ -83,7 +81,7 @@ src_prepare() {
 		elog
 		elog "If you experience any problems, install an older java compiler"
 		elog "and select it with \"eselect java\", then recompile ${PN}."
-		eapply "${FILESDIR}/${PN}-9.1-openjdk21.patch"
+		eapply "${FILESDIR}/${PN}-10.0.3-openjdk21.patch"
 	fi
 }
 
@@ -92,7 +90,7 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="/usr"
 		# Resulting binary is named prismlauncher
 		-DLauncher_APP_BINARY_NAME="${PN}"
-		-DLauncher_BUILD_PLATFORM="Gentoo"
+		-DLauncher_BUILD_PLATFORM="${BRANDING_OS_PRETTY_NAME}"
 		-DLauncher_QT_VERSION_MAJOR=6
 
 		-DENABLE_LTO=$(tc-is-lto)
@@ -100,10 +98,6 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
 }
 
 pkg_postinst() {

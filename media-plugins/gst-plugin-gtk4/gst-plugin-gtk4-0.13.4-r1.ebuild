@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -195,7 +195,7 @@ src_configure() {
 		fi
 	fi
 
-	CARGO_ARGS=(
+	local cargo_args=(
 		--library-type=cdylib
 		--prefix="${EPREFIX}"/usr
 		--libdir="${EPREFIX}/usr/$(get_libdir)"
@@ -203,11 +203,13 @@ src_configure() {
 		$(usev !debug '--release')
 	)
 
-	cargo_src_configure
+	cargo_src_configure "${cargo_args[@]}"
 }
 
 src_compile() {
-	cargo cbuild "${CARGO_ARGS[@]}" || die
+	set -- cargo cbuild "${ECARGO_ARGS[@]}"
+	echo "${@@Q}" >&2
+	"${@}" || die
 }
 
 src_test() {
@@ -216,5 +218,7 @@ src_test() {
 }
 
 src_install() {
-	cargo cinstall "${CARGO_ARGS[@]}" --destdir="${D}" || die
+	set -- cargo cinstall "${ECARGO_ARGS[@]}" --destdir="${D}"
+	echo "${@@Q}" >&2
+	"${@}" || die
 }
