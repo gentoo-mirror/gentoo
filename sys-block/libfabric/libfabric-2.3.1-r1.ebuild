@@ -1,9 +1,9 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="The Open Fabrics Interfaces (OFI) framework"
 HOMEPAGE="http://libfabric.org/ https://github.com/ofiwg/libfabric"
@@ -15,9 +15,11 @@ KEYWORDS="~amd64"
 
 # SONAME
 SLOT="0/1"
-IUSE="cuda efa usnic rocm verbs ucx"
+IUSE="cuda efa io-uring usnic rocm verbs ucx"
 
 DEPEND="
+	efa? ( sys-cluster/rdma-core )
+	io-uring? ( sys-libs/liburing:= )
 	rocm? ( dev-libs/rocr-runtime:= )
 	usnic? ( dev-libs/libnl:= )
 	verbs? ( sys-cluster/rdma-core )
@@ -43,8 +45,13 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/972480
+	#
+	# Fixed upstream in 2.4.0; remove on next version bump
+	use efa && filter-lto
+
 	local myeconfargs=(
-		--disable-static
 		# let's try to avoid automagic deps
 		--enable-cuda-dlopen="$(usex cuda)"
 		--enable-efa="$(usex efa)"
@@ -77,6 +84,7 @@ src_configure() {
 		--enable-verbs="$(usex verbs)"
 		--enable-xpmem=no
 		"$(use_with cuda cuda "${CUDA_PATH:-${ESYSROOT}/opt/cuda}")"
+		$(use_with io-uring uring)
 	)
 	econf "${myeconfargs[@]}"
 }
