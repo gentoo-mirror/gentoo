@@ -14,7 +14,7 @@ LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~x64-macos"
 IUSE="
-	+clang debug gdb-plugin hwloc offload ompt test
+	+clang debug fortran gdb-plugin hwloc offload ompt test
 	cuda level-zero rocm
 "
 REQUIRED_USE="
@@ -48,6 +48,10 @@ RDEPEND="
 BDEPEND="
 	dev-lang/perl
 	clang? ( llvm-core/clang )
+	fortran? (
+		llvm-core/flang:${LLVM_MAJOR}
+		llvm-runtimes/flang-rt:${LLVM_MAJOR}
+	)
 	gdb-plugin? ( ${PYTHON_DEPS} )
 	offload? (
 		virtual/pkgconfig
@@ -99,6 +103,13 @@ multilib_src_configure() {
 		strip-unsupported-flags
 	fi
 
+	if use fortran; then
+		local -x FC=flang-${LLVM_MAJOR} F77=flang-${LLVM_MAJOR}
+		strip-unsupported-flags
+	else
+		local -x FC= F77=
+	fi
+
 	# LTO causes issues in other packages building, #870127
 	filter-lto
 
@@ -122,6 +133,17 @@ multilib_src_configure() {
 		# this breaks building static target libs
 		-DBUILD_SHARED_LIBS=OFF
 	)
+
+	if multilib_is_native_abi && use fortran; then
+		mycmakeargs+=(
+			# cmake.eclass does not set if it we don't inherit fortran-2
+			# and upstream code relies on it being set before Fortran logic
+			# kicks in and reds envvars
+			-DCMAKE_Fortran_COMPILER="${FC}"
+			-DRUNTIMES_FORTRAN_MODULES=ON
+			-DRUNTIMES_INSTALL_RESOURCE_PATH="${EPREFIX}/usr/lib/clang/${LLVM_MAJOR}"
+		)
+	fi
 
 	if multilib_is_native_abi && use offload; then
 		local ffi_cflags=$($(tc-getPKG_CONFIG) --cflags-only-I libffi)
@@ -159,9 +181,8 @@ multilib_src_configure() {
 		-DLLVM_LIT_ARGS="$(get_lit_flags)"
 		-DOPENMP_TEST_C_COMPILER="$(type -P "${CHOST}-clang-${LLVM_MAJOR}")"
 		-DOPENMP_TEST_CXX_COMPILER="$(type -P "${CHOST}-clang++-${LLVM_MAJOR}")"
-		# disable Fortran tests for now
-		# (TODO: enable where we have flang keyworded)
-		-DOPENMP_TEST_Fortran_COMPILER=
+		# may be set to empty above
+		-DOPENMP_TEST_Fortran_COMPILER="${FC}"
 	)
 	cmake_src_configure
 }
@@ -172,6 +193,13 @@ multilib_src_test() {
 	local targets=( check-openmp )
 	if multilib_is_native_abi && use offload; then
 		targets+=( check-offload check-offload-unit )
+	fi
+
+	if multilib_is_native_abi && use fortran; then
+		# hack header search around by copying the modules to a directory
+		# that is already given via -I
+		cp "${BUILD_DIR}/$(get_libdir)/clang"/*/finclude/flang/*/*.mod \
+			"${WORKDIR}/offload/test/" || die
 	fi
 
 	cmake_build "${targets[@]}"

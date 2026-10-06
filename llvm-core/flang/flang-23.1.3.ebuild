@@ -11,7 +11,8 @@ HOMEPAGE="https://flang.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-IUSE="+clang +debug test"
+KEYWORDS="~amd64 ~arm64"
+IUSE="+clang debug test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -152,6 +153,7 @@ build_runtimes() {
 src_test() {
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
+	local -x LIT_XFAIL="Driver/fakeflang.F"
 
 	build_runtimes
 

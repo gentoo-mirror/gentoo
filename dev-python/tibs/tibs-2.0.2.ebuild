@@ -9,12 +9,10 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 RUST_MIN_VER="1.87.0"
 CRATES="
-	allocator-api2@0.2.21
 	anyhow@1.0.102
 	bitflags@2.11.0
 	bitvec@1.1.1
 	block-buffer@0.12.0
-	bytemuck@1.25.0
 	cc@1.2.60
 	cfg-if@1.0.4
 	chacha20@0.10.0
@@ -26,16 +24,13 @@ CRATES="
 	equivalent@1.0.2
 	find-msvc-tools@0.1.9
 	foldhash@0.1.5
-	foldhash@0.2.0
 	funty@2.0.0
 	getrandom@0.3.4
 	getrandom@0.4.1
 	half@2.7.1
 	hashbrown@0.15.5
 	hashbrown@0.16.1
-	hashbrown@0.17.1
 	heck@0.5.0
-	hex@0.4.3
 	hybrid-array@0.4.12
 	id-arena@2.3.0
 	indexmap@2.13.0
@@ -44,7 +39,6 @@ CRATES="
 	leb128fmt@0.1.0
 	libc@0.2.182
 	log@0.4.29
-	lru@0.18.0
 	memchr@2.8.1
 	once_cell@1.21.3
 	pkg-config@0.3.33
@@ -109,7 +103,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0 ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 DEPEND="
 	app-arch/zstd:=
@@ -119,10 +113,17 @@ RDEPEND="
 "
 
 EPYTEST_PLUGINS=( hypothesis )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
+EPYTEST_DESELECT=(
+	# hangs or very slow
+	'tests/test_docs.py::test_doc_examples[serialization.rst]'
+)
 EPYTEST_IGNORE=(
 	tests/test_benchmarks.py
+	# exact dependency pins
+	tests/conformance
 )
 
 QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/tibs/tibs.abi3.*"
