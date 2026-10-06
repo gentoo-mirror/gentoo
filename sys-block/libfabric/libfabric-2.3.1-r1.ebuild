@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,7 @@ SLOT="0/1"
 IUSE="cuda efa usnic rocm verbs ucx"
 
 DEPEND="
+	efa? ( sys-cluster/rdma-core )
 	rocm? ( dev-libs/rocr-runtime:= )
 	usnic? ( dev-libs/libnl:= )
 	verbs? ( sys-cluster/rdma-core )
