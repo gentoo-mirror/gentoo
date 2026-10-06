@@ -1,0 +1,12 @@
+BDEPEND=>=dev-lang/go-1.26.0 >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Distributed, offline-first bug tracker embedded in git
+EAPI=8
+HOMEPAGE=https://github.com/git-bug/git-bug
+INHERIT=go-module shell-completion
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0 Unlicense
+SLOT=0
+SRC_URI=https://github.com/git-bug/git-bug/archive/v0.11.0.tar.gz -> git-bug-0.11.0.tar.gz https://dev.gentoo.org/~laumann/distfiles/dev-util/git-bug/git-bug-0.11.0-vendor.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	shell-completion	42587a281b8b546975e45fad82edcb50
+_md5_=34e246a9b896776f1a7a363440983f9a
