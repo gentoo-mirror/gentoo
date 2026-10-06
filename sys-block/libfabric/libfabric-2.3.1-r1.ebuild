@@ -46,7 +46,6 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--disable-static
 		# let's try to avoid automagic deps
 		--enable-cuda-dlopen="$(usex cuda)"
 		--enable-efa="$(usex efa)"
