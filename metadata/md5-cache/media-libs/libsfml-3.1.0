@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) test? ( >=dev-cpp/catch-3.7.0 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/flac:= media-libs/freetype:2 media-libs/harfbuzz:= media-libs/sheenbidi:= media-libs/libogg media-libs/libvorbis net-libs/libssh2 net-libs/mbedtls:=[threads] virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libXrandr x11-libs/libxcb x11-libs/xcb-util-image kernel_linux? ( virtual/libudev:= ) x11-base/xorg-proto
+DESCRIPTION=Simple and Fast Multimedia Library (SFML)
+EAPI=8
+HOMEPAGE=https://www.sfml-dev.org/ https://github.com/SFML/SFML
+INHERIT=cmake virtualx
+IUSE=doc examples test test
+KEYWORDS=~amd64
+LICENSE=ZLIB MIT Apache-2.0 || ( WTFPL-2 CC0-1.0 ) || ( MIT-0 public-domain ) CC0-1.0 || ( MIT public-domain ) Apache-2.0
+RDEPEND=media-libs/flac:= media-libs/freetype:2 media-libs/harfbuzz:= media-libs/sheenbidi:= media-libs/libogg media-libs/libvorbis net-libs/libssh2 net-libs/mbedtls:=[threads] virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libXrandr x11-libs/libxcb x11-libs/xcb-util-image kernel_linux? ( virtual/libudev:= )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0/3.1
+SRC_URI=https://github.com/SFML/SFML/archive/3.1.0.tar.gz -> libsfml-3.1.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=cbb31f041bf412e3c9fc046c72603e45

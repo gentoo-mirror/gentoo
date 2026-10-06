@@ -4039,7 +4039,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 3.4.9-r2 9999: C c
 dev-db/mariadb-connector-odbc 3.1.18 3.1.23 3.1.24 3.2.8 3.2.9 3.2.10: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.32 6.0.27 7.0.28 8.0.29 8.3.8: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.49.8 1.50.0: GUI for MongoDB
-dev-db/mycli 2.9.0 2.25.3: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 2.9.0 2.25.3 2.27.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2 0.21.3.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 8.0.45 8.0.46-r1 8.4.10 8.4.11: Fast, multi-threaded, multi-user SQL database server
@@ -12298,7 +12298,7 @@ gui-libs/libsfdo 0.1.4: Collection of libraries which implement some freedesktop
 gui-libs/libwlembed 0.0.0_pre20250715 9999: A library for easily adding embedded Wayland compositor functionality
 gui-libs/libwpe 1.16.2 1.16.3: Platform-agnostic interfaces for WPE WebKit
 gui-libs/neatvnc 0.8.1 0.9.4 1.0.0 9999: Liberally licensed VNC server library with a clean interface
-gui-libs/qt-color-widgets 3.0.0: Qt (C++) widgets to manage color inputs
+gui-libs/qt-color-widgets 3.0.0 3.0.0_p20260318: Qt (C++) widgets to manage color inputs
 gui-libs/tepl 6.8.0: GtkSourceView-based text editors and IDE helper library
 gui-libs/vte 0.82.4 0.84.1: Library providing a virtual terminal emulator widget
 gui-libs/vte-common 0.82.4 0.84.1: Library providing a virtual terminal emulator widget
@@ -13155,7 +13155,7 @@ media-gfx/fbida 2.14_p20241216-r1: Image viewers for the framebuffer console (fb
 media-gfx/feh 3.12.2 3.12.4 3.13 3.13.1: A fast, lightweight imageviewer using imlib2
 media-gfx/fig2dev 3.2.9-r5 3.2.9a 3.2.9a-r1 9999: Set of tools for creating TeX documents with graphics
 media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
-media-gfx/flameshot 13.1.0-r1 13.3.0: Powerful yet simple to use screenshot software
+media-gfx/flameshot 13.3.0 14.0.0: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20230101-r2: postscript font editor and converter
 media-gfx/fotema 2.4.1: Photo gallery for Linux
@@ -13581,7 +13581,7 @@ media-libs/libsbsms 2.3.0: A library for high quality time and pitch scale modif
 media-libs/libsdl 1.2.68 1.2.78: Simple Direct Media Layer 1.2 compatibility wrapper around SDL2
 media-libs/libsdl2 2.30.7-r1 2.30.11 2.32.0 2.32.2 2.32.4 2.32.6 2.32.8 2.32.10 2.32.72 2.32.74: Simple Direct Media Layer
 media-libs/libsdl3 3.2.30 3.4.16 3.4.18: Simple Direct Media Layer
-media-libs/libsfml 2.6.2 3.0.1: Simple and Fast Multimedia Library (SFML)
+media-libs/libsfml 2.6.2 3.0.1 3.1.0: Simple and Fast Multimedia Library (SFML)
 media-libs/libshout 2.4.6-r1: library for connecting and sending data to icecast servers
 media-libs/libshumate 1.6.1 1.6.3: Shumate is a GTK toolkit providing widgets for embedded maps
 media-libs/libsidplay 1.36.59-r3 2.1.1-r7: C64 SID player library
@@ -13705,6 +13705,7 @@ media-libs/sdl_audiolib 0_p20220622-r1 9999: Audio decoding, resampling and mixi
 media-libs/sg 1.5: Socket Graphics tool for displaying polygons
 media-libs/sge 030809-r1: Graphics extensions library for SDL
 media-libs/shaderc 2026.2 2026.3: Collection of tools, libraries and tests for shader compilation
+media-libs/sheenbidi 3.0.0: A sophisticated implementation of Unicode Bidirectional Algorithm
 media-libs/simage 1.8.4-r1 1.8.5 9999: Image and video texturing library
 media-libs/smpeg 0.4.4-r11 0.4.4-r12: SDL MPEG Player Library
 media-libs/smpeg2 2.0.0-r4: SDL MPEG Player Library
@@ -14233,7 +14234,7 @@ media-sound/mp3val 0.1.8-r1: Validate and fix MPEG audio files
 media-sound/mp3wrap 0.5: Command-line utility that wraps multiple mp3 files into one large playable mp3
 media-sound/mpc 0.35: Commandline client for Music Player Daemon (media-sound/mpd)
 media-sound/mpck 0.15-r1: Checks MP3s for errors
-media-sound/mpd 0.24.9 0.24.12-r1: The Music Player Daemon (mpd)
+media-sound/mpd 0.24.12-r1 0.24.15: The Music Player Daemon (mpd)
 media-sound/mpd-ynca 0.3.0: MPD client to control Yamaha AV receivers with YNCA (network control) support
 media-sound/mpdas 0.4.5: AudioScrobbler client for MPD written in C++
 media-sound/mpdscribble 0.25: An MPD client that submits information to Audioscrobbler
@@ -14856,7 +14857,7 @@ net-dns/https_dns_proxy 0_pre20200925 9999: Lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.13.0: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.5.5-r2 3.5.6 3.5.8 3.6.0: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.7-r1 5.7.8 6.4.1-r1 6.4.2: Scaleable caching DNS resolver
+net-dns/knot-resolver 5.7.8 6.4.2 6.5.0: Scaleable caching DNS resolver
 net-dns/libidn 1.43 1.44: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 net-dns/maradns 3.5.0036: A security-aware DNS server
@@ -14982,7 +14983,7 @@ net-im/tokodon 26.04.3 26.08.1: Mastodon client for Plasma and Plasma Mobile
 net-im/toxic 0.16.2 0.16.3: A curses-based client for Tox
 net-im/whatsapp-desktop-bin 0.5.3 0.5.4: Unofficial electron-based wrapper around WhatsApp Web
 net-im/ysm 2.9.9.1-r2: A console ICQ client supporting versions 7/8
-net-im/zoom 6.7.5.6891-r1 7.0.0.1666-r2: Video conferencing and web conferencing service
+net-im/zoom 6.7.5.6891-r1 7.0.0.1666-r2 7.1.5.4332: Video conferencing and web conferencing service
 net-irc/anope 2.0.14 2.0.18: Anope IRC Services
 net-irc/atheme-services 7.2.12-r7: A portable and secure set of open-source and modular IRC services
 net-irc/bnc 2.9.4-r3: BNC (BouNCe) is used as a gateway to an IRC Server
@@ -16833,6 +16834,7 @@ sec-keys/openpgp-keys-miniupnp 20201006: OpenPGP keys used to sign miniupnp* pac
 sec-keys/openpgp-keys-mlichvar 20210513: OpenPGP keys used by Miroslav Lichvar
 sec-keys/openpgp-keys-moritzbunkus 20260524: OpenPGP keys used by Moritz Bunkus
 sec-keys/openpgp-keys-mpc 20260118 20260210: OpenPGP keys used by Andreas Enge (to sign MPC releases)
+sec-keys/openpgp-keys-mpd 20130810: OpenPGP keys used by the Music Player Daemon developer
 sec-keys/openpgp-keys-musl 20220407: OpenPGP keys used to sign musl
 sec-keys/openpgp-keys-mysql 20250120: OpenPGP keys used to sign MySQL releases
 sec-keys/openpgp-keys-nabijaczleweli 20260717: OpenPGP keys used by наб (nabijaczleweli)
