@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -116,6 +116,7 @@ src_configure() {
 		$(meson_use !minimal dri3)
 		$(meson_use !minimal glamor)
 		$(meson_use !minimal glx)
+		$(meson_use test tests)
 		$(meson_use udev)
 		$(meson_use udev udev_kms)
 		$(meson_use unwind libunwind)
