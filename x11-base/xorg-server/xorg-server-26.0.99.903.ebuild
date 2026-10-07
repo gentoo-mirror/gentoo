@@ -8,7 +8,8 @@ EGIT_REPO_URI="https://gitlab.freedesktop.org/xorg/xserver.git"
 
 DESCRIPTION="X.Org X servers"
 SLOT="0/${PV}"
-if [[ ${PV} != 9999* ]]; then
+# No KEYWORDS for release candidates (x.y.99.9xx)
+if [[ ${PV} != 9999* && ${PV} != *.99.9* ]]; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
@@ -23,7 +24,7 @@ CDEPEND="
 	>=x11-apps/iceauth-1.0.2
 	>=x11-apps/xauth-1.0.3
 	x11-apps/xkbcomp
-	>=x11-libs/libdrm-2.4.89
+	>=x11-libs/libdrm-2.4.109
 	>=x11-libs/libpciaccess-0.12.901
 	>=x11-libs/libXau-1.0.4
 	>=x11-libs/libXdmcp-1.0.2
@@ -73,7 +74,10 @@ DEPEND="${CDEPEND}
 	>=x11-base/xorg-proto-2024.1
 	>=x11-libs/xtrans-1.3.5
 	media-fonts/font-util
-	test? ( >=x11-libs/libxcvt-0.1.0 )
+	test? (
+		x11-libs/libX11
+		>=x11-libs/libxcvt-0.1.0
+	)
 "
 RDEPEND="${CDEPEND}
 	!systemd? ( gui-libs/display-manager-init )
@@ -97,6 +101,15 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.12-unloadsubmodule.patch
 )
 
+src_prepare() {
+	default
+
+	# libX11 is only used by the unit tests
+	if ! use test; then
+		sed -i -e "s/dependency('x11')/disabler()/" meson.build || die
+	fi
+}
+
 src_configure() {
 	# bug #835653
 	use x86 && replace-flags -Os -O2
@@ -116,7 +129,6 @@ src_configure() {
 		$(meson_use !minimal dri3)
 		$(meson_use !minimal glamor)
 		$(meson_use !minimal glx)
-		$(meson_use test tests)
 		$(meson_use udev)
 		$(meson_use udev udev_kms)
 		$(meson_use unwind libunwind)
@@ -136,11 +148,6 @@ src_configure() {
 		-Dsha1=libcrypto
 		-Dxkb_output_dir="${EPREFIX}/var/lib/xkb"
 	)
-
-	if [[ ${PV} == 9999 ]] ; then
-		# Gone in 21.1.x, but not in master.
-		XORG_CONFIGURE_OPTIONS+=( -Dxwayland=false )
-	fi
 
 	if use systemd || use elogind; then
 		XORG_CONFIGURE_OPTIONS+=(

@@ -8,9 +8,8 @@ HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 
 LICENSE="metapackage"
 SLOT="0"
-if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-else
+# No KEYWORDS while x11-base/xorg-server-26.0.99.9xx is a release candidate
+if [[ ${PV} == 9999 ]]; then
 	PROPERTIES+=" live"
 fi
 
