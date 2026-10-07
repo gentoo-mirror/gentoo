@@ -16,9 +16,7 @@ LICENSE="GPL-3+"
 KEYWORDS="~amd64 ~arm ~ppc64 ~x86"
 #SLOT empty due to webapp
 
-# Turn off mysqli unti mysql-8.4 is unmasked
-#DB_FLAGS="mysqli?,mssql?,postgres?"
-DB_FLAGS="mssql?,postgres?"
+DB_FLAGS="mysqli?,mssql?,postgres?"
 DB_TYPES=${DB_FLAGS//\?/}
 DB_TYPES=${DB_TYPES//,/ }
 
