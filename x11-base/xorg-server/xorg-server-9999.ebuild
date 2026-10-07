@@ -168,10 +168,9 @@ src_install() {
 	fi
 
 	if ! use xorg; then
-		rm -f "${ED}"/usr/share/man/man1/Xserver.1x \
+		rm -f "${ED}"/usr/share/man/man1/Xserver.1 \
 			"${ED}"/usr/$(get_libdir)/xserver/SecurityPolicy \
-			"${ED}"/usr/$(get_libdir)/pkgconfig/xorg-server.pc \
-			"${ED}"/usr/share/man/man1/Xserver.1x || die
+			"${ED}"/usr/$(get_libdir)/pkgconfig/xorg-server.pc || die
 	fi
 
 	# install the @x11-module-rebuild set for Portage
