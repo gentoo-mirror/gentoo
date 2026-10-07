@@ -70,6 +70,9 @@ EPYTEST_IGNORE=(
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	eapply "${FILESDIR}"/${PN}-0.25.0_cython-3.3.0.patch
+	eapply_user
+
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
 	# Prepare matplotlib backend for test suite
