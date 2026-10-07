@@ -13,7 +13,7 @@ SRC_URI="
 		-> ${P}.tar.gz
 "
 
-LICENSE="GPL-2"
+LICENSE="GPL-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ao custom-cflags pipewire"
@@ -22,7 +22,6 @@ RDEPEND="
 	media-libs/libglvnd[X]
 	media-libs/libpng:=
 	media-libs/libsdl3[opengl]
-	virtual/zlib:=
 	ao? ( media-libs/libao )
 	pipewire? (  media-video/pipewire:= )
 "
