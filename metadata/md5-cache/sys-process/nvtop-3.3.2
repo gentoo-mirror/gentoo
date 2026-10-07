@@ -7,10 +7,10 @@ HOMEPAGE=https://github.com/Syllo/nvtop
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
 IUSE=unicode video_cards_amdgpu video_cards_freedreno video_cards_intel video_cards_nvidia video_cards_panfrost video_cards_panthor
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=GPL-3+
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) video_cards_freedreno? ( x11-libs/libdrm[video_cards_freedreno] ) video_cards_intel? ( virtual/udev ) video_cards_nvidia? ( x11-drivers/nvidia-drivers ) video_cards_panfrost? ( x11-libs/libdrm ) video_cards_panthor? ( x11-libs/libdrm )
 SLOT=0
 SRC_URI=https://github.com/Syllo/nvtop/archive/3.3.2.tar.gz -> nvtop-3.3.2.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=4868048800be3669f26de42d8aa9b9d7
+_md5_=eb661629f908d0eb556f5a1881bf1d41
