@@ -294,6 +294,15 @@ src_test() {
 		test/sequential/test-tls-session-timeout.js
 		test/sequential/test-util-debug.js
 	)
+
+	if has_version "sys-libs/zlib-ng" ; then
+		elog "Some tests will be skipped due to being known to fail with sys-libs/zlib-ng"
+		elog
+		drop_tests+=( test/parallel/test-process-versions.js )
+		drop_tests+=( test/parallel/test-zlib-zip-interop.js )
+		elog
+	fi
+
 	use inspector ||
 		drop_tests+=(
 			test/parallel/test-inspector-emit-protocol-event.js
