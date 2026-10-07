@@ -14,7 +14,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://github.com/cli/cli/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-deps.tar.xz"
-	KEYWORDS="amd64 arm64 ~loong ppc64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 	S="${WORKDIR}/cli-${PV}"
 fi
 
@@ -25,7 +25,7 @@ SLOT="0"
 RESTRICT="test"
 
 RDEPEND=">=dev-vcs/git-1.7.3"
-BDEPEND=">=dev-lang/go-1.26.1"
+BDEPEND=">=dev-lang/go-1.27.0"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.92.0-disable-telemetry.patch"
