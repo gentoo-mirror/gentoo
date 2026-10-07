@@ -5,7 +5,7 @@ EAPI=8
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/moonlight-stream/moonlight-qt.git"
-	EGIT_SUBMODULES=( '*' -libs -soundio/libsoundio )
+	EGIT_SUBMODULES=( '*' -libs )
 	inherit git-r3
 else
 	SRC_URI="https://github.com/moonlight-stream/moonlight-qt/releases/download/v${PV}/MoonlightSrc-${PV}.tar.gz"
@@ -20,7 +20,7 @@ HOMEPAGE="https://github.com/moonlight-stream/moonlight-qt"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="cuda-clang +drm embedded glslow soundio +vaapi vdpau vkslow vulkan wayland X"
+IUSE="cuda-clang +drm embedded glslow +vaapi vdpau vkslow vulkan wayland X"
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -32,7 +32,6 @@ RDEPEND="
 	media-libs/sdl2-ttf
 	>=media-video/ffmpeg-6:=[cuda-clang?,drm?,vaapi?,vdpau?,vulkan?]
 	drm? ( x11-libs/libdrm )
-	soundio? ( media-libs/libsoundio:= )
 	vaapi? ( media-libs/libva:=[wayland?,X?] )
 	vdpau? (
 		x11-libs/libvdpau
@@ -50,9 +49,6 @@ BDEPEND="
 
 src_prepare() {
 	default
-
-	# Force system libsoundio over bundled version.
-	rm -r soundio/ || die
 }
 
 src_configure() {
@@ -60,7 +56,8 @@ src_configure() {
 		PREFIX="${EPREFIX}/usr"
 		CONFIG+="
 			disable-mmal
-			$(usex cuda-clang "" disable-cuda)
+			disable-prebuilts
+			$(usex cuda-clang enable-cuda "")
 			$(usex drm "" disable-libdrm)
 			$(usex vaapi "" disable-libva)
 			$(usex vdpau "" disable-libvdpau)
@@ -69,7 +66,6 @@ src_configure() {
 			$(usex X "" disable-x11)
 			$(usev embedded)
 			$(usev glslow)
-			$(usev soundio)
 			$(usev vkslow)
 		"
 	)
