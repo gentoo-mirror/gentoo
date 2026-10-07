@@ -26,7 +26,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-libs/wayland[${MULTILIB_USEDEP}]
@@ -34,7 +34,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-libs/wayland-protocols-1.34
+	>=dev-libs/wayland-protocols-1.49
 	>=gui-libs/eglexternalplatform-1.1-r1
 	media-libs/libglvnd[${MULTILIB_USEDEP}]
 "
