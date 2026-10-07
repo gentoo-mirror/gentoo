@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by Alexey Sokolov
+EAPI=8
+HOMEPAGE=https://www.asokolov.org
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xD5823CACB477191CAC0075555AE420CC0209989E -> openpgp-keys-alexeysokolov-ubuntu-20260914.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
+_md5_=a3271f1315e8ce0fc38f81e0cfcab24d
