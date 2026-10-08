@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools flag-o-matic
 
@@ -11,7 +11,7 @@ SRC_URI="http://tucnak.nagano.cz/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="ftdi"
 
 RDEPEND="dev-libs/glib:2
@@ -31,6 +31,9 @@ src_prepare() {
 	eapply_user
 	sed -i -e "s/docsdir/#docsdir/g" \
 		-e "s/docs_/#docs_/g" Makefile.am || die
+
+	# respect get_libdir bug 979784
+	sed -i -e "s#prefix}/lib#prefix}/$(get_libdir)#g" libzia.pc.in
 
 	# fix build for MUSL (bugs #832235, 935544, 942789)
 	if use elibc_musl ; then

@@ -1,7 +1,8 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
+
 inherit autotools flag-o-matic
 
 DESCRIPTION="Amateur Radio VHF Contest Logbook"
@@ -10,11 +11,11 @@ SRC_URI="http://tucnak.nagano.cz/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa fftw gpm hamlib portaudio rtlsdr suid"
 
 RDEPEND="dev-libs/glib:2
-	~dev-libs/libzia-4.72
+	~dev-libs/libzia-4.74
 	media-libs/libsndfile
 	media-libs/libsdl2
 	alsa? ( media-libs/alsa-lib )
