@@ -25,7 +25,7 @@ IUSE="cuda-clang +drm embedded glslow +vaapi vdpau vkslow vulkan wayland X"
 RDEPEND="
 	dev-libs/openssl:=
 	dev-qt/qtbase:6[gui,network]
-	dev-qt/qtdeclarative:6[svg]
+	dev-qt/qtdeclarative:6[opengl,svg]
 	media-libs/libglvnd
 	media-libs/libsdl2[gles2,haptic,joystick,kms,sound,video]
 	media-libs/opus
