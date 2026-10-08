@@ -83,6 +83,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-26.11.1-add-missing-funcational-inc.patch
 	"${FILESDIR}"/${PN}-26.10.0-x86-SSE2-fix.patch
 	"${FILESDIR}"/${PN}-26.10.0-simdutf-use-system-header.patch
+	"${FILESDIR}"/${PN}-26.11.1-include-EACCES-in-mkdir-test.patch
 )
 
 pkg_pretend() {
