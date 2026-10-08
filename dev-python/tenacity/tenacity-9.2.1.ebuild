@@ -30,6 +30,8 @@ BDEPEND="
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+DOCS=()
+
 EPYTEST_DESELECT=(
 	# fragile to timing
 	tests/test_asyncio.py::TestContextManager::test_sleeps
