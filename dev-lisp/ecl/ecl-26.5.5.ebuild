@@ -6,8 +6,8 @@ EAPI=8
 inherit flag-o-matic readme.gentoo-r1
 
 DESCRIPTION="ECL is an embeddable Common Lisp implementation"
-HOMEPAGE="https://common-lisp.net/project/ecl/"
-SRC_URI="https://common-lisp.net/project/ecl/static/files/release/${P}.tgz"
+HOMEPAGE="https://ecl.common-lisp.dev/"
+SRC_URI="https://ecl.common-lisp.dev/static/files/release/${P}.tgz"
 
 LICENSE="BSD-2 LGPL-2.1+"
 SLOT="0/${PV}"
