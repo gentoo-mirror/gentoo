@@ -37,7 +37,7 @@ fi
 
 LICENSE="Apache-2.0-with-LLVM-exceptions"
 SLOT="0/10"
-IUSE="btf debug ${LIBABIGAIL_DOCS_USEFLAG} +threads test"
+IUSE="btf debug ${LIBABIGAIL_DOCS_USEFLAG} threads test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
