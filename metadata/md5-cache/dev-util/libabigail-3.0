@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] dev-python/sphinx sys-apps/texinfo ) test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) ) >=app-portage/elt-patches-20250306
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=app-arch/xz-utils >=dev-libs/elfutils-0.171[lzma,threads(-)?] dev-libs/libxml2:2= dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone ) threads? ( >=dev-cpp/tbb-2018.2:= )
+DESCRIPTION=Suite of tools for checking ABI differences between ELF objects
+EAPI=8
+HOMEPAGE=https://sourceware.org/libabigail/
+INHERIT=libtool out-of-source python-any-r1 shell-completion
+IUSE=btf debug doc threads test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0-with-LLVM-exceptions
+RDEPEND=app-arch/xz-utils >=dev-libs/elfutils-0.171[lzma,threads(-)?] dev-libs/libxml2:2= dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone ) threads? ( >=dev-cpp/tbb-2018.2:= )
+RESTRICT=!test? ( test )
+SLOT=0/10
+SRC_URI=https://mirrors.kernel.org/sourceware/libabigail/libabigail-3.0.tar.xz !doc? ( https://distfiles.gentoo.org/pub/dev/sam@gentoo.org/dev-util/libabigail/libabigail-3.0-docs.tar.xz )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	out-of-source	6b6854c4199b5eeb2cf123b7530b6b4e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0	shell-completion	42587a281b8b546975e45fad82edcb50
+_md5_=2cddcae056055305b12e5d502db29160
