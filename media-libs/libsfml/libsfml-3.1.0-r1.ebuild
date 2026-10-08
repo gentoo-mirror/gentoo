@@ -96,6 +96,7 @@ src_test() {
 		# Flaky
 		"sf::Shader"
 		"sf::Clipboard"
+		"sf::Texture" # bug #960268
 	)
 	virtx cmake_src_test
 }
