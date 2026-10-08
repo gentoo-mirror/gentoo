@@ -85,6 +85,7 @@ src_prepare() {
 	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
 
 	local biendian=false
+	local merge_configs=()
 
 	# prepare the default config
 	case ${ARCH} in
@@ -160,7 +161,7 @@ src_prepare() {
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
 	local dist_conf_path="${WORKDIR}/${GENTOO_CONFIG_P}"
 
-	local merge_configs=(
+	merge_configs+=(
 		"${T}"/version.config
 		"${dist_conf_path}"/base.config
 		"${dist_conf_path}"/6.12+.config
