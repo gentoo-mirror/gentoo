@@ -6,8 +6,8 @@ EAPI=8
 inherit flag-o-matic readme.gentoo-r1
 
 DESCRIPTION="ECL is an embeddable Common Lisp implementation"
-HOMEPAGE="https://common-lisp.net/project/ecl/"
-SRC_URI="https://common-lisp.net/project/ecl/static/files/release/${P}.tgz"
+HOMEPAGE="https://ecl.common-lisp.dev/"
+SRC_URI="https://ecl.common-lisp.dev/static/files/release/${P}.tgz"
 
 LICENSE="BSD-2 LGPL-2.1+"
 SLOT="0/${PV}"
@@ -32,6 +32,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-16.1.3-build.patch"
 	"${FILESDIR}/${PN}-21.2.1-donotcompressinfo.patch"
 )
+
+# Bug 971638. Several approaches are tried in succession to determine
+# the number of characters left in a FILE. This is the first attempt,
+# it's not unusual for it to fail.
+QA_CONFIG_IMPL_DECL_SKIP=( __freadahead )
 
 src_prepare() {
 	default
