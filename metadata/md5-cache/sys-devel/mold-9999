@@ -1,15 +1,15 @@
-BDEPEND=test? ( llvm-core/clang:* ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare pretend test unpack
-DEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-3:= )
+BDEPEND=virtual/pkgconfig test? ( llvm-core/clang:* ) || ( >=dev-lang/rust-bin-1.95:* >=dev-lang/rust-1.95:* ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=app-arch/zstd:= virtual/zlib:=
 DESCRIPTION=A Modern Linker
 EAPI=8
 HOMEPAGE=https://github.com/rui314/mold
-INHERIT=cmake flag-o-matic toolchain-funcs git-r3
-IUSE=debug mimalloc test
+INHERIT=cargo toolchain-funcs git-r3
+IUSE=test debug
 LICENSE=MIT BSD-2 CC0-1.0
 PROPERTIES=live
-RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-3:= )
+RDEPEND=app-arch/zstd:= virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=cb70beb13eddea88c9b5055f31737b2b
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	71b6825bd86e342e1540c76cc6fe864b	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=065b3d316064f655697ae55c611a1aaa
