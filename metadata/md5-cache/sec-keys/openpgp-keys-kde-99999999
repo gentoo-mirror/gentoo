@@ -1,0 +1,13 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare test unpack
+DESCRIPTION=OpenPGP keys used for KDE releases
+EAPI=8
+HOMEPAGE=https://invent.kde.org/sysadmin/release-keyring
+INHERIT=sec-keys git-r3
+IUSE=test
+LICENSE=public-domain
+PROPERTIES=test_network live
+RESTRICT=!test? ( test ) test
+SLOT=0
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=57acd2b5e7611b356df171fc16a5a5f3
