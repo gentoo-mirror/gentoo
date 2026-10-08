@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit flag-o-matic readme.gentoo-r1
 
@@ -24,6 +24,7 @@ RDEPEND="dev-libs/gmp:0=
 DEPEND="${RDEPEND}
 		app-text/texi2html
 		emacs? ( >=app-editors/emacs-23.1:* >=app-eselect/eselect-emacs-1.12 )"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( README.md CHANGELOG )
 
@@ -40,11 +41,18 @@ QA_CONFIG_IMPL_DECL_SKIP=( __freadahead )
 
 src_prepare() {
 	default
+
+	# The build will fall back to the bundled libffi if it doesn't find
+	# the system one.
+	rm -r src/libffi || die "failed to remove bundled libffi"
 	cp "${EPREFIX}"/usr/share/common-lisp/source/asdf/build/asdf.lisp contrib/asdf/ || die
 }
 
 src_configure() {
 	filter-lto # bug #931081
+
+	# This feels more robust than --with-libffi-incdir=<path>.
+	append-cppflags $(pkg-config --cflags libffi)
 
 	econf \
 		--enable-gmp=system \
