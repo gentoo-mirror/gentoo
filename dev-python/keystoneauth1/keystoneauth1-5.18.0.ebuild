@@ -17,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/iso8601-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
-	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
+	>=dev-python/stevedore-5.9.1[${PYTHON_USEDEP}]
 	>=dev-python/os-service-types-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.12[${PYTHON_USEDEP}]
 "

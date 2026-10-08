@@ -26,5 +26,5 @@ RDEPEND="
 	dev-python/websockets[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
