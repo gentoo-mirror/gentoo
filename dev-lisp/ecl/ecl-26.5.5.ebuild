@@ -33,6 +33,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-21.2.1-donotcompressinfo.patch"
 )
 
+# Bug 971638. Several approaches are tried in succession to determine
+# the number of characters left in a FILE. This is the first attempt,
+# it's not unusual for it to fail.
+QA_CONFIG_IMPL_DECL_SKIP=( __freadahead )
+
 src_prepare() {
 	default
 	cp "${EPREFIX}"/usr/share/common-lisp/source/asdf/build/asdf.lisp contrib/asdf/ || die
