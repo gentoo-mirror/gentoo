@@ -3,7 +3,7 @@
 
 EAPI=9
 
-inherit flag-o-matic readme.gentoo-r1
+inherit flag-o-matic readme.gentoo-r1 toolchain-funcs
 
 DESCRIPTION="ECL is an embeddable Common Lisp implementation"
 HOMEPAGE="https://ecl.common-lisp.dev/"
@@ -52,7 +52,7 @@ src_configure() {
 	filter-lto # bug #931081
 
 	# This feels more robust than --with-libffi-incdir=<path>.
-	append-cppflags $(pkg-config --cflags libffi)
+	append-cppflags $($(tc-getPKG_CONFIG) --cflags libffi)
 
 	econf \
 		--enable-gmp=system \
