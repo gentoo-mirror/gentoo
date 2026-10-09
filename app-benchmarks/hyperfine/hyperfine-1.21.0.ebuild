@@ -162,6 +162,11 @@ src_prepare() {
 	sed -i '/strip =/d' Cargo.toml || die
 }
 
+src_test() {
+	local -x CLICOLOR_FORCE=
+	cargo_src_test
+}
+
 src_install() {
 	dobin $(cargo_target_dir)/hyperfine
 
