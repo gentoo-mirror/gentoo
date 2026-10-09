@@ -30,10 +30,11 @@ HOMEPAGE="https://www.vim.org https://github.com/vim/vim"
 
 LICENSE="vim"
 SLOT="0"
-IUSE="X acl crypt cscope debug gpm lua minimal nls pango perl python racket ruby selinux sound tcl terminal vim-pager wayland ${GENTOO_PERL_USESTRING}"
+IUSE="X acl crypt cscope debug gpm images lua minimal nls pango perl python racket ruby selinux sound tcl terminal vim-pager wayland ${GENTOO_PERL_USESTRING}"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
+	images? ( !minimal )
 	pango? ( !minimal )
 	vim-pager? ( !minimal )
 "
@@ -43,6 +44,7 @@ RDEPEND="
 	>=sys-libs/ncurses-5.2-r2:0=
 	nls? ( virtual/libintl )
 	acl? ( kernel_linux? ( sys-apps/acl ) )
+	images? ( x11-libs/pixman )
 	pango? (
 		x11-libs/cairo
 		>=x11-libs/pango-1.44
@@ -188,6 +190,7 @@ src_configure() {
 		myconf=(
 			--with-features=tiny
 			--disable-hardcopy-pango
+			--disable-pixman
 			--disable-nls
 			--disable-canberra
 			--disable-acl
@@ -217,6 +220,8 @@ src_configure() {
 			$(use_enable nls)
 			# Render :hardcopy with system Pango/Cairo instead of Vim's
 			# own PostScript generator: proper Unicode, and PDF output.
+			# Sixel/Kitty image rendering in the terminal; needs pixman
+			$(use_enable images pixman)
 			$(use_enable pango hardcopy-pango)
 			$(use_enable perl perlinterp)
 			$(use_enable python python3interp)
