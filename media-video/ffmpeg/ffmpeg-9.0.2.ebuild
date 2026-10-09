@@ -546,11 +546,12 @@ multilib_src_configure() {
 		)
 
 	# zlib-ng is not bitexact w/ zlib producing mismatching md5sum
-	# (bug #965737,#983573)
+	# (bug #965737,#983573,#983934)
 	has_version 'sys-libs/zlib-ng[compat]' &&
 		skip_tests+=(
 			lavf-{apng{,.png},gray16be.png,pdv{,-intra},png,rgb48be.png}
 			mov-mp4-frag-flush
+			seek-lavf-pdv
 			vsynth{1,2,3}-{flashsv,mpng,zlib}
 		)
 
