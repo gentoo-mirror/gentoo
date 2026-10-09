@@ -2,18 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
 LUA_COMPAT=( lua5-{3,4} )
 
-inherit flag-o-matic git-r3 lua-single meson optfeature xdg
+inherit flag-o-matic lua-single meson optfeature xdg
 
 DESCRIPTION="A lightweight GTK image viewer forked from GQview"
 HOMEPAGE="https://www.geeqie.org"
-# Using github mirror, as geeqie.org does not have a valid SSL certificate
-EGIT_REPO_URI="https://github.com/BestImageViewer/geeqie.git"
+SRC_URI="https://github.com/BestImageViewer/${PN}/releases/download/v${PV}/${P}.tar.xz
+	https://dev.gentoo.org/~voyageur/distfiles/${P}-docs.tar.xz"
+# Doc build:
+# clone git at matching tag
+# mkdir build; ./build-aux/gen-changelog.sh . build;
+# pandoc README.md -o build/README.html
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="debug djvu exif ffmpegthumbnailer fits heif jpeg jpeg2k jpegxl lcms lua map openexr pdf raw spell tiff videometadata webp X xmp zip"
 
 RDEPEND="gnome-extra/zenity
@@ -103,6 +107,9 @@ src_configure() {
 
 src_install() {
 	meson_src_install
+
+	# Manually generated ChangeLog
+	dodoc "${WORKDIR}"/${P}-docs/*
 
 	# The application needs access to some uncompressed doc files.
 	docompress -x /usr/share/doc/${PF}/AUTHORS
