@@ -22,12 +22,16 @@ KEYWORDS="~amd64"
 
 BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-apache-maven-20260421:0 )"
 
+# Min jre-25 because of "Incorrect bytecode found" with jre-1.8
+# debug: java-pkg_append_: entering function, parameters:
+# JAVA_PKG_CLASSPATH //usr/share/maven-bin-3.10/lib/jline-terminal-3.30.17.jar
+# version 22 (expected 1.8)
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-25:*
 	app-eselect/eselect-java"
 
 RDEPEND="
-	>=virtual/jre-1.8:*"
+	>=virtual/jre-25:*"
 
 MAVEN="${PN}-${SLOT}"
 MAVEN_SHARE="/usr/share/${MAVEN}"
