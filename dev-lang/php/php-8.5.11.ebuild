@@ -5,7 +5,7 @@ EAPI=8
 
 WANT_AUTOMAKE="none"
 POSTGRES_COMPAT=( {15..18} )
-inherit flag-o-matic multilib postgres systemd
+inherit flag-o-matic multilib postgres systemd toolchain-funcs
 
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
@@ -481,8 +481,8 @@ src_configure() {
 		# ./configure script checks for the headers using "test -f" and
 		# ignores your CFLAGS... and pdo_odbc_def_libdir prevents the
 		# build system from appending a nonsense -L flag.
-		local iodbc_ldflags=$(pkg-config --libs libiodbc)
-		local iodbc_cflags=$(pkg-config --cflags libiodbc)
+		local iodbc_ldflags=$($(tc-getPKG_CONFIG) --libs libiodbc)
+		local iodbc_cflags=$($(tc-getPKG_CONFIG) --cflags libiodbc)
 		our_conf+=(
 			pdo_odbc_def_libdir="${EPREFIX}/usr/$(get_libdir)"
 			pdo_odbc_def_incdir="${EPREFIX}/usr/include/iodbc"
