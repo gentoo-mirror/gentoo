@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,6 +21,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="minimal"
 
+BDEPEND="sys-devel/bison"
 DEPEND="
 	!sys-libs/glibc"
 RDEPEND="${DEPEND}"
@@ -29,6 +30,8 @@ src_prepare() {
 	eapply_user
 
 	sed -i '/LDFLAGS_AUTO=-s/d' configure || die 'Cannot patch configure file'
+
+	export YACC=bison #863416
 }
 
 src_install() {
