@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/intel/intel-graphics-compiler
 INHERIT=cmake flag-o-matic llvm-r2 python-any-r1
 IUSE=debug vc +llvm_slot_22
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 RDEPEND=!dev-util/intel-graphics-compiler:legacy dev-libs/opencl-clang:22[llvm_slot_22(-)?] >=dev-util/spirv-tools-1.4.357.0 llvm_slot_22? ( llvm-core/lld:22 llvm-core/llvm:22 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.25.0[llvm_slot_22(-)?] dev-util/spirv-llvm-translator:22= )
 REQUIRED_USE=^^ ( llvm_slot_22 )
 SLOT=0/2.41.9
 SRC_URI=https://github.com/intel/intel-graphics-compiler/archive/refs/tags/v2.41.9.tar.gz -> intel-graphics-compiler-2.41.9.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=7f0d76b6db287b01b0f4a2eb9066f510
+_md5_=2a94a83bd2988f3407c0d50397bb6b31

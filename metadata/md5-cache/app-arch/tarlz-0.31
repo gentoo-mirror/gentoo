@@ -1,0 +1,16 @@
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) test? ( app-alternatives/lzip >=app-arch/lziprecover-1.27_pre1 ) verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=configure unpack
+DEPEND=>=app-arch/lzlib-1.12
+DESCRIPTION=A parallel archiver combining tar and lzip
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/lzip/tarlz.html
+INHERIT=toolchain-funcs unpacker verify-sig
+IUSE=test verify-sig
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=>=app-arch/lzlib-1.12
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.31.tar.lz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.31.tar.lz.sig )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=652afeb3b95bfa4f82d256c50a86dd6c
