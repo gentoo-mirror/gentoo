@@ -933,7 +933,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.46.1 2.37.4 2.37.9 2.37.10: Universal Command Line Environment for AWS
+app-admin/awscli 1.46.1 2.37.4 2.37.9 2.37.10 2.37.11: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.36.17 2.36.34: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0 2026.7.0 2026.8.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.8.0 2026.9.0: Bitwarden password manager desktop client
@@ -5482,7 +5482,7 @@ dev-libs/aws-c-compression 0.3.1 0.3.2 1.0.0: AWS C Compression cross-platform a
 dev-libs/aws-c-event-stream 0.5.7 0.7.1 1.0.0: Core c99 package for AWS SDK for C
 dev-libs/aws-c-http 0.10.7 0.11.0-r1 1.0.0 1.1.0: AWS C Http: C99 implementation of the HTTP/1.1 and HTTP/2 specifications
 dev-libs/aws-c-io 0.23.3 0.27.4 1.0.0 1.1.0: AWS C IO: It handles all IO and TLS work for application protocols
-dev-libs/aws-c-mqtt 0.13.3 0.16.0 1.0.0: AWS C MQTT: C99 implementation
+dev-libs/aws-c-mqtt 0.13.3 0.16.0 1.0.0 1.1.0: AWS C MQTT: C99 implementation
 dev-libs/aws-c-s3 0.11.2 0.13.1 1.1.1-r1 1.1.2 1.1.3 1.2.0 1.3.0 1.3.1: AWS C S3 async library
 dev-libs/aws-c-sdkutils 0.2.4 0.2.7 1.0.0: AWS C SDKUTILS: C99 library implementing AWS SDK specific utilities
 dev-libs/aws-checksums 0.2.7 0.2.10-r1 1.0.0: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to SW
@@ -8370,7 +8370,7 @@ dev-python/autopep8 2.3.2: Automatically formats Python code to conform to the P
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/awkward 2.13.0 2.14.0: Manipulate JSON-like data with NumPy-like idioms
 dev-python/awkward-cpp 56 57: CPU kernels and compiled extensions for Awkward Array
-dev-python/aws-sam-translator 1.112.0 1.113.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.113.0 1.114.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.15.0: AWS X-Ray SDK for Python
 dev-python/awscrt 0.36.3 0.36.4 0.37.0: A common runtime for AWS Python projects
 dev-python/b2sdk 2.13.0 2.13.1: Library to access Backblaze B2 cloud storage
@@ -8407,8 +8407,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0 2.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.2.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.78 1.43.83 1.43.89 1.43.93 1.43.98 1.43.103 1.43.104 1.43.105 1.43.106 1.43.107 1.43.108 1.43.109: The AWS SDK for Python
-dev-python/botocore 1.43.78 1.43.83 1.43.89 1.43.93 1.43.98 1.43.103 1.43.104 1.43.105 1.43.106 1.43.107 1.43.108 1.43.109: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.78 1.43.83 1.43.89 1.43.93 1.43.98 1.43.103 1.43.104 1.43.105 1.43.106 1.43.107 1.43.108 1.43.109 1.43.110: The AWS SDK for Python
+dev-python/botocore 1.43.78 1.43.83 1.43.89 1.43.93 1.43.98 1.43.103 1.43.104 1.43.105 1.43.106 1.43.107 1.43.108 1.43.109 1.43.110: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8559,7 +8559,7 @@ dev-python/django-crispy-forms 2.6 2.7: DRY Django forms
 dev-python/django-debug-toolbar 7.1.1 8.0.0: A configurable set of panels that display various debug information
 dev-python/django-filter 26.1 26.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 4.1.0 4.2.0: Script tag with additional attributes for django.forms.Media
-dev-python/django-otp 1.7.2 1.7.3: Django framework adding two-factor authentication using one-time passwords
+dev-python/django-otp 1.7.3: Django framework adding two-factor authentication using one-time passwords
 dev-python/django-polymorphic 4.11.6 4.11.7: Seamless Polymorphic Inheritance for Django Models
 dev-python/django-prometheus 2.5.0: Library to export Django metrics for Prometheus
 dev-python/django-redis 7.0.0: Full featured redis cache backend for Django
@@ -8573,7 +8573,7 @@ dev-python/djangorestframework 3.18.0 3.18.1 3.18.3: Web APIs with django made e
 dev-python/dkimpy 1.1.8: DKIM and ARC email signing and verification library
 dev-python/dkimpy-milter 1.2.3: Domain Keys Identified Mail (DKIM) signing/verifying milter for Postfix/Sendmail
 dev-python/dns-lexicon 3.25.2: Manipulate DNS records on various DNS providers in a standardized/agnostic way
-dev-python/dnspython 2.8.0: DNS toolkit for Python
+dev-python/dnspython 2.8.0 2.9.0: DNS toolkit for Python
 dev-python/doc8 2.0.0: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 7.2.0: Python client for Docker
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
@@ -9284,7 +9284,7 @@ dev-python/pymdstat 0.5.1: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 7.0.1: A Python wrapper for the MediaInfo library
 dev-python/pymetar 1.4-r2: Downloads and decodes to the weather report for a given station ID
 dev-python/pymilter 1.0.7_pre20251111 9999: module to enable python scripts to attach to Sendmail's libmilter API
-dev-python/pymongo 4.16.0 4.17.0 4.18.0 4.18.1 4.18.2: Python driver for MongoDB
+dev-python/pymongo 4.16.0 4.17.0 4.18.0 4.18.1 4.18.2 4.18.3: Python driver for MongoDB
 dev-python/pymountboot 0.2.3-r2: Python extension module to (re)mount /boot
 dev-python/pymysql 1.1.3 1.2.0 1.2.3: Pure-Python MySQL Driver
 dev-python/pynacl 1.6.2: Python binding to the Networking and Cryptography (NaCl) library
@@ -11257,7 +11257,7 @@ dev-util/webhook 2.8.1: lightweight incoming webhook server to run shell command
 dev-util/weka 3.8.6: A Java data mining package
 dev-util/wiggle 1.0 1.2: Tool for applying patches that patch cannot apply because of conflicting changes
 dev-util/woke 0.19.0: check source code for non-inclusive language
-dev-util/xdelta 1.1.4-r4 1.2.0 1.2.1 3.2.0 3.2.1: Computes changes between binary or text files and creates deltas
+dev-util/xdelta 1.1.4-r4 1.2.0 1.2.1 3.2.0 3.2.1 3.2.2: Computes changes between binary or text files and creates deltas
 dev-util/xmlindent 0.2.17-r3: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxd 2025.08.24-r1: Standalone version of Vim's xxd
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
@@ -19379,7 +19379,7 @@ x11-wm/xpra 6.2.5-r1 6.4.4 6.9999 9999: X Persistent Remote Apps (xpra) and Part
 xfce-base/exo 4.20.0-r1 4.21.0-r1: Extensions, widgets and framework library with session support for Xfce
 xfce-base/garcon 4.20.0 4.21.0: Xfce's freedesktop.org specification compatible menu implementation library
 xfce-base/libxfce4ui 4.20.2 4.21.7 4.21.8 4.21.9: Unified widget and session management libs for Xfce
-xfce-base/libxfce4util 4.20.1: A basic utility library for the Xfce desktop environment
+xfce-base/libxfce4util 4.20.1 4.21.0: A basic utility library for the Xfce desktop environment
 xfce-base/libxfce4windowing 4.20.6 4.20.7: Unified widget and session management libs for Xfce
 xfce-base/thunar 4.20.8 4.20.9 4.20.10 4.21.6: File manager for the Xfce desktop environment
 xfce-base/thunar-volman 4.20.0: Daemon that enforces volume-related policies
@@ -19388,7 +19388,7 @@ xfce-base/xfce4-appfinder 4.20.0 4.21.1: A tool to find and launch installed app
 xfce-base/xfce4-meta 4.20: The Xfce Desktop Environment (meta package)
 xfce-base/xfce4-panel 4.20.7 4.20.8 4.21.2: Panel for the Xfce desktop environment
 xfce-base/xfce4-power-manager 4.20.0 4.20.1 4.21.1: Power manager for the Xfce desktop environment
-xfce-base/xfce4-session 4.20.4 4.21.1: A session manager for the Xfce desktop environment
+xfce-base/xfce4-session 4.20.4 4.21.1 4.21.2: A session manager for the Xfce desktop environment
 xfce-base/xfce4-settings 4.20.4 4.20.5 4.21.3: Configuration system for the Xfce desktop environment
 xfce-base/xfconf 4.20.0 4.21.2: A configuration management system for Xfce
 xfce-base/xfdesktop 4.20.2 4.21.0: Desktop manager for the Xfce desktop environment
