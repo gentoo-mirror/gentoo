@@ -120,7 +120,15 @@ src_install() {
 	dobin "${BUILD_DIR}"/llama-server-local/ollama
 	insinto usr
 	doins -r "${BUILD_DIR}"/lib
-	fperms -R +x /usr/lib/ollama
+	local libdir="/usr/lib/ollama"
+	fperms -R +x ${libdir}
+
+	# Symlink system GGML libraries into Ollama's expected path
+	# Bug 983804
+	for lib in "${EPREFIX}"/usr/$(get_libdir)/libggml*.so; do
+		local libname=$(basename "${lib}")
+		dosym ../../$(get_libdir)/${libname} /usr/lib/ollama/${libname}
+	done
 
 	einstalldocs
 
