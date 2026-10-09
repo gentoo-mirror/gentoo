@@ -39,6 +39,15 @@ MAVEN_SHARE="/usr/share/${MAVEN}"
 QA_FLAGS_IGNORED=(
 	"${MAVEN_SHARE}/lib/jansi-native/linux32/libjansi.so"
 	"${MAVEN_SHARE}/lib/jansi-native/linux64/libjansi.so"
+	"${MAVEN_SHARE}/lib/jline-native/FreeBSD/x86/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/FreeBSD/x86_64/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/x86/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/arm64/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/armv6/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/x86_64/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/ppc64/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/arm/libjlinenative.so"
+	"${MAVEN_SHARE}/lib/jline-native/Linux/armv7/libjlinenative.so"
 )
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/apache-maven.asc"
 
