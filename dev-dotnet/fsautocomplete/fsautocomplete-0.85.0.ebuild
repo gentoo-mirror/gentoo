@@ -35,21 +35,19 @@ commandlineparser@2.9.1
 communitytoolkit.highperformance@8.3.2
 destructurama.fsharp@2.0.0
 diffplex@1.7.2
-dotnet-reportgenerator-globaltool@5.3.8
+dotnet-reportgenerator-globaltool@5.5.4
 dotnet.reproduciblebuilds@1.2.25
 expecto.diff@10.2.1
 expecto@10.2.3
-fantomas.client@0.9.1
-fantomas@7.0.3
+fantomas.client@0.12.0-beta-002
 fparsec@1.1.1
-fsharp-analyzers@0.35.0
+fsharp-analyzers@0.37.2
 fsharp.analyzers.build@0.3.0
-fsharp.analyzers.sdk@0.35.0
-fsharp.compiler.service@43.10.100
-fsharp.compiler.service@43.10.101
+fsharp.analyzers.sdk@0.37.2
+fsharp.compiler.service@43.12.201
 fsharp.control.asyncseq@3.2.1
 fsharp.control.reactive@5.0.5
-fsharp.core@10.0.101
+fsharp.core@10.1.201
 fsharp.data.adaptive@1.2.18
 fsharp.formatting@14.0.1
 fsharp.umx@1.1.0
@@ -69,18 +67,17 @@ humanizer.core@2.14.1
 iced@1.21.0
 icedtasks@0.11.7
 icsharpcode.decompiler@8.2.0.7535
-ionide.analyzers@0.14.11
+ionide.analyzers@0.17.0
 ionide.keepachangelog.tasks@0.3.1
 ionide.languageserverprotocol@0.7.0
-ionide.projinfo.fcs@0.74.1
-ionide.projinfo.projectsystem@0.74.1
-ionide.projinfo@0.74.1
+ionide.projinfo.fcs@0.75.0
+ionide.projinfo.projectsystem@0.75.0
+ionide.projinfo@0.75.0
 linkdotnet.stringbuilder@1.18.0
 mcmaster.netcore.plugins@2.0.0
-messagepack.annotations@2.5.192
-messagepack@2.5.187
-messagepack@2.5.192
-microsoft.bcl.asyncinterfaces@9.0.1
+messagepack.annotations@2.5.302
+messagepack@2.5.302
+microsoft.bcl.asyncinterfaces@10.0.1
 microsoft.bcl.cryptography@9.0.1
 microsoft.bcl.hashcode@6.0.0
 microsoft.build.framework@17.12.6
@@ -123,37 +120,40 @@ microsoft.net.stringtools@17.12.6
 microsoft.net.stringtools@17.6.3
 microsoft.net.test.sdk@17.12.0
 microsoft.netcore.platforms@1.1.0
-microsoft.netcore.platforms@5.0.0
 microsoft.netcore.platforms@7.0.4
 microsoft.netcore.targets@5.0.0
 microsoft.testplatform.objectmodel@17.12.0
 microsoft.testplatform.testhost@17.12.0
 microsoft.testplatform.translationlayer@17.13.0
 microsoft.visualstudio.solutionpersistence@1.0.28
-microsoft.visualstudio.threading.analyzers@17.10.48
-microsoft.visualstudio.threading.analyzers@17.12.19
-microsoft.visualstudio.threading@17.10.48
-microsoft.visualstudio.threading@17.12.19
+microsoft.visualstudio.threading.only@17.13.61
+microsoft.visualstudio.threading.only@17.14.15
+microsoft.visualstudio.validation@17.13.22
 microsoft.visualstudio.validation@17.8.8
 microsoft.win32.registry@5.0.0
 mono.cecil@0.11.6
-nerdbank.streams@2.11.74
-nerdbank.streams@2.11.79
+nerdbank.messagepack@1.2.30
+nerdbank.messagepack@1.2.4
+nerdbank.streams@2.13.16
 netstandard.library@2.0.0
 netstandard.library@2.0.3
-newtonsoft.json@13.0.3
+newtonsoft.json@13.0.4
 nuget.frameworks@6.12.1
 opentelemetry.api.providerbuilderextensions@1.10.0
 opentelemetry.api@1.10.0
 opentelemetry.exporter.opentelemetryprotocol@1.10.0
 opentelemetry.instrumentation.runtime@1.9.0
 opentelemetry@1.10.0
-paket@10.0.0-alpha011
+paket@10.3.1
 perfolizer@0.3.17
 ply@0.3.1
+polytype@1.3.1
 runtime.native.system.net.http@4.3.1
+runtime.native.system.security.cryptography.apple@4.3.1
+runtime.native.system.security.cryptography.openssl@4.3.3
 runtime.native.system@4.3.1
 semanticversioning@2.0.2
+semanticversioning@3.0.0
 serilog.extensions.logging@8.0.0
 serilog.sinks.async@2.1.0
 serilog.sinks.console@6.0.0
@@ -161,12 +161,11 @@ serilog.sinks.file@6.0.0
 serilog@3.1.1
 serilog@4.1.0
 streamjsonrpc@2.16.36
-streamjsonrpc@2.20.20
-streamjsonrpc@2.8.28
-system.buffers@4.6.0
+streamjsonrpc@2.25.29
+system.buffers@4.6.1
 system.codedom@8.0.0
 system.collections.concurrent@4.3.0
-system.collections.immutable@9.0.1
+system.collections.immutable@10.0.6
 system.collections@4.3.0
 system.commandline@2.0.0
 system.componentmodel.annotations@5.0.0
@@ -180,6 +179,7 @@ system.composition@9.0.1
 system.configuration.configurationmanager@8.0.0
 system.configuration.configurationmanager@9.0.1
 system.diagnostics.debug@4.3.0
+system.diagnostics.diagnosticsource@10.0.6
 system.diagnostics.diagnosticsource@9.0.0
 system.diagnostics.diagnosticsource@9.0.1
 system.diagnostics.eventlog@9.0.1
@@ -196,18 +196,14 @@ system.io.pipelines@9.0.1
 system.io@4.3.0
 system.linq@4.3.0
 system.management@8.0.0
-system.memory@4.6.0
+system.memory@4.6.3
 system.net.http@4.3.4
 system.net.primitives@4.3.1
-system.numerics.vectors@4.6.0
+system.numerics.vectors@4.6.1
 system.reactive@5.0.0
 system.reflection.emit.ilgeneration@4.7.0
-system.reflection.emit.lightweight@4.6.0
 system.reflection.emit.lightweight@4.7.0
 system.reflection.emit@4.7.0
-system.reflection.metadata@1.6.0
-system.reflection.metadata@6.0.0
-system.reflection.metadata@8.0.0
 system.reflection.metadata@9.0.0
 system.reflection.metadata@9.0.1
 system.reflection.metadataloadcontext@8.0.0
@@ -217,13 +213,12 @@ system.reflection.typeextensions@4.7.0
 system.reflection@4.3.0
 system.resources.extensions@9.0.1
 system.resources.resourcemanager@4.3.0
-system.runtime.compilerservices.unsafe@6.1.0
+system.runtime.compilerservices.unsafe@6.1.2
 system.runtime.extensions@4.3.1
 system.runtime.handles@4.3.0
 system.runtime.interopservices@4.3.0
 system.runtime.numerics@4.3.0
 system.runtime@4.3.1
-system.security.accesscontrol@5.0.0
 system.security.accesscontrol@6.0.1
 system.security.cryptography.algorithms@4.3.1
 system.security.cryptography.cng@5.0.0
@@ -240,17 +235,34 @@ system.text.encoding.codepages@7.0.0
 system.text.encoding.codepages@9.0.1
 system.text.encoding@4.3.0
 system.text.encodings.web@9.0.1
-system.text.json@8.0.5
 system.text.json@9.0.1
 system.text.regularexpressions@4.3.1
 system.threading.channels@7.0.0
 system.threading.channels@9.0.1
 system.threading.tasks.dataflow@9.0.1
-system.threading.tasks.extensions@4.6.0
+system.threading.tasks.extensions@4.6.3
 system.threading.tasks@4.3.0
 system.threading@4.3.0
 telplin@0.9.6
 yolodev.expecto.testsdk@0.14.3
+diffplex@1.9.0
+expecto.diff@11.1.1
+expecto@11.1.1
+fantomas.client@0.12.0-beta-004
+fantomas@7.0.5
+ionide.projinfo.fcs@0.75.1
+ionide.projinfo.projectsystem@0.75.1
+ionide.projinfo@0.75.1
+microsoft.applicationinsights@2.23.0
+microsoft.testing.extensions.telemetry@2.3.3
+microsoft.testing.extensions.trxreport.abstractions@2.3.3
+microsoft.testing.extensions.vstestbridge@2.3.3
+microsoft.testing.platform.msbuild@2.3.3
+microsoft.testing.platform@2.3.3
+microsoft.testplatform.objectmodel@18.4.0
+system.collections.immutable@10.0.12
+system.diagnostics.diagnosticsource@10.0.12
+yolodev.expecto.testsdk@0.16.1
 "
 
 inherit check-reqs dotnet-pkg
@@ -260,14 +272,12 @@ HOMEPAGE="https://github.com/ionide/FsAutoComplete/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/ionide/${APP_PN}"
 else
 	SRC_URI="https://github.com/ionide/${APP_PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${APP_PN}-${PV}"
-
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -307,7 +317,8 @@ src_prepare() {
 }
 
 src_configure() {
-	dotnet-pkg-base_restore_tools
+	rm .config/dotnet-tools.json || die
+	edotnet tool install --local --source "${NUGET_PACKAGES}" paket
 	edotnet paket install
 
 	dotnet-pkg_src_configure

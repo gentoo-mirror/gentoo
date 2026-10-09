@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit gnome2-utils meson python-single-r1 xdg
 
@@ -12,20 +12,18 @@ HOMEPAGE="https://github.com/Huluti/Curtail/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/Huluti/${PN^}"
 else
 	SRC_URI="https://github.com/Huluti/${PN^}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${P^}"
-
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-RESTRICT="test"     # Just desktop / schema / appstream file validation, fails.
+RESTRICT="test"  # Just desktop / schema / appstream file validation.
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -37,6 +35,7 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	dev-libs/appstream-glib
+	dev-util/blueprint-compiler
 	dev-util/desktop-file-utils
 "
 RDEPEND+="
@@ -51,7 +50,6 @@ DOCS=( CHANGELOG.md README.md )
 
 src_prepare() {
 	sed -i "s|@PYTHON@|${PYTHON}|" "${S}/src/${PN}.in" || die
-
 	default
 }
 
