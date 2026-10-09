@@ -17,12 +17,12 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/cliff-4.13.0[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
-	>=dev-python/openstacksdk-4.16.0[${PYTHON_USEDEP}]
+	>=dev-python/openstacksdk-4.20.0[${PYTHON_USEDEP}]
 	>=dev-python/osc-lib-4.6.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/python-keystoneclient-3.22.0[${PYTHON_USEDEP}]
