@@ -1,37 +1,41 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd tmpfiles
 
 DESCRIPTION="musl-nscd is an implementation of the NSCD protocol for the musl libc"
 HOMEPAGE="https://github.com/pikhq/musl-nscd"
-
-if [[ ${PV} == "9999" ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/pikhq/musl-nscd"
-	EGIT_BRANCH=master
-else
-	SRC_URI="https://github.com/pikhq/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="
+	https://github.com/pikhq/musl-nscd/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-BDEPEND="sys-devel/bison"
-DEPEND="
-	!sys-libs/glibc"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	!sys-libs/glibc
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	app-alternatives/lex
+	sys-devel/bison
+"
 
 src_prepare() {
-	eapply_user
+	default
 
-	sed -i '/LDFLAGS_AUTO=-s/d' configure || die 'Cannot patch configure file'
+	sed -i '/LDFLAGS_AUTO=-s/d' configure || die
+}
 
-	export YACC=bison #863416
+src_configure() {
+	local -x YACC=bison #863416
+
+	econf
 }
 
 src_install() {
@@ -49,7 +53,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	if ! use minimal; then
-		tmpfiles_process nscd.conf
-	fi
+	use minimal || tmpfiles_process nscd.conf
 }
