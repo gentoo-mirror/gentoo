@@ -13,7 +13,7 @@ if [[ ${PV} =~ [9]{4,} ]]; then
 	EGIT_REPO_URI="https://github.com/libbpf/libbpf.git"
 else
 	SRC_URI="https://github.com/libbpf/libbpf/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 S="${WORKDIR}/${P}/src"
 
@@ -38,9 +38,11 @@ DOCS=(
 )
 
 src_configure() {
-	append-cflags -fPIC
+	# add -fno-strict-aliasing & filter-lto after discussion about:
+	# https://lore.kernel.org/bpf/20260321024446.692008-1-irogers@google.com/
+	append-cflags -fPIC -fno-strict-aliasing
+	filter-lto
 	tc-export CC AR PKG_CONFIG
-	use static-libs && lto-guarantee-fat
 	export PREFIX="${EPREFIX}/usr"
 	export LIBDIR="\$(PREFIX)/$(get_libdir)"
 	export V=1
@@ -52,8 +54,6 @@ src_install() {
 	if ! use static-libs; then
 		find "${ED}" -name '*.a' -delete || die
 	fi
-
-	strip-lto-bytecode
 
 	dodoc "${DOCS[@]}"
 

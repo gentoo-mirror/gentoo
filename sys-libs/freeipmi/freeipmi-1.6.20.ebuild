@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs
+inherit toolchain-funcs
 
 MY_P="${P/_/.}"
 DESCRIPTION="Provides Remote-Console and System Management Software as per IPMI v1.5/2.0"
@@ -13,7 +13,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~hppa ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ppc64 ~x86"
 IUSE="debug doc nagios without-root"
 
 RDEPEND="dev-libs/libgcrypt:="
@@ -28,16 +28,6 @@ RDEPEND="
 		net-analyzer/nagios
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/freeipmi-1.6.18-fix_cpp_man.patch #868000
-)
-
-src_prepare() {
-	default
-	# for freeipmi-1.6.18-fix_cpp_man.patch
-	eautoreconf
-}
 
 src_configure() {
 	local myeconfargs=(
@@ -55,21 +45,6 @@ src_configure() {
 
 src_install() {
 	default
-
-	# freeipmi by defaults install _all_ commands to /usr/sbin, but
-	# quite a few can be run remotely as standard user, so move them
-	# in /usr/bin afterwards.
-	dodir /usr/bin
-	local prog
-	for prog in ipmi{detect,ping,power,console}; do
-		mv "${ED}"/usr/{s,}bin/${prog} || die
-
-		# The default install symlinks these commands to add a dash
-		# after the ipmi prefix; we repeat those after move for
-		# consistency.
-		rm "${ED}"/usr/sbin/${prog/ipmi/ipmi-}
-		dosym ${prog} /usr/bin/${prog/ipmi/ipmi-}
-	done
 
 	# Install the nagios plugin in its proper place, if desired
 	if use nagios; then
