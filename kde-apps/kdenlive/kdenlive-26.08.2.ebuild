@@ -64,6 +64,13 @@ RDEPEND="${DEPEND}
 BDEPEND="sys-devel/gettext"
 DEPEND+=" virtual/os-headers"
 
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_RUN_QMLLINT=OFF # Meant for developers
+	)
+	ecm_src_configure
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 	optfeature "VP8 and VP9 codec support" "media-video/ffmpeg[vpx]"
