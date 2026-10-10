@@ -18,7 +18,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://github.com/ValveSoftware/wine/archive/refs/tags/proton-wine-${WINE_PV}.tar.gz"
 	S=${WORKDIR}/${PN}-wine-${WINE_PV}
-	KEYWORDS="-* amd64 ~x86"
+	KEYWORDS="-* ~amd64 ~x86"
 fi
 
 DESCRIPTION="Valve Software's fork of Wine"
@@ -26,7 +26,7 @@ HOMEPAGE="https://github.com/ValveSoftware/wine/"
 
 LICENSE="
 	LGPL-2.1+
-	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff
+	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff public-domain
 	|| ( WTFPL-2 public-domain )
 "
 SLOT="${PV}"
@@ -162,8 +162,8 @@ src_prepare() {
 
 src_configure() {
 	# Valve does not really support anything but gcc+bfd, and some of
-	# their modifications to Wine have been fragile and accumulating
-	# issues that they have no interest in fixing (bug #977021)
+	# their modifications have been fragile and accumulating issues
+	# that they seemingly have no interest in fixing (bug #977021)
 	tc-is-gcc || unset AR AS CC CPP CXX LD NM OBJ{COPY,DUMP} RANLIB READELF STRIP
 	tc-ld-is-bfd || append-ldflags -fuse-ld=bfd
 	strip-unsupported-flags
