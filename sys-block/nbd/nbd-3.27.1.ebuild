@@ -21,22 +21,21 @@ S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug gnutls +netlink"
+IUSE="debug gnutls"
 
 RDEPEND="
 	>=dev-libs/glib-2.32.0
+	>=dev-libs/libnl-3.1
 	gnutls? ( >=net-libs/gnutls-2.12.0 )
-	netlink? ( >=dev-libs/libnl-3.1 )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	sys-devel/bison
-	virtual/pkgconfig
 	app-text/docbook-sgml-dtd:4.5
 	app-text/docbook-sgml-utils
-"
-BDEPEND+="
 	dev-build/autoconf-archive
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
 "
 
 src_prepare() {
@@ -48,15 +47,15 @@ src_prepare() {
 }
 
 src_configure() {
-	# Needs Bison
-	unset YACC
+	# Needs Bison and flex
+	unset YACC LEX
 
 	local myeconfargs=(
 		--enable-lfs
+		--with-libnl
 		$(use_enable !debug syslog)
 		$(use_enable debug)
 		$(use_with gnutls)
-		$(use_with netlink libnl)
 	)
 
 	econf "${myeconfargs[@]}"
