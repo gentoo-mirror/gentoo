@@ -106,7 +106,10 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	# unpin system dependencies
-	sed -i -e "s@version : '@&>=@" meson.build || die
+	sed -i \
+		-e "s@boost_version = '@&>=@" \
+		-e "s@version : '@&>=@" \
+		meson.build || die
 }
 
 python_configure_all() {
