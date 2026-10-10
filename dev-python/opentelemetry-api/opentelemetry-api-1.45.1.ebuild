@@ -23,7 +23,7 @@ S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~riscv ~s390 ~x86"
 
 RDEPEND="
 	>=dev-python/typing-extensions-4.5.0[${PYTHON_USEDEP}]
