@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/bracex-3.0[${PYTHON_USEDEP}]
@@ -41,4 +41,10 @@ python_prepare_all() {
 	> "${HOME}"/test2.txt || die
 
 	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	# https://github.com/python/cpython/issues/155823
+	local -x PYTHON_JIT=0
+	epytest
 }
