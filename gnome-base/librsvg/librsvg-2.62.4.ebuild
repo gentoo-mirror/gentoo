@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 CRATES="
 "
@@ -11,7 +11,7 @@ CRATES="
 RUST_MIN_VER="1.92.0"
 RUST_MULTILIB=1
 
-inherit cargo gnome2 meson-multilib python-any-r1 rust-toolchain vala
+inherit cargo gnome2 meson-multilib python-any-r1 rust-toolchain toolchain-funcs vala
 
 DESCRIPTION="Scalable Vector Graphics (SVG) rendering library"
 HOMEPAGE="https://wiki.gnome.org/Projects/LibRsvg https://gitlab.gnome.org/GNOME/librsvg"
@@ -25,9 +25,9 @@ LICENSE+="
 "
 
 SLOT="2"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
-IUSE="gtk-doc +introspection test +vala"
+IUSE="avif gtk-doc +introspection test +vala"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
@@ -35,7 +35,7 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	>=x11-libs/cairo-1.17.0[glib,svg(+),${MULTILIB_USEDEP}]
+	>=x11-libs/cairo-1.18.0[glib,svg(+),${MULTILIB_USEDEP}]
 	>=media-libs/freetype-2.9:2[${MULTILIB_USEDEP}]
 	>=x11-libs/gdk-pixbuf-2.20:2[introspection?,${MULTILIB_USEDEP}]
 	>=dev-libs/glib-2.50.0:2[${MULTILIB_USEDEP}]
@@ -43,6 +43,7 @@ RDEPEND="
 	>=dev-libs/libxml2-2.9.1-r4:2=[${MULTILIB_USEDEP}]
 	>=x11-libs/pango-1.50.0[${MULTILIB_USEDEP}]
 
+	avif? ( >=media-libs/dav1d-1.3.0:=[${MULTILIB_USEDEP}] )
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 "
 DEPEND="${RDEPEND}"
@@ -62,10 +63,6 @@ QA_FLAGS_IGNORED="
 	usr/lib.*/gdk-pixbuf*/*/loaders/*
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.60.0-libxml2-2.15.0-tests.patch
-)
-
 pkg_setup() {
 	rust_pkg_setup
 	python-any-r1_pkg_setup
@@ -82,7 +79,7 @@ src_configure() {
 
 multilib_src_configure() {
 	local emesonargs=(
-		-Davif=disabled
+		$(meson_native_use_feature avif)
 		$(meson_native_use_feature introspection)
 		-Dpixbuf=enabled
 		-Dpixbuf-loader=enabled
