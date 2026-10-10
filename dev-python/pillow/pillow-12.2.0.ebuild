@@ -123,7 +123,13 @@ python_configure_all() {
 	fi
 
 	tc-export PKG_CONFIG
+
 	export MAX_CONCURRENCY=$(makeopts_jobs)
+	# For 32-bit, just cap at 4 jobs to avoid pybind11 allocating
+	# like crazy (bug #970414).
+	if [[ $(tc-get-ptr-size) == 4 ]]; then
+		MAX_CONCURRENCY=$(( MAX_CONCURRENCY < 4 ? MAX_CONCURRENCY : 4 ))
+	fi
 }
 
 src_test() {
