@@ -8,7 +8,7 @@ GNOME_ORG_MODULE="network-manager-applet"
 inherit flag-o-matic gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="NetworkManager connection editor and applet"
-HOMEPAGE="https://wiki.gnome.org/Projects/NetworkManager"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/network-manager-applet"
 
 LICENSE="GPL-2+"
 SLOT="0"
