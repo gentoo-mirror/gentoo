@@ -35,7 +35,7 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	>=x11-libs/cairo-1.17.0[glib,svg(+),${MULTILIB_USEDEP}]
+	>=x11-libs/cairo-1.18.0[glib,svg(+),${MULTILIB_USEDEP}]
 	>=media-libs/freetype-2.9:2[${MULTILIB_USEDEP}]
 	>=x11-libs/gdk-pixbuf-2.20:2[introspection?,${MULTILIB_USEDEP}]
 	>=dev-libs/glib-2.50.0:2[${MULTILIB_USEDEP}]
