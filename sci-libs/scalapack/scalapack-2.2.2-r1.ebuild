@@ -22,6 +22,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.2.0-cmake.patch
+)
+
 src_prepare() {
 	cmake_src_prepare
 
@@ -29,7 +33,12 @@ src_prepare() {
 		mkdir "${WORKDIR}/${PN}_static" || die
 	fi
 	# mpi does not have a pc file
-	sed -i -e 's/mpi//' scalapack.pc.in || die
+	# fix missing -L path
+	sed -i \
+		-e 's/mpi//' \
+		-e "/^libdir/s|@libdir@|${EPREFIX}/usr/$(get_libdir)|" \
+		scalapack.pc.in \
+		|| die
 }
 
 src_configure() {
@@ -49,6 +58,7 @@ src_configure() {
 			-DUSE_OPTIMIZED_LAPACK_BLAS=ON
 			-DBLAS_LIBRARIES="$($(tc-getPKG_CONFIG) --libs blas)"
 			-DLAPACK_LIBRARIES="$($(tc-getPKG_CONFIG) --libs lapack)"
+			-DBUILD_TESTING=$(usex test)
 			$@
 		)
 		cmake_src_configure
