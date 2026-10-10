@@ -2,14 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit gnome.org libtool python-r1 xdg
 
 DESCRIPTION="The GNOME Spreadsheet"
 HOMEPAGE="http://www.gnumeric.org/"
 
-LICENSE="GPL-2"
+LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="+introspection libgda perl"
@@ -34,12 +35,13 @@ RDEPEND="
 	app-arch/bzip2
 	virtual/zlib:=
 	>=dev-libs/glib-2.40.0:2
-	>=gnome-extra/libgsf-1.14.33:=
-	>=x11-libs/goffice-0.10.60:0.10[introspection?]
+	>=gnome-extra/libgsf-1.14.45:=
+	>=x11-libs/goffice-0.10.61:0.10[introspection?]
 	>=dev-libs/libxml2-2.4.12:2=
 	>=x11-libs/pango-1.46.0:=
+	>=dev-libs/fribidi-1.0.6
 
-	>=x11-libs/gtk+-3.8.7:3
+	>=x11-libs/gtk+-3.20.0:3
 	x11-libs/cairo:=[svg(+)]
 
 	introspection? (
@@ -54,6 +56,7 @@ BDEPEND="
 	app-text/yelp-tools
 	dev-build/gtk-doc-am
 	>=dev-util/intltool-0.35.0
+	dev-util/itstool
 	virtual/pkgconfig"
 
 src_prepare() {
@@ -63,6 +66,9 @@ src_prepare() {
 	sed '/SUBDIRS/ s/introspection//' -i Makefile.{am,in} || die
 
 	elibtoolize
+
+	# Remove useless GPLv2 only file, bug #937619
+	rm tools/win32/jhbuildrc.py || die
 }
 
 src_configure() {
