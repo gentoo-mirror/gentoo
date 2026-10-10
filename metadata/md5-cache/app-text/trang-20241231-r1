@@ -3,7 +3,7 @@ DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=dev-java/xerces:2 dev-java/xml-commons-resolver:0 dev-java/javacc:7.0.13 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 test? ( dev-java/testng:0 )
 DESCRIPTION=Multi-format schema converter based on RELAX NG
 EAPI=8
-HOMEPAGE=http://thaiopensource.com/relaxng/trang.html
+HOMEPAGE=https://relaxng.org/jclark/trang.html
 INHERIT=java-pkg-2 java-pkg-simple prefix
 IUSE=doc test
 KEYWORDS=amd64 ~arm64 ~ppc64
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/relaxng/jing-trang/archive/V20241231.tar.gz -> trang-20241231.tar.gz
 _eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	prefix	2765cb74ebcf9f9ac73893d4503c8cb6
-_md5_=6808cd52a036917e8130349d5830e9f2
+_md5_=0e9069b4352272091a193038042459b6
