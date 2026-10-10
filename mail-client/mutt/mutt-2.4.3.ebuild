@@ -12,7 +12,6 @@ DESCRIPTION="A small but very powerful text-based mail client"
 HOMEPAGE="http://www.mutt.org/"
 MUTT_G_PATCHES="mutt-gentoo-${PV}-patches-${PATCHREV}.tar.xz"
 SRC_URI="http://ftp.mutt.org/pub/mutt/${P}.tar.gz
-	https://bitbucket.org/${PN}/${PN}/downloads/${P}.tar.gz
 	https://dev.gentoo.org/~grobian/distfiles/${MUTT_G_PATCHES}"
 LICENSE="GPL-2"
 SLOT="0"
@@ -201,6 +200,13 @@ src_configure() {
 	fi
 
 	econf "${myconf[@]}"
+}
+
+src_test() {
+	# the only tests run by Mutt are source-code checks: security
+	# pattens, tabs and shellchecks -- none test the actual product
+	# bug 978743
+	:
 }
 
 src_install() {
