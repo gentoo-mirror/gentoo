@@ -24,7 +24,7 @@ S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~hppa ~loong ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~loong ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	~dev-python/opentelemetry-api-${PV}[${PYTHON_USEDEP}]
