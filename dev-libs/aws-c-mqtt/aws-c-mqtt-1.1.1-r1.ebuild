@@ -10,8 +10,9 @@ HOMEPAGE="https://github.com/awslabs/aws-c-mqtt"
 SRC_URI="https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+SLOT="0/$(ver_cut 1-2)-fixed"
+[[ ${PV} != 1.1* ]] && die "Remove -fixed above"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
