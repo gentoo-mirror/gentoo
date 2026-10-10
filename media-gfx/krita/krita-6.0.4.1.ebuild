@@ -111,6 +111,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
 	"${FILESDIR}"/${PN}-6.0.1-pyqt6.11-sip13.8.patch # bug 974789, unfortunately, also downstream
 	"${FILESDIR}"/${PN}-6.0.4-fix-colorspace-browser-crash.patch # in 6.0 branch
+	"${FILESDIR}"/${PN}-6.0.4.1-qt-6.12.patch
 )
 if [[ -n ${PATCHSET} ]]; then
 	PATCHES+=( "${WORKDIR}/${PATCHSET}" )
