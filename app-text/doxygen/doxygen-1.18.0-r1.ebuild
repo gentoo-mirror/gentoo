@@ -119,6 +119,8 @@ src_configure() {
 		-Duse_sys_sqlite3=ON
 		-DBUILD_SHARED_LIBS=OFF
 		-DGIT_EXECUTABLE="false"
+		# The default of 256 KiB is too small for large projects, bug #912261
+		-Denlarge_lex_buffers=1048576
 
 		# Noisy and irrelevant downstream
 		-Wno-dev
