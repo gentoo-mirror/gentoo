@@ -22,19 +22,14 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}"/${P}-scalapack.pc.patch )
+
 src_prepare() {
 	cmake_src_prepare
 
 	if use static-libs; then
 		mkdir "${WORKDIR}/${PN}_static" || die
 	fi
-	# mpi does not have a pc file
-	# fix missing -L path
-	sed -i \
-		-e 's/mpi//' \
-		-e "/^libdir/s|@libdir@|${EPREFIX}/usr/$(get_libdir)|" \
-		scalapack.pc.in \
-		|| die
 }
 
 src_configure() {
