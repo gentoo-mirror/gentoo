@@ -8,7 +8,7 @@ LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..15} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit cmake flag-o-matic llvm-r2 python-any-r1
+inherit cmake flag-o-matic llvm-r2 optfeature python-any-r1
 
 DESCRIPTION="Documentation system for most programming languages"
 HOMEPAGE="https://www.doxygen.nl/"
@@ -39,7 +39,6 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 RDEPEND="
-	app-text/ghostscript-gpl
 	dev-db/sqlite:3
 	dev-lang/perl
 	dev-libs/libfmt:=
@@ -55,6 +54,7 @@ RDEPEND="
 		media-gfx/graphviz[freetype(+)]
 	)
 	doc? (
+		app-text/ghostscript-gpl
 		dev-texlive/texlive-bibtexextra
 		dev-texlive/texlive-fontsextra
 		dev-texlive/texlive-fontutils
@@ -145,4 +145,11 @@ src_install() {
 
 	# The HTML manual contains SVG images, bug #913584
 	use doc && docompress -x /usr/share/doc/${PF}/html
+}
+
+pkg_postinst() {
+	optfeature "rendering formulas as images in HTML output" \
+		"app-text/ghostscript-gpl dev-texlive/texlive-latex"
+	optfeature "converting EPS images and diagrams for PDF LaTeX output" \
+		dev-texlive/texlive-fontutils
 }
