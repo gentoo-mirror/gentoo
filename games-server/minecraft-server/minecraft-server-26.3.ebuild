@@ -3,7 +3,7 @@
 
 EAPI=8
 
-EGIT_COMMIT="823e2250d24b3ddac457a60c92a6a941943fcd6a"
+EGIT_COMMIT="33680f5f2ac32864d6d7cf5e56a705fdb3e05f4c"
 README_GENTOO_SUFFIX="-r1"
 
 inherit readme.gentoo-r1 java-pkg-2 systemd

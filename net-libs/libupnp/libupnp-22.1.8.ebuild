@@ -21,7 +21,7 @@ RDEPEND="ssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-22.0.4-disable-network-tests.patch" )
+PATCHES=( "${FILESDIR}/${PN}-22.0.8-disable-network-tests.patch" )
 
 src_configure() {
 	local mycmakeargs=(

@@ -11,10 +11,9 @@ HOMEPAGE="
 	https://github.com/michaelrsweet/mxml
 	https://www.msweet.org/mxml/
 "
-# Drop rename after 4.0.5
 SRC_URI="
-	https://github.com/michaelrsweet/mxml/releases/download/v${PV}/${P}.tar.gz -> ${P}.tgz
-	verify-sig? ( https://github.com/michaelrsweet/mxml/releases/download/v${PV}/${P}.tar.gz.sig -> ${P}.tgz.sig )
+	https://github.com/michaelrsweet/mxml/releases/download/v${PV}/${P}.tar.gz
+	verify-sig? ( https://github.com/michaelrsweet/mxml/releases/download/v${PV}/${P}.tar.gz.sig )
 "
 
 LICENSE="Mini-XML"
