@@ -51,16 +51,18 @@ RDEPEND="
 		')
 	)
 	dot? (
-		media-gfx/graphviz[freetype(+)]
+		media-gfx/graphviz[cairo,freetype(+)]
 	)
 	doc? (
 		app-text/ghostscript-gpl
 		dev-texlive/texlive-bibtexextra
 		dev-texlive/texlive-fontsextra
+		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-fontutils
 		dev-texlive/texlive-latex
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-plaingeneric
+		media-gfx/graphviz[cairo,freetype(+)]
 	)
 	doxysearch? ( dev-libs/xapian:= )
 	gui? (
