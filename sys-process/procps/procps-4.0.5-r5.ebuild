@@ -29,8 +29,6 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	!<app-i18n/man-pages-l10n-4.2.0-r1
-	!<app-i18n/man-pages-de-2.12-r1
-	!<app-i18n/man-pages-pl-0.7-r1
 	!<app-i18n/man-pages-zh_CN-1.6.4.2
 	kill? (
 		!sys-apps/coreutils[kill]
@@ -57,6 +55,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0.5-pgrep-old-linux-headers.patch # bug #911375
 	"${FILESDIR}"/${PN}-4.0.5-pidwait-half.patch # bug #959706
 	"${FILESDIR}"/${PN}-4.0.5-pgrep-pidwait.patch
+	"${FILESDIR}"/${PN}-4.0.5-sysctl-ignore_failure.patch # bug #969014
+	"${FILESDIR}"/${PN}-4.0.5-hurd.patch # bug #984061
 )
 
 src_prepare() {
