@@ -1,4 +1,4 @@
-BDEPEND=dev-tex/latexmk test? ( app-shells/bash app-shells/ksh app-shells/zsh app-text/texlive[xetex] )
+BDEPEND=app-text/ghostscript-gpl dev-tex/latexmk test? ( app-shells/bash app-shells/ksh app-shells/zsh app-text/texlive[xetex] )
 DEFINED_PHASES=compile install prepare test
 DEPEND=virtual/latex-base test? ( app-text/texlive[xetex] )
 DESCRIPTION=Tool for manipulatiing PDF files
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pdfjam/pdfjam/archive/refs/tags/v4.3.1.tar.gz -> pdfjam-4.3.1.tar.gz extra? ( https://github.com/pdfjam/pdfjam-extras/archive/622e03add59db004144c0b41722a09b3b29d6d3e.tar.gz -> pdfjam-extra-20191118.tar.gz )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	42587a281b8b546975e45fad82edcb50
-_md5_=0869e7d4cd95b7bee98735c62d01972e
+_md5_=3e6b9305af7788b07b4d26d46bd6003f
