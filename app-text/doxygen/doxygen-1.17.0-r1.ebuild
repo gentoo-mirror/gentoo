@@ -37,7 +37,6 @@ BDEPEND="
 	app-alternatives/yacc
 	app-alternatives/lex
 	${PYTHON_DEPS}
-	gui? ( dev-qt/qttools:6[linguist] )
 "
 RDEPEND="
 	app-text/ghostscript-gpl
@@ -74,6 +73,7 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.15.0-link_with_pthread.patch"
 	"${FILESDIR}/${PN}-1.16.1-suppress-unused-option-libcxx.patch"
+	"${FILESDIR}/${PN}-1.17.0-test-tagfile-without-git.patch"
 )
 
 DOCS=( LANGUAGE.HOWTO README.md )
@@ -123,7 +123,7 @@ src_configure() {
 	)
 
 	use doc && mycmakeargs+=(
-		-DDOC_INSTALL_DIR="share/doc/${P}"
+		-DDOC_INSTALL_DIR="share/doc/${PF}"
 	)
 
 	cmake_src_configure
@@ -138,4 +138,11 @@ src_compile() {
 		# -j1 for bug #770070
 		cmake_src_compile docs -j1
 	fi
+}
+
+src_install() {
+	cmake_src_install
+
+	# The HTML manual contains SVG images, bug #913584
+	use doc && docompress -x /usr/share/doc/${PF}/html
 }
