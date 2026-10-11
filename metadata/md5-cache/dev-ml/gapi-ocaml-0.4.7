@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/cppo test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/ocurl:=[ocamlopt?] dev-ml/cryptokit:=[ocamlopt?] dev-ml/yojson:=[ocamlopt?] dev-ml/camlp-streams:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/ocurl:=[ocamlopt?] <dev-ml/cryptokit-1.21:=[ocamlopt?] dev-ml/yojson:=[ocamlopt?] dev-ml/camlp-streams:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=A simple OCaml client for Google Services
 EAPI=8
 HOMEPAGE=https://opam.ocaml.org/packages/gapi-ocaml/ https://github.com/astrada/gapi-ocaml
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=ocamlopt test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-ml/ocurl:=[ocamlopt?] dev-ml/cryptokit:=[ocamlopt?] dev-ml/yojson:=[ocamlopt?] dev-ml/camlp-streams:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/ocurl:=[ocamlopt?] <dev-ml/cryptokit-1.21:=[ocamlopt?] dev-ml/yojson:=[ocamlopt?] dev-ml/camlp-streams:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/0.4.7
 SRC_URI=https://github.com/astrada/gapi-ocaml/archive/v0.4.7.tar.gz -> gapi-ocaml-0.4.7.tar.gz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=64a2ca64843b595bc21451ae89333321
+_md5_=ac8c089428951a031ad24f86498c7a3e
