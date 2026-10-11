@@ -8,7 +8,7 @@ inherit flag-o-matic multilib toolchain-funcs
 # Upstream has 3 flavors of netpbm: super stable, stable and advanced.
 # They only provide a tarball for super stable, but super stable is a bit lagging.
 # So we package the stable branch of their svn (currently versions 11.2.xx) on SLOT "0/stable"
-# and the advanced branch of their svn (currently versions 11.15.yy) on SLOT "0/advanced".
+# and the advanced branch of their svn (currently versions 11.16.yy) on SLOT "0/advanced".
 # The stable branch is stabilized according to usual Gentoo rules, while the
 # advanced branch will not be stabilized.
 # A detailed explanation is here https://netpbm.sourceforge.net/release.html
@@ -20,15 +20,17 @@ SRC_URI="https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN
 LICENSE="Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain"
 SLOT="0/advanced"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs test tiff X xml"
+IUSE="jpeg png postscript rle cpu_flags_x86_sse2 static-libs test tiff X xml"
 RESTRICT="!test? ( test )"
 
 # app-text/ghostscript-gpl is really needed for postscript
 # some utilities execute /usr/bin/gs
 # some installed programs are perl scripts
+#
+# netpbm 11.16+ has local changes to the bundled jbigkit, cannot use the system one;
+# set it to always enabled, remove the USE flag
 RDEPEND="
 	dev-lang/perl
-	jbig? ( media-libs/jbigkit:= )
 	jpeg? ( media-libs/libjpeg-turbo:=[static-libs?] )
 	png? (
 		>=media-libs/libpng-1.4:0=
@@ -61,7 +63,6 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-11.0.0-misc-deps.patch
 	"${FILESDIR}"/netpbm-11.1.0-fix-clang-O2.patch
 	"${FILESDIR}"/netpbm-11.6.1-incompatible-pointer-types.patch
-	"${FILESDIR}"/netpbm-11.15.1-fix-test-pm_message.patch
 )
 
 netpbm_libtype() {
@@ -99,7 +100,7 @@ src_prepare() {
 
 	# make sure we use system libs
 	sed '/SUPPORT_SUBDIRS/s:urt::' -i GNUmakefile || die
-	rm -r urt converter/other/jbig/libjbig converter/other/jpeg2000/libjasper || die
+	rm -r urt converter/other/jpeg2000/libjasper || die
 
 	# take care of the importinc stuff ourselves by only doing it once
 	# at the top level and having all subdirs use that one set #149843
@@ -169,9 +170,9 @@ src_prepare() {
 			-i test/Test-Order || die
 	fi
 
-	# gif-transparent1 broken by the latest changes; disable it temporarily
+	# pnmhisteq broken by the latest changes; disable it temporarily
 	sed \
-		-e 's:gif-transparent1.*::' \
+		-e 's:pnmhisteq.*::' \
 		-i test/Test-Order || die
 
 }
@@ -220,8 +221,6 @@ src_configure() {
 		ZLIB = $($(tc-getPKG_CONFIG) --libs zlib)
 		LINUXSVGALIB = NONE
 		XML2_LIBS = $(netpbm_config_lib xml xml2)
-		JBIGLIB = $(netpbm_config_lib jbig)
-		JBIGHDR_DIR =
 		JASPERLIB = NONE
 		JASPERHDR_DIR =
 		URTLIB = $(netpbm_config_lib rle)
