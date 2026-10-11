@@ -1,14 +1,12 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/libdrm
-DESCRIPTION=A user mode library that provides access to GPU performance data
+DESCRIPTION=oneAPI Level Zero headers, loader and validation layer
 EAPI=8
-HOMEPAGE=https://github.com/intel/metrics-discovery
+HOMEPAGE=https://github.com/oneapi-src/level-zero
 INHERIT=cmake
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=x11-libs/libdrm
-SLOT=0/1.16.193
-SRC_URI=https://github.com/intel/metrics-discovery/archive/refs/tags/1.16.193.tar.gz -> intel-metrics-discovery-1.16.193.tar.gz
+SLOT=0/1.33.1
+SRC_URI=https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.33.1.tar.gz -> level-zero-1.33.1.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
-_md5_=c5abfb824ed36ac5d16a1e6a32543f0c
+_md5_=2d506b8236d022bdcd98671d6ba2f047
