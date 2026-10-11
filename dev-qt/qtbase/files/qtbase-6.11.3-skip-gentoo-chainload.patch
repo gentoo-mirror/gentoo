@@ -3,10 +3,7 @@ Qt expects it to not be temporary. Projects shouldn't be loading
 gentoo's toolchain file outside ebuilds either way.
 
 https://bugs.gentoo.org/984102
---- a/cmake/QtToolchainHelpers.cmake
-+++ b/cmake/QtToolchainHelpers.cmake
-@@ -7,3 +7,3 @@
- function(qt_internal_create_toolchain_file)
--    if(CMAKE_TOOLCHAIN_FILE)
-+    if(0)
-         file(TO_CMAKE_PATH "${CMAKE_TOOLCHAIN_FILE}" __qt_chainload_toolchain_file)
+--- a/cmake/qt.toolchain.cmake.in
++++ b/cmake/qt.toolchain.cmake.in
+@@ -23 +22,0 @@
+-@init_original_toolchain_file@
