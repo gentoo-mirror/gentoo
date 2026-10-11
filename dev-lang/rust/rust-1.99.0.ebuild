@@ -6,7 +6,7 @@ EAPI=8
 # Bump notes: https://wiki.gentoo.org/wiki/Project:Rust/Rust_bump
 
 LLVM_COMPAT=( 23 )
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 # Patches are kept in rust-patches.git, see its README.rst for the versioning
 # scheme.
@@ -15,7 +15,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 # in the ebuild for changes that don't require a revbump.
 #
 # Uncomment this line when the ebuild needs a patchset update but no revbump.
-# RUST_PATCH_VER=${PV}-1
+RUST_PATCH_VER=1.98.1
 
 RUST_MAX_VER=${PV%%_*}
 RUST_PV=${PV%%_p*}
@@ -24,7 +24,7 @@ RUST_P=${PN}-${RUST_PV}
 
 if [[ ${PV} == *9999* ]]; then
 	# Update this as new `beta` releases come out.
-	RUST_MIN_VER="1.96.0"
+	RUST_MIN_VER="1.93.0"
 elif [[ ${PV} == *beta* ]]; then
 	RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"
 else
@@ -89,7 +89,7 @@ ALL_RUST_SYSROOTS=( "${ALL_RUST_SYSROOTS[@]/#/rust_sysroots_}" )
 LICENSE="|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4"
 SLOT="${PV%%_*}" # Beta releases get to share the same SLOT as the eventual stable
 
-IUSE="big-endian +clippy cpu_flags_x86_sse2 debug dist +doc llvm-libunwind lto"
+IUSE="big-endian +clippy cpu_flags_x86_sse2 debug dist doc llvm-libunwind lto"
 IUSE+=" +rustfmt rust-analyzer rust-src +system-llvm test"
 IUSE+=" ${ALL_LLVM_TARGETS[*]} ${ALL_RUST_SYSROOTS[*]}"
 
