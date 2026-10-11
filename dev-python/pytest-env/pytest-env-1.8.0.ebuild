@@ -17,12 +17,13 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/python-dotenv-1.2.2[${PYTHON_USEDEP}]
-	>=dev-python/pytest-9.0.2[${PYTHON_USEDEP}]
+	>=dev-python/python-dotenv-1.2.4[${PYTHON_USEDEP}]
+	>=dev-python/pytest-9.1.1[${PYTHON_USEDEP}]
 "
+
 BDEPEND="
 	>=dev-python/hatch-vcs-0.3[${PYTHON_USEDEP}]
 "

@@ -1,11 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYPI_VERIFY_REPO=https://github.com/numpy/numpy-release
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="threads(+)"
 FORTRAN_NEEDED=lapack
 
@@ -18,23 +19,37 @@ HOMEPAGE="
 	https://pypi.org/project/numpy/
 "
 
-LICENSE="BSD"
+LICENSE="BSD 0BSD MIT ZLIB CC0-1.0"
 SLOT="0/2"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+if [[ ${PV} != *_rc* ]]; then
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+fi
 # +lapack because the internal fallbacks are pretty slow. Building without blas
 # is barely supported anyway, see bug #914358.
-IUSE="big-endian +lapack"
+IUSE="big-endian +cpudetection index64 +lapack"
+
+# upstream-flag[:gentoo-flag]
+ARM_FLAGS=( neon{,-fp16} vfpv4 asimd{,hp,dp,fhm} sve )
+PPC_FLAGS=( vsx vsx2 vsx3 vsx4 )
+X86_FLAGS=(
+	avx2 avx512{bw,dq,vl} avx512_{bf16,bitalg,fp16,vbmi2} sse4_2
+)
+IUSE+="
+	${ARM_FLAGS[*]/#/cpu_flags_arm_}
+	${PPC_FLAGS[*]/#/cpu_flags_ppc_}
+	${X86_FLAGS[*]/#/cpu_flags_x86_}
+"
 
 RDEPEND="
 	lapack? (
-		>=virtual/cblas-3.8
-		>=virtual/lapack-3.8
+		>=virtual/cblas-3.8[index64(-)?]
+		>=virtual/lapack-3.8[index64(-)?]
 	)
 "
 BDEPEND="
 	${RDEPEND}
-	>=dev-build/meson-1.1.0
-	>=dev-python/cython-3.0.6[${PYTHON_USEDEP}]
+	>=dev-build/meson-1.5.2
+	>=dev-python/cython-3.1.0[${PYTHON_USEDEP}]
 	lapack? (
 		virtual/pkgconfig
 	)
@@ -43,9 +58,6 @@ BDEPEND="
 			>=dev-python/cffi-1.14.0[${PYTHON_USEDEP}]
 		' 'python*')
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
-		>=dev-python/hypothesis-5.8.0[${PYTHON_USEDEP}]
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	)
 "
@@ -55,52 +67,151 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	vrndq_f32
 )
 
+EPYTEST_PLUGINS=( hypothesis pytest-timeout )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-python_prepare_all() {
-	local PATCHES=(
-		# https://github.com/numpy/numpy/pull/28748
-		# https://github.com/numpy/numpy/pull/28928
-		"${FILESDIR}/${PN}-2.2.5-py314.patch"
-		# https://github.com/google/highway/issues/2577
-		# github.com/google/highway/commit/7cde540171a1718a9bdfa8f896d70e47eb0785d5
-		"${FILESDIR}/${PN}-2.2.6-gcc16.patch"
+has_all_x86() {
+	local flag
+	for flag; do
+		if ! use "cpu_flags_x86_${flag}"; then
+			return 1
+		fi
+	done
+	return 0
+}
+
+python_configure_all() {
+	local cpu_baseline=()
+	local map flag
+	case ${ARCH} in
+		arm)
+			# every flag implies the previous one
+			for map in NEON:neon NEON_FP16:neon-fp16 NEON_VFPV4:vfpv4; do
+				if ! use "cpu_flags_arm_${map#*:}"; then
+					break
+				fi
+				cpu_baseline+=( "${map%:*}" )
+			done
+			;&
+		arm64)
+			# on 32-bit ARM, ASIMD implies all NEON* flags
+			# on 64-bit ARM, they are all linked together
+			if use arm64 ||
+				[[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == NEON_VFPV4 ]]
+			then
+				cpu_baseline+=( $(usev cpu_flags_arm_asimd ASIMD) )
+			fi
+
+			# these two imply ASIMD
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == ASIMD ]]; then
+				for flag in dp hp; do
+					cpu_baseline+=(
+						$(usev "cpu_flags_arm_asimd${flag}" "ASIMD${flag^^}")
+					)
+				done
+			fi
+
+			# these two imply ASIMDHP
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == ASIMDHP ]]; then
+				for flag in asimdfhm sve; do
+					cpu_baseline+=(
+						$(usev "cpu_flags_arm_${flag}" "${flag^^}")
+					)
+				done
+			fi
+			;;
+		ppc64)
+			# every flag implies the previous one
+			for flag in '' 2 3 4; do
+				if ! use "cpu_flags_ppc_vsx${flag}"; then
+					break
+				fi
+				cpu_baseline+=( "VSX${flag}" )
+			done
+			;;
+		amd64|x86)
+			# upstream combines multiple instructions into sets
+			local mapping=(
+				# for these, we just check the newest instruction set,
+				# since all earlier instruction sets imply it
+				"X86_V2=sse4_2"
+				"X86_V3=avx2"
+				# from here on, we check all features that were added
+				# in the lowest CPU supporting them all
+				# https://en.wikipedia.org/wiki/AVX-512
+				"X86_V4=avx512bw avx512dq avx512vl"
+				"AVX512_ICL=avx512_vbmi2 avx512_bitalg"
+				"AVX512_SPR=avx512_bf16 avx512_fp16"
+			)
+
+			local m
+			for m in "${mapping[@]}"; do
+				local feature=${m%=*}
+				local sets=${m#*=}
+
+				if has_all_x86 ${sets}; then
+					einfo "${feature} enabled: all of ${sets} enabled"
+					cpu_baseline+=( "${feature}" )
+				else
+					einfo "${feature} disabled: not all of ${sets} enabled"
+					break
+				fi
+			done
+			;;
+		*)
+			cpu_baseline=MIN
+			;;
+	esac
+
+	DISTUTILS_ARGS=(
+		-Dallow-noblas=$(usex !lapack true false)
+		-Duse-ilp64=$(usex index64 true false)
+		-Dblas=$(usev lapack $(usex index64 cblas64 cblas))
+		-Dlapack=$(usev lapack $(usex index64 lapack64 lapack))
+		-Dcpu-baseline="${cpu_baseline[*]}"
+		-Dcpu-baseline-detect=disabled
+		-Dcpu-dispatch="$(usev cpudetection MAX)"
 	)
 
 	# bug #922457
 	filter-lto
 	# https://github.com/numpy/numpy/issues/25004
 	append-flags -fno-strict-aliasing
-
-	distutils-r1_python_prepare_all
-}
-
-python_configure_all() {
-	DISTUTILS_ARGS=(
-		-Dallow-noblas=$(usex !lapack true false)
-		-Dblas=$(usev lapack cblas)
-		-Dlapack=$(usev lapack lapack)
-		# TODO: cpu-* options
-	)
 }
 
 python_test() {
+	# We run tests in parallel, so avoid having n^2 threads in lapack
+	# tests.
+	local -x BLIS_NUM_THREADS=1
+	local -x MKL_NUM_THREADS=1
+	local -x OMP_NUM_THREADS=1
+	local -x OPENBLAS_NUM_THREADS=1
+
+	# don't run tests that require more than 2 GiB of RAM (per process)
+	local -x NPY_AVAILABLE_MEM="2 GiB"
+
 	local EPYTEST_DESELECT=(
 		# Very disk-and-memory-hungry
-		numpy/lib/tests/test_io.py::TestSaveTxt::test_large_zip
 		numpy/lib/tests/test_io.py::TestSavezLoad::test_closing_fid
 		numpy/lib/tests/test_io.py::TestSavezLoad::test_closing_zipfile_after_load
 
 		# Precision problems
 		numpy/_core/tests/test_umath_accuracy.py::TestAccuracy::test_validate_transcendentals
 
-		# Runs the whole test suite recursively, that's just crazy
-		numpy/core/tests/test_mem_policy.py::test_new_policy
-
 		numpy/typing/tests/test_typing.py
-		# Uses huge amount of memory
-		numpy/core/tests/test_mem_overlap.py
+
+		# Flaky, reruns don't help
+		numpy/f2py/tests/test_crackfortran.py
+		numpy/f2py/tests/test_data.py::TestData{,F77}::test_crackedlines
+		numpy/f2py/tests/test_f2py2e.py::test_gen_pyf
+		numpy/f2py/tests/test_f2py2e.py::test_gh22819_cli
+
+		# Broken by new setuptools
+		numpy/distutils/tests/test_fcompiler.py
+		numpy/distutils/tests/test_fcompiler_gnu.py
+		numpy/distutils/tests/test_fcompiler_intel.py
+		numpy/distutils/tests/test_fcompiler_nagfor.py
 	)
 
 	if [[ $(uname -m) == armv8l ]]; then
@@ -194,9 +305,22 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	case ${EPYTHON} in
+		pypy3.11)
+			EPYTEST_DESELECT+=(
+				numpy/_core/tests/test_regression.py::TestRegression::test_buffer_hashlib
+				numpy/random/tests/test_generator_mt19937.py::TestIntegers::test_repeatability
+				numpy/random/tests/test_generator_mt19937.py::TestRandomDist::test_choice_large_sample
+				numpy/random/tests/test_generator_mt19937.py::test_jumped
+				numpy/random/tests/test_random.py::TestRandint::test_repeatability
+				numpy/random/tests/test_randomstate.py::TestRandint::test_repeatability
+				numpy/random/tests/test_randomstate.py::test_integer_repeat
+			)
+			;;
+	esac
+
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	epytest -p rerunfailures --reruns=5
+	epytest
 }
 
 python_install_all() {
