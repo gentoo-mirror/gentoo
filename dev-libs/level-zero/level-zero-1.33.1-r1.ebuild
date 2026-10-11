@@ -13,9 +13,6 @@ LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-libs/spdlog:="
-DEPEND="${RDEPEND}"
-
 src_prepare() {
 	# Don't hardcore -Werror
 	sed -e 's/-Werror//g' -e '/CMAKE_COMPILE_WARNING_AS_ERROR/ s/ON/OFF/' -i CMakeLists.txt || die
@@ -28,9 +25,5 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DSYSTEM_SPDLOG="ON"
-	)
-
 	cmake_src_configure
 }
