@@ -30,6 +30,7 @@ KEYWORDS="~amd64"
 IUSE="doc examples test"
 RESTRICT="!test? ( test )"
 
+# mbedtls-3 support can be patched in, but issues with reverse dependencies such as dolphin would need to be addressed.
 RDEPEND="
 	media-libs/flac:=
 	media-libs/freetype:2
@@ -38,7 +39,7 @@ RDEPEND="
 	media-libs/libogg
 	media-libs/libvorbis
 	net-libs/libssh2
-	net-libs/mbedtls:=[threads]
+	net-libs/mbedtls:0=[threads]
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -95,6 +96,7 @@ src_test() {
 		# Flaky
 		"sf::Shader"
 		"sf::Clipboard"
+		"sf::Texture" # bug #960268
 	)
 	virtx cmake_src_test
 }
