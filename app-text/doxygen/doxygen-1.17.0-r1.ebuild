@@ -8,7 +8,7 @@ LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..15} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit cmake flag-o-matic llvm-r2 python-any-r1
+inherit cmake flag-o-matic llvm-r2 optfeature python-any-r1
 
 DESCRIPTION="Documentation system for most programming languages"
 HOMEPAGE="https://www.doxygen.nl/"
@@ -37,10 +37,8 @@ BDEPEND="
 	app-alternatives/yacc
 	app-alternatives/lex
 	${PYTHON_DEPS}
-	gui? ( dev-qt/qttools:6[linguist] )
 "
 RDEPEND="
-	app-text/ghostscript-gpl
 	dev-db/sqlite:3
 	dev-lang/perl
 	dev-libs/libfmt:=
@@ -53,15 +51,18 @@ RDEPEND="
 		')
 	)
 	dot? (
-		media-gfx/graphviz[freetype(+)]
+		media-gfx/graphviz[cairo,freetype(+)]
 	)
 	doc? (
+		app-text/ghostscript-gpl
 		dev-texlive/texlive-bibtexextra
 		dev-texlive/texlive-fontsextra
+		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-fontutils
 		dev-texlive/texlive-latex
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-plaingeneric
+		media-gfx/graphviz[cairo,freetype(+)]
 	)
 	doxysearch? ( dev-libs/xapian:= )
 	gui? (
@@ -74,6 +75,7 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.15.0-link_with_pthread.patch"
 	"${FILESDIR}/${PN}-1.16.1-suppress-unused-option-libcxx.patch"
+	"${FILESDIR}/${PN}-1.17.0-test-tagfile-without-git.patch"
 )
 
 DOCS=( LANGUAGE.HOWTO README.md )
@@ -117,13 +119,15 @@ src_configure() {
 		-Duse_sys_sqlite3=ON
 		-DBUILD_SHARED_LIBS=OFF
 		-DGIT_EXECUTABLE="false"
+		# The default of 256 KiB is too small for large projects, bug #912261
+		-Denlarge_lex_buffers=1048576
 
 		# Noisy and irrelevant downstream
 		-Wno-dev
 	)
 
 	use doc && mycmakeargs+=(
-		-DDOC_INSTALL_DIR="share/doc/${P}"
+		-DDOC_INSTALL_DIR="share/doc/${PF}"
 	)
 
 	cmake_src_configure
@@ -138,4 +142,18 @@ src_compile() {
 		# -j1 for bug #770070
 		cmake_src_compile docs -j1
 	fi
+}
+
+src_install() {
+	cmake_src_install
+
+	# The HTML manual contains SVG images, bug #913584
+	use doc && docompress -x /usr/share/doc/${PF}/html
+}
+
+pkg_postinst() {
+	optfeature "rendering formulas as images in HTML output" \
+		"app-text/ghostscript-gpl dev-texlive/texlive-latex"
+	optfeature "converting EPS images and diagrams for PDF LaTeX output" \
+		dev-texlive/texlive-fontutils
 }
