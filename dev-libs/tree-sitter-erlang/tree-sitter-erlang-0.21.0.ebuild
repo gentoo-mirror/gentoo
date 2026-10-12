@@ -7,12 +7,18 @@ inherit tree-sitter-grammar
 
 DESCRIPTION="Erlang programming language grammar for Tree-sitter"
 HOMEPAGE="https://github.com/whatsapp/tree-sitter-erlang/"
-SRC_URI="https://github.com/whatsapp/${PN}/archive/${PV}.tar.gz
-	-> ${P}.gh.tar.gz"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/whatsapp/${PN}"
+else
+	SRC_URI="https://github.com/whatsapp/${PN}/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 
 DOCS=( CHANGELOG.md README.md )
 
