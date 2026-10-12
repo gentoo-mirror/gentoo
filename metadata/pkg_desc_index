@@ -938,7 +938,7 @@ app-admin/awscli-bin 2.36.17 2.36.34: command line interface for Amazon Web Serv
 app-admin/bitwarden-cli-bin 2026.8.0 2026.9.1: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.8.0 2026.9.0: Bitwarden password manager desktop client
 app-admin/bpftune 0.4_p2: BPF driven auto-tuning
-app-admin/btrfs-assistant 2.2 2.3 2.3.1: GUI management tool to make managing a Btrfs filesystem easier
+app-admin/btrfs-assistant 2.3.1 2.3.2: GUI management tool to make managing a Btrfs filesystem easier
 app-admin/calamares 3.3.14-r1 3.3.14-r4 3.3.14-r8 3.4.2-r1: Distribution-independent installer framework
 app-admin/cancd 0.1.0-r6: CA NetConsole Daemon receives output from the Linux netconsole driver
 app-admin/ccze 0.2.1-r5: A flexible and fast logfile colorizer
@@ -1387,10 +1387,10 @@ app-containers/devcontainer 0.88.0 0.89.0: Reference implementation of the Devel
 app-containers/distrobox 1.8.2.5 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2 3.3.1: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
-app-containers/docker 28.4.0 29.7.2 29.8.0 29.8.1: The core functions you need to create Docker images and run Docker containers
+app-containers/docker 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.6.0 1.6.1: Test for best practices around deploying docker containers
 app-containers/docker-buildx 0.11.2 0.14.0 0.19.1 0.20.1 0.21.2 0.34.1 0.35.0 0.36.1 0.37.0 0.37.1 9999: Docker CLI plugin for extended build capabilities with BuildKit
-app-containers/docker-cli 28.4.0 29.7.2 29.8.0 29.8.1: the command line binary for docker
+app-containers/docker-cli 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0: the command line binary for docker
 app-containers/docker-compose 2.40.3 5.5.0 5.5.1 5.6.0: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.9.3 0.9.7 0.9.8 0.9.9: Suite of programs to use native stores to keep Docker credentials safe
 app-containers/docker-pushrm 1.9.0: Docker CLI plugin to update container repository documentation
@@ -2987,7 +2987,7 @@ app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.1.7.1 1.2.0.0: ttyrec provides tools to record and replay a terminal session
 app-misc/tzupdate 3.1.0-r1: Set the system timezone based on IP geolocation
 app-misc/unfoo 1.0.8-r2: Simple bash driven frontend to simplify decompression of files
-app-misc/upterm 0.24.0 0.25.1 0.26.0 0.31.0 0.36.0: Instant Terminal Sharing
+app-misc/upterm 0.24.0 0.25.1 0.26.0 0.31.0 0.36.0 0.37.0: Instant Terminal Sharing
 app-misc/uptimed 0.4.7: System uptime record daemon that keeps track of your highest uptimes
 app-misc/vcontrold 0.98.11-r1: Daemon for communication with Viessmann Vito heatings
 app-misc/vcp 2.2-r2: Copy files/directories in a curses interface
@@ -4112,7 +4112,7 @@ dev-db/unixODBC 2.3.12-r1 2.3.12-r2 2.3.14: Complete ODBC driver manager
 dev-db/valkey 9.1.2: Persistent key-value store, fork of dev-db/redis
 dev-db/vsqlite++ 0.3.13-r1: VSQLite++ - A well designed and portable SQLite3 Wrapper for C++
 dev-db/wxsqlite3 4.10.6-r1: C++ wrapper around the public domain SQLite 3.x database
-dev-db/zedis 0.5.2 0.9.0 0.11.1: Blazing-fast native Redis GUI built with Rust and GPUI
+dev-db/zedis 0.5.2 0.9.0 0.11.1 0.13.0: Blazing-fast native Redis GUI built with Rust and GPUI
 dev-debug/apitrace 13.0: Tool for tracing, analyzing, and debugging graphics APIs
 dev-debug/bpftrace 0.24.2 0.25.1 0.26.1 0.27.0 9999: High-level tracing language for eBPF
 dev-debug/cgdb 0.8.0 9999: A curses front-end for GDB, the GNU debugger
@@ -5999,7 +5999,7 @@ dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible wi
 dev-libs/tomsfastmath 0.13.1-r1: Fast public domain large integer arithmetic library
 dev-libs/totem-pl-parser 3.26.6-r2 3.26.7: Playlist parsing library
 dev-libs/tre 0.8.0_p20210321-r4 0.9.0-r1: Lightweight, robust, and efficient POSIX compliant regexp matching library
-dev-libs/tree-sitter 0.24.3 0.25.10 0.26.12 0.26.13 0.27.0 9999: Tree-sitter is a parser generator tool and an incremental parsing library
+dev-libs/tree-sitter 0.24.3 0.25.10 0.26.12 0.26.13 0.27.0 0.27.1 9999: Tree-sitter is a parser generator tool and an incremental parsing library
 dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0 0.25.1: Bash grammar for Tree-sitter
 dev-libs/tree-sitter-c 0.23.3 0.23.4 0.23.5 0.24.1 0.24.2: C grammar for Tree-sitter
 dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1 0.23.5: C# grammar for Tree-sitter
@@ -11229,7 +11229,7 @@ dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary
 dev-util/tkdiff 5.7 6.0: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: Cross platform Makefile tool
 dev-util/trace-cmd 3.3.2 3.3.3 3.4: User-space front-end for Ftrace
-dev-util/tree-sitter-cli 0.24.3-r1 0.25.10 0.26.12 0.27.0: Command-line tool for creating and testing tree-sitter grammars
+dev-util/tree-sitter-cli 0.24.3-r1 0.25.10 0.26.12 0.27.0 0.27.1: Command-line tool for creating and testing tree-sitter grammars
 dev-util/treecc 0.3.10-r2 0.3.10-r3: Compiler-compiler tool for aspect-oriented programming
 dev-util/txt2regex 0.9: A Regular Expression wizard that converts human sentences to regexs
 dev-util/ty 0.0.84 0.0.85: An extremely fast Python type checker and language server, written in Rust
