@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/pypa/virtualenv
 PYTHON_TESTED=( python3_{12..15} )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_{14..15}t )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" pypy3_12 python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -19,13 +19,14 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/distlib-0.3.7[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.24.2[${PYTHON_USEDEP}]
+	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.9.1[${PYTHON_USEDEP}]
 	>=dev-python/python-discovery-1.6[${PYTHON_USEDEP}]
 
@@ -41,6 +42,7 @@ BDEPEND="
 		${RDEPEND}
 		$(python_gen_cond_dep '
 			dev-python/coverage[${PYTHON_USEDEP}]
+			>=dev-python/hatchling-1.27[${PYTHON_USEDEP}]
 			>=dev-python/pip-22.2.1[${PYTHON_USEDEP}]
 			>=dev-python/pytest-mock-3.6.1[${PYTHON_USEDEP}]
 			dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
@@ -99,6 +101,13 @@ python_test() {
 		tests/unit/create/test_creator.py::test_create_distutils_cfg
 		# we do not use bundled wheels
 		tests/unit/seed/wheels/test_bundle.py::test_every_wheel_on_disk_has_sha256
+		# requires bundled packages in pip
+		tests/unit/test_sbom.py::test_sbom_spdx_declared_license
+		# require pre-commit = internet
+		tests/unit/test_wheel_age.py::test_generator_converges
+		tests/unit/test_wheel_age.py::test_generator_updates_license
+		# TODO
+		tests/unit/seed/wheels/test_acquire_find_wheel.py::test_find_latest
 	)
 
 	local -x TZ=UTC
