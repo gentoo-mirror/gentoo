@@ -1,5 +1,5 @@
 BDEPEND=doc? ( dev-lang/php:* ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst unpack
+DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
 DEPEND=media-libs/libglvnd[X] media-libs/libsndfile jack? ( media-libs/freetype virtual/jack x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) ladspa? ( media-libs/ladspa-sdk ) lv2? ( media-libs/freetype media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) vst? ( media-libs/freetype x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
 DESCRIPTION=Linux Studio Plugins
 EAPI=8
@@ -11,7 +11,7 @@ LICENSE=LGPL-3
 PROPERTIES=live
 RDEPEND=media-libs/libglvnd[X] media-libs/libsndfile jack? ( media-libs/freetype virtual/jack x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) ladspa? ( media-libs/ladspa-sdk ) lv2? ( media-libs/freetype media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) vst? ( media-libs/freetype x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
 REQUIRED_USE=|| ( jack ladspa lv2 )
-RESTRICT=!test? ( test )
+RESTRICT=!test? ( test ) test
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=faf258eda32e663c66e3e46281622687
+_md5_=f3a0e7dbfb98b2f30aa14a2b6c5fc8e8
