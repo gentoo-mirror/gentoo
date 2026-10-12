@@ -1,0 +1,14 @@
+BDEPEND=dev-build/netsurf-buildsystem >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=C library for framebuffer abstraction
+EAPI=9
+HOMEPAGE=https://www.netsurf-browser.org/projects/libnsfb/
+INHERIT=git-r3 netsurf
+IUSE=sdl test vnc wayland X
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=sdl? ( >=media-libs/libsdl-1.2.15-r4 ) vnc? ( >=net-libs/libvncserver-0.9.9-r2 ) wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libxcb-1.9.1 >=x11-libs/xcb-util-0.3.9-r1 >=x11-libs/xcb-util-image-0.3.9-r1 >=x11-libs/xcb-util-keysyms-0.3.9-r1 )
+RESTRICT=!test? ( test )
+SLOT=0/9999
+_eclasses_=git-r3	e6c2f983e006e805160436c75a0c1562	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	netsurf	1c189bd17852647d6454a70626af45eb
+_md5_=f9f6cd8f6110ad38543a0581100d6d23

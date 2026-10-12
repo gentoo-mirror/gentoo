@@ -1,0 +1,15 @@
+BDEPEND=dev-build/netsurf-buildsystem dev-util/gperf virtual/pkgconfig doc? ( app-text/doxygen ) test? ( dev-lang/perl ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare test unpack
+DEPEND=dev-libs/libparserutils:= test? ( dev-libs/json-c )
+DESCRIPTION=HTML5 compliant parsing library, written in C
+EAPI=9
+HOMEPAGE=https://www.netsurf-browser.org/projects/hubbub/
+INHERIT=flag-o-matic git-r3 netsurf
+IUSE=doc test
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=dev-libs/libparserutils:=
+RESTRICT=!test? ( test )
+SLOT=0/9999
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	e6c2f983e006e805160436c75a0c1562	netsurf	1c189bd17852647d6454a70626af45eb
+_md5_=e568fb7d12210478b5956169b9a30e7c

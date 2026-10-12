@@ -1,0 +1,14 @@
+BDEPEND=>=dev-build/netsurf-buildsystem-1.7-r1 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install test unpack
+DEPEND=test? ( >=dev-libs/check-0.9.11 )
+DESCRIPTION=string internment library, written in C
+EAPI=9
+HOMEPAGE=https://www.netsurf-browser.org/projects/libwapcaplet/
+INHERIT=git-r3 netsurf
+IUSE=test
+LICENSE=MIT
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0/9999
+_eclasses_=git-r3	e6c2f983e006e805160436c75a0c1562	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	netsurf	1c189bd17852647d6454a70626af45eb
+_md5_=601613aa29cd693084974722e8c28a71
