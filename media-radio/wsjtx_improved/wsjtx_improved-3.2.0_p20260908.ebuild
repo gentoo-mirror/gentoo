@@ -7,14 +7,16 @@ inherit cmake edos2unix flag-o-matic
 
 DESCRIPTION="Weak signal ham radio communication with improvements"
 HOMEPAGE="https://wsjt-x-improved.sourceforge.io/"
-SRC_URI="https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-3.1.0_improved_PLUS_260522_qt6.tgz"
+SRC_URI="https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-3.2.0_improved_PLUS_260908_qt6.tgz"
 
 S=${WORKDIR}/wsjtx
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="doc"
+KEYWORDS="~amd64 ~x86"
+IUSE="doc test"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/boost:=[nls,python]
@@ -24,6 +26,7 @@ RDEPEND="
 	dev-qt/qtwebsockets:6
 	virtual/libusb:1
 	>=media-libs/hamlib-4.0:=
+	media-libs/portaudio
 	sci-libs/fftw:3.0=[threads,fortran]
 	virtual/fortran
 	app-text/asciidoc
@@ -41,7 +44,7 @@ DOCS=( AUTHORS BUGS NEWS README THANKS )
 
 src_unpack() {
 	unpack ${A}
-	unpack "${WORKDIR}/wsjtx-3.1.0/src/wsjtx.tgz"
+	unpack "${WORKDIR}/wsjtx-3.2.0/src/wsjtx.tgz"
 }
 
 src_prepare() {
@@ -50,6 +53,9 @@ src_prepare() {
 	edos2unix "${S}/CMakeLists.txt"
 	sed -i -e "s/COMMAND \${GZIP_EXECUTABLE}/#  COMMAND/" \
 								manpages/CMakeLists.txt || die
+	# comment out unconditional test activation if not requested
+	use test || ( sed -i -e "s/^  enable_testing/#  enable_testing/" \
+								CMakeLists.txt || die )
 	cmake_src_prepare
 }
 
@@ -66,6 +72,11 @@ src_configure() {
 	# heap. Switch is only supported for newer GCC versions (bug #968790).
 	append-fflags $(test-flags-FC -ftrampoline-impl=heap)
 	cmake_src_configure
+}
+
+src_test() {
+	local -x QT_QPA_PLATFORM=offscreen
+	cmake_src_test
 }
 
 src_install() {
