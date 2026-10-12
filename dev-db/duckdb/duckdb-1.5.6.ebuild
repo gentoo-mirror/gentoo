@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake dot-a
+CHECKREQS_DISK_BUILD="20G"
+
+inherit cmake dot-a check-reqs
 
 DESCRIPTION="high-performance analytical database system"
 HOMEPAGE="https://duckdb.org https://github.com/duckdb/duckdb"
