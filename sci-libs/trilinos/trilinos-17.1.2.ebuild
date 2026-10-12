@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="
 	adolc all-packages arprec clp cuda eigen glpk gtest hdf5 hwloc hypre
-	matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse
+	int64 matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse
 	superlu taucs tbb test threads tvmet yaml zlib X
 "
 
@@ -66,8 +66,11 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-17.0.0-drop_boost_system.patch"
-	"${FILESDIR}/${P}-fix_compilation.patch"
+	"${FILESDIR}/${PN}-17.1.0-fix_compilation.patch"
 	)
+
+# Silence false positives: outdated bundled CMake files are unused, bug #976168
+CMAKE_QA_COMPAT_SKIP=1
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -147,6 +150,9 @@ src_configure() {
 		# unconditionally enforces that no newer version is installed.
 		# Thus, disable this check:
 		-DTpetra_IGNORE_KOKKOS_COMPATIBILITY=ON
+		# Tpetra supports a single global ordinal type which we select via USE=int64
+		-DTpetra_INST_INT_INT="$(usex int64 OFF ON)"
+		-DTpetra_INST_INT_LONG_LONG="$(usex int64 ON OFF)"
 		-DTPL_ENABLE_LAPACK=ON
 		-DTPL_ENABLE_Matio="$(usex matio)"
 		-DTPL_ENABLE_METIS="$(usex metis)"
@@ -224,6 +230,13 @@ src_configure() {
 
 	# Trilinos needs a custom build type:
 	local CMAKE_BUILD_TYPE=Release
+	# Do not let TriBITS hardcode -O3: setting a non-empty *_OVERRIDE value
+	# stops TriBITS from populating it, bug #908835
+	mycmakeargs+=(
+		-DCMAKE_C_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+		-DCMAKE_CXX_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+		-DCMAKE_Fortran_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+	)
 
 	cmake_src_configure
 }

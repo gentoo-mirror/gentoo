@@ -1,15 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CMAKE_MAKEFILE_GENERATOR=emake
 inherit cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="Scientific library collection for large scale problems"
-HOMEPAGE="http://trilinos.sandia.gov/"
+HOMEPAGE="https://trilinos.github.io/"
 MY_PV="${PV//\./-}"
-PATCHSET="r0"
 SRC_URI="https://github.com/${PN}/Trilinos/archive/${PN}-release-${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 S="${WORKDIR}/Trilinos-${PN}-release-${MY_PV}"
@@ -20,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="
 	adolc all-packages arprec clp cuda eigen glpk gtest hdf5 hwloc hypre
-	matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse
+	int64 matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse
 	superlu taucs tbb test threads tvmet yaml zlib X
 "
 
@@ -28,7 +26,7 @@ IUSE="
 RESTRICT="test"
 
 RDEPEND="
-	!dev-cpp/kokkos
+	>=dev-cpp/kokkos-5.1.1:=[cuda(-)=,openmp=]
 	dev-libs/boost:=
 	sys-libs/binutils-libs:=
 	virtual/blas
@@ -37,8 +35,8 @@ RDEPEND="
 	adolc? ( sci-libs/adolc )
 	arprec? ( sci-libs/arprec )
 	clp? ( sci-libs/coinor-clp )
-	cuda? ( dev-util/nvidia-cuda-toolkit:= )
-	eigen? ( dev-cpp/eigen:= )
+	cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 )
+	eigen? ( dev-cpp/eigen:3 )
 	glpk? ( sci-mathematics/glpk )
 	gtest? ( dev-cpp/gtest )
 	hdf5? ( sci-libs/hdf5:=[mpi] )
@@ -54,7 +52,7 @@ RDEPEND="
 	scalapack? ( sci-libs/scalapack )
 	scotch? ( sci-libs/scotch:= )
 	sparse? ( sci-libs/cxsparse sci-libs/umfpack )
-	superlu? ( sci-libs/superlu:= )
+	superlu? ( <sci-libs/superlu-5.0.0:= )
 	taucs? ( sci-libs/taucs )
 	tbb? ( dev-cpp/tbb:= )
 	tvmet? ( dev-libs/tvmet )
@@ -65,7 +63,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-17.0.0-drop_boost_system.patch"
+	"${FILESDIR}/${P}-fix_compilation.patch"
 )
+
+# Silence false positives: outdated bundled CMake files are unused, bug #976168
+CMAKE_QA_COMPAT_SKIP=1
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -92,12 +95,6 @@ trilinos_conf() {
 	[[ -n ${dirs} ]] && mycmakeargs+=( "-D${2}_INCLUDE_DIRS=${dirs:1}" )
 }
 
-#
-# The following packages are currently disabled:
-#  - SEACAS is incompatible with netcdf, see
-#    https://github.com/trilinos/Trilinos/tree/master/packages/seacas#netcdf
-#
-
 src_configure() {
 	# Trilinos is a massive C++ project. Fixing all of the lto warnings and
 	# making safe for lto compilation/linking will be a massive
@@ -106,22 +103,13 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCMAKE_SKIP_RPATH=ON
 		-DCMAKE_SKIP_INSTALL_RPATH=ON
 		-DTrilinos_INSTALL_INCLUDE_DIR="${EPREFIX}/usr/include/trilinos"
 		-DTrilinos_INSTALL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)/trilinos"
 		-DTrilinos_ENABLE_ALL_PACKAGES="$(usex all-packages)"
-		-DTrilinos_ENABLE_Adelus=OFF
-		-DTrilinos_ENABLE_Moertel=OFF
 		-DTrilinos_ENABLE_PyTrilinos=OFF
-		-DTrilinos_ENABLE_SEACAS=OFF
-		-DTrilinos_ENABLE_Amesos=ON
-		-DTrilinos_ENABLE_AztecOO=ON
-		-DTrilinos_ENABLE_EpetraExt=ON
-		-DTrilinos_ENABLE_Epetra=ON
-		-DTrilinos_ENABLE_Ifpack=ON
-		-DTrilinos_ENABLE_ML=ON
 		-DTrilinos_ENABLE_MueLu=ON
 		-DTrilinos_ENABLE_OpenMP="$(usex openmp)"
 		-DTrilinos_ENABLE_ROL=ON
@@ -130,14 +118,12 @@ src_configure() {
 		-DTrilinos_ENABLE_Tpetra=ON
 		-DTrilinos_ENABLE_Zoltan=ON
 		-DTrilinos_ENABLE_TESTS="$(usex test)"
-		-DTPL_ENABLE_BinUtils=ON
-		-DTPL_ENABLE_BLAS=ON
-		-DTPL_ENABLE_LAPACK=ON
-		-DTPL_ENABLE_MPI=ON
 		-DTPL_ENABLE_ADOLC="$(usex adolc)"
 		-DTPL_ENABLE_AMD="$(usex sparse)"
 		-DTPL_ENABLE_ARPREC="$(usex arprec)"
+		-DTPL_ENABLE_BinUtils=ON
 		-DTPL_ENABLE_BLACS="$(usex scalapack)"
+		-DTPL_ENABLE_BLAS=ON
 		-DTPL_ENABLE_BoostLib=ON
 		-DTPL_ENABLE_Boost=ON
 		-DTPL_ENABLE_Clp="$(usex clp)"
@@ -150,9 +136,19 @@ src_configure() {
 		-DTPL_ENABLE_HDF5="$(usex hdf5)"
 		-DTPL_ENABLE_HWLOC="$(usex hwloc)"
 		-DTPL_ENABLE_HYPRE="$(usex hypre)"
+		-DTPL_ENABLE_Kokkos=ON
+		# Tpetra insists on the exact Kokkos version bundled with
+		# Trilinos. We build against the system kokkos instead, thus
+		# disable this check:
+		-DTpetra_IGNORE_KOKKOS_COMPATIBILITY=ON
+		# Tpetra supports a single global ordinal type which we select via USE=int64
+		-DTpetra_INST_INT_INT="$(usex int64 OFF ON)"
+		-DTpetra_INST_INT_LONG_LONG="$(usex int64 ON OFF)"
+		-DTPL_ENABLE_LAPACK=ON
 		-DTPL_ENABLE_Matio="$(usex matio)"
 		-DTPL_ENABLE_METIS="$(usex metis)"
 		-DTPL_ENABLE_MKL="$(usex mkl)"
+		-DTPL_ENABLE_MPI=ON
 		-DTPL_ENABLE_MUMPS="$(usex mumps)"
 		-DTPL_ENABLE_Netcdf="$(usex netcdf)"
 		-DTPL_ENABLE_PARDISO_MKL="$(usex mkl)"
@@ -164,11 +160,10 @@ src_configure() {
 		-DTPL_ENABLE_SuperLU="$(usex superlu)"
 		-DTPL_ENABLE_TAUCS="$(usex taucs)"
 		-DTPL_ENABLE_TBB="$(usex tbb)"
-		-DTPL_ENABLE_Thrust="$(usex cuda)"
 		-DTPL_ENABLE_TVMET="$(usex tvmet)"
 		-DTPL_ENABLE_UMFPACK="$(usex sparse)"
 		-DTPL_ENABLE_X11="$(usex X)"
-		-DTPL_ENABLE_yaml-cpp="$(usex yaml)"
+		-DTPL_ENABLE_yamlcpp="$(usex yaml)"
 		-DTPL_ENABLE_Zlib="$(usex zlib)"
 	)
 
@@ -220,25 +215,25 @@ src_configure() {
 	#
 	# Make sure we use the compiler wrappers in order to build trilinos.
 	#
-	[ ! -z "${CC}"] && export OMPI_CC="${CC}" MPICH_CC="${CC}" && tc-export OMPI_CC MPICH_CC
-	[ ! -z "${CXX}"] && export OMPI_CXX="${CXX}" MPICH_CXX="${CXX}" && tc-export OMPI_CXX MPICH_CXX
-	export CC=mpicc CXX=mpicxx && tc-export CC CXX
+	export OMPI_CC="$(tc-getCC)" MPICH_CC="$(tc-getCC)"
+	export OMPI_CXX="$(tc-getCXX)" MPICH_CXX="$(tc-getCXX)"
+	export CC=mpicc CXX=mpicxx
 
 	# Trilinos needs a custom build type:
 	local CMAKE_BUILD_TYPE=Release
+	# Do not let TriBITS hardcode -O3: setting a non-empty *_OVERRIDE value
+	# stops TriBITS from populating it, bug #908835
+	mycmakeargs+=(
+		-DCMAKE_C_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+		-DCMAKE_CXX_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+		-DCMAKE_Fortran_FLAGS_RELEASE_OVERRIDE="-DNDEBUG"
+	)
 
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
-
-	# Clean up the mess:
-
-	# Let us move the bin directory out of the way to avoid potential
-	# clashes due to very generically named binaries such as
-	# "nvcc_wrapper", etc.
-	mv "${ED}"/bin "${ED}/usr/$(get_libdir)"/trilinos || die "mv failed"
 
 	# Move the cmake directory to the right location:
 	mkdir -p "${ED}/usr/$(get_libdir)"/cmake
