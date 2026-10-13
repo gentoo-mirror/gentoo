@@ -4,14 +4,13 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
 MY_P=${P/_p/.post}
 DESCRIPTION="The little ASGI framework that shines"
 HOMEPAGE="
-	https://www.starlette.io/
 	https://github.com/Kludex/starlette/
 	https://pypi.org/project/starlette/
 "
@@ -24,24 +23,24 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
+# TODO: default to httpx2? add some flags?
 RDEPEND="
 	<dev-python/anyio-5[${PYTHON_USEDEP}]
-	>=dev-python/anyio-3.6.2[${PYTHON_USEDEP}]
+	>=dev-python/anyio-4.0.0[${PYTHON_USEDEP}]
 	<dev-python/httpx-0.29[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.22.0[${PYTHON_USEDEP}]
 	dev-python/itsdangerous[${PYTHON_USEDEP}]
 	dev-python/jinja2[${PYTHON_USEDEP}]
 	>=dev-python/python-multipart-0.0.18[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/typing-extensions-3.10.0[${PYTHON_USEDEP}]
-	' 3.11)
 "
 BDEPEND="
 	test? (
-		>=dev-python/pytest-8[${PYTHON_USEDEP}]
+		dev-python/blockbuster[${PYTHON_USEDEP}]
+		dev-python/httpx2[${PYTHON_USEDEP}]
+		dev-python/opentelemetry-sdk[${PYTHON_USEDEP}]
 		dev-python/trio[${PYTHON_USEDEP}]
 	)
 "
