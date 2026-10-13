@@ -95,4 +95,5 @@ pkg_postinst() {
 	optfeature "LDAP/LDAPS authentication" dev-python/ldap3 dev-python/python-ldap
 	optfeature "bcrypt password hashing" dev-python/bcrypt
 	optfeature "argon2 password hashing" dev-python/argon2-cffi
+	optfeature "PAM authentication" dev-python/python-pam
 }
