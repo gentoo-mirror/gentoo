@@ -5,11 +5,12 @@
 
 EAPI=8
 
-CRATES=""
+CRATES="
+"
 
 RUST_MIN_VER="1.89.0"
 
-inherit cargo
+inherit cargo eapi9-pipestatus shell-completion toolchain-funcs
 
 DESCRIPTION="Jujutsu - an experimental version control system"
 HOMEPAGE="https://www.jj-vcs.dev/"
@@ -27,8 +28,6 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -41,8 +40,25 @@ DOCS=(
 	docs/
 )
 
+src_test() {
+	local CARGO_SKIP_TESTS=(
+		test_converge_command::test_converge_description_changed_inconsistently::invoke_text_editor
+		test_gpg::gpgsm_unknown_key
+	)
+
+	cargo_src_test
+}
+
 src_install() {
 	cargo_src_install --path cli
 
 	einstalldocs
+
+	if ! tc-is-cross-compiler ; then
+		PATH="${ED}/usr/bin:${PATH}" COMPLETE=zsh jj | sed -e 's/_clap_dynamic_completer_jj/_jj/' > jj-zsh.comp
+		pipestatus || die
+		PATH="${ED}/usr/bin:${PATH}" COMPLETE=bash jj > jj-bash.comp || die
+		newzshcomp jj-zsh.comp _jj
+		newbashcomp jj-bash.comp jj
+	fi
 }
