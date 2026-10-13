@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2026-10-13)
+# Part of removed dev-python/pyproject-fmt.  No revdeps left.
+# Removal on 2026-11-12.  Bug #984202.
+dev-python/toml-fmt-common
+
+# Michał Górny <mgorny@gentoo.org> (2026-10-13)
+# The package is bloated and hostile to downstream packaging.  The two
+# latest upstream releases don't build because of various issues.
+# Removal on 2026-11-12.  Bug #984201.
+media-gfx/fotema
+
 # Matt Jolly <kangie@gentoo.org> (2026-10-09)
 # Dropped upstream, use www-client/opera or www-client/opera-developer.
 # Removal on 2026-11-09. Bug #983935.
@@ -270,48 +281,6 @@ acct-user/fnordlog
 # Removal on 2026-10-07. Bug #927149.
 sci-physics/espresso
 
-# Michał Górny <mgorny@gentoo.org> (2026-09-05)
-# Broken with current dev-python/pywayland version.  Stuck on old
-# gui-libs/wlroots.  Used only by old versions of x11-wm/qtile.
-# Removal on 2026-10-05.  Bug #982020.
-dev-python/pywlroots
-
-# Michał Górny <mgorny@gentoo.org> (2026-09-05)
-# Stuck on Python 3.12, broken tests, no reverse dependencies.
-# Removal on 2026-10-05.  Bug #952388.
-dev-python/python3-saml
-
-# Michał Górny <mgorny@gentoo.org> (2026-09-05)
-# Stuck on Python 3.12.  No activity upstream.
-# Removal on 2026-10-05.  Bug #952340.
-dev-python/ioflo
-dev-python/raet
-
-# Michał Górny <mgorny@gentoo.org> (2026-09-05)
-# dev-python/consonance has been broken since at least 2024.  Contrary
-# to PYTHON_COMPAT, the code is incompatible with Python 3.12+.
-# The protobuf file needs to be rebuilt, yet upstream never published
-# its source.  No upstream activity since 2021.  No reverse
-# dependencies.  Including a bunch of dead NIH dependencies.
-# Removal on 2026-10-05.  Bug #926610.
-dev-python/consonance
-dev-python/dissononce
-dev-python/python-axolotl
-dev-python/python-axolotl-curve25519
-dev-python/transitions
-
-# Michał Górny <mgorny@gentoo.org> (2026-09-04)
-# Test suite broken with numpy-2.  Last release in 2020.  No reverse
-# dependencies.
-# Removal on 2026-10-04.  Bug #952323.
-dev-python/chart-studio
-
-# Michał Górny <mgorny@gentoo.org> (2026-09-01)
-# Low quality slop package with high code churn and frequently changing
-# results.  All the most recent releases are broken.
-# No reverse dependencies.  Removal on 2026-10-01.  Bug #981756.
-dev-python/pyproject-fmt
-
 # Ulrich Müller <ulm@gentoo.org> (2026-08-31)
 # Snapshot versions, masked for testing.
 <app-editors/emacs-32.0.9999:32-vcs
@@ -333,35 +302,10 @@ net-misc/croc
 # Removal on 2026-09-09.
 app-text/catdoc
 
-# Michał Górny <mgorny@gentoo.org> (2026-08-08)
-# A chain of NIH packages that have seen no upstream activity in 3+
-# years.  They are all broken with >=dev-python/flit-core-4, and have
-# no reverse dependencies outside the chain.
-# Removal on 2026-09-07.  Bug #980500.
-dev-python/autoprop
-dev-python/signature-dispatch
-dev-python/vecrec
-
 # Nowa Ammerlaan <nowa@gentoo.org> (2026-08-06)
 # This version was pulled from upstream. The reason for this is
 # unclear. But masked just as a precaution. Bug #980367.
 =sys-boot/shim-16.1_p8
-
-# Michał Górny <mgorny@gentoo.org> (2026-08-05)
-# Last released in 2017.  Carries a significant patchset already.
-# Uses pkg_resources namespaces.  No reverse dependencies.
-# Removal on 2026-09-04.  Bug #957269.
-dev-python/pyformance
-
-# Michał Górny <mgorny@gentoo.org> (2026-08-04)
-# Slop package.  The old versions bundle a very old fork of
-# app-i18n/uchardet.  The new ones require app-i18n/uchardet from git
-# that suffers from regressions (and upstream slop-patched them anyway).
-# The only revdep supports fallback to dev-python/chardet and
-# dev-python/charset-normalizer (both are also slop nowadays, but we're
-# stuck with them anyway), and uses a || dep.
-# Removal on 2026-09-03.  Bug #980354.
-dev-python/faust-cchardet
 
 # Alfred Wingate <parona@protonmail.com> (2026-07-24)
 # Renamed to libgedit-tepl upstream.
@@ -390,16 +334,6 @@ app-arch/p7zip
 # Eray Aslan <eras@gentoo.org> (2026-07-06)
 # Introduces backwards breaking change. Mask until downstreams adjust
 >=dev-db/lmdb-1.0.0
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-19)
-# dev-python/pytrie is broken on Python 3.14 and has not been touched
-# since 2020.  dev-python/autobahn and dev-python/txaio have become
-# complete broken slop, and still depend on it.  Remove these packages,
-# their reverse dependencies and their dependencies without revdeps.
-# For magic-wormhole, use net-misc/wormhole-william or
-# net-misc/magic-wormhole-rust instead.
-# Removal on 2026-07-19.  Bug #967367.
-dev-python/magic-wormhole
 
 # Michał Górny <mgorny@gentoo.org> (2026-06-03)
 # Mike Pagano <mpagano@gentoo.org> (2026-06-03)
