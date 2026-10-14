@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst unpack
-DEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) test? ( dev-libs/check )
+DEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite:3 gd? ( media-libs/gd:2=[png,truetype?] ) test? ( dev-libs/check )
 DESCRIPTION=Console-based network traffic monitor that keeps statistics of network usage
 EAPI=8
 HOMEPAGE=https://humdi.net/vnstat/
-INHERIT=systemd tmpfiles git-r3
-IUSE=gd selinux test
+INHERIT=eapi9-ver systemd git-r3
+IUSE=gd selinux test truetype
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) selinux? ( sec-policy/selinux-vnstatd ) virtual/tmpfiles
+RDEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite:3 gd? ( media-libs/gd:2=[png,truetype?] ) selinux? ( sec-policy/selinux-vnstatd )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=9ee77827af45e6633d697b382600d7a5
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=ecfd139e8ca488e8109088ec7474d366
