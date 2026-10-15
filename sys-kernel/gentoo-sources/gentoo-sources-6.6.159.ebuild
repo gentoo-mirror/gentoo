@@ -5,10 +5,9 @@ EAPI="8"
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras experimental"
-K_GENPATCHES_VER="10"
-K_NO_VERSION_CHECK=0
+K_GENPATCHES_VER="173"
 
-inherit check-reqs kernel-2
+inherit kernel-2
 detect_version
 detect_arch
 
@@ -17,16 +16,6 @@ HOMEPAGE="https://dev.gentoo.org/~mpagano/genpatches"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="experimental"
-
-pkg_pretend() {
-	CHECKREQS_DISK_BUILD="4G"
-	check-reqs_pkg_pretend
-}
-
-src_prepare() {
-	kernel-2_src_prepare
-	rm "${S}/tools/testing/selftests/tc-testing/action-ebpf"
-}
 
 pkg_postinst() {
 	kernel-2_pkg_postinst
