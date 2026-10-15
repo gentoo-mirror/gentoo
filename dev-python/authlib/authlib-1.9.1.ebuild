@@ -23,16 +23,14 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="django jose test"
+IUSE="django test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/cryptography[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-45.0.1[${PYTHON_USEDEP}]
+	>=dev-python/joserfc-1.6.8[${PYTHON_USEDEP}]
 	django? (
-		dev-python/django[${PYTHON_USEDEP}]
-	)
-	jose? (
-		dev-python/joserfc[${PYTHON_USEDEP}]
+		>=dev-python/django-3.2.9[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
@@ -42,6 +40,7 @@ BDEPEND="
 		dev-python/django[${PYTHON_USEDEP}]
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
+		dev-python/httpx2[${PYTHON_USEDEP}]
 		dev-python/joserfc[${PYTHON_USEDEP}]
 		>=dev-python/pycryptodome-3.10[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
@@ -49,7 +48,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_PLUGINS=( pytest-{asyncio,env} )
 # EPYTEST_XDIST makes tests flaky
 distutils_enable_tests pytest
 
@@ -62,7 +61,6 @@ src_prepare() {
 }
 
 python_test() {
-	local -x DJANGO_SETTINGS_MODULE=tests.django_settings
 	epytest tests/{core,jose,clients}
 
 	# TODO: django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
