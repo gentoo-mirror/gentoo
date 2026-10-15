@@ -3506,9 +3506,9 @@ gui-apps/grim:jpeg - Enable JPEG support.
 gui-apps/gtkgreet:layershell - Enable layer shell support
 gui-apps/kanshi:varlink - Enable remote control with varlink
 gui-apps/mako:icons - Enable support for icons
-gui-apps/sddm-gentoo-config:custom-compositor - Custom Wayland DisplayServer support (manual setup) (EXPERIMENTAL)
-gui-apps/sddm-gentoo-config:kwin - KWin Wayland DisplayServer support (EXPERIMENTAL)
-gui-apps/sddm-gentoo-config:weston - Weston Wayland DisplayServer support (EXPERIMENTAL)
+gui-apps/sddm-gentoo-config:custom-compositor - Custom Wayland DisplayServer support (manual setup)
+gui-apps/sddm-gentoo-config:kwin - KWin Wayland DisplayServer support
+gui-apps/sddm-gentoo-config:weston - Weston Wayland DisplayServer support
 gui-apps/swaybg:gdk-pixbuf - Support image types other than PNG
 gui-apps/swayidle:elogind - Enable support for rootless session via elogind
 gui-apps/swaylock:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
@@ -3761,9 +3761,11 @@ kde-plasma/plasma-desktop:sdl - Enable gamepad support using media-libs/libsdl2
 kde-plasma/plasma-desktop:webengine - Build the OpenDesktop integration plugin
 kde-plasma/plasma-firewall:firewalld - Build net-firewall/firewalld backend
 kde-plasma/plasma-firewall:ufw - Build net-firewall/ufw backend
+kde-plasma/plasma-integration:X - Enable support for X11 applications (XWayland)
 kde-plasma/plasma-login-sessions:X - Install X11 session file for Display Managers (default is Wayland if both enabled)
 kde-plasma/plasma-login-sessions:wayland - Install Wayland session file for Display Managers
 kde-plasma/plasma-meta:X - Enable X window manager support via kde-plasma/kwin-x11 (only until and including Plasma 6.7)
+kde-plasma/plasma-meta:backup - Pull in kde-plasma/kup for an integrated backup/restore solution
 kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Firefox with browser extensions
 kde-plasma/plasma-meta:crash-handler - Pull in kde-plasma/drkonqi for assisted upstream crash reports
 kde-plasma/plasma-meta:crypt - Pull in kde-plasma/plasma-vault for encrypted vaults integration

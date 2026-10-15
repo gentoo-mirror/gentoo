@@ -1,0 +1,11 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Gentoo defaults for SDDM (Simple Desktop Display Manager)
+EAPI=9
+HOMEPAGE=https://wiki.gentoo.org/wiki/SDDM
+IUSE=custom-compositor kwin systemd weston
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=public-domain
+RDEPEND=!<x11-misc/sddm-0.21.0_p20250818 kwin? ( kde-plasma/kwin:6 ) weston? ( dev-libs/weston[kiosk] ) !custom-compositor? ( !kwin? ( !weston? ( x11-base/xorg-server ) ) )
+REQUIRED_USE=?? ( custom-compositor kwin weston )
+SLOT=0
+_md5_=c4e2bcc977cd978352ebd97b0d9b2a88
