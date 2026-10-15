@@ -1,0 +1,75 @@
+Title: KDE Plasma 6.8 retires X11 session
+Author: Andreas Sturmlechner <asturm@gentoo.org>
+Posted: 2026-10-15
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: kde-plasma/kwin-x11
+
+Support for starting X11 sessions is going to be retired with the upcoming
+Plasma 6.8 release[1]. While stabilisation is still a few months out, users
+of testing keywords will get it now.
+
+This is in conjunction with full adoption of the newer Wayland system, which
+offers better support for modern screens and graphics cards, and is actively
+developed. The small number of individual applications that still require
+X11 will continue to work via the XWayland compatibility layer.
+KDE applications will continue to support X11 for the foreseeable future.
+
+KDE Plasma 6.7 is the final release[2] to support X11. We intend to keep it
+available in ::gentoo until at least 2027-01-31, but without any commitment
+beyond that.
+
+Users must make use of this time to either move to Plasma's Wayland session
+or find an alternative. And while the 6.8 feature development window is
+closed, late upstream feedback may still end up in your corner cases[3] being
+fixed by Plasma 6.9.
+
+Packages discontinued in KDE Plasma 6.8:
+
+- kde-plasma/kwin-x11
+- kde-plasma/kgamma [4]
+- kde-plasma/plasma-login-sessions (obsolete, consumed by plasma-workspace)
+- kde-plasma/wacomtablet [5] (obsolete for configuring xf86-input-wacom)
+
+
+Notes for the common case of users upgrading
+============================================
+
+For users of a Plasma profile, no specific upgrade steps are necessary. After
+an upgrade to 6.8, there will be no more Plasma X11 session available, only
+Wayland. It may be a good time to revisit the Gentoo KDE Wiki[5], anyway.
+
+Plasma profile will simultaneously switch SDDM, the current default login
+manager for Plasma, to Wayland via USE="kwin" in gui-apps/sddm-gentoo-config
+which automatically sets up /etc/sddm.conf.d/01gentoo.conf accordingly.
+
+After that, there may no longer be anything left depending on xorg-server,
+so it could be cleaned up in a subsequent emerge --depclean:
+
+    emerge --depclean --pretend xorg-server xorg-drivers
+
+*Please note*: This does not imply any global changes to X USE flag.
+Disabling X globally is not necessary for this change, and we advise against
+doing so. It can cause all sorts of unintended side effects from historically
+ambiguous usage - besides, not every "X11" library is obsolete in Wayland.
+
+
+Notes for users wishing to remain on X11-capable Plasma
+=======================================================
+
+In order to stay on Plasma 6.7 as 6.8 becomes available on your system, use
+the resulting list of the following command in order to mask[7] the upgrade:
+
+    for p in `qlist -IC kde-plasma/`; do echo ">=${p}-6.8"; done
+
+For SDDM to keep using X11, set USE="-kwin" on gui-apps/sddm-gentoo-config[8].
+
+
+[1] https://kde.org/announcements/plasma/6/6.8.0/
+[2] https://community.kde.org/Schedules/Plasma_6#Future_releases
+[3] https://community.kde.org/Plasma/Wayland_Known_Significant_Issues
+[4] https://blog.davidedmundson.co.uk/blog/wayland-and-kgamma/
+[5] https://userbase.kde.org/Kde_wayland_for_artists#Support_for_Graphics_Tablets
+[6] https://wiki.gentoo.org/wiki/KDE
+[7] https://wiki.gentoo.org/wiki/Knowledge_Base:Masking_a_package
+[8] https://wiki.gentoo.org/wiki//etc/portage/package.use
