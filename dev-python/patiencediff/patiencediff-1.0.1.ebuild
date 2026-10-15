@@ -13,7 +13,7 @@ CRATES="
 	heck@0.5.0
 	libc@0.2.186
 	once_cell@1.21.4
-	patiencediff@0.2.1
+	patiencediff@0.3.0
 	portable-atomic@1.13.1
 	proc-macro2@1.0.106
 	pyo3-build-config@0.29.0
