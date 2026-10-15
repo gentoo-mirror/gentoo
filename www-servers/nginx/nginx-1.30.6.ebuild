@@ -27,17 +27,8 @@ NGINX_SUPPORT_MODULE_STUBS=1
 
 inherit nginx
 
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-httpoxy-mitigation-r1.patch"
 )
-
-src_prepare() {
-	nginx_src_prepare
-
-	if use test ; then
-		# Fails with network-sandbox (bug #976129)
-		rm "${NGX_TESTS_S}"/tunnel_next_upstream.t || die
-	fi
-}
