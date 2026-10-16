@@ -6,6 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=${PN/-/.}
+PYPI_VERIFY_REPO=https://github.com/zopefoundation/zope.i18nmessageid
 PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1 pypi
@@ -18,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="ZPL"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 distutils_enable_tests unittest
 
