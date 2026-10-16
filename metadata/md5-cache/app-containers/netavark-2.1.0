@@ -1,4 +1,4 @@
-BDEPEND=dev-go/go-md2man dev-libs/protobuf[protoc(+)] || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* ) virtual/pkgconfig
+BDEPEND=dev-go/go-md2man dev-libs/protobuf[protoc(+)] || ( >=dev-lang/rust-bin-1.90.0:* >=dev-lang/rust-1.90.0:* ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=A container network stack
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 MIT Unico
 RDEPEND=>=app-containers/aardvark-dns-2.0.0 net-firewall/nftables[json] !<app-containers/buildah-1.44.0 !<app-containers/podman-6.0.0
 SLOT=0
 SRC_URI=https://static.crates.io/crates/netavark/netavark-2.1.0.crate https://github.com/containers/netavark/releases/download/v2.1.0/netavark-v2.1.0-vendor.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	d8479c5aeebf8a4784905490ca659726	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	552cca5ca7af2571f710cc2177327f0a	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=fa22eebe292f72311e1054eeccf03a06

@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen ) || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
+BDEPEND=doc? ( app-text/doxygen ) || ( >=dev-lang/rust-bin-1.90.0:* >=dev-lang/rust-1.90.0:* )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=Set of command-line programs providing a simple interface to inotify
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+ || ( Apache-2.0 MIT )
 SLOT=0
 SRC_URI=https://github.com/inotify-tools/inotify-tools/releases/download/4.26.270/inotify-tools-4.26.270.tar.gz https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/inotify-tools-4.26.270-vendor.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	d8479c5aeebf8a4784905490ca659726	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	552cca5ca7af2571f710cc2177327f0a	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c
 _md5_=d2be91d19a367ce0e48228c3079bde3e
