@@ -1,9 +1,11 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-RUST_MIN_VER=1.90.0
+# Must match LLVM used by rustc
+RUST_MIN_VER=1.91.0
+RUST_MAX_VER=1.94.1
 CRATES="
 "
 
@@ -11,8 +13,7 @@ declare -A GIT_CRATES=(
 	[compiletest_rs]='https://github.com/Manishearth/compiletest-rs;0c1418d5cd5177ee9d863a5c2f300c0973cfc4f1;compiletest-rs-%commit%'
 )
 
-# LLVM 19 fails on assertions
-LLVM_COMPAT=( {20..21} )
+LLVM_COMPAT=( 21 )
 RUST_REQ_USE="llvm_targets_BPF(+),rust_sysroots_bpf(-)"
 
 inherit cargo llvm-r2 toolchain-funcs
@@ -33,7 +34,7 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 ~arm64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
