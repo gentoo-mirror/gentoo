@@ -4,12 +4,11 @@
 EAPI=9
 
 SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.11"
+RUNTIME_SLOT="${SDK_SLOT}.13"
 
 DESCRIPTION=".NET is a free, cross-platform, open-source developer platform"
 HOMEPAGE="https://dotnet.microsoft.com/
 	https://github.com/dotnet/dotnet/"
-
 SRC_URI="
 amd64? (
 	elibc_glibc? (
@@ -53,8 +52,8 @@ CURRENT_NUGETS_DEPEND="
 EXTRA_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-6.0.36
 	~dev-dotnet/dotnet-runtime-nugets-7.0.20
-	~dev-dotnet/dotnet-runtime-nugets-8.0.30
-	~dev-dotnet/dotnet-runtime-nugets-9.0.19
+	~dev-dotnet/dotnet-runtime-nugets-8.0.32
+	~dev-dotnet/dotnet-runtime-nugets-9.0.21
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
