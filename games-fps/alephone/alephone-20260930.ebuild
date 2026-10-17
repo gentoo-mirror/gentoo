@@ -5,7 +5,7 @@ EAPI=8
 
 VIRTUALX_REQUIRED=test
 
-inherit autotools optfeature prefix toolchain-funcs virtualx xdg
+inherit autotools optfeature prefix virtualx xdg
 
 DESCRIPTION="Enhanced game engine version from the classic Mac game, Marathon"
 HOMEPAGE="https://alephone.lhowon.org/"
@@ -16,7 +16,7 @@ if [[ ${PV} = 9999* ]]; then
 else
 	SRC_URI="https://github.com/Aleph-One-Marathon/alephone/archive/refs/tags/release-${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-release-${PV}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="GPL-3+ BitstreamVera OFL-1.1"
@@ -58,6 +58,11 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-configure-ar.patch
+	"${FILESDIR}"/${P}-stringop-overflow.patch
+)
+
 src_prepare() {
 	default
 	eautoreconf
@@ -85,7 +90,6 @@ src_configure() {
 }
 
 src_compile() {
-	tc-export AR
 	default
 }
 
@@ -118,7 +122,9 @@ src_install() {
 	doman docs/${PN}.6
 	docinto html/
 	dodoc docs/*.html
-	use test && rm "${D}"/usr/bin/${PN}_tests || die "Failed to remove test binary"
+	if use test; then
+		rm "${D}"/usr/bin/${PN}_tests || die "Failed to remove test binary"
+	fi
 }
 
 pkg_postinst() {
