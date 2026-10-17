@@ -1,9 +1,9 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit meson python-single-r1
 
@@ -14,7 +14,7 @@ if [[ ${PV} = 9999* ]]; then
 		EGIT_REPO_URI="https://github.com/fedora-modularity/libmodulemd.git"
 else
 		SRC_URI="https://github.com/fedora-modularity/libmodulemd/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-		KEYWORDS="~amd64 ~x86"
+		KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="MIT"
@@ -47,10 +47,6 @@ BDEPEND="
 		sys-libs/libmodulemd
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.15.0-glib-docs.patch
-)
 
 src_configure() {
 	local emesonargs=(
