@@ -3215,11 +3215,14 @@ games-engines/exult:tools - Enable tools, usercode compiler and mods support
 games-engines/fheroes2:tools - Install development tools like 82m2wav and xmi2midi.
 games-engines/love:gme - Use media-libs/game-music-emu to support additional music formats
 games-engines/minetest:client - Build Minetest client
-games-engines/minetest:leveldb - Enable LevelDB backend
-games-engines/minetest:prometheus - Enable prometheus client support
-games-engines/minetest:redis - Enable redis backend via dev-libs/hiredis
+games-engines/minetest:curl - Enable use of online mod repo, public serverlist and remote media with net-misc/curl
+games-engines/minetest:leveldb - Enable LevelDB map backend via dev-libs/leveldb
+games-engines/minetest:ncurses - Enable server side ncurses terminal
+games-engines/minetest:postgres - Enable PostgreSQL map backend with dev-db/postgresql
+games-engines/minetest:prometheus - Enable Prometheus monitoring system support in the server via dev-cpp/prometheus-cpp
+games-engines/minetest:redis - Enable Redis map backend via dev-libs/hiredis
 games-engines/minetest:server - Build Minetest server
-games-engines/minetest:spatial - Enable SpatialIndex AreaStore backend
+games-engines/minetest:spatial - Speed up AreaStores via sci-libs/libspatialindex
 games-engines/odamex:client - Build client target
 games-engines/odamex:master - Build master server target (advertises odamex server list)
 games-engines/odamex:odalaunch - Build the wxWidgets based launcher
