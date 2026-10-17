@@ -79,6 +79,7 @@ DEPEND="${COMMON_DEPEND}
 		sys-kernel/linux-headers
 	)
 	sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 )
+	vulkan? ( >=dev-util/vulkan-headers-1.3 )
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
