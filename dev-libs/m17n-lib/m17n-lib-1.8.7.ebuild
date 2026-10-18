@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-inherit autotools
+inherit autotools toolchain-funcs
 
 DESCRIPTION="Multilingual Library for Unix/Linux"
 HOMEPAGE="https://www.nongnu.org/m17n/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://nongnu/m17n/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="X anthy athena bidi fontconfig gd libotf libxml2 spell xft"
 
 RDEPEND=">=dev-db/m17n-db-${PV}
@@ -28,7 +28,7 @@ RDEPEND=">=dev-db/m17n-db-${PV}
 			x11-libs/libXft
 		)
 	)
-	anthy? ( app-i18n/anthy )
+	anthy? ( app-i18n/anthy-unicode )
 	libxml2? ( dev-libs/libxml2:= )
 	spell? ( app-text/aspell )"
 DEPEND="${RDEPEND}"
@@ -46,6 +46,8 @@ src_prepare() {
 	eautoreconf
 	# workaround for parallel install
 	sed -i "/^install-module/s/:/: install-libLTLIBRARIES/" src/Makefile.in
+	# used by xml2-config
+	tc-export PKG_CONFIG
 }
 
 src_configure() {
