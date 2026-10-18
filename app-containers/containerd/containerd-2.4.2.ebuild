@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-env go-module systemd toolchain-funcs
 
-GIT_REVISION=fff62f14765df376e5fc36f5a8f8e795b5670f61
+GIT_REVISION=b7a25261e029d68978bbf290df0a62fc819b3c51
 
 DESCRIPTION="A daemon to control runC"
 HOMEPAGE="https://containerd.io/"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/containerd/containerd/archive/v${PV}.tar.gz -> ${P}.
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="apparmor btrfs device-mapper +cri +seccomp selinux test"
 # tests require root or docker
 RESTRICT="test"
@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	dev-go/go-md2man
-	>=dev-lang/go-1.26.3
+	>=dev-lang/go-1.26.6
 	virtual/pkgconfig
 "
 

@@ -8,8 +8,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
-LLVM_COMPAT=( {18..22} )
+PYTHON_COMPAT=( python3_{12..15} )
+LLVM_COMPAT=( {18..23} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 
@@ -36,12 +36,13 @@ else
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 )"
-SLOT="6/${PV}"
+QT_SLOT="$(ver_cut 1)"
+SLOT="${QT_SLOT}/${PV}"
 
 # If a flag enables multiple Qt modules, they should be ordered
 # according to their dependencies, e.g. for 3d, 3DCore must be first.
 # Widgets for various modules are handled as a special case later
-declare -A QT_MODULES=(
+declare -gA QT_MODULES=(
 	["3d"]="3DCore 3DRender 3DLogic 3DInput 3DAnimation 3DExtras"
 	["bluetooth"]="Bluetooth"
 	["charts"]="Charts"
@@ -87,7 +88,7 @@ declare -A QT_MODULES=(
 # Manually reextract these requirements on version bumps by running the
 # following one-liner from within "${S}":
 #     $ grep -E '(set|list).*_deps' sources/pyside6/PySide6/Qt*/CMakeLists.txt
-declare -A QT_REQUIREMENTS=(
+declare -gA QT_REQUIREMENTS=(
 	["3d"]="gui network"
 	["bluetooth"]="core"
 	["charts"]="core gui widgets"
@@ -132,7 +133,7 @@ declare -A QT_REQUIREMENTS=(
 # Manually reextract these requirements on version bumps by running the
 # following one-liner from within "${S}":
 #     $ grep 'check_qt_opengl' sources/pyside6/PySide6/Qt*/CMakeLists.txt
-declare -a CONDITIONAL_OPENGL=(
+declare -ga CONDITIONAL_OPENGL=(
 	3d graphs quick
 )
 
@@ -150,7 +151,7 @@ for requirement in "${!QT_REQUIREMENTS[@]}"; do
 done
 
 # Minimal supported version of Qt.
-QT_PV="$(ver_cut 1-3)*:6"
+QT_PV="$(ver_cut 1-3)*:${QT_SLOT}"
 
 # USE="tools" is heavily automagic based on what other qt tools are installed at build time.
 
@@ -179,7 +180,7 @@ RDEPEND="
 	network-auth? ( =dev-qt/qtnetworkauth-${QT_PV} )
 	nfc? ( =dev-qt/qtconnectivity-${QT_PV}[nfc] )
 	numpy? ( >=dev-python/numpy-2.1.3[${PYTHON_USEDEP}] )
-	pdfium? ( =dev-qt/qtwebengine-${QT_PV}[pdfium(-),widgets?] )
+	pdfium? ( dev-qt/qtwebengine:${QT_SLOT}[pdfium(-),widgets?] )
 	positioning? ( =dev-qt/qtpositioning-${QT_PV} )
 	printsupport? ( =dev-qt/qtbase-${QT_PV}[gui,widgets] )
 	qml? ( =dev-qt/qtdeclarative-${QT_PV}[opengl?,widgets?] )
@@ -200,9 +201,10 @@ RDEPEND="
 	)
 	uitools? ( =dev-qt/qttools-${QT_PV}[gles2-only=,widgets] )
 	webchannel? ( =dev-qt/qtwebchannel-${QT_PV} )
-	webengine? ( || (
-		=dev-qt/qtwebengine-${QT_PV}[alsa,widgets?]
-		=dev-qt/qtwebengine-${QT_PV}[pulseaudio,widgets?]
+	webengine? (
+		|| (
+			dev-qt/qtwebengine:${QT_SLOT}[alsa,widgets?]
+			dev-qt/qtwebengine:${QT_SLOT}[pulseaudio,widgets?]
 		)
 	)
 	websockets? ( =dev-qt/qtwebsockets-${QT_PV} )
@@ -280,9 +282,6 @@ python_prepare_all() {
 
 	# blacklist.txt works like XFAIL
 	cat <<- EOF >> build_history/blacklist.txt || die
-	# segfaults with QOpenGLContext::create
-	[pysidetest::qapp_like_a_macro_test]
-		linux
 	# no mypy
 	[pysidetest::mypy_correctness_test]
 		linux
@@ -291,18 +290,8 @@ python_prepare_all() {
 		linux
 	[pyside6-android-deploy::test_pyside6_android_deploy]
 		linux
-	# Behavior changed and test not changed to accomodate
-	# https://bugreports.qt.io/projects/PYSIDE/issues/PYSIDE-3135
-	[registry::existence_test]
-		linux
-	# Doesn't appear to play well with virtualx as it tries to use wayland
-	[QtUiTools::loadUiType_test]
-		linux
-	# py3.14?
-	[sample::multiple_derived]
-		linux
-	# Doesn't appear to play well with virtualx as it tries to use wayland
-	[QtWidgets::qapp_issue_585]
+	# FIXME: timeout, complains about wayland
+	[pysidetest::new_inherited_functions_test]
 		linux
 	EOF
 
@@ -383,6 +372,7 @@ python_configure_all() {
 	if use quick; then
 		use webengine && ENABLED_QT_MODULES+=( WebEngineQuick )
 		use testlib && ENABLED_QT_MODULES+=( QuickTest )
+		use qml && ENABLED_QT_MODULES+=( QuickControls2 )
 	fi
 
 	# Arguments listed in options.py
@@ -395,7 +385,7 @@ python_configure_all() {
 		--no-size-optimization
 		--openssl="${ESYSROOT}/usr/bin/openssl"
 		--qt="$(ver_cut 1-3)"
-		--qtpaths="$(qt6_get_bindir)/qtpaths"
+		--qtpaths="$(qt_get_bindir ${QT_SLOT})/qtpaths"
 		--log-level=verbose
 		--parallel="$(makeopts_jobs)"
 		"$(usex debug "--debug" "--relwithdebinfo")"
@@ -443,8 +433,10 @@ python_compile() {
 	export PYTHONPATH="${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/package:${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/install/lib/${EPYTHON}/site-packages:${PYTHONPATH}"
 
 	# Copy shiboken6_generator files to shiboken6 package so we can reuse the shiboken-target-path
-	rsync -ur "${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-2))/${pyside_build_dir}/package/shiboken6_generator/"* "${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/package/shiboken6/" || die
-	ln -s shiboken6 "${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/package/shiboken6_generator" || die
+	rsync -ur "${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-2))/${pyside_build_dir}/package/shiboken6_generator/"* \
+		"${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/package/shiboken6/" || die
+	ln -s shiboken6 \
+		"${BUILD_DIR}/build$((${#DISTUTILS_WHEELS[@]}-1))/${pyside_build_dir}/package/shiboken6_generator" || die
 
 	# If no pyside modules enabled, build just shiboken
 	if [[ ${#ENABLED_QT_MODULES[@]} -gt 0 ]]; then
@@ -508,9 +500,9 @@ python_compile() {
 	# Install misc files from inner install dir
 	find "${BUILD_DIR}"/build*/"${pyside_build_dir}"/install -type f \
 		-name libPySidePlugin.so -exec \
-		mkdir -p "${BUILD_DIR}/install/$(qt6_get_plugindir)/designer/" \; \
+		mkdir -p "${BUILD_DIR}/install/$(qt_get_plugindir ${QT_SLOT})/designer/" \; \
 		-exec \
-		cp "{}" "${BUILD_DIR}/install/$(qt6_get_plugindir)/designer/" \; \
+		cp "{}" "${BUILD_DIR}/install/$(qt_get_plugindir ${QT_SLOT})/designer/" \; \
 			|| die
 
 	for dir in cmake pkgconfig; do
