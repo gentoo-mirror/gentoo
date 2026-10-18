@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-util/hip:0/10.1 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-libs/rocm-device-libs:0/10.1 llvm-runtimes/clang-runtime:= llvm_slot_23? ( llvm-core/clang:23= llvm-core/lld:23= llvm-core/llvm:23= ) dev-util/hipcc:0/10.1
+DESCRIPTION=Radeon Open Compute Code Object Manager
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/llvm-project/tree/amd-staging/amd/comgr
+INHERIT=cmake llvm-r2
+IUSE=test +llvm_slot_23
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/rocm-device-libs:0/10.1 llvm-runtimes/clang-runtime:= llvm_slot_23? ( llvm-core/clang:23= llvm-core/lld:23= llvm-core/llvm:23= ) dev-util/hipcc:0/10.1
+REQUIRED_USE=^^ ( llvm_slot_23 )
+RESTRICT=!test? ( test )
+SLOT=0/10.1
+SRC_URI=https://github.com/ROCm/llvm-project/archive/therock-10.1.tar.gz -> llvm-project-therock-10.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8
+_md5_=9acbf8ce4d8a3de92e31b8b5ef316b24

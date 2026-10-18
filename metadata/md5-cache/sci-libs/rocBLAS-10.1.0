@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake:0/10.1 app-alternatives/ninja >=dev-build/cmake-3.28.5 doc? ( app-text/doxygen media-gfx/graphviz )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/hip:0/10.1 roctracer? ( dev-util/roctracer:0/10.1 ) hipblaslt? ( sci-libs/hipBLASLt:0/10.1 ) benchmark? ( dev-cpp/gtest:= dev-util/amdsmi:0/10.1 llvm-runtimes/openmp sci-libs/flexiblas ) >=dev-cpp/msgpack-cxx-6.0.0 test? ( dev-cpp/gtest:= dev-util/amdsmi:0/10.1 llvm-runtimes/openmp sci-libs/flexiblas ) dev-util/Tensile:0/10.1
+DESCRIPTION=AMD's library for BLAS on ROCm
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/rocblas
+INHERIT=cmake docs edob flag-o-matic llvm-r2 multiprocessing rocm
+IUSE=benchmark hipblaslt roctracer test doc +llvm_slot_23 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1103 +amdgpu_targets_gfx1150 +amdgpu_targets_gfx1151 +amdgpu_targets_gfx1152 +amdgpu_targets_gfx1153 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036
+KEYWORDS=~amd64
+LICENSE=MIT BSD
+RDEPEND=dev-util/hip:0/10.1 roctracer? ( dev-util/roctracer:0/10.1 ) hipblaslt? ( sci-libs/hipBLASLt:0/10.1 ) benchmark? ( dev-cpp/gtest:= dev-util/amdsmi:0/10.1 llvm-runtimes/openmp sci-libs/flexiblas )
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 amdgpu_targets_gfx1152 amdgpu_targets_gfx1153 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036 ) ^^ ( llvm_slot_23 )
+RESTRICT=!test? ( test )
+SLOT=0/10.1
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/therock-10.1/rocblas.tar.gz -> rocblas-10.1.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	docs	006125f2158d2f16904ebd9114336058	edob	357e125b8c5cad0deccb625e537ea831	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	rocm	13bf46a1dea636628ad348adcf858e32
+_md5_=49ac3d6a27a29764bd9f1b39918f21b4

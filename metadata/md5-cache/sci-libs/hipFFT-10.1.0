@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/10.1 sci-libs/rocFFT:0/10.1
+DESCRIPTION=CU / ROCM agnostic hip FFT implementation
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/hipfft
+INHERIT=cmake rocm
+IUSE=+amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1103 +amdgpu_targets_gfx1150 +amdgpu_targets_gfx1151 +amdgpu_targets_gfx1152 +amdgpu_targets_gfx1153 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/10.1 sci-libs/rocFFT:0/10.1
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 amdgpu_targets_gfx1152 amdgpu_targets_gfx1153 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036 )
+SLOT=0/10.1
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/therock-10.1/hipfft.tar.gz -> hipfft-10.1.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	rocm	13bf46a1dea636628ad348adcf858e32
+_md5_=ed6bedb5980bf94dce9a7aa579b9155c

@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-util/hip:0/10.1 python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) python_targets_python3_15? ( dev-lang/python:3.15 )
+DESCRIPTION=High Performance Composable Kernel for AMD GPUs
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/composable_kernel
+INHERIT=check-reqs cmake flag-o-matic multiprocessing python-r1 rocm
+IUSE=debug profiler test python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 python_targets_python3_15 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1103 +amdgpu_targets_gfx1150 +amdgpu_targets_gfx1151 +amdgpu_targets_gfx1152 +amdgpu_targets_gfx1153 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/10.1 python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) python_targets_python3_15? ( dev-lang/python:3.15 )
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 amdgpu_targets_gfx1152 amdgpu_targets_gfx1153 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx90c amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1032 amdgpu_targets_gfx1033 amdgpu_targets_gfx1034 amdgpu_targets_gfx1035 amdgpu_targets_gfx1036 ) || ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 python_targets_python3_15 )
+RESTRICT=!test? ( test )
+SLOT=0/10.1
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/therock-10.1/composablekernel.tar.gz -> composable-kernel-10.1.0.tar.gz test? ( https://github.com/google/googletest/archive/b85864c64758dec007208e56af933fc3f52044ee.tar.gz -> gtest-1.14.0_p20220421.tar.gz )
+_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	rocm	13bf46a1dea636628ad348adcf858e32
+_md5_=9f93cad01019c9a2e69f406c85a74b8e
