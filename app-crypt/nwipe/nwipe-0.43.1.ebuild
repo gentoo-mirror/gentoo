@@ -17,6 +17,7 @@ RDEPEND="
 	dev-libs/libconfig:=
 	sys-apps/hdparm
 	sys-block/parted
+	sys-libs/libnvme:=
 	sys-libs/ncurses:=
 "
 DEPEND="${RDEPEND}"
