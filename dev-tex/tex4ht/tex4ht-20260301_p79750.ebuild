@@ -56,17 +56,22 @@ BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	mv texmf-dist texmf || die
+	# Source files are in java/tex4ht/ regardless of their package,
+	# and the default-package xtpipes class ships as xtpipes.java.java.
+	# Rename it so javac accepts the public class.
+	mv java/tex4ht/xtpipes.java.java java/xtpipes.java || die
+
 	default
-	cd "${S}/texmf/tex4ht/base/unix" || die
+
 	sed -i \
 		-e "s#~/tex4ht.dir#${EPREFIX}/usr/share#" \
 		-e "s#tpath/tex/texmf/fonts/tfm/!#t${EPREFIX}/usr/share/texmf-dist/fonts/tfm/!\nt${EPREFIX}/usr/local/share/texmf/fonts/tfm/!\nt${EPREFIX}/var/cache/fonts/tfm/!\nt${EPREFIX}${TEXMF}/fonts/tfm/!#" \
 		-e "s#%%~#${EPREFIX}${TEXMF}#g" \
-		tex4ht.env \
+		texmf/tex4ht/base/unix/tex4ht.env \
 		|| die "sed of tex4ht.env failed"
 
 	einfo "Removing precompiled java stuff"
-	rm "${S}/texmf/tex4ht/bin/tex4ht.jar"
+	rm texmf/tex4ht/bin/tex4ht.jar || die
 }
 
 src_compile() {
@@ -86,10 +91,11 @@ src_compile() {
 	if use java; then
 		pushd java > /dev/null || die
 		einfo "Compiling java files..."
-		ejavac *.java tex4ht/*.java xtpipes/*.java  xtpipes/util/*.java
-		rm *.java tex4ht/*.java xtpipes/*.java  xtpipes/util/*.java || die
+		# Let -d lay the class files out by package
+		mkdir -p classes || die
+		ejavac -d classes xtpipes.java tex4ht/*.java
 		# Create the jar needed by oolatex
-		jar -cf "${S}/${PN}.jar" * || die "failed to create jar"
+		jar -cf "${S}/${PN}.jar" -C classes . || die "failed to create jar"
 		popd > /dev/null || die
 	fi
 }
