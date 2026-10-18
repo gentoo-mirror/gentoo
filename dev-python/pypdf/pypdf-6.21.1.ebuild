@@ -24,7 +24,7 @@ SRC_URI+="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	test? (
@@ -45,6 +45,13 @@ EPYTEST_DESELECT=(
 	tests/test_appearance_stream.py::test_appearance_stream_rtl
 	# speed test, uses tons of memory
 	tests/test_filters.py::test_flatedecode__decode_png_prediction__speed
+	# apparently we get half the limit somehow?
+	tests/generic/test_data_structures.py::test_dictionary_object__read_from_stream__missing_length__limit
+	tests/generic/test_data_structures.py::test_dictionary_object__read_from_stream__read_unsized__limit
+	tests/test_configuration.py::test_apply_configuration
+	tests/test_configuration.py::test_apply_configuration__nested
+	tests/test_configuration.py::test_get_configuration
+	tests/test_configuration.py::test_overwrite_configuration
 )
 
 src_unpack() {

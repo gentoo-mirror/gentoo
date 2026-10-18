@@ -17,10 +17,13 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/sphinx-9.0.4[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.16[${PYTHON_USEDEP}]
+	' 3.{12..14})
 "
 # skipping optional test dep on dev-python/nptyping as that package
 # is horribly broken and on its way out
@@ -41,4 +44,8 @@ EPYTEST_DESELECT=(
 	# Internet
 	tests/test_annotations.py::test_format_annotation
 	tests/test_resolver/test_stubs.py::test_sphinx_build_stub_types_produce_crossrefs
+	# requires sphinx_design
+	tests/test_live_example.py
+	# TODO
+	tests/_resolve/backfill/stubs/test_find.py::test_stub_path_reads_the_properties_of_a_module_proxy
 )

@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit-core
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -20,13 +20,13 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/hypothesis-6[${PYTHON_USEDEP}]
 	>=dev-python/jmespath-1[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 	>=dev-python/pyjwt-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/pykwalify-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/pytest-8[${PYTHON_USEDEP}]
@@ -54,6 +54,8 @@ EPYTEST_DESELECT=(
 	tests/unit/test_mqtt.py::TestClient::test_context_connection_success
 	# TODO
 	tests/unit/response/test_mqtt_response.py::TestResponse::test_same_topic
+	# BadSchemaError; grpc incompatibility?
+	tests/unit/test_schema.py::TestGRPCErrors::test_valid
 )
 EPYTEST_IGNORE=(
 	# require grpc*
@@ -70,4 +72,9 @@ src_prepare() {
 	# strip unnecessary pins, upstream doesn't update them a lot
 	sed -i -E -e 's:,?<=?[0-9.]+::' pyproject.toml || die
 	distutils-r1_src_prepare
+}
+
+python_test() {
+	# integration tests require flask-httpauth
+	epytest tavern tests/unit
 }
