@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gcc:*
-DEFINED_PHASES=compile configure install test
+DEFINED_PHASES=compile configure install test unpack
 DEPEND=virtual/zlib:=
 DESCRIPTION=Mutabah's Rust Compiler
 EAPI=8
 HOMEPAGE=https://github.com/thepowersgang/mrustc
 INHERIT=edo multiprocessing rust-toolchain toolchain-funcs
-KEYWORDS=amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
 RDEPEND=virtual/zlib:= sys-devel/gcc:*
 SLOT=0
-SRC_URI=https://github.com/thepowersgang/mrustc/archive/refs/tags/v0.11.2.tar.gz -> mrustc-0.11.2.tar.gz https://static.rust-lang.org/dist/rustc-1.74.1-src.tar.xz
+SRC_URI=https://github.com/thepowersgang/mrustc/archive/d85e86b199e2522d74bee19efa6ebf3af596270f.tar.gz -> mrustc-0.12.0_p20261018.tar.gz https://static.rust-lang.org/dist/rustc-1.90.0-src.tar.xz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=2624ddeb405cbed99debc704be965633
+_md5_=ef9e0ae176b4836ef2dcc6f7a02ed1c8
