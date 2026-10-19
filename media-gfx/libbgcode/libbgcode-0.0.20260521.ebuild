@@ -24,8 +24,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
-	test? ( >=dev-cpp/catch-3 )
+	test? ( >=dev-cpp/catch-3.8 )
 "
+
+PATCHES=(
+	"${FILESDIR}"/libbgcode-0.0.20260521-meatpack-tests.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
