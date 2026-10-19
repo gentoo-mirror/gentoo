@@ -11,13 +11,13 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_MIN_CLONE_TYPE="single"
 else
 	SRC_URI="https://github.com/atar-axis/xpadneo/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Advanced Linux Driver for Xbox One Wireless Controller"
 HOMEPAGE="https://atar-axis.github.io/xpadneo/"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-2 GPL-3+"
 SLOT="0"
 
 CONFIG_CHECK="INPUT_FF_MEMLESS"
@@ -30,13 +30,10 @@ src_compile() {
 }
 
 src_install() {
-	local DOCS=( docs/{[^i]*.md,descriptors,reports} NEWS.md )
 	linux-mod-r1_src_install
 
-	insinto /etc/modprobe.d
-	doins hid-${PN}/etc-modprobe.d/${PN}.conf
-
-	udev_dorules hid-${PN}/etc-udev-rules.d/*.rules
+	# install modprobe.d/rules.d files and docs
+	emake PREFIX="${ED}" ETC_PREFIX=/usr/lib DOC_PREFIX=/usr/share/doc/${PF} install
 }
 
 pkg_postinst() {
