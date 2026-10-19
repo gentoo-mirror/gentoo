@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile install postinst setup test
+DEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_15? ( dev-lang/python:3.15 ) dev-db/unixODBC dev-libs/libpcre2:= dev-libs/openssl:= dev-libs/quickjs-ng net-misc/curl sys-libs/readline:=
+DESCRIPTION=Combination editor, browser, and mail client that is 100% text based
+EAPI=8
+HOMEPAGE=https://edbrowse.org
+INHERIT=edo optfeature python-single-r1 toolchain-funcs
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15
+KEYWORDS=~amd64
+LICENSE=GPL-2+ curl MIT CC0-1.0
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_15? ( dev-lang/python:3.15 ) dev-db/unixODBC dev-libs/libpcre2:= dev-libs/openssl:= dev-libs/quickjs-ng net-misc/curl sys-libs/readline:=
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15 )
+SLOT=0
+SRC_URI=https://github.com/edbrowse/edbrowse/archive/v3.8.18.tar.gz -> edbrowse-3.8.18.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=009341bd944afe9c9462b8072653aa5a
