@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	>=dev-python/packaging-25[${PYTHON_USEDEP}]
+	>=dev-python/packaging-26.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/hatch-vcs-0.3.0[${PYTHON_USEDEP}]

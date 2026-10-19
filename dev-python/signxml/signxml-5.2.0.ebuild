@@ -20,7 +20,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/XML-Security/signxml.git"
 else
 	inherit pypi
-	KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 fi
 
 LICENSE="Apache-2.0"
@@ -31,7 +31,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-python/lxml-5[${PYTHON_USEDEP}]
 	<dev-python/lxml-7[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-43[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-45[${PYTHON_USEDEP}]
 	>=dev-python/certifi-2023.11.17[${PYTHON_USEDEP}]
 "
 
