@@ -6,7 +6,7 @@ EAPI=9
 inherit go-module shell-completion sysroot
 
 # update on every bump
-GIT_COMMIT=e8436ca8a1715369087a8c67787493b2434a3822
+GIT_COMMIT=5686d7484e65cb08b6e3b92f86d2ccffb415bdc0
 
 DESCRIPTION="the official gitlab command line interface"
 HOMEPAGE="https://gitlab.com/gitlab-org/cli"
@@ -15,13 +15,15 @@ SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/
 S="${WORKDIR}/cli-v${PV}-${GIT_COMMIT}"
 
 LICENSE="MIT"
+# Dependent licenses
+LICENSE+=" "
 SLOT="0"
 KEYWORDS="~amd64"
 
 # tests communicate with gitlab.com and require a personal access token
 RESTRICT="test"
 
-BDEPEND=">=dev-lang/go-1.27.0"
+BDEPEND=">=dev-lang/go-1.27.2"
 
 QA_PRESTRIPPED=usr/bin/glab
 
