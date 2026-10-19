@@ -19,9 +19,7 @@ RESTRICT="bindist mirror"
 DEPEND="
 	app-crypt/tpm2-tss
 	dev-libs/glib:2
-	dev-libs/nspr
 	dev-libs/nss
-	net-firewall/nftables
 	net-libs/libpcap
 	sys-apps/dbus
 	gui? (
@@ -39,11 +37,14 @@ DEPEND="
 		virtual/zlib
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf:2
-		x11-libs/gtk+:3[X]
+		x11-libs/gtk+:3[X,wayland]
 		x11-libs/pango
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	net-firewall/nftables
+"
 BDEPEND="
 	app-admin/chrpath
 	dev-util/patchelf
@@ -76,7 +77,8 @@ src_install() {
 		systemd_douserunit usr/lib/systemd/user/warp-taskbar.service
 		domenu usr/share/applications/com.cloudflare.WarpTaskbar.desktop
 
-		doicon -s scalable usr/share/icons/hicolor/scalable/apps/*.svg
+		dosym -r /usr/libexec/warp/data/flutter_assets/assets/svgs/zero-trust-orange.svg \
+			/usr/share/icons/hicolor/scalable/apps/zero-trust-orange.svg
 
 		insinto /usr/share/dbus-1/services
 		doins usr/share/dbus-1/services/com.cloudflare.WarpTaskbar.service
