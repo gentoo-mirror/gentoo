@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYPI_VERIFY_REPO=https://github.com/dbcli/mycli
 inherit distutils-r1 edo multiprocessing pypi shell-completion
 
@@ -23,25 +23,24 @@ KEYWORDS="~amd64 ~arm64"
 # optional llm unpackaged
 
 RDEPEND="
-	>=dev-python/cli-helpers-2.15.1[${PYTHON_USEDEP}]
+	app-shells/fzf
+	>=dev-python/cli-helpers-2.15.2[${PYTHON_USEDEP}]
 	>=dev-python/click-8.5.0[${PYTHON_USEDEP}]
 	>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-50.0.1[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-50.0.2[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.1.6[${PYTHON_USEDEP}]
 	>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
-	<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
-	>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
+	>=dev-python/prompt-toolkit-3.0.53[${PYTHON_USEDEP}]
 	>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
-	>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.21.0[${PYTHON_USEDEP}]
-	>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
+	>=dev-python/pymysql-1.2.3[${PYTHON_USEDEP}]
 	>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
-	>=dev-python/rapidfuzz-3.14.5[${PYTHON_USEDEP}]
-	>=dev-python/sqlglot-30.17.0[${PYTHON_USEDEP}]
+	>=dev-python/rapidfuzz-3.14.6[${PYTHON_USEDEP}]
+	>=dev-python/sqlglot-30.23.0[${PYTHON_USEDEP}]
 	>=dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
-	>=dev-python/yaspin-3.4.0[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.8.3[${PYTHON_USEDEP}]
+	>=dev-python/yaspin-3.5.1[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.9.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
@@ -60,7 +59,7 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 python_prepare_all() {
 	# no coverage please
 	sed -e 's/import coverage ; coverage.process_startup(); //' \
-		-i test/features/environment.py test/features/steps/wrappers.py || die
+		-i mycli_test/features/environment.py mycli_test/features/steps/wrappers.py || die
 
 	# dont pin dependencies
 	sed -e '/^dependencies = \[/,/^\]$/ s/"\(.*\) ~=/"\1 >=/' \
@@ -74,11 +73,11 @@ python_prepare_all() {
 	sed -e '/run mycli on localhost without port/i  @gentoo_skip' \
 		-e '/run mycli on TCP host without port/i  @gentoo_skip' \
 		-e '/run mycli without host and port/i  @gentoo_skip' \
-		-i test/features/connection.feature || die
+		-i mycli_test/features/connection.feature || die
 
 	# Requires an old school vi and the symlink for vi itself messes with this
 	sed -e '/edit sql in file with external editor/i  @gentoo_skip' \
-		-i test/features/iocommands.feature || die
+		-i mycli_test/features/iocommands.feature || die
 
 	distutils-r1_python_prepare_all
 }
@@ -122,16 +121,20 @@ python_test() {
 		-e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${PYTEST_PASSWORD}'" \
 		|| die "Failed to change mysql user password"
 
-	EPYTEST_DESELECT=(
-		# PyMysql 1.2 uses ssl if the server supports it
-		"test/pytests/test_main.py::test_ssl_mode_off"
-	)
 	EPYTEST_IGNORE=(
 		# Requires unpackaged llm
-		"test/pytests/test_special_llm.py"
+		"mycli_test/pytests/test_special_llm.py"
 		# Requires unpackaged altairs and polars
-		"test/pytests/test_polars_transform.py"
-		"test/pytests/test_polars_completion.py"
+		"mycli_test/pytests/test_polars_transform.py"
+		"mycli_test/pytests/test_polars_completion.py"
+	)
+
+	EPYTEST_DESELECT=(
+		# Requires unpackaged polars
+		"mycli_test/pytests/test_main_modes_repl.py::test_redirect_output_uses_redirecting_state"
+		"mycli_test/pytests/test_main_modes_repl.py::test_transform_redirect_output_failure_does_not_leak_to_next_query"
+		"mycli_test/pytests/test_main_modes_repl.py::test_transform_redirect_survives_database_reconnect"
+		"mycli_test/pytests/test_main_modes_repl.py::test_transform_shell_redirect_writes_formatted_transformed_rows"
 	)
 
 	local failures=()
@@ -143,7 +146,7 @@ python_test() {
 		--jobs=$(get_makeopts_jobs)  \
 		--summary --verbose \
 		--tags="not @gentoo_skip" \
-		test/features ; then
+		mycli_test/features ; then
 		failures+=( behave )
 	fi
 
