@@ -13,7 +13,7 @@ DESCRIPTION="Library and components for secure lock screen architecture"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
-IUSE=""
+IUSE="selinux"
 
 # requires running environment w/ RDEPENDs (circular dep w/ plasma-workspace)
 RESTRICT="test"
@@ -45,6 +45,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	selinux? ( sec-policy/selinux-xscreensaver )
 "
 BDEPEND="
 	dev-util/wayland-scanner
