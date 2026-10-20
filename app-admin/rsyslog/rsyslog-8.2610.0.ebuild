@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit autotools flag-o-matic linux-info python-any-r1 systemd
 
@@ -17,9 +17,9 @@ if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3 LGPL-3 Apache-2.0"
@@ -60,6 +60,7 @@ RDEPEND="
 	>=dev-libs/libfastjson-1.2304.0-r1:=
 	>=dev-libs/libestr-0.1.9
 	>=virtual/zlib-1.2.5:=
+	dev-libs/libyaml
 	curl? ( >=net-misc/curl-7.35.0 )
 	dbi? ( >=dev-db/libdbi-0.8.3 )
 	elasticsearch? ( >=net-misc/curl-7.35.0 )
@@ -121,15 +122,6 @@ pkg_setup() {
 	python-any-r1_pkg_setup
 }
 
-src_unpack() {
-	if [[ "${PV}" == "9999" ]]; then
-		git-r3_fetch
-		git-r3_checkout
-	else
-		unpack "${P}.tar.gz"
-	fi
-}
-
 src_prepare() {
 	default
 
@@ -138,6 +130,10 @@ src_prepare() {
 		-e '\|^#!/bin/bash$|a exit 77' \
 		tests/mmkubernetes-cache-expir*.sh \
 		|| die "Failed to disable known test failure mmkubernetes-cache-expir*.sh"
+
+	# The "#version" is a template variable.
+	# Bug: https://bugs.gentoo.org/970337
+	sed -i doc/source/conf.py -e "s|^#version.*|version = \"${PV}\"|g" || die
 
 	local -a bad_tests=(
 		omfwd-lb-1target-retry-1_byte_buf-TargetFail
@@ -188,8 +184,9 @@ src_configure() {
 		--enable-imdiag
 		--enable-imfile
 		--enable-improg
-		--enable-impstats
 		--enable-imptcp
+		--enable-impstats
+		--disable-impstats-push  # Needs unpackaged "protobuf-c".
 		# Message Modificiation Plugins without dependencies
 		--enable-mmanon
 		--enable-mmaudit
