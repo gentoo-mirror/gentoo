@@ -11,13 +11,13 @@ SRC_URI="https://github.com/PurpleI2P/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="test +upnp"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	dev-libs/boost:=
-	dev-libs/openssl:0=[-bindist(-)]
+	dev-libs/openssl:=
 	virtual/zlib:=
 	upnp? ( net-libs/miniupnpc:= )
 "
@@ -34,8 +34,6 @@ RDEPEND="
 CMAKE_USE_DIR="${WORKDIR}/${P}/build"
 
 DOCS=( ../README.md ../contrib/i2pd.conf ../contrib/tunnels.conf )
-
-PATCHES=( "${FILESDIR}"/i2pd-2.58.0-boost-1.89.patch )
 
 src_configure() {
 	local mycmakeargs=(
