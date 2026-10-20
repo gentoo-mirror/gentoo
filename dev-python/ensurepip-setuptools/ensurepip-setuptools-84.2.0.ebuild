@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -111,16 +111,9 @@ python_test() {
 		# TODO
 		setuptools/tests/test_config_discovery.py::TestDiscoverPackagesAndPyModules::test_py_modules_when_wheel_dir_is_cwd
 		'setuptools/tests/test_egg_info.py::TestEggInfo::test_requires[setup_requires_with_markers]'
+		# broken by scikit-build-core somehow
+		'setuptools/tests/test_extern.py::test_distribution_picklable'
 	)
-
-	case ${EPYTHON} in
-		pypy3.11)
-			EPYTEST_DESELECT+=(
-				# fails and breaks other tests
-				setuptools/tests/test_editable_install.py
-			)
-			;;
-	esac
 
 	local -x PRE_BUILT_SETUPTOOLS_WHEEL=${DISTUTILS_WHEEL_PATH}
 	epytest -o tmp_path_retention_policy=all \

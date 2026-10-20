@@ -8,7 +8,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
 PYTHON_TESTED=( python3_{12..15} )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_{14..15}t )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" pypy3_12 python3_{14..15}t )
 PYTHON_REQ_USE="xml(+)"
 
 inherit distutils-r1 pypi
@@ -21,7 +21,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -29,7 +29,7 @@ RDEPEND="
 	>=dev-python/jaraco-functools-4.4.0[${PYTHON_USEDEP}]
 	>=dev-python/jaraco-text-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/more-itertools-10.8.0[${PYTHON_USEDEP}]
-	>=dev-python/packaging-25.0[${PYTHON_USEDEP}]
+	>=dev-python/packaging-26.3[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-4.4.0[${PYTHON_USEDEP}]
 	>=dev-python/wheel-0.45.1[${PYTHON_USEDEP}]
 "
@@ -112,6 +112,8 @@ python_test() {
 		setuptools/tests/config/test_apply_pyprojecttoml.py::TestPresetField::test_scripts_dont_require_dynamic_entry_points
 		# TODO
 		'setuptools/tests/test_egg_info.py::TestEggInfo::test_requires[setup_requires_with_markers]'
+		# broken by scikit-build-core somehow
+		'setuptools/tests/test_extern.py::test_distribution_picklable'
 	)
 
 	local EPYTEST_XDIST=1
