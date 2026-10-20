@@ -3012,7 +3012,7 @@ app-misc/zisofs-tools 1.0.8-r1: User utilities for zisofs
 app-mobilephone/adebar 2.4.2: Android DEvice Backup And Report, using Bash and ADB
 app-mobilephone/anyremote 6.7.3: Bluetooth, infrared or cable remote control service
 app-mobilephone/dfu-util 0.11 9999: implements the Host (PC) side of the USB DFU (Device Firmware Upgrade) protocol
-app-mobilephone/gammu 1.44.1 1.45.0: A tool to handle your cellular phone
+app-mobilephone/gammu 1.45.0 1.45.1: A tool to handle your cellular phone
 app-mobilephone/gnokii 0.6.31-r5: User space driver and tools for use with mobile phones
 app-mobilephone/heimdall 2.2.2: Tool suite used to flash firmware onto Samsung devices
 app-mobilephone/scmxx 0.9.0-r1: Exchange data with Siemens phones
@@ -3906,7 +3906,7 @@ dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2-r1: The ANTLR 4 C++ Runtime
 dev-cpp/argparse 2.9 3.0 3.2: Argument Parser for Modern C++
 dev-cpp/asio 1.30.2 1.34.2 1.36.0 1.38.0: Asynchronous Network Library
 dev-cpp/atkmm 2.28.4 2.36.3: C++ interface for the ATK library
-dev-cpp/aws-crt-cpp 0.35.4 0.42.3 0.43.6 0.43.7 0.43.8 0.43.9 0.44.0: C++ wrapper around the aws-c-* libraries
+dev-cpp/aws-crt-cpp 0.43.7 0.43.8 0.43.9 0.44.0 0.44.1: C++ wrapper around the aws-c-* libraries
 dev-cpp/aws-sdk-cpp 1.11.712 1.11.764 1.11.887 1.11.901 1.11.909: AWS SDK for C++
 dev-cpp/azure-core 1.16.1 1.16.2 1.16.3: Azure SDK for C++
 dev-cpp/azure-identity 1.13.2 1.13.3: Azure SDK for C++
@@ -8414,7 +8414,7 @@ dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applic
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 3.0.1 3.1: Bash style brace expansion for Python
-dev-python/braintree 4.46.0 4.47.0: Braintree Python Library
+dev-python/braintree 4.47.0 4.48.0: Braintree Python Library
 dev-python/breathe 4.36.0 5.0.0: Sphinx Doxygen renderer
 dev-python/brotlicffi 1.2.0.1 1.2.0.2: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
@@ -8423,7 +8423,7 @@ dev-python/build 1.5.1 1.6.0 1.6.1: A simple, correct PEP517 package builder
 dev-python/cachebox 6.2.7 6.2.8: The fastest memoizing and caching Python library written in Rust
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.15.4 0.16.1 0.17.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
-dev-python/cachetools 7.2.0 7.2.1 7.2.2 7.2.3: Extensible memoizing collections and decorators
+dev-python/cachetools 7.2.0 7.2.1 7.2.2 7.2.3 7.2.4: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.7.1-r1: CFFI-based drop-in replacement for Pycairo
 dev-python/cangjie 1.5.0: Python wrapper for libcangjie
 dev-python/canonicaljson 2.0.0: Canonical JSON
@@ -8601,7 +8601,7 @@ dev-python/emcee 3.1.6: Python ensemble sampling toolkit for affine-invariant MC
 dev-python/emoji 2.15.0 2.16.0: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 26.1.2 26.2.1: Shared pip wheel for ensurepip Python module
-dev-python/ensurepip-setuptools 79.0.1 83.0.0 84.0.0: Shared setuptools wheel for ensurepip Python module
+dev-python/ensurepip-setuptools 79.0.1 84.0.0 84.2.0: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.47.0 0.48.0: Shared wheel wheel for use in pip tests
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
 dev-python/entrypoints 0.4 0.4.2: Discover and load entry points from installed packages
@@ -8750,7 +8750,7 @@ dev-python/httptools 0.8.0 0.9.0: A collection of framework independent HTTP pro
 dev-python/httpx 0.28.1-r1: Fully-featured HTTP client which provides sync and async APIs
 dev-python/httpx-aiohttp 0.2.0: Aiohttp transport for HTTPX
 dev-python/httpx-socks 0.11.0 0.12.0 0.13.0 0.13.1: Proxy (HTTP, SOCKS) transports for httpx
-dev-python/httpx2 2.10.0 2.12.0 2.13.0 2.13.1 2.14.0: The next generation HTTP client (Pydantic fork)
+dev-python/httpx2 2.10.0 2.12.0 2.13.0 2.13.1 2.14.0 2.15.1: The next generation HTTP client (Pydantic fork)
 dev-python/huawei-lte-api 1.11.0 2.0.1: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r2: Human friendly output for text interfaces using Python
 dev-python/humanize 4.15.0 4.16.0: Common humanization utilities
@@ -8841,10 +8841,10 @@ dev-python/json5 0.15.0 0.16.0 0.17.3: A Python implementation of the JSON5 data
 dev-python/jsondiff 2.2.1: Diff JSON and JSON-like structures in Python
 dev-python/jsonext 0.4.2-r1: Well-structured helpers for serializing commonly encountered structures to JSON
 dev-python/jsonmerge 1.9.2: Merge a series of JSON documents
-dev-python/jsonpatch 1.33 1.34 1.35: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
+dev-python/jsonpatch 1.33 1.34 1.35 1.36: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
 dev-python/jsonpath-ng 1.8.0 1.9.0 1.9.1 1.10.1 1.11.0: Python JSONPath Next-Generation
 dev-python/jsonpickle 4.1.2 4.1.3 4.1.4: Python library for serializing any arbitrary object graph into JSON
-dev-python/jsonpointer 3.1.1 3.2.0 3.2.1 3.3: Identify specific nodes in a JSON document (according to draft 08)
+dev-python/jsonpointer 3.1.1 3.2.0 3.2.1 3.3 3.4: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
 dev-python/jsonschema 4.26.0: An implementation of JSON-Schema validation for Python
@@ -8978,7 +8978,7 @@ dev-python/minikanren 1.0.5: Relational programming in Python
 dev-python/minimock 1.3.0-r1: The simplest possible mock library
 dev-python/miniupnpc 2.3.3: Python bindings for UPnP client library
 dev-python/mistletoe 1.5.1 1.6.0: A fast, extensible Markdown parser in pure Python
-dev-python/mistune 3.3.3 3.3.4: The fastest markdown parser in pure Python
+dev-python/mistune 3.3.4 3.4.0: The fastest markdown parser in pure Python
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
 dev-python/ml-dtypes 0.5.4 0.6.0: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
@@ -9214,7 +9214,7 @@ dev-python/pycotap 1.3.1: A tiny test runner that outputs TAP results to standar
 dev-python/pycountry 26.2.16: Database of countries, subdivisions, languages, currencies and script
 dev-python/pycparser 3.0 3.1 3.11: C parser and AST generator written in Python
 dev-python/pycpio 1.7.0 9999: Python CPIO library
-dev-python/pycryptodome 3.24.1 4.0.0 4.0.1: A self-contained cryptographic library for Python
+dev-python/pycryptodome 3.24.1 4.0.0 4.0.1 4.1.0: A self-contained cryptographic library for Python
 dev-python/pycuda 2025.1.3-r1: Python wrapper for NVIDIA CUDA
 dev-python/pycups 2.0.4: Python bindings for the CUPS API
 dev-python/pycurl 7.47.0 7.48.0: Python bindings for curl/libcurl
@@ -9469,7 +9469,7 @@ dev-python/python-swiftclient 4.10.0 4.11.0: Python bindings to the OpenStack Ob
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
 dev-python/python-tests 0.3.14.7 0.3.14.8 0.3.14.9999 0.3.15.0 0.3.15.9999 3.12.14 3.12.15 3.12.9999 3.13.15 3.13.16 3.13.9999 3.14.7 3.14.8 3.14.9999 3.15.0 3.15.9999: Test modules from dev-lang/python
 dev-python/python-tlsh 4.12.1: Fuzzy matching library - C++ extension for Python
-dev-python/python-utils 4.0.0 4.1.0 4.1.1 4.1.2: Collection of small Python functions & classes
+dev-python/python-utils 4.0.0 4.1.0 4.1.1 4.1.2 4.1.3: Collection of small Python functions & classes
 dev-python/python-vlc 3.0.21203: Python ctypes-based bindings for libvlc
 dev-python/python-xlib 0.33: A fully functional X client library for Python, written in Python
 dev-python/python-xmp-toolkit 2.1.0: Library for working with XMP metadata
@@ -9612,7 +9612,7 @@ dev-python/serpent 1.43: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 26.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.7-r1 1.3.8: Allow customization of the process title
-dev-python/setuptools 79.0.1 83.0.0 84.0.0: Collection of extensions to Distutils
+dev-python/setuptools 79.0.1 84.0.0 84.2.0: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.18 0.1.19: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.12.0 1.12.1 1.13.0: A plugin for setuptools to build Rust Python extensions
@@ -9880,7 +9880,7 @@ dev-python/webcolors 25.10.0: Color names and value formats defined by the HTML 
 dev-python/webencodings 0.5.1-r2 0.6.1: Character encoding aliases for legacy web content
 dev-python/webob 1.8.10 1.8.11: WSGI request and response object
 dev-python/websocket-client 1.9.0 1.9.1 1.9.2: WebSocket client for python with hybi13 support
-dev-python/websockets 17.1 17.2: Library for building WebSocket servers and clients in Python
+dev-python/websockets 17.1 17.2 17.3: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.13.0: WebSockets support for any application/server
 dev-python/webtest 3.0.7: Helper to test WSGI applications
 dev-python/werkzeug 3.1.8 3.1.9: Collection of various utilities for WSGI applications
@@ -9909,7 +9909,7 @@ dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17 1.3.17-r1: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.29 0.2.32 0.2.33 0.2.34 0.2.35: Python wrapper for running a display inside X virtual framebuffer
-dev-python/xxhash 4.0.1: Python binding for the xxHash library
+dev-python/xxhash 4.0.1 4.0.2: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
