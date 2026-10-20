@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_USE_PEP517=flit-core
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1
@@ -25,14 +25,13 @@ S=${WORKDIR}/${MY_P}
 LICENSE="BSD-2"
 SLOT="0"
 if [[ ${PV} != *_rc* ]]; then
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 IUSE="doc latex"
 
 RDEPEND="
 	>=dev-python/alabaster-0.7.14[${PYTHON_USEDEP}]
 	>=dev-python/babel-2.13[${PYTHON_USEDEP}]
-	<dev-python/docutils-0.23[${PYTHON_USEDEP}]
 	>=dev-python/docutils-0.21[${PYTHON_USEDEP}]
 	>=dev-python/imagesize-1.3[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.1[${PYTHON_USEDEP}]
@@ -54,7 +53,6 @@ RDEPEND="
 	)
 "
 BDEPEND="
-	>=dev-python/flit-core-3.11
 	doc? (
 		dev-python/sphinxcontrib-websupport[${PYTHON_USEDEP}]
 		media-gfx/graphviz
@@ -72,21 +70,23 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/sphinx-3.2.1-doc-link.patch"
-)
-
 EPYTEST_PLUGINS=()
 EPYTEST_RERUNS=5
 # EPYTEST_XDIST breaks stuff
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	local PATCHES=(
+		"${FILESDIR}/sphinx-3.2.1-doc-link.patch"
+	)
+
+	distutils-r1_python_prepare_all
+
 	# disable internet access
 	sed -i -e 's:^intersphinx_mapping:disabled_&:' \
 		doc/conf.py || die
-
-	distutils-r1_python_prepare_all
+	# unpin dependencies
+	sed -i -e 's:,<[0-9.]*::' pyproject.toml || die
 }
 
 python_compile_all() {
