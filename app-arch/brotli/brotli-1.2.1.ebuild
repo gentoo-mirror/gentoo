@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL="1"
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit cmake-multilib distutils-r1 flag-o-matic
 
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/google/${PN}.git"
 	inherit git-r3
 else
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 	SRC_URI="
 		https://github.com/google/${PN}/archive/v${PV}.tar.gz
 			-> ${P}.tar.gz
@@ -43,6 +43,10 @@ BDEPEND="
 "
 
 DOCS=( README.md CONTRIBUTING.md )
+
+PATCHES=(
+	"${FILESDIR}/1.2.0-fix-loong-build.patch"
+)
 
 src_prepare() {
 	cmake_src_prepare
@@ -90,4 +94,9 @@ multilib_src_install_all() {
 	for page in constants decode encode types ; do
 		newman docs/${page}.h.3 ${PN}_${page}.h.3
 	done
+
+	dosym -r /usr/bin/brotli /usr/bin/brcat
+	dosym -r /usr/bin/brotli /usr/bin/unbrotli
+	dosym -r /usr/share/man/man1/brotli.1 /usr/share/man/man1/brcat.1
+	dosym -r /usr/share/man/man1/brotli.1 /usr/share/man/man1/unbrotli.1
 }
