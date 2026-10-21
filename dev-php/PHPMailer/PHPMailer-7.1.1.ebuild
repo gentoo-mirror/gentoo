@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 DESCRIPTION="Full-featured email creation and transfer class for PHP"
 HOMEPAGE="https://github.com/PHPMailer/PHPMailer"
@@ -9,7 +9,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 
 # To help out the Composer children, the tests and examples are missing
 # from the release tarballs.
@@ -40,7 +40,8 @@ src_install() {
 	insinto "/usr/share/php/${PN}"
 	doins -r language src
 
-	dodoc README.md SECURITY.md
+	# UPGRADING.md and changelog.md are missing
+	dodoc README.md SECURITY.md SMTPUTF8.md
 }
 
 pkg_postinst() {
