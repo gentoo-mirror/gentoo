@@ -50,6 +50,7 @@ DEPEND="
 	"
 
 RDEPEND="${DEPEND}
+	acct-user/postdrop
 	dev-lang/perl
 	memcached? ( net-misc/memcached )
 	net-mail/mailbase
@@ -298,10 +299,19 @@ src_install() {
 	insinto /usr/include/postfix
 	doins include/*.h
 
-	systemd_dounit "${FILESDIR}/${PN}.service"
+	systemd_dounit "${FILESDIR}/${PN}.service" "${FILESDIR}/postlift.socket"
+	systemd_newunit "${FILESDIR}/postlift.service" "postlift@.service"
 }
 
 pkg_postinst() {
+	if has_version -r sys-apps/systemd && ver_replacing -lt 3.12; then
+		elog "For non-root local submissions under NoNewPrivileges=yes or nosuid,"
+		elog "enable the postlift socket on systemd systems:"
+		elog "  systemctl enable --now postlift.socket"
+		elog "Such submissions fail while the socket is inactive, including early boot."
+		elog "See NO_NEW_PRIVILEGES_README for details."
+	fi
+
 	if ver_replacing -lt 3.12; then
 		ewarn "berkdb USE flag is off by default in postfix-3.12."
 		ewarn "Remember to turn it on if you are still using hash"
