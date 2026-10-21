@@ -5,12 +5,12 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.93.0"
+RUST_MIN_VER="1.96.0"
 
 inherit cargo gnome2-utils meson
 
 MY_P=${P/_/.}
-CRATE_P=fractal-${PV/_/.}
+CRATE_PV=14.2
 
 DESCRIPTION="Matrix messaging app for GNOME written in Rust"
 HOMEPAGE="
@@ -23,7 +23,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://github.com/gentoo-crate-dist/fractal/releases/download/${PV/_/.}/${CRATE_P}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/fractal/releases/download/${CRATE_PV}/fractal-${CRATE_PV}-crates.tar.xz
 	"
 fi
 S=${WORKDIR}/${MY_P}
@@ -35,7 +35,7 @@ LICENSE+="
 	CDLA-Permissive-2.0 GPL-3+ ISC MIT MPL-2.0 MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
 	>=dev-libs/glib-2.86

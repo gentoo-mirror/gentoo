@@ -32,3 +32,5 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 "
+
+PATCHES=( "${FILESDIR}/${P}-do-not-start-service-too-early.patch" ) # bug #984337
