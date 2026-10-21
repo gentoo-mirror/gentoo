@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-lang/go-1.26:="
+DEPEND=">=dev-lang/go-1.27:="
 RESTRICT="strip"
 
 src_compile() {
@@ -28,6 +28,7 @@ src_test() {
 	then
 		die "Test failed"
 	fi
+	ego test
 }
 
 src_install() {
