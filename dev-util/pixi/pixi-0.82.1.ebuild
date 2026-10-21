@@ -82,9 +82,6 @@ src_configure() {
 		Libs: -lbz2
 	EOF
 
-	# uv is forcing bundled liblzma, sigh
-	sed -i -e '/xz/s:"static"::' "${ECARGO_VENDOR}"/uv-*/Cargo.toml || die
-
 	# rattler-build is forcing bundled libdbus
 	sed -i -e '/"vendored"/d' -e 's:"crypto-rust":"crypto-openssl":' \
 		"${ECARGO_VENDOR}"/rattler_networking-*/Cargo.toml || die
