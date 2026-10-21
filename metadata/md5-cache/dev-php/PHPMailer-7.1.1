@@ -1,11 +1,11 @@
 DEFINED_PHASES=install postinst
 DESCRIPTION=Full-featured email creation and transfer class for PHP
-EAPI=8
+EAPI=9
 HOMEPAGE=https://github.com/PHPMailer/PHPMailer
 IUSE=idn ssl
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=LGPL-2.1
 RDEPEND=ssl? ( idn? ( dev-lang/php:*[ctype,filter,intl,ssl,unicode] ) !idn? ( dev-lang/php:*[ctype,filter,ssl] ) ) !ssl? ( idn? ( dev-lang/php:*[ctype,filter,intl,unicode] ) !idn? ( dev-lang/php:*[ctype,filter] ) )
 SLOT=0
-SRC_URI=https://github.com/PHPMailer/PHPMailer/archive/v6.9.1.tar.gz -> PHPMailer-6.9.1.tar.gz
-_md5_=eeb0428e1764dc892ef41f6e8ddd56ab
+SRC_URI=https://github.com/PHPMailer/PHPMailer/archive/v7.1.1.tar.gz -> PHPMailer-7.1.1.tar.gz
+_md5_=a9d9f6b14bd71f3365c9acdab8baca3b
