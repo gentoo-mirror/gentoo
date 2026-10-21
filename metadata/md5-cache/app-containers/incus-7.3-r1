@@ -4,7 +4,7 @@ DEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-container
 DESCRIPTION=Modern, secure and powerful system container and virtual machine manager
 EAPI=8
 HOMEPAGE=https://linuxcontainers.org/incus/introduction/ https://github.com/lxc/incus
-INHERIT=go-env go-module linux-info optfeature systemd toolchain-funcs verify-sig
+INHERIT=go-env go-module linux-info optfeature shell-completion sysroot systemd verify-sig
 IUSE=apparmor fuidshift nls qemu selinux verify-sig
 KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0 BSD LGPL-3 MIT
@@ -12,5 +12,5 @@ RDEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-containe
 RESTRICT=test
 SLOT=0/stable
 SRC_URI=https://linuxcontainers.org/downloads/incus/incus-7.3.tar.xz verify-sig? ( https://linuxcontainers.org/downloads/incus/incus-7.3.tar.xz.asc )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	linux-info	efd923656513c879204fec6638eadee5	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=fcd5c9228a277fbcbd2e3c8553cdcae1
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	linux-info	efd923656513c879204fec6638eadee5	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	shell-completion	42587a281b8b546975e45fad82edcb50	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=ab466dfd5128b9c81704e29d74855b13
