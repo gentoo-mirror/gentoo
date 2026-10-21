@@ -5,9 +5,9 @@ EAPI=8
 
 inherit apache-module autotools
 
-DESCRIPTION="A module that uses rustls to provide a memory safe TLS implementation in Rust"
+DESCRIPTION="Apache module that uses rustls to provide a memory safe TLS implementation in Rust"
 HOMEPAGE="https://github.com/icing/mod_tls"
-SRC_URI="https://github.com/icing/mod_tls/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/icing/mod_tls/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -15,10 +15,12 @@ KEYWORDS="~amd64"
 IUSE="ssl"
 
 RDEPEND="
-	=net-libs/rustls-ffi-0.14*
+	>=net-libs/rustls-ffi-0.14:=
 	>=www-servers/apache-2.4.48[-apache2_modules_tls(-)]
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-0.14.0-werror.patch" )
 
 need_apache2_4
 
