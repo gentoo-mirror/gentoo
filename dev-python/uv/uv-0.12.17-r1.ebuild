@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.97.0"
+RUST_MIN_VER="1.96.0"
 
 inherit cargo check-reqs
 
@@ -39,7 +39,7 @@ LICENSE+="
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
+KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
@@ -147,5 +147,10 @@ src_install() {
 		#
 		# https://docs.astral.sh/uv/reference/settings/#python-preference
 		python-preference = "system"
+
+		# Always use system certificates.
+		#
+		# https://docs.astral.sh/uv/reference/settings/#system-certs
+		system-certs = true
 	EOF
 }
