@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/secure-systems-lab/securesystemslib
-PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -17,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="
-	>=dev-python/cryptography-40.0.0[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-48.0.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
@@ -36,6 +36,8 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# requires PyKCS11
 		tests/test_hsm_signer.py
+		# requires keylet
+		tests/test_tkey_signer.py
 	)
 
 	epytest tests

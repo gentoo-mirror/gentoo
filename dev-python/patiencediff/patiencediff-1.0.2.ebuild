@@ -11,20 +11,20 @@ PYTHON_COMPAT=( python3_{12..15} )
 RUST_MIN_VER="1.83.0"
 CRATES="
 	heck@0.5.0
-	libc@0.2.186
+	libc@0.2.191
 	once_cell@1.21.4
-	patiencediff@0.2.1
-	portable-atomic@1.13.1
-	proc-macro2@1.0.106
-	pyo3-build-config@0.29.0
-	pyo3-ffi@0.29.0
-	pyo3-macros-backend@0.29.0
-	pyo3-macros@0.29.0
-	pyo3@0.29.0
-	quote@1.0.45
-	syn@2.0.117
+	patiencediff@0.3.0
+	portable-atomic@1.15.0
+	proc-macro2@1.0.107
+	pyo3-build-config@0.30.1
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
+	quote@1.0.47
+	syn@3.0.9
 	target-lexicon@0.13.5
-	unicode-ident@1.0.24
+	unicode-ident@1.0.27
 "
 
 inherit cargo distutils-r1 pypi
