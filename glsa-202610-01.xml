@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202610-01">
+    <title>ca-certificates: Compromised Intermediate Certificate Authority</title>
+    <synopsis>A vulnerability has been discovered in ca-certificates where an intermediate Certificate Authority has been compromised.</synopsis>
+    <product type="ebuild">ca-certificates</product>
+    <announced>2026-10-21</announced>
+    <revised count="1">2026-10-21</revised>
+    <bug>984601</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-misc/ca-certificates" auto="yes" arch="*">
+            <unaffected range="ge">20260816.3.125</unaffected>
+            <vulnerable range="lt">20260816.3.125</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>For more information on the packages listed in this GLSA, please see their homepage referenced in the ebuild.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in ca-certificates. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Man-in-the-middle (MITM) attacks are possible using the compromised authority key.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ca-certificates users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/ca-certificates-20260816.3.125"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-111943">CVE-2026-111943</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-10-21T00:17:53.769242Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-10-21T00:17:53.772972Z">sam</metadata>
+</glsa>
