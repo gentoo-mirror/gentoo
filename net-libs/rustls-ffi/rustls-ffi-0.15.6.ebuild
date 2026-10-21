@@ -1,68 +1,57 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CRATES="
-	aho-corasick@1.1.1
-	base64@0.21.5
-	cc@1.0.83
-	cfg-if@1.0.0
-	getrandom@0.2.11
-	libc@0.2.153
-	log@0.4.21
-	memchr@2.6.4
-	regex-automata@0.3.9
-	regex-syntax@0.7.5
-	regex@1.9.6
-	ring@0.17.5
-	rustls-pemfile@2.1.1
-	rustls-pki-types@1.3.1
-	rustls-webpki@0.102.0
-	rustls@0.22.0
-	rustversion@1.0.14
-	spin@0.9.8
-	subtle@2.5.0
-	untrusted@0.9.0
-	wasi@0.11.0+wasi-snapshot-preview1
-	windows-sys@0.48.0
-	windows-targets@0.48.5
-	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_msvc@0.48.5
-	windows_i686_gnu@0.48.5
-	windows_i686_msvc@0.48.5
-	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_msvc@0.48.5
-	zeroize@1.7.0
-"
 RUST_MULTILIB=1
-
+RUST_MIN_VER="1.81"
 inherit cargo flag-o-matic multilib-minimal rust-toolchain
 
 DESCRIPTION="C-to-rustls bindings"
 HOMEPAGE="https://github.com/rustls/rustls-ffi"
-SRC_URI="https://github.com/rustls/rustls-ffi/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" ${CARGO_CRATE_URIS}"
 
-LICENSE="|| ( Apache-2.0 MIT ISC )"
-# Dependent crate licenses
-LICENSE+=" BSD ISC MIT"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rustls/rustls-ffi.git"
+else
+	SRC_URI="
+		https://github.com/rustls/rustls-ffi/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/gentoo-crate-dist/rustls-ffi/releases/download/v${PV}/${P}-crates.tar.xz
+	"
+	KEYWORDS="~amd64"
+fi
+
+# Strictly speaking the core package is "|| ( Apache-2.0 MIT ISC )"
+# but dependencies explicitly require at least one of each.
+LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-3.0 MPL-2.0"
 # For Ring (see its LICENSE)
 LICENSE+=" ISC openssl SSLeay MIT"
-SLOT="0/${PV}"
-KEYWORDS="~amd64"
+SLOT="0/${PV%.*}"
 
 BDEPEND="dev-util/cargo-c"
 
 QA_FLAGS_IGNORED="usr/lib.*/librustls.*"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.12.1-no-rust-nightly.patch
-)
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+		cargo_live_src_unpack
+	else
+		cargo_src_unpack
+	fi
+}
 
 src_prepare() {
 	default
+
+	if ! [[ ${PV} == 9999 ]]; then # We already fetched all the crates...
+		# Currently only used for development, we can skip this
+		# and significantly reduce the number of required crates.
+		# Produces a docgen binary that we may want to use in the future. Just API docs?
+		rm -r tools || die
+		sed '/    "tools"/d' -i Cargo.toml || die
+		cargo_update_crates
+	fi
 
 	multilib_copy_sources
 }
@@ -70,10 +59,6 @@ src_prepare() {
 src_configure() {
 	# bug #927231
 	filter-lto
-
-	# textrels in ring
-	# Hopefully fixed with https://github.com/rustls/rustls-ffi/pull/389
-	export RUSTFLAGS="${RUSTFLAGS} -C link-arg=-Wl,-z,notext"
 
 	multilib-minimal_src_configure
 }
