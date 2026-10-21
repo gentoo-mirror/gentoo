@@ -10,8 +10,8 @@ IUSE=doc fltk gif glut gsl hdf hdf5 jpeg mpi octave opengl openmp pdf png qt6 th
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-3+
 RDEPEND=virtual/opengl fltk? ( x11-libs/fltk:1= ) gif? ( media-libs/giflib:= ) glut? ( media-libs/freeglut ) gsl? ( >=sci-libs/gsl-2:= ) hdf? ( sci-libs/hdf ) hdf5? ( >=sci-libs/hdf5-1.8:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) octave? ( >=sci-mathematics/octave-3.4.0:= ) openmp? ( sys-cluster/openmpi ) pdf? ( media-libs/libharu:= ) png? ( media-libs/libpng:= ) qt6? ( dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,opengl,widgets] ) wxwidgets? ( x11-libs/wxGTK:3.2-gtk3=[X] ) zlib? ( virtual/zlib:= )
-REQUIRED_USE=mpi? ( hdf5 ) openmp? ( !threads ) png? ( zlib ) pdf? ( png )
+REQUIRED_USE=mpi? ( hdf5 ) openmp? ( !threads ) png? ( zlib ) pdf? ( png ) doc? ( png )
 SLOT=0/7.5.0
 SRC_URI=https://downloads.sourceforge.net/mathgl/mathgl-8.0.3.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=e5c5fc3e787bf79bccc2c706f0ddd08b
+_md5_=82718a158e575389d3a4b69539ed7f02
