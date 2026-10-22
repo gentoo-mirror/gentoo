@@ -1,7 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 VIRTUALX_REQUIRED="doc"
 inherit virtualx elisp-common
 
@@ -71,7 +72,7 @@ src_test() {
 
 src_install() {
 	emake -j1 DESTDIR="${D}" install
-	dodoc README.rst FAQ
+	dodoc README.rst
 
 	if use emacs; then
 		sed -e "s|(setq load-path (cons (quote \"/usr/$(get_libdir)/fricas/emacs\") load-path)) ||" \
