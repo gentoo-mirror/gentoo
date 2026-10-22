@@ -24,6 +24,7 @@ KEYWORDS="~amd64"
 # pydantic can be used but it has a fallback
 RDEPEND="
 	>=dev-python/annotated-types-0.5.0[${PYTHON_USEDEP}]
+	>=dev-python/certifi-2026.10.19[${PYTHON_USEDEP}]
 	>=dev-python/logfury-1.0.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.33.0[${PYTHON_USEDEP}]
 	>=dev-python/tenacity-9.1.2[${PYTHON_USEDEP}]

@@ -3,16 +3,13 @@
 
 EAPI=8
 
-CRATES=""
-
-declare -A GIT_CRATES=(
-	[boringtun]='https://github.com/cloudflare/boringtun;2f3c85f5c4a601018c10b464b1ca890d9504bf6e;boringtun-%commit%/boringtun'
-)
+CRATES="
+"
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{12..15} )
-RUST_MIN_VER=1.88.0
+RUST_MIN_VER=1.95.0
 
 inherit cargo distutils-r1 pypi
 
@@ -38,14 +35,6 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	~net-proxy/mitmproxy-linux-${PV}[${PYTHON_USEDEP}]
 "
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# replace upstream crate substitution with our crate substitution, sigh
-	local bor_dep=$(grep ^boringtun "${ECARGO_HOME}"/config.toml || die)
-	sed -i -e "/boringtun/s;^.*$;${bor_dep};" Cargo.toml || die
-}
 
 python_test() {
 	cargo_src_test --manifest-path mitmproxy-rs/Cargo.toml

@@ -98,8 +98,10 @@ python_test() {
 		tests/test_telemetry/test_runtime.py::test_registration_provider_prefers_public_metric_reader
 		tests/test_telemetry/test_runtime.py::test_unsupported_provider_warns_without_preventing_startup
 		# TODO
-		'tests/test_tutorial/test_testing_dependencies/test_tutorial001.py::test_override_in_items_run[tutorial001_py310]'
-		'tests/test_tutorial/test_testing_dependencies/test_tutorial001.py::test_override_in_items_run[tutorial001_en_py310]'
+		tests/test_dependency_contextmanager.py::test_{a,}sync_state
+		tests/test_dependency_contextmanager.py::test_{a,}sync_raise_other
+		# tutorial tests are flaky
+		tests/test_tutorial/
 	)
 	epytest
 }

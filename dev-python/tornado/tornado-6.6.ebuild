@@ -30,9 +30,8 @@ RDEPEND="
 BDEPEND="
 	test? (
 		${RDEPEND}
-		$(python_gen_cond_dep '
-			>=dev-python/pycurl-7.19.3.1[${PYTHON_USEDEP}]
-		' 'python*')
+		dev-python/hypothesis[${PYTHON_USEDEP}]
+		>=dev-python/pycurl-7.19.3.1[${PYTHON_USEDEP}]
 	)
 "
 
