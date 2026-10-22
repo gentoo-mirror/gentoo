@@ -1,7 +1,7 @@
 Title: KDE Plasma 6.8 retires X11 session
 Author: Andreas Sturmlechner <asturm@gentoo.org>
 Posted: 2026-10-15
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: kde-plasma/kwin-x11
 
@@ -57,8 +57,9 @@ ambiguous usage - besides, not every "X11" library is obsolete in Wayland.
 Notes for users wishing to remain on X11-capable Plasma
 =======================================================
 
-In order to stay on Plasma 6.7 as 6.8 becomes available on your system, use
-the resulting list of the following command in order to mask[7] the upgrade:
+In order to temporarily (see above) stay on Plasma 6.7 as 6.8 becomes available
+on your system, use the resulting list of the following command in order to
+mask[7] the upgrade:
 
     for p in `qlist -IC kde-plasma/`; do echo ">=${p}-6.8"; done
 
