@@ -16,11 +16,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="doc"
 
 RDEPEND="
-	>=dev-python/sqlalchemy-1.4.23[${PYTHON_USEDEP}]
+	>=dev-python/sqlalchemy-2.0[${PYTHON_USEDEP}]
 	dev-python/mako[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.12[${PYTHON_USEDEP}]
 "
