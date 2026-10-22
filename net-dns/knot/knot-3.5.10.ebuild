@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
-inherit autotools eapi9-ver python-r1 systemd tmpfiles verify-sig
+PYTHON_COMPAT=( python3_{12..15} )
+inherit eapi9-ver python-r1 systemd tmpfiles verify-sig
 
 # subslot: libknot major.libdnssec major.libzscanner major
 KNOT_SUBSLOT="16.10.5"
@@ -13,7 +13,6 @@ DESCRIPTION="High-performance authoritative-only DNS server"
 HOMEPAGE="https://www.knot-dns.cz/ https://gitlab.nic.cz/knot/knot-dns"
 SRC_URI="
 	https://knot-dns.nic.cz/release/${P}.tar.xz
-	!doc? ( https://raw.githubusercontent.com/PPN-SD/gentoo-manpages/refs/tags/${P}/${P}-manpages.tar.xz )
 	verify-sig? ( https://knot-dns.nic.cz/release/${P}.tar.xz.asc )
 "
 LICENSE="GPL-2+"
@@ -57,8 +56,8 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="
-	dev-db/lmdb:=
-	net-libs/gnutls:=[pkcs11?]
+	>=dev-db/lmdb-0.9.15:=
+	>=net-libs/gnutls-3.7.3:=[pkcs11?]
 	daemon? (
 		${COMMON_DEPEND}
 		acct-group/knot
@@ -68,14 +67,14 @@ RDEPEND="
 		dbus? ( sys-apps/dbus )
 		geoip? ( dev-libs/libmaxminddb:= )
 		redis? ( >=dev-libs/hiredis-1.1.0:= )
-		systemd? ( sys-apps/systemd:= )
+		systemd? ( >=sys-apps/systemd-221:= )
 	)
 	prometheus? (
 		dev-python/prometheus-client[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 	)
 	python? ( ${PYTHON_DEPS} )
-	quic? ( net-libs/ngtcp2[gnutls] )
+	quic? ( >=net-libs/ngtcp2-0.17.0[gnutls] )
 	selinux? ( sec-policy/selinux-knot )
 	utils? (
 		${COMMON_DEPEND}
@@ -132,23 +131,18 @@ src_unpack() {
 	default
 }
 
-src_prepare() {
-	default
-	# avoid the old ltmain.sh modified by upstream which causes a linking issue
-	# reproduced with test and musl
-	eautoreconf
-}
-
 src_configure() {
-	local u
+	use doc || export ac_cv_path_SPHINXBUILD=
+
 	local my_conf=(
 		--with-storage="${EPREFIX}/var/lib/${PN}"
-		--with-rundir="${EPREFIX}/var/run/${PN}"
+		--with-rundir="${EPREFIX}/run/${PN}"
 		$(use_enable caps cap_ng)
 		$(use_enable daemon)
 		# enable-dnstap defines support for kdig only
 		$(use_enable dnstap dnstap $(usex utils))
-		$(use_enable doc documentation)
+		# always enable for manpages
+		--enable-documentation
 		$(use_with doh libnghttp2)
 		$(use_enable fastparser)
 		$(use_enable geoip maxminddb)
@@ -162,6 +156,7 @@ src_configure() {
 	)
 	# modules are only used by daemon
 	# module-dnstap defines support for knotd only
+	local u
 	if use daemon; then
 		for u in "${KNOT_MODULES[@]}"; do
 			my_conf+=( --with-module-${u} )
@@ -193,41 +188,7 @@ src_compile() {
 }
 
 src_install() {
-	if use doc; then
-		local HTML_DOCS=( doc/_build/html/{*.html,*.js,_sources,_static} )
-	else
-		# install the manpages only for the activated options, order from doc/Makefile.am
-		pushd "${WORKDIR}"/man/ >/dev/null || die
-		local manp=()
-		if use daemon; then
-			manp+=(
-				knot.conf.5
-				knotc.8
-				knotd.8
-			)
-		fi
-		if use utils; then
-			use daemon && manp+=(
-				kcatalogprint.8
-				keymgr.8
-				kjournalprint.8
-				kzonecheck.1
-				kzonesign.1
-			)
-			manp+=(
-				kdig.1
-				khost.1
-				knsupdate.1
-				knsec3hash.1
-			)
-			use xdp && manp+=(
-				kxdpgun.8
-			)
-		fi
-		[[ "${#manp[@]}" -ne 0 ]] && doman "${manp[@]}"
-		popd >/dev/null || die
-	fi
-
+	use doc && local HTML_DOCS=( doc/_build/html/{*.html,*.js,_sources,_static} )
 	if use python; then
 		# install only .py files, not build system leftovers (e.g. .in)
 		python_moduleinto libknot
@@ -247,16 +208,26 @@ src_install() {
 	default
 
 	if use daemon; then
-		rm -r "${ED}"/var/run/ || die
+		rm -r "${ED}"/run/ || die
 
-		keepdir /var/lib/knot
+		keepdir /var/lib/${PN}
+
+		fowners -R :knot /etc/${PN}
+		fperms 750 /etc/${PN}
+		fperms 640 /etc/${PN}/${PN}.sample.conf
+		fperms 640 /etc/${PN}/example.com.zone
 
 		newinitd "${FILESDIR}"/knot-3.init knot
 		newconfd "${FILESDIR}"/knot.confd knot
 
+		systemd_dounit distro/common/knot.service
+
 		newtmpfiles "${FILESDIR}"/${PN}.tmpfile ${PN}.conf
 
-		use systemd && systemd_newunit distro/common/knot.service knot.service
+		if use dbus; then
+			insinto /usr/share/dbus-1/system.d
+			doins distro/common/cz.nic.knotd.conf
+		fi
 	fi
 
 	find "${D}" -name '*.la' -delete || die
