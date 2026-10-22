@@ -1,6 +1,6 @@
 BDEPEND=app-arch/zip verify-sig? ( sec-keys/openpgp-keys-apache-xmlgraphics-batik ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=dev-java/jacl:0 >=dev-java/rhino-1.8.0:0 dev-java/xalan:0 dev-java/xml-commons-external:1.4 dev-java/xmlgraphics-commons:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/jacl:0 >=dev-java/rhino-1.8.0:0 dev-java/xalan:0 dev-java/xml-commons-external:1.4 ~dev-java/xmlgraphics-commons-2.10:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=XML Graphics Batik
 EAPI=8
 HOMEPAGE=https://xmlgraphics.apache.org/batik/
@@ -8,9 +8,9 @@ INHERIT=desktop java-pkg-2 java-pkg-simple xdg-utils verify-sig
 IUSE=doc source test verify-sig
 KEYWORDS=amd64 ~arm64 ~ppc64
 LICENSE=Apache-2.0
-RDEPEND=dev-java/jacl:0 >=dev-java/rhino-1.8.0:0 dev-java/xalan:0 dev-java/xml-commons-external:1.4 dev-java/xmlgraphics-commons:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/jacl:0 >=dev-java/rhino-1.8.0:0 dev-java/xalan:0 dev-java/xml-commons-external:1.4 ~dev-java/xmlgraphics-commons-2.10:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/xmlgraphics/batik/source/batik-src-1.18.tar.gz verify-sig? ( https://downloads.apache.org/xmlgraphics/batik/source/batik-src-1.18.tar.gz.asc )
 _eclasses_=desktop	e447b5f77146d69797e9f03ff177f3f1	java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=d397254cebe6b888b18e14f68bc7c3c3
+_md5_=857708517cc4be6f6f9da8589eca542e

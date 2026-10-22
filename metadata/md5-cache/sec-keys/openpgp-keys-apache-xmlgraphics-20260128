@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by xmlgraphics.apache.org/commons
+EAPI=8
+HOMEPAGE=https://xmlgraphics.apache.org/commons/download.html
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 arm64 ppc64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0B4235A1DE4EB7BB978E070CA072D4D04358C584 -> openpgp-keys-xmlgraphics02-ubuntu-20260128.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x700A735AB4EC4B56F9112852F73095707C611584 -> openpgp-keys-xmlgraphics03-ubuntu-20260128.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7FFB2D270C4DE3113518D09DE3E4404FCC31AE97 -> openpgp-keys-xmlgraphics04-ubuntu-20260128.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBE316D878F7CF48341EF13563E2A6FC25F298824 -> openpgp-keys-xmlgraphics05-ubuntu-20260128.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xD3544AC1BCADDF9D424FD0256654BABE0ED3D317 -> openpgp-keys-xmlgraphics06-ubuntu-20260128.asc https://downloads.apache.org/xmlgraphics/fop/KEYS -> openpgp-keys-apache-xmlgraphics-20260128
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
+_md5_=e11e5ccd5fca4555b0579009b3626af9
