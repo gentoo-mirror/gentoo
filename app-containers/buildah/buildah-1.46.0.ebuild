@@ -35,17 +35,16 @@ RDEPEND="
 	apparmor? ( sys-libs/libapparmor:= )
 	btrfs? ( sys-fs/btrfs-progs )
 	seccomp? ( sys-libs/libseccomp:= )
-	selinux? ( sec-policy/selinux-podman sys-libs/libselinux:= )
+	selinux? ( sec-policy/selinux-podman )
 	systemd? ( sys-apps/systemd )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-go/go-md2man
-	>=dev-lang/go-1.25.6
+	>=dev-lang/go-1.26.8
 "
 
 DOCS=( CHANGELOG.md troubleshooting.md docs/tutorials )
-PATCHES=( "${FILESDIR}/buildah-1.44.1-pr6984-dontbuild-on-install.patch" )
 
 pkg_pretend() {
 	if use btrfs; then
@@ -88,7 +87,7 @@ src_prepare() {
 	# hardcode using system sqlite instead of bundled one
 	[[ -f hack/sqlite_tag.sh ]] && echo -e '#!/usr/bin/env bash\necho libsqlite3' > hack/sqlite_tag.sh || die
 
-	use test || eapply "${FILESDIR}/${PN}-1.44.1-disable-tests.patch"
+	use test || eapply "${FILESDIR}/${PN}-1.45.0-disable-tests.patch"
 }
 
 src_compile() {
@@ -98,7 +97,7 @@ src_compile() {
 
 	tc-export AS LD STRIP
 	export GOMD2MAN="$(command -v go-md2man)"
-	emake binaries
+	emake SELINUXOPT= binaries
 	emake -C docs
 }
 
