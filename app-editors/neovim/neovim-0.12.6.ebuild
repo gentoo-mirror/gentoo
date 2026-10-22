@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/neovim/neovim.git"
 else
 	SRC_URI="https://github.com/neovim/neovim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
 LICENSE="Apache-2.0 vim"
@@ -108,8 +108,8 @@ src_install() {
 
 	# symlink tree-sitter parsers
 	dodir /usr/share/nvim/runtime
-	for parser in c lua markdown query vim vimdoc; do
-		dosym ../../../../$(get_libdir)/libtree-sitter-${parser}.so /usr/share/nvim/runtime/parser/${parser}.so
+	for parser in c lua markdown markdown_inline query vim vimdoc; do
+		dosym ../../../../$(get_libdir)/libtree-sitter-${parser/_/-}.so /usr/share/nvim/runtime/parser/${parser}.so
 	done
 
 	# conditionally install a symlink for nvimpager
