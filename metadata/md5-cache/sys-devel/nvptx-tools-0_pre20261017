@@ -1,0 +1,12 @@
+BDEPEND=test? ( dev-python/lit dev-util/dejagnu )
+DEFINED_PHASES=setup
+DESCRIPTION=Collection of tools for use with nvptx-none GCC toolchains
+EAPI=8
+HOMEPAGE=https://github.com/SourceryTools/nvptx-tools https://gcc.gnu.org/wiki/nvptx https://gcc.gnu.org/wiki/Offloading
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/SourceryTools/nvptx-tools/archive/58ccfa5783d59315d49c60fd9b7f076611b4e6ae.tar.gz -> nvptx-tools-0_pre20261017.tar.gz
+_md5_=bf9b90e15b09a71342a5902f792459dc
