@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 EGO_PN=github.com/git-lfs/git-lfs
 # Update the ID as it's included in each build.
-COMMIT_ID="aece9221f8c09221a14395d964806b956289bc07"
+COMMIT_ID="a662a6dbfedf706cfa9fc7a5b7bcc7ba2e2c8a65"
 
 inherit edo go-module shell-completion
 
