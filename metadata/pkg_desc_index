@@ -3132,7 +3132,7 @@ app-portage/portage-utils 0.97 0.97.1 9999: Small and fast Portage helper tools 
 app-portage/porticron 0.7.2: cron script to sync portage and send update mails to root
 app-portage/portpeek 3.2.9: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/prefix-toolkit 11-r1 12: Utilities for users of Gentoo Prefix
-app-portage/pycargoebuild 0.16.0 0.17.0 0.17.1: A generator for Rust/Cargo ebuilds written in Python
+app-portage/pycargoebuild 0.17.1 0.17.2: A generator for Rust/Cargo ebuilds written in Python
 app-portage/recover-broken-vdb 1.0.0-r2 9999: Check Portage's VDB for internal inconsistency on ELF metadata
 app-portage/repo-commit 0.4.1-r1 9999: A repository commit helper
 app-portage/smart-live-rebuild 1.4.1-r2 9999: Check live packages for updates and emerge them as necessary
@@ -8417,7 +8417,7 @@ dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python i
 dev-python/bracex 3.0.1 3.1 3.2: Bash style brace expansion for Python
 dev-python/braintree 4.47.0 4.48.0: Braintree Python Library
 dev-python/breathe 4.36.0 5.0.0: Sphinx Doxygen renderer
-dev-python/brotlicffi 1.2.0.1 1.2.0.2: Python binding to the Brotli library
+dev-python/brotlicffi 1.2.0.2 1.2.1.0: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
 dev-python/btrfsutil 7.0 7.1: Library for managing Btrfs filesystems
 dev-python/build 1.5.1 1.6.0 1.6.1: A simple, correct PEP517 package builder
@@ -8490,7 +8490,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.3-r1 1.4.0: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.16.0 7.16.1 7.16.2: Code coverage measurement for Python
+dev-python/coverage 7.16.0 7.16.1 7.16.2 7.17.0: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.12.0 2.12.1 2.13.0 2.14.0: Thin Python bindings to de/compression algorithms in Rust
@@ -8585,7 +8585,7 @@ dev-python/doit 0.37.0: Automation tool
 dev-python/doit-py 0.5.0-r1: doit tasks for python stuff
 dev-python/dominate 2.9.1: Library for creating and manipulating HTML documents using an elegant DOM API
 dev-python/doublex 1.9.6.1: Python test doubles
-dev-python/dulwich 1.2.14 1.2.15 1.2.16 1.2.17: Pure-Python implementation of the Git file formats and protocols
+dev-python/dulwich 1.2.15 1.2.16 1.2.17 1.2.19: Pure-Python implementation of the Git file formats and protocols
 dev-python/dunamai 1.26.1: Dynamic version generation
 dev-python/easy-thumbnails 2.10.1: Easy thumbnails for Django
 dev-python/easyprocess 1.1-r1: Easy to use Python subprocess interface
@@ -8626,7 +8626,7 @@ dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/ezgb 0.2.0 0.2.1: A standalone Python library for working with git-bug repositories
 dev-python/faker 40.38.0 40.40.0 40.41.0 40.42.0 40.43.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.35.1 2.37.1 2.38.0 2.39.0 2.40.0: Fake implementation of redis API for testing purposes
-dev-python/fastapi 0.156.4 0.159.1: High performance framework, easy to learn, fast to code, ready for production
+dev-python/fastapi 0.156.4 0.159.1 0.161.1: High performance framework, easy to learn, fast to code, ready for production
 dev-python/fastbencode 0.3.10 0.3.11 0.3.12: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
 dev-python/fastexcel 0.21.0: A fast excel file reader for Python, written in Rust
@@ -8656,7 +8656,7 @@ dev-python/flask-compress 1.24 1.25: Compress responses in your Flask app with g
 dev-python/flask-cors 6.0.4 6.0.5: A Flask extension for Cross Origin Resource Sharing (CORS)
 dev-python/flask-htmlmin 3.0.0: Minimize your flask rendered html
 dev-python/flask-login 0.6.3: Login session support for Flask
-dev-python/flask-paginate 2024.4.12: Pagination support for flask
+dev-python/flask-paginate 2024.4.12 2026.10.22: Pagination support for flask
 dev-python/flask-paranoid 0.3.0: Simple user session protection extension for Flask
 dev-python/flask-sphinx-themes 1.0.2-r1: Sphinx Themes for Flask related projects and Flask itself
 dev-python/flatbuffers 25.12.19: RFC 7049 - Concise Binary Object Representation
@@ -8698,14 +8698,14 @@ dev-python/gitdb 4.0.12: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.58 3.1.59 3.1.60 3.1.61 3.1.62 3.2.0 3.2.1: Library used to interact with Git repositories
 dev-python/gmpy2 2.3.1 2.3.2 2.4.0_alpha0: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.33.0 2.35.0 2.36.0 2.37.0 2.38.0 2.39.0 2.40.0 2.41.0 2.42.0: Core Library for Google Client Libraries
+dev-python/google-api-core 2.38.0 2.39.0 2.40.0 2.41.0 2.42.0 2.43.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.199.0 2.200.0 2.201.0: Google API Client for Python
 dev-python/google-auth 2.57.1 2.58.0 2.58.1 2.59.0 2.59.1 2.60.0 2.61.0 2.62.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.4.2 0.4.3 0.4.4: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.4.1 1.5.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.1: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
-dev-python/googleapis-common-protos 1.75.2 1.75.3 1.75.4 1.75.5: Python classes generated from the common protos in the googleapis repository
+dev-python/googleapis-common-protos 1.75.3 1.75.4 1.75.5 1.76.0: Python classes generated from the common protos in the googleapis repository
 dev-python/gpep517 20 22 23: A backend script to aid installing Python packages in Gentoo
 dev-python/gpgmepy 2.0.0-r1 2.0.0-r2: GnuPG Made Easy is a library for making GnuPG easier to use (Python bindings)
 dev-python/gpt-image 0.9.1: Tool to create GPT disk image files
@@ -8715,8 +8715,8 @@ dev-python/greenlet 3.5.5 3.5.6: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/grep-ast 20250508: Grep source code and see useful code context about matching lines
 dev-python/griddataformats 1.2.0: Reading and writing of data on regular grids in Python
-dev-python/grpcio 1.83.1 1.84.0: HTTP/2-based RPC framework
-dev-python/grpcio-status 1.83.1 1.84.0: Reference package for GRPC Python status proto mapping
+dev-python/grpcio 1.83.1 1.84.0 1.84.1: HTTP/2-based RPC framework
+dev-python/grpcio-status 1.83.1 1.84.0 1.84.1: Reference package for GRPC Python status proto mapping
 dev-python/gsd 5.0.1: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.11.1 1.12.0: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.24.13 1.26.11: A Python Interface to GStreamer
@@ -8759,7 +8759,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.168.0 6.168.1 6.168.2 6.168.4 6.168.5 6.169.0 6.169.1 6.169.3 6.170.0 6.170.1 6.170.5: A library for property based testing
+dev-python/hypothesis 6.168.0 6.168.1 6.168.2 6.168.4 6.168.5 6.169.0 6.169.1 6.169.3 6.170.0 6.170.1 6.170.5 6.170.8: A library for property based testing
 dev-python/hypothesis-gentoo 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.2.2 7.3.0: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8775,7 +8775,7 @@ dev-python/imaplib2 3.6 9999: Threaded Python IMAP4 client
 dev-python/iminuit 2.32.0 2.33.0: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.3.1: An immutable wrapper around dictionaries
 dev-python/immutables 0.21: A high-performance immutable mapping type for Python
-dev-python/importlib-metadata 9.0.0 9.0.1: Read metadata from Python packages
+dev-python/importlib-metadata 9.0.1 9.1.0: Read metadata from Python packages
 dev-python/incremental 24.11.0: Incremental is a small library that versions your Python projects
 dev-python/indexed-gzip 1.10.3: Fast random access of gzip files in Python
 dev-python/inflect 7.5.0 7.6.0: Correctly inflect words and numbers
@@ -8964,7 +8964,7 @@ dev-python/mecab-python 1.0.7: Python binding for MeCab
 dev-python/mechanicalsoup 1.4.0: A Python library for automating interaction with websites
 dev-python/mechanize 0.4.10: Stateful programmatic web browsing in Python
 dev-python/mediafile 0.17.0: Read and write audio files' tags in Python
-dev-python/memory-allocator 0.2.0: An extension class for memory allocation in cython
+dev-python/memory-allocator 0.2.0 0.2.1: An extension class for memory allocation in cython
 dev-python/merge3 0.0.16: Python implementation of 3-way merge
 dev-python/mergedict 1.0.0-r1: A Python 'dict' with a merge() method
 dev-python/meshio 5.3.5-r1: Input/output for many mesh formats
@@ -9059,7 +9059,7 @@ dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
 dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 3.0.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.6.0: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 4.20.0 4.21.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 4.20.0 4.21.0 4.22.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opentelemetry-api 1.44.0 1.45.0 1.45.1: OpenTelemetry Python API
 dev-python/opentelemetry-sdk 1.44.0 1.45.0 1.45.1: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.44.0 1.45.0 1.45.1: OpenTelemetry Semantic Conventions
@@ -9086,7 +9086,7 @@ dev-python/owslib 0.35.0 0.36.0: Library for client programming with Open Geospa
 dev-python/packaging 26.2 26.3: Core utilities for Python packages
 dev-python/paho-mqtt 2.1.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.5.0: Sphinx themes for Pallets and related projects
-dev-python/pandas 2.3.3 3.0.5 3.0.6: Powerful data structures for data analysis and statistics
+dev-python/pandas 3.0.5 3.0.6 3.1.0: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -9213,7 +9213,7 @@ dev-python/pycodestyle 2.14.0 2.15.0: Python style guide checker (fka pep8)
 dev-python/pycollada 0.9.3: Python library for reading and writing COLLADA documents
 dev-python/pycotap 1.3.1: A tiny test runner that outputs TAP results to standard output
 dev-python/pycountry 26.2.16: Database of countries, subdivisions, languages, currencies and script
-dev-python/pycparser 3.0 3.1 3.11: C parser and AST generator written in Python
+dev-python/pycparser 3.0 3.1 3.11 3.12: C parser and AST generator written in Python
 dev-python/pycpio 1.7.0 9999: Python CPIO library
 dev-python/pycryptodome 3.24.1 4.0.0 4.0.1 4.1.0: A self-contained cryptographic library for Python
 dev-python/pycuda 2025.1.3-r1: Python wrapper for NVIDIA CUDA
@@ -9454,7 +9454,7 @@ dev-python/python-mpv 1.0.8: Python interface to the mpv media player
 dev-python/python-multipart 0.0.32: A streaming multipart parser for Python
 dev-python/python-neutronclient 13.0.0 14.0.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.13.0 18.13.1: A client for the OpenStack Nova API
-dev-python/python-openstackclient 10.1.0 10.3.0 10.4.0: A client for the OpenStack APIs
+dev-python/python-openstackclient 10.1.0 10.3.0 10.4.0 10.5.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2 2.1.0: Python PAM module
 dev-python/python-pkcs11 0.10.0 0.10.1: PKCS#11/Cryptoki support for Python
 dev-python/python-pskc 1.4 9999: Python module for handling Portable Symmetric Key Container files
@@ -9730,7 +9730,7 @@ dev-python/suds-community 1.2.0: Lightweight SOAP client
 dev-python/superqt 0.8.2 0.9.0: Missing widgets and components for PyQt/PySide
 dev-python/sure 2.0.1-r1: idiomatic assertion toolkit with human-friendly failure messages
 dev-python/svg-path 7.0 7.1: SVG path objects and parser
-dev-python/svglib 2.2.0 2.3.0: Pure-Python library for reading and converting SVG
+dev-python/svglib 2.3.0 2.3.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
 dev-python/sybil 10.1.0: Automated testing for the examples in your documentation
@@ -9819,7 +9819,7 @@ dev-python/typing-extensions 4.15.0 4.16.0: Backported and Experimental Type Hin
 dev-python/typing-inspection 0.4.2 0.4.3 0.4.4: Runtime typing introspection tools
 dev-python/typogrify 2.1.0: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
-dev-python/tzlocal 5.4.3 5.4.4: tzinfo object for the local timezone
+dev-python/tzlocal 5.4.4 5.4.5: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.8.0: A portable, lightweight MessagePack serializer and deserializer
 dev-python/ubelt 1.4.2 1.4.3: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
 dev-python/uc-micro-py 2.0.0: Micro subset of unicode data files for linkify-it-py projects
@@ -9828,7 +9828,7 @@ dev-python/ukkonen 1.1.0: Implementation of bounded Levenshtein distance (Ukkone
 dev-python/unasync 0.6.0-r1: The async transformation code
 dev-python/uncertainties 3.2.4: Python module for calculations with uncertainties
 dev-python/unearth 0.18.2 0.18.3: A utility to fetch and download python packages
-dev-python/unicode-segmentation-rs 0.3.2 0.3.3: Unicode segmentation and width for Python using Rust
+dev-python/unicode-segmentation-rs 0.3.3 1.0.0: Unicode segmentation and width for Python using Rust
 dev-python/unidecode 1.4.0: Module providing ASCII transliterations of Unicode text
 dev-python/unidiff 1.0.0 1.0.1: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r2: A set of mixin classes and other helpers for unittest test case classes
@@ -9910,7 +9910,7 @@ dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible 
 dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17 1.3.17-r1: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
-dev-python/xvfbwrapper 0.2.29 0.2.32 0.2.33 0.2.34 0.2.35: Python wrapper for running a display inside X virtual framebuffer
+dev-python/xvfbwrapper 0.2.34 0.2.35 0.2.36: Python wrapper for running a display inside X virtual framebuffer
 dev-python/xxhash 4.0.1 4.0.2: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
@@ -11131,7 +11131,7 @@ dev-util/patchutils 0.4.2 0.4.4-r1 0.4.4-r2 0.4.5-r1: Collection of tools that o
 dev-util/patdiff 0.16.0 0.17.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.19 0.1.20: Recursive-descent parser generators for C
 dev-util/perf 6.19.12 7.0 7.1 7.2: Userland tools for Linux Performance Counters
-dev-util/pixi 0.82.1: A package management and workflow tool
+dev-util/pixi 0.82.1 0.83.0: A package management and workflow tool
 dev-util/pkgcheck 0.10.45 0.10.47 0.10.48 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 2.5.1 3.0.3 3.0.4 3.0.5 3.0.6 3.0.7 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgcruft 0.0.18-r1 9999: QA library and tools based on pkgcraft
@@ -13395,7 +13395,7 @@ media-libs/glm 1.0.1 1.0.2 1.0.3: OpenGL Mathematics
 media-libs/glpng 1.47: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
 media-libs/glycin 2.1.1-r1 2.1.5: Sandboxed and extendable image loading library
-media-libs/glycin-loaders 1.2.4 1.2.4-r1 2.1.1 2.1.5 2.2.0 2.2.1 2.2.1-r1 2.2.2 2.2.3: Loaders for glycin clients (glycin crate or libglycin)
+media-libs/glycin-loaders 1.2.4-r1 2.2.1 2.2.1-r1 2.2.2 2.2.3 2.2.4: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
 media-libs/gmmlib 22.10.0 22.10.1 22.10.2 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8-r1: A thin layer of types for graphic libraries
