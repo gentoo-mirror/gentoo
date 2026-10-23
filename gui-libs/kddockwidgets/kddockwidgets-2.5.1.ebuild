@@ -11,8 +11,8 @@ SRC_URI="https://github.com/KDAB/KDDockWidgets/releases/download/v${PV}/${P}.tar
 S=${WORKDIR}/KDDockWidgets-${PV}
 
 LICENSE="|| ( GPL-2 GPL-3 ) BSD MIT"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
+SLOT="0/4"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="qml"
 # building tests require developer mode which is messy to enable here
 RESTRICT="test"
