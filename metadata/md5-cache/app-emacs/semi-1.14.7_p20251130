@@ -1,0 +1,15 @@
+BDEPEND=>=app-editors/emacs-27.2:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DEPEND=>=app-emacs/apel-10.8 >=app-emacs/flim-1.14.9
+DESCRIPTION=A library to provide MIME feature for GNU Emacs
+EAPI=9
+HOMEPAGE=https://github.com/wanderlust/semi
+INHERIT=elisp
+IUSE=l10n_ja
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=app-emacs/apel-10.8 >=app-emacs/flim-1.14.9 >=app-editors/emacs-27.2:*
+SLOT=0
+SRC_URI=https://github.com/wanderlust/semi/archive/5edbb0d925845a5c59abc03003569178a13d862f.tar.gz -> semi-1.14.7_p20251130.tar.gz
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
+_md5_=eb9663ef87945bf15078e9e1abb76e1a
