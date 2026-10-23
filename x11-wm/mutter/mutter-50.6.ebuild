@@ -48,12 +48,12 @@ RDEPEND="
 	>=x11-libs/pango-1.46[introspection?]
 	>=x11-libs/cairo-1.14
 	>=x11-libs/pixman-0.42
-	>=gui-libs/gtk-4.14.0:4[introspection?]
+	>=gui-libs/gtk-4.14.0:4[introspection?,wayland]
 	>=dev-libs/fribidi-1.0.0
 	>=gnome-base/gsettings-desktop-schemas-47_beta[introspection?]
 	>=dev-libs/glib-2.81.1:2
 	gnome-base/gnome-settings-daemon
-	>=x11-libs/libxkbcommon-1.8.0
+	>=x11-libs/libxkbcommon-1.8.0[wayland]
 	>=app-accessibility/at-spi2-core-2.46:2[introspection?]
 	sys-apps/dbus
 	>=x11-misc/colord-1.4.5:=
