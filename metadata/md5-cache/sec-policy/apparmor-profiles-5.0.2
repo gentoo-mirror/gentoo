@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apparmor ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=install unpack
+DESCRIPTION=A collection of profiles for the AppArmor application security system
+EAPI=8
+HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
+INHERIT=verify-sig
+IUSE=minimal verify-sig verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=GPL-2
+RESTRICT=test
+SLOT=0/5.0
+SRC_URI=https://gitlab.com/apparmor/apparmor/-/archive/v5.0.2/apparmor-v5.0.2.tar.bz2 -> apparmor-profiles-5.0.2.tar.bz2 verify-sig? ( https://gitlab.com/api/v4/projects/4484878/packages/generic/signatures/5.0.2/apparmor-v5.0.2.tar.bz2.asc -> apparmor-profiles-5.0.2.tar.bz2.asc )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=50263ae0a68649639cf0934ccb3b455e
