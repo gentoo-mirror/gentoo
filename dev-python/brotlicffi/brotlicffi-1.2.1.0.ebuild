@@ -6,13 +6,13 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..15} python3_{14,15}t pypy3_11 )
+PYTHON_COMPAT=( python3_{12..15} python3_{14,15}t )
 
 inherit distutils-r1
 
-# Commit of the Brotli library bundled within brotlipy.
-BROTLI_BUNDLED_COMMIT="ed738e842d2fbdf2d6459e39267a633c4a9b2f5d"
-
+# Ideally we'd fetch the git archive for the commit bundled in brotlicffi,
+# but upstream is removing various test data files from the git archive.
+BROTLI_TESTDATA_PV=1.2.1
 DESCRIPTION="Python binding to the Brotli library"
 HOMEPAGE="
 	https://github.com/python-hyper/brotlicffi/
@@ -22,23 +22,20 @@ SRC_URI="
 	https://github.com/python-hyper/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	test? (
-		https://github.com/google/brotli/archive/${BROTLI_BUNDLED_COMMIT}.tar.gz
-			-> brotli-${BROTLI_BUNDLED_COMMIT}.tar.gz
-		https://github.com/google/brotli/raw/${BROTLI_BUNDLED_COMMIT}/tests/testdata/alice29.txt
+		https://github.com/google/brotli/releases/download/v${BROTLI_TESTDATA_PV}/testdata.txz
+			-> brotli-${PV}-testdata.txz
 	)
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 
 DEPEND="
 	app-arch/brotli:=
 "
 BDEPEND="
-	$(python_gen_cond_dep '
-		>=dev-python/cffi-1.17.0[${PYTHON_USEDEP}]
-	' 'python*')
+	>=dev-python/cffi-1.17.0[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	${DEPEND}
@@ -46,6 +43,7 @@ RDEPEND="
 "
 
 EPYTEST_PLUGINS=( hypothesis )
+EPYTEST_RERUNS=5
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
@@ -56,9 +54,7 @@ EPYTEST_DESELECT=(
 src_unpack() {
 	default
 	if use test; then
-		mv "brotli-${BROTLI_BUNDLED_COMMIT}"/tests "${S}"/libbrotli/ || die
-		# sigh, google and their stupid .gitattributes
-		cp "${DISTDIR}"/alice29.txt "${S}"/libbrotli/tests/testdata/ || die
+		mv tests "${S}"/libbrotli/ || die
 	fi
 }
 

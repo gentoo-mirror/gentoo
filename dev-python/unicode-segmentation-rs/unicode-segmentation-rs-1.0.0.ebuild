@@ -10,19 +10,19 @@ PYTHON_COMPAT=( python3_{12..15} )
 RUST_MIN_VER="1.85.0"
 CRATES="
 	heck@0.5.0
-	libc@0.2.189
+	libc@0.2.191
 	once_cell@1.21.4
-	portable-atomic@1.14.0
+	portable-atomic@1.15.0
 	proc-macro2@1.0.107
-	pyo3-build-config@0.29.1
-	pyo3-ffi@0.29.1
-	pyo3-macros-backend@0.29.1
-	pyo3-macros@0.29.1
-	pyo3@0.29.1
+	pyo3-build-config@0.30.1
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
 	quote@1.0.47
-	syn@2.0.119
+	syn@3.0.9
 	target-lexicon@0.13.5
-	unicode-ident@1.0.24
+	unicode-ident@1.0.27
 	unicode-linebreak@0.1.5
 	unicode-segmentation@1.13.3
 	unicode-width@0.2.2
@@ -43,7 +43,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions Unicode-3.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 QA_FLAGS_IGNORED="
 	usr/lib/py.*/site-packages/unicode_segmentation_rs/unicode_segmentation_rs.*

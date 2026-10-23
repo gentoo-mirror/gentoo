@@ -4,7 +4,7 @@
 # please keep this ebuild at EAPI 8 -- sys-apps/portage dep
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
+DISTUTILS_USE_PEP517=flit-core
 # NB: this package extends beyond built-in importlib stuff in py3.8+
 # new entry_point API not yet included in cpython release
 PYTHON_COMPAT=( python3_{12..15} )
@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 
 RDEPEND="
 	>=dev-python/zipp-3.20[${PYTHON_USEDEP}]

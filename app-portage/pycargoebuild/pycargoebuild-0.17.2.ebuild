@@ -17,11 +17,14 @@ HOMEPAGE="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64"
 
 RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
 	dev-python/license-expression[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/tomli-2.4.0[${PYTHON_USEDEP}]
+	' 3.{12..14})
 "
 
 EPYTEST_PLUGINS=()

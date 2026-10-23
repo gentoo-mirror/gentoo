@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
+PYPI_VERIFY_REPO=https://github.com/pandas-dev/pandas
 PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="threads(+)"
 
@@ -21,7 +22,9 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv"
+if [[ ${PV} != *_rc* ]]; then
+	KEYWORDS="~amd64 ~arm64 ~riscv"
+fi
 IUSE="big-endian full-support minimal test X"
 RESTRICT="!test? ( test )"
 
@@ -56,7 +59,6 @@ OPTIONAL_DEPEND="
 	)
 	X? (
 		|| (
-			>=dev-python/pyqt5-5.15.6[${PYTHON_USEDEP}]
 			>=dev-python/qtpy-2.2.0[${PYTHON_USEDEP}]
 			x11-misc/xclip
 			x11-misc/xsel
@@ -64,17 +66,16 @@ OPTIONAL_DEPEND="
 	)
 "
 DEPEND="
-	>=dev-python/numpy-1.23.2:=[${PYTHON_USEDEP}]
+	>=dev-python/numpy-2.3.3:=[${PYTHON_USEDEP}]
 "
 COMMON_DEPEND="
 	${DEPEND}
-	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
-	>=dev-python/pytz-2020.1[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.9.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	${COMMON_DEPEND}
 	>=dev-build/meson-1.2.1
-	>=dev-python/cython-3.0.5[${PYTHON_USEDEP}]
+	>=dev-python/cython-3.1.0[${PYTHON_USEDEP}]
 	>=dev-python/versioneer-0.28[${PYTHON_USEDEP}]
 	test? (
 		${VIRTUALX_DEPEND}
@@ -93,7 +94,6 @@ BDEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	dev-python/tzdata[${PYTHON_USEDEP}]
 	!minimal? ( ${RECOMMENDED_DEPEND} )
 	full-support? ( ${OPTIONAL_DEPEND} )
 "
@@ -102,44 +102,23 @@ EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-PATCHES=(
-	# https://github.com/pandas-dev/pandas/pull/61331/commits/12b1d00622ffc8b99986da2f4478cc2df4da213a
-	# (partially applied to 2.3.1, sigh)
-	"${FILESDIR}/${PN}-2.3.1-xarray-test.patch"
-)
-
 src_test() {
 	virtx distutils-r1_src_test
 }
 
 python_test() {
+	local EPYTEST_IGNORE=(
+		# missing test data
+		pandas/tests/io/pytables/test_compat.py
+	)
 	# Note; deselects relative to pandas/
 	local EPYTEST_DESELECT=(
-		# test for rounding errors, fails if we have better precision
-		# e.g. on amd64 with FMA or on arm64
-		# https://github.com/pandas-dev/pandas/issues/38921
-		tests/window/test_rolling.py::test_rolling_var_numerical_issues
-
-		# TODO: missing data not covered by --no-strict-data-files?
-		tests/io/xml/test_xml.py::test_empty_stylesheet
-		tests/io/xml/test_xml.py::test_wrong_file_path
+		# require -Werror
+		# https://github.com/pandas-dev/pandas/pull/63436
+		tests/config/test_config.py::TestConfig::test_case_insensitive
 
 		# deprecation warning
 		'tests/computation/test_eval.py::TestEval::test_scalar_unary[numexpr-pandas]'
-
-		# requires -Werror
-		tests/tslibs/test_to_offset.py::test_to_offset_lowercase_frequency_deprecated
-		tests/tslibs/test_to_offset.py::test_to_offset_uppercase_frequency_deprecated
-		tests/copy_view/test_array.py::test_dataframe_multiple_numpy_dtypes
-
-		# probably pytz, doesn't happen on main (where zoneinfo is used)
-		'tests/arrays/test_array.py::test_array_inference[data7-expected7]'
-
-		# random warning regressions?!
-		tests/test_expressions.py::TestExpressions::test_bool_ops_warn_on_arithmetic
-		'tests/series/test_arithmetic.py::TestSeriesArithmetic::test_add_list_to_masked_array_boolean[numexpr]'
-		'tests/frame/test_arithmetic.py::TestFrameArithmetic::test_binop_other[numexpr-add-True-bool]'
-		'tests/frame/test_arithmetic.py::TestFrameArithmetic::test_binop_other[numexpr-mul-True-bool]'
 	)
 
 	if ! tc-has-64bit-time_t; then
@@ -176,16 +155,8 @@ python_test() {
 	case ${EPYTHON} in
 		python3.14)
 			EPYTEST_DESELECT+=(
-				'tests/computation/test_eval.py::TestEval::test_simple_cmp_ops[float-float-numexpr-pandas-in]'
-				'tests/computation/test_eval.py::TestEval::test_simple_cmp_ops[float-float-numexpr-pandas-not in]'
-				'tests/computation/test_eval.py::TestEval::test_simple_cmp_ops[float-float-python-pandas-in]'
-				'tests/computation/test_eval.py::TestEval::test_simple_cmp_ops[float-float-python-pandas-not in]'
-				'tests/computation/test_eval.py::TestEval::test_compound_invert_op[float-float-numexpr-pandas-in]'
-				'tests/computation/test_eval.py::TestEval::test_compound_invert_op[float-float-numexpr-pandas-not in]'
-				'tests/computation/test_eval.py::TestEval::test_compound_invert_op[float-float-python-pandas-in]'
-				'tests/computation/test_eval.py::TestEval::test_compound_invert_op[float-float-python-pandas-not in]'
-				'tests/computation/test_eval.py::TestOperations::test_simple_arith_ops[numexpr-pandas]'
-				'tests/computation/test_eval.py::TestOperations::test_simple_arith_ops[python-pandas]'
+				# crashing
+				tests/resample/test_resampler_grouper.py::test_tab_complete_ipython6_warning
 			)
 			;;
 	esac
@@ -201,7 +172,6 @@ python_test() {
 		--no-strict-data-files -o xfail_strict=false \
 		-m "not single_cpu and not slow and not network and not db" ||
 		die "Tests failed with ${EPYTHON}"
-	rm test_stata.dta || die
 }
 
 pkg_postinst() {
@@ -217,5 +187,5 @@ pkg_postinst() {
 	optfeature "Needed for parts of pandas.stats" dev-python/statsmodels
 	optfeature "SQL database support" ">=dev-python/sqlalchemy-1.4.36"
 	optfeature "miscellaneous statistical functions" dev-python/scipy
-	optfeature "necessary to use pandas.io.clipboard.read_clipboard support" dev-python/pyqt5 dev-python/qtpy x11-misc/xclip x11-misc/xsel
+	optfeature "necessary to use pandas.io.clipboard.read_clipboard support" dev-python/qtpy x11-misc/xclip x11-misc/xsel
 }

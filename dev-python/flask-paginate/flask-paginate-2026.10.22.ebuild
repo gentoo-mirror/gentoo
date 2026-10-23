@@ -8,24 +8,24 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Python wrapper for running a display inside X virtual framebuffer"
+DESCRIPTION="Pagination support for flask"
 HOMEPAGE="
-	https://github.com/cgoldberg/xvfbwrapper/
-	https://pypi.org/project/xvfbwrapper/
+	https://flask-paginate.readthedocs.io/
+	https://github.com/lixxu/flask-paginate/
+	https://pypi.org/project/flask-paginate/
 "
 
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	x11-base/xorg-server[xvfb]
-"
-BDEPEND="
-	test? (
-		dev-python/psutil[${PYTHON_USEDEP}]
-	)
+	dev-python/flask[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+python_test() {
+	epytest tests/tests.py
+}
