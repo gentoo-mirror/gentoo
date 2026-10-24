@@ -52,7 +52,7 @@ else
 	fi
 
 	S="${WORKDIR}/${MY_P}"
-	[[ "${PV}" != *_rc* ]] && KEYWORDS="-alpha ~amd64 -arm ~arm64 -hppa -m68k -ppc ~ppc64 -x86"
+	[[ "${PV}" != *_rc* ]] && KEYWORDS="-alpha ~amd64 -arm ~arm64 -hppa -m68k -mips -ppc ~ppc64 -x86"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -362,6 +362,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-8.1.0-skip-tests.patch
 	"${FILESDIR}"/${PN}-8.1.0-find-sphinx.patch
 	"${FILESDIR}"/${PN}-10.2.2-optionrom-pass-Wl-no-error-rwx-segments.patch
+	"${FILESDIR}"/${PN}-11.1.2-fix-container-sandbox-violation.patch
 )
 
 QA_PREBUILT="
