@@ -9,7 +9,7 @@ DESCRIPTION="Official desktop client for Telegram (binary package)"
 HOMEPAGE="https://desktop.telegram.org"
 SRC_URI="
 	https://github.com/telegramdesktop/tdesktop/archive/v${PV}.tar.gz -> tdesktop-${PV}.tar.gz
-	amd64? ( https://updates.tdesktop.com/tlinux/tsetup.${PV}.tar.xz )
+	amd64? ( https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/td-setup-linux-x64-${PV}.tar.xz )
 "
 
 S="${WORKDIR}/Telegram"
@@ -27,8 +27,10 @@ RDEPEND="
 	>=media-libs/fontconfig-2.13
 	media-libs/freetype:2
 	virtual/opengl
+	x11-libs/cairo
 	x11-libs/gtk+:3[X,wayland]
 	x11-libs/libX11
+	x11-libs/pango
 	>=x11-libs/libxcb-1.10
 "
 
