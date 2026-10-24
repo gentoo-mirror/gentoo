@@ -1,0 +1,15 @@
+BDEPEND=net-libs/tdlib:0/1.8.68 virtual/zlib:= >=app-editors/emacs-27.1:*[jpeg,png,svg] >=app-emacs/all-the-icons-4.0.0 >=app-emacs/dashboard-1.8.0 >=app-emacs/transient-0.9.0 >=app-emacs/visual-fill-column-1.9 app-emacs/company-mode virtual/pkgconfig >=app-editors/emacs-27.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DEPEND=net-libs/tdlib:0/1.8.68 virtual/zlib:=
+DESCRIPTION=Full-featured unofficial GNU Emacs client for Telegram
+EAPI=9
+HOMEPAGE=https://zevlg.github.io/telega.el/ https://github.com/zevlg/telega.el/
+INHERIT=toolchain-funcs elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=net-libs/tdlib:0/1.8.68 virtual/zlib:= >=app-editors/emacs-27.1:*[jpeg,png,svg] >=app-emacs/all-the-icons-4.0.0 >=app-emacs/dashboard-1.8.0 >=app-emacs/transient-0.9.0 >=app-emacs/visual-fill-column-1.9 app-emacs/company-mode >=app-editors/emacs-27.1:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/zevlg/telega.el/archive/20a2f0762743a1dc6effd767b9caaec7e4dff69c.tar.gz -> telega-0.8.680_p20260909.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
+_md5_=dd2351b205a096a8f05090cb29920d24
