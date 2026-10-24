@@ -5,14 +5,14 @@
     <synopsis>Multiple vulnerabilities have been discovered in qtsvg, the worst of which could lead to execution of arbitrary code.</synopsis>
     <product type="ebuild">qtsvg</product>
     <announced>2025-11-24</announced>
-    <revised count="1">2025-11-24</revised>
+    <revised count="2">2026-10-24</revised>
     <bug>915998</bug>
     <bug>963710</bug>
     <access>local and remote</access>
     <affected>
         <package name="dev-qt/qtsvg" auto="yes" arch="*">
-            <unaffected range="ge">6.9.3:6</unaffected>
-            <vulnerable range="lt">6.9.3:6</vulnerable>
+          <unaffected range="ge" slot="6">6.9.3</unaffected>
+          <vulnerable range="lt" slot="6">6.9.3</vulnerable>
         </package>
     </affected>
     <background>
