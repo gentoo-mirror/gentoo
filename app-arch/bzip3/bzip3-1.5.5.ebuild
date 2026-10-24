@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs
 
@@ -10,12 +10,10 @@ HOMEPAGE="https://github.com/kspalaiologos/bzip3/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/kspalaiologos/${PN}"
 else
 	SRC_URI="https://github.com/kspalaiologos/${PN}/releases/download/${PV}/${P}.tar.xz"
-
-	KEYWORDS="amd64 arm64 ~loong x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 fi
 
 LICENSE="LGPL-3+"
@@ -29,6 +27,5 @@ src_configure() {
 
 src_install() {
 	default
-
 	find "${ED}" -type f -name '*.la' -delete || die
 }
