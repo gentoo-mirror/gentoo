@@ -23,7 +23,7 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+html +ical +ini +subtitles +yaml"
 
 RDEPEND="
@@ -80,8 +80,9 @@ python_test() {
 	)
 	local EPYTEST_IGNORE=(
 		# unpackaged fluent.*
-		tests/translate/storage/test_fluent.py
 		tests/translate/convert/test_fluent2po.py
+		tests/translate/storage/test_fluent.py
+		tests/translate/storage/test_identity_editing.py
 		# changes directory and does not change it back, sigh
 		tests/odf_xliff/test_odf_xliff.py
 	)

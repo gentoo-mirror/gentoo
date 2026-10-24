@@ -3,17 +3,16 @@
 
 EAPI=8
 
+inherit cmake
+
 DESCRIPTION="AWS C SDKUTILS: C99 library implementing AWS SDK specific utilities"
 HOMEPAGE="https://github.com/awslabs/aws-c-sdkutils"
 SRC_URI="https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit cmake
-
 LICENSE="Apache-2.0"
-SLOT="0/1"
-KEYWORDS="~amd64 ~arm64 ~riscv"
+SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
-
 RESTRICT="!test? ( test )"
 
 DEPEND="dev-libs/aws-c-common"
@@ -22,6 +21,7 @@ BDEPEND="dev-libs/aws-c-common"
 
 src_configure() {
 	local mycmakeargs=(
+		-DAWS_GET_VERSION_MODULE="${ESYSROOT}/usr/$(get_libdir)/cmake/aws-c-common/modules/AwsGetVersion.cmake"
 		-DBUILD_TESTING=$(usex test)
 	)
 	cmake_src_configure
