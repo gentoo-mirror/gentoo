@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ S="${WORKDIR}/heirloom-${PV}"
 
 LICENSE="ZLIB BSD BSD-4 CDDL GPL-2+ LGPL-2.1+ LPL-1.02 Info-ZIP public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 # slightly broken
 RESTRICT="test"
 
@@ -30,11 +30,14 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${P}-major.patch
+	"${FILESDIR}"/${P}-musl.patch
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-glibc-2.30.patch
 	"${FILESDIR}"/${P}-glibc-2.31.patch
 	"${FILESDIR}"/${P}-gcc-10.patch
 	"${FILESDIR}"/${P}-clang.patch
+	"${FILESDIR}"/${P}-gcc-15.patch
+	"${FILESDIR}"/${P}-make-ordering.patch
 )
 
 src_prepare() {
