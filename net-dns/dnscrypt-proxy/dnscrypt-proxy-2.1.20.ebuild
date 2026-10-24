@@ -24,7 +24,7 @@ RDEPEND="
 	acct-user/dnscrypt-proxy
 "
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-lang/go-1.25"
+BDEPEND=">=dev-lang/go-1.27.2"
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
@@ -62,7 +62,7 @@ src_install() {
 	newinitd "${FILESDIR}"/dnscrypt-proxy.initd dnscrypt-proxy
 	newconfd "${FILESDIR}"/dnscrypt-proxy.confd dnscrypt-proxy
 
-	systemd_newunit "${FILESDIR}"/dnscrypt-proxy.service dnscrypt-proxy.service
+	systemd_newunit "${FILESDIR}"/dnscrypt-proxy.service-r2 dnscrypt-proxy.service
 	systemd_newunit "${FILESDIR}"/dnscrypt-proxy.socket dnscrypt-proxy.socket
 
 	insinto /etc/logrotate.d
