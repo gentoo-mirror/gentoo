@@ -5487,7 +5487,7 @@ dev-libs/aws-c-http 0.10.7 0.11.0-r1 1.0.0 1.1.0 1.1.1: AWS C Http: C99 implemen
 dev-libs/aws-c-io 0.23.3 0.27.4 1.0.0 1.1.0: AWS C IO: It handles all IO and TLS work for application protocols
 dev-libs/aws-c-mqtt 0.13.3 0.16.0 1.0.0 1.1.1-r1 1.1.2: AWS C MQTT: C99 implementation
 dev-libs/aws-c-s3 0.11.2 0.13.1 1.1.1-r1 1.1.2 1.1.3 1.2.0 1.3.0 1.3.1: AWS C S3 async library
-dev-libs/aws-c-sdkutils 0.2.4 0.2.7 1.0.0: AWS C SDKUTILS: C99 library implementing AWS SDK specific utilities
+dev-libs/aws-c-sdkutils 1.0.0 1.0.1: AWS C SDKUTILS: C99 library implementing AWS SDK specific utilities
 dev-libs/aws-checksums 0.2.7 0.2.10-r1 1.0.0: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to SW
 dev-libs/ayatana-ido 0.10.4-r1: Ayatana Application Indicators (Shared Library)
 dev-libs/bcm2835 1.71 1.75: Provides access to GPIO and other IO functions on the Broadcom BCM2835
@@ -8347,7 +8347,7 @@ dev-python/argparse-manpage 4.7-r1 4.8: Automatically build man-pages for your P
 dev-python/arpeggio 2.0.3: Parser interpreter based on PEG grammars
 dev-python/array-api-compat 1.15.0: Array API standard compatibility wrapper over NumPy and others
 dev-python/arrow 1.4.0: Better dates and times for Python
-dev-python/asgiref 3.11.1 3.11.1-r1 3.12.1: ASGI utilities (successor to WSGI)
+dev-python/asgiref 3.12.1 3.13.0: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.5.1_p20231012: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/assertpy 1.1: Simple assertion library for unit testing in python with a fluent API
 dev-python/ast-serialize 0.10.0 0.11.2 0.12.0 0.12.1 0.13.0 0.13.1: Python bindings for mypy AST serialization
@@ -8524,7 +8524,7 @@ dev-python/datastructclass 0.1.1: A dataclass with struct-like semantics
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
 dev-python/dbus-fast 5.0.22 5.0.25 5.2.0: A faster version of dbus-next
 dev-python/dbus-next 0.2.3-r1: The next great DBus library for Python with asyncio support
-dev-python/dbus-python 1.4.0-r1 1.5.0: Python bindings for the D-Bus messagebus
+dev-python/dbus-python 1.4.0-r1 1.5.0 1.5.1: Python bindings for the D-Bus messagebus
 dev-python/dbutils 3.1.2 3.2.0: Database connections for multi-threaded environments
 dev-python/ddt 1.7.2: Data-Driven/Decorated Tests
 dev-python/debtcollector 3.1.0: Python deprecation patterns and strategies that collect technical debt
@@ -8626,7 +8626,7 @@ dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/ezgb 0.2.0 0.2.1: A standalone Python library for working with git-bug repositories
 dev-python/faker 40.38.0 40.40.0 40.41.0 40.42.0 40.43.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.35.1 2.37.1 2.38.0 2.39.0 2.40.0: Fake implementation of redis API for testing purposes
-dev-python/fastapi 0.156.4 0.159.1 0.161.1: High performance framework, easy to learn, fast to code, ready for production
+dev-python/fastapi 0.161.1 0.162.0: High performance framework, easy to learn, fast to code, ready for production
 dev-python/fastbencode 0.3.10 0.3.11 0.3.12: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
 dev-python/fastexcel 0.21.0: A fast excel file reader for Python, written in Rust
@@ -8642,7 +8642,7 @@ dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable file
 dev-python/filelock 4.0.1 4.0.3 4.0.4 4.0.6 4.0.7 4.0.9 4.0.10 4.0.11 4.0.12 4.1.0 4.1.1 4.2.0 4.2.1 4.2.4: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 3.0.0: Python module import analysis tool
-dev-python/findpython 0.8.0: A utility to find python versions on your system
+dev-python/findpython 0.8.0 0.9.0: A utility to find python versions on your system
 dev-python/fitsio 1.3.0 1.4.0 1.4.1 1.4.2: Python library to read from and write to FITS files
 dev-python/fixtures 4.3.2: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 7.3.0 7.4.0 7.4.1: A wrapper around PyFlakes, pep8 & mccabe
@@ -8759,7 +8759,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.168.0 6.168.1 6.168.2 6.168.4 6.168.5 6.169.0 6.169.1 6.169.3 6.170.0 6.170.1 6.170.5 6.170.8: A library for property based testing
+dev-python/hypothesis 6.168.0 6.168.1 6.168.2 6.168.4 6.168.5 6.169.0 6.169.1 6.169.3 6.170.0 6.170.1 6.170.5 6.170.8 6.170.9: A library for property based testing
 dev-python/hypothesis-gentoo 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.2.2 7.3.0: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8775,7 +8775,7 @@ dev-python/imaplib2 3.6 9999: Threaded Python IMAP4 client
 dev-python/iminuit 2.32.0 2.33.0: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.3.1: An immutable wrapper around dictionaries
 dev-python/immutables 0.21: A high-performance immutable mapping type for Python
-dev-python/importlib-metadata 9.0.1 9.1.0: Read metadata from Python packages
+dev-python/importlib-metadata 9.0.1 9.1.0 10.1.0: Read metadata from Python packages
 dev-python/incremental 24.11.0: Incremental is a small library that versions your Python projects
 dev-python/indexed-gzip 1.10.3: Fast random access of gzip files in Python
 dev-python/inflect 7.5.0 7.6.0: Correctly inflect words and numbers
@@ -8843,7 +8843,7 @@ dev-python/jsondiff 2.2.1: Diff JSON and JSON-like structures in Python
 dev-python/jsonext 0.4.2-r1: Well-structured helpers for serializing commonly encountered structures to JSON
 dev-python/jsonmerge 1.9.2: Merge a series of JSON documents
 dev-python/jsonpatch 1.33 1.34 1.35 1.36: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
-dev-python/jsonpath-ng 1.8.0 1.9.0 1.9.1 1.10.1 1.11.0 1.12.0: Python JSONPath Next-Generation
+dev-python/jsonpath-ng 1.8.0 1.9.0 1.9.1 1.10.1 1.11.0 1.12.0 1.13.0: Python JSONPath Next-Generation
 dev-python/jsonpickle 4.1.2 4.1.3 4.1.4: Python library for serializing any arbitrary object graph into JSON
 dev-python/jsonpointer 3.1.1 3.2.0 3.2.1 3.3 3.4: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
@@ -9023,7 +9023,7 @@ dev-python/neovim-remote 2.5.1 9999: A tool that helps control neovim processes
 dev-python/nest-asyncio 1.6.0-r1: Patch asyncio to allow nested event loops
 dev-python/nest-asyncio2 1.7.2 1.7.3 1.7.4: Patch asyncio to allow nested event loops
 dev-python/netaddr 1.3.0: Network address representation and manipulation library
-dev-python/netcdf4 1.7.4 1.7.5: Python/numpy interface to the netCDF C library
+dev-python/netcdf4 1.7.4 1.7.5 1.7.5.1_p1: Python/numpy interface to the netCDF C library
 dev-python/netifaces 0.11.0-r2: Portable network interface information
 dev-python/netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/networkx 3.6.1 3.7: Python tools to manipulate graphs and complex networks
@@ -9255,7 +9255,7 @@ dev-python/pygresql 6.2.3: A Python interface for the PostgreSQL database
 dev-python/pyh2o 1-r1: Python API for sci-libs/libh2o
 dev-python/pyhamcrest 2.1.0: Hamcrest framework for matcher objects
 dev-python/pyhcl 0.4.5: HCL configuration parser for python
-dev-python/pyicu 2.16.2: Python bindings for dev-libs/icu
+dev-python/pyicu 2.16.2 2.17: Python bindings for dev-libs/icu
 dev-python/pyinotify 0.9.6-r1: Python module used for monitoring filesystems events
 dev-python/pyjwt 2.13.0 2.14.0 2.15.0 2.15.1: JSON Web Token implementation in Python
 dev-python/pykakasi 2.3.0: Kana kanji simple inversion library
@@ -9723,14 +9723,14 @@ dev-python/statsmodels 0.14.6 0.15.0: Statistical computations and models for us
 dev-python/stdio-mgr 1.0.1.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/stevedore 5.9.0 5.9.1: Manage dynamic plugins for Python applications
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 15.5.1 15.6.1 16.0.0: Stripe Python bindings
+dev-python/stripe 15.6.1 16.0.0: Stripe Python bindings
 dev-python/structlog 26.1.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
 dev-python/superqt 0.8.2 0.9.0: Missing widgets and components for PyQt/PySide
 dev-python/sure 2.0.1-r1: idiomatic assertion toolkit with human-friendly failure messages
 dev-python/svg-path 7.0 7.1: SVG path objects and parser
-dev-python/svglib 2.3.0 2.3.1: Pure-Python library for reading and converting SVG
+dev-python/svglib 2.3.0 2.3.1 2.3.2: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
 dev-python/sybil 10.1.0: Automated testing for the examples in your documentation
@@ -9789,10 +9789,10 @@ dev-python/tpm2-pytss 2.3.0-r3 3.0.0: Python bindings for TSS
 dev-python/tqdm 4.70.0 4.70.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.15.1 5.16.1: A configuration system for Python applications
 dev-python/trakit 0.3.0 0.4.0: Guess additional information from titles in media tracks
-dev-python/translate-toolkit 3.19.19 3.20.0: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.20.0 3.20.1: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.25.2-r1 0.26.0 0.26.0_p20260816-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 25.5.0 26.7.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 5.0.0 5.1.0 5.1.1: Python library for loading and using triangular meshes
+dev-python/trimesh 5.1.0 5.1.1 5.2.0: Python library for loading and using triangular meshes
 dev-python/trio 0.33.0 0.34.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.12.2: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2026.6.1.19 2026.9.21.13: Canonical source for classifiers on PyPI (pypi.org)
@@ -9896,7 +9896,7 @@ dev-python/widgetsnbextension 4.0.15 4.0.16: IPython HTML widgets for Jupyter
 dev-python/wrapt 2.4.0 2.4.1 2.5.0 2.5.1: Module for decorators, wrappers and monkey patching
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.3.2: WebSockets state-machine based protocol implementation
-dev-python/wtforms 3.2.2: Flexible forms validation and rendering library for python web development
+dev-python/wtforms 3.2.2 3.3.0: Flexible forms validation and rendering library for python web development
 dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.5: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 2.0.1: Convert calendars using X-WR-TIMEZONE to standard ones
@@ -9910,7 +9910,7 @@ dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible 
 dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17 1.3.17-r1: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
-dev-python/xvfbwrapper 0.2.34 0.2.35 0.2.36: Python wrapper for running a display inside X virtual framebuffer
+dev-python/xvfbwrapper 0.2.34 0.2.35 0.2.36 0.2.37: Python wrapper for running a display inside X virtual framebuffer
 dev-python/xxhash 4.0.1 4.0.2: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
@@ -15343,7 +15343,7 @@ net-misc/dropbear 2026.94: Small SSH 2 client/server designed for small memory e
 net-misc/dropbox 258.4.3749 260.4.2926 262.4.3183 264.4.3385 264.4.3421 266.4.3911 268.4.4124 270.4.3312 273.4.4708 275.4.3565: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2026.03.20: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
-net-misc/electrum 4.8.1 4.8.2: User friendly Bitcoin client
+net-misc/electrum 4.8.2: User friendly Bitcoin client
 net-misc/email-validator 1.1.0: Basic syntax and deliverability checks on email addresses
 net-misc/ena-driver 2.17.3 2.17.4: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2: SSH tarpit that slowly sends and endless banner
