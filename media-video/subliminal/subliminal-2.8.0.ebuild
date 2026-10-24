@@ -18,7 +18,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_BRANCH="develop"
 else
 	SRC_URI="https://github.com/Diaoul/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 SRC_URI+=" test? ( https://downloads.sourceforge.net/matroska/test_files/matroska_test_w1_1.zip )"
@@ -30,6 +30,7 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		app-arch/unzip
+		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/rarfile[${PYTHON_USEDEP}]
 		dev-python/sympy[${PYTHON_USEDEP}]
 		>=dev-python/vcrpy-1.6.1[${PYTHON_USEDEP}]
@@ -52,6 +53,7 @@ RDEPEND="
 	>=dev-python/srt-3.5[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-3.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.13.2[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.10[${PYTHON_USEDEP}]
 "
 
 EPYTEST_DESELECT=(
@@ -70,6 +72,9 @@ EPYTEST_DESELECT=(
 
 	# TODO
 	tests/test_core.py::test_refine_video_metadata
+
+	# https://github.com/guessit-io/guessit/issues/796 (fixed in guessit-4.0.0)
+	tests/test_video.py::test_episode_fromname_guessit_bug
 )
 
 EPYTEST_IGNORE=(
@@ -81,6 +86,7 @@ EPYTEST_IGNORE=(
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_unpack() {
