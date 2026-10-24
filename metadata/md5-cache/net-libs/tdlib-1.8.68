@@ -9,8 +9,8 @@ IUSE=+tde2e test
 KEYWORDS=~amd64 ~arm64 ~loong ~riscv
 LICENSE=Boost-1.0
 RDEPEND=dev-libs/openssl:= virtual/zlib:=
-RESTRICT=!test? ( test )
-SLOT=0/1.8.62
-SRC_URI=https://github.com/tdlib/td/archive/e597838871547131ef92332fca601f5effba4e8a.tar.gz -> tdlib-1.8.62.tar.gz
+RESTRICT=!test? ( test ) test
+SLOT=0/1.8.68
+SRC_URI=https://github.com/tdlib/td/archive/c15d3f5a5de6e3ba5839822c451152e5e18bb700.tar.gz -> tdlib-1.8.68.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
-_md5_=95a62026ab16cc305436d0860e6014ae
+_md5_=aa368a7b306d7924ce588d6a44336fdc
