@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ghc-9.0.2:= dev-haskell/alex >=dev-haskell/cabal-3.4.1.0 dev-haskell/happy hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Analysis and generation of C code
+EAPI=8
+HOMEPAGE=https://visq.github.io/language-c/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.10.2
+SRC_URI=https://hackage.haskell.org/package/language-c-0.10.2/language-c-0.10.2.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	haskell-cabal	1138de808f4356a4380a4f7cc6d4d8a3
+_md5_=3caf95eacdf2c8adb5ba8a6734d79d89
