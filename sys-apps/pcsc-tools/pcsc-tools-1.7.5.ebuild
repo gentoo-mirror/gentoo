@@ -1,17 +1,21 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit meson xdg-utils
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/ludovicrousseau.asc
+inherit meson verify-sig xdg-utils
 
 DESCRIPTION="PC/SC Architecture smartcard tools"
 HOMEPAGE="https://pcsc-tools.apdu.fr/ https://github.com/LudovicRousseau/pcsc-tools"
-SRC_URI="https://pcsc-tools.apdu.fr/${P}.tar.bz2"
+SRC_URI="
+	https://pcsc-tools.apdu.fr/${P}.tar.bz2
+	verify-sig? ( https://pcsc-tools.apdu.fr/${P}.tar.bz2.asc )
+"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="gui network-cron"
 
 DEPEND=">=sys-apps/pcsc-lite-1.4.14"
@@ -21,6 +25,7 @@ RDEPEND="
 	dev-perl/pcsc-perl
 	gui? ( dev-perl/Gtk3 )
 "
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-ludovicrousseau )"
 
 src_install() {
 	meson_src_install
