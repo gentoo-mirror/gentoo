@@ -25,13 +25,16 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 
 IUSE="+native-extensions"
 
 BDEPEND="
+	native-extensions? (
+		dev-python/cython[${PYTHON_USEDEP}]
+	)
 	test? (
 		dev-python/objgraph[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
 
 python_prepare_all() {
@@ -55,6 +58,7 @@ python_test() {
 		tests/isolated
 		tests/test_multidict_benchmarks.py
 		tests/test_views_benchmarks.py
+		tests/test_watched_benchmarks.py
 	)
 
 	rm -rf multidict || die
