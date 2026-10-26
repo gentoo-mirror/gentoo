@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -32,20 +32,18 @@ BDEPEND="
 	test? (
 		>=dev-python/httplib2-0.9.1[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
+		dev-python/httpx2[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-httpbin )
+EPYTEST_PLUGINS=( pytest-{asyncio,httpbin} )
 EPYTEST_RERUNS=5
 distutils_enable_tests pytest
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# these tests are failing with recent dev-python/werkzeug; losely related:
-		# https://github.com/kevin1024/vcrpy/issues/645
-		tests/integration/test_record_mode.py::test_new_episodes_record_mode_two_times
-		tests/integration/test_urllib2.py::test_random_body
-		tests/integration/test_urllib2.py::test_multiple_requests
+		# aiohttp incompatibility
+		tests/transport/aio/test_aiohttp.py::TestRequest::test_request_clone_with_active_session
 		# Internet
 		"tests/integration/test_urllib3.py::test_post[https]"
 	)

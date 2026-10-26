@@ -19,14 +19,14 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
-# httpx is needed to download builds
-# zstandard is needed to install them
+# httpx2 is needed to download builds
+# zstd is needed to install them
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/backports-zstd-1.0.0[${PYTHON_USEDEP}]
 	' 3.12 3.13)
-	<dev-python/httpx-1[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.27.0[${PYTHON_USEDEP}]
+	<dev-python/httpx2-3[${PYTHON_USEDEP}]
+	>=dev-python/httpx2-2.14[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()

@@ -21,17 +21,18 @@ CRATES="
 	portable-atomic@1.13.1
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.106
-	pyo3-build-config@0.29.2
-	pyo3-ffi@0.29.2
-	pyo3-macros-backend@0.29.2
-	pyo3-macros@0.29.2
-	pyo3@0.29.2
+	pyo3-build-config@0.30.1
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
 	quote@1.0.46
 	r-efi@5.3.0
 	rand@0.9.4
 	rand_chacha@0.9.0
 	rand_core@0.9.5
 	syn@2.0.118
+	syn@3.0.9
 	target-lexicon@0.13.5
 	unicode-ident@1.0.24
 	wasip2@1.0.4+wasi-0.2.12
@@ -58,7 +59,7 @@ LICENSE="MPL-2.0"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cli"
 
 RDEPEND="
@@ -93,22 +94,18 @@ python_test() {
 	# NB: paths need to be relative to pytest.ini, i.e. start with hypothesis/
 	local EPYTEST_DESELECT=(
 		# broken somehow (xdist?)
+		'hypothesis/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
 		'hypothesis/tests/pytest/test_constant_collection_timing.py::test_constant_collection_timing[True]'
 	)
-	local EPYTEST_IGNORE=(
-		# require syrupy
-		tests/cover/test_custom_reprs.py
-	)
-
-	case ${EPYTHON} in
-		python3.15*)
-			EPYTEST_DESELECT+=(
-				'hypothesis/tests/cover/test_lookup.py::test_resolves_forwardrefs_to_builtin_types[sentinel]'
-				'hypothesis/tests/cover/test_lookup.py::test_resolves_builtin_types[sentinel]'
-				'hypothesis/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
-			)
-			;;
-	esac
+	local EPYTEST_IGNORE=()
+	# TODO: add a dep once syrupy has *t in COMPAT
+	if has_version "dev-python/syrupy[${PYTHON_USEDEP}]"; then
+		local EPYTEST_PLUGINS=( "${EPYTEST_PLUGINS[@]}" syrupy )
+	else
+		EPYTEST_IGNORE+=(
+			tests/cover/test_custom_reprs.py
+		)
+	fi
 
 	local -x HYPOTHESIS_NO_PLUGINS=1
 	epytest tests/{cover,pytest,quality}
