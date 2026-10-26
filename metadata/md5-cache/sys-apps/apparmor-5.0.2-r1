@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/which app-alternatives/yacc sys-devel/gettext app-alternatives/lex doc? ( dev-tex/latex2html ) test? ( dev-lang/perl ) verify-sig? ( sec-keys/openpgp-keys-apparmor ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=~sys-libs/libapparmor-5.0.2
+DESCRIPTION=Userspace utils and init scripts for the AppArmor application security system
+EAPI=8
+HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
+INHERIT=flag-o-matic systemd toolchain-funcs linux-info verify-sig
+IUSE=doc test verify-sig verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=GPL-2
+RDEPEND=~sys-libs/libapparmor-5.0.2
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/apparmor/apparmor/-/archive/v5.0.2/apparmor-v5.0.2.tar.bz2 verify-sig? ( https://gitlab.com/api/v4/projects/4484878/packages/generic/signatures/5.0.2/apparmor-v5.0.2.tar.bz2.asc )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=b4eba32312a76f4d097a64166d186ed6
