@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 doc? ( dev-python/sphinx dev-python/sphinx-rtd-theme ) static? ( dev-libs/libffi[static-libs] dev-libs/gmp[static-libs] )
 DESCRIPTION=Alex is a tool for generating lexical analysers in Haskell
 EAPI=8
-HOMEPAGE=https://www.haskell.org/alex/
+HOMEPAGE=https://github.com/haskell/alex
 INHERIT=haskell-cabal
 IUSE=doc static test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
@@ -11,6 +11,6 @@ LICENSE=BSD
 RDEPEND=>=dev-lang/ghc-9.0.2:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://hackage.haskell.org/package/alex-3.5.1.0/alex-3.5.1.0.tar.gz doc? ( https://github.com/haskell/alex/archive/f8fe5f0a294c3ac45ca0374b9b63f5db51a23a2e.tar.gz -> alex-f8fe5f0a294c3ac45ca0374b9b63f5db51a23a2e.tar.gz )
+SRC_URI=https://hackage.haskell.org/package/alex-3.5.4.2/alex-3.5.4.2.tar.gz doc? ( https://github.com/haskell/alex/archive/4ab49324fe591f05bdedbf62bfef2dc7295ade8f.tar.gz -> alex-4ab49324fe591f05bdedbf62bfef2dc7295ade8f.tar.gz )
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	haskell-cabal	1138de808f4356a4380a4f7cc6d4d8a3
-_md5_=1029eb10fa84c73cb8fa63d445c807ed
+_md5_=fe3ec46baf54b7167a19a9e241eabc01
