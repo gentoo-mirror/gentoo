@@ -3,11 +3,11 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..22} )
+LLVM_COMPAT=( {17..23} )
 LLVM_OPTIONAL=1
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
-inherit bash-completion-r1 linux-info llvm-r1 python-any-r1 toolchain-funcs
+inherit flag-o-matic linux-info llvm-r2 python-any-r1 shell-completion toolchain-funcs
 
 DESCRIPTION="Tool for inspection and simple manipulation of eBPF programs and maps"
 HOMEPAGE="https://github.com/libbpf/bpftool"
@@ -24,7 +24,7 @@ else
 	# This allows us to quickly update the vendored lib with a revbump.
 	# Currently bpftool-x.y vendors libbpf-1.y; DO NOT mix different y versions.
 	# See the libbpf repo (https://github.com/libbpf/libbpf) for possible updates.
-	# LIBBPF_VERSION=1.5.0
+	# LIBBPF_VERSION=1.7.0
 
 	if [[ ! -z ${LIBBPF_VERSION} ]] ; then
 		SRC_URI="https://github.com/libbpf/bpftool/archive/refs/tags/v${PV}.tar.gz -> bpftool-${PV}.tar.gz
@@ -36,7 +36,7 @@ else
 		S="${WORKDIR}/bpftool-libbpf-v${PV}-sources"
 	fi
 
-	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="|| ( GPL-2 BSD-2 )"
@@ -48,6 +48,7 @@ RDEPEND="
 	caps? ( sys-libs/libcap:= )
 	llvm? ( $(llvm_gen_dep 'llvm-core/llvm:${LLVM_SLOT}') )
 	!llvm? ( sys-libs/binutils-libs:= )
+	dev-libs/openssl:=
 	virtual/zlib:=
 	virtual/libelf:=
 "
@@ -68,7 +69,7 @@ CONFIG_CHECK="~DEBUG_INFO_BTF"
 pkg_setup() {
 	linux-info_pkg_setup
 	python-any-r1_pkg_setup
-	use llvm && llvm-r1_pkg_setup
+	use llvm && llvm-r2_pkg_setup
 }
 
 src_prepare() {
@@ -117,6 +118,14 @@ src_prepare() {
 	type -P rst2man >/dev/null || sed -i -e 's/rst2man/rst2man.py/g' docs/Makefile || die
 }
 
+src_configure() {
+	# filter LTO after discussion about UB in libbpf:
+	# https://lore.kernel.org/bpf/20260321024446.692008-1-irogers@google.com/
+	filter-lto
+
+	default
+}
+
 bpftool_make() {
 	# which BPF compiler should we use?
 	if use clang; then
@@ -130,8 +139,12 @@ bpftool_make() {
 
 	tc-export AR CC LD
 
+	# add EXTRA_CFLAGS to be consistent with our libbpf ebuild
+	local extra_cflags="-fno-strict-aliasing"
+
 	emake \
 		ARCH="$(tc-arch-kernel)" \
+		EXTRA_CFLAGS="${extra_cflags}" \
 		HOSTAR="$(tc-getBUILD_AR)" \
 		HOSTCC="$(tc-getBUILD_CC)" \
 		HOSTLD="$(tc-getBUILD_LD)" \
