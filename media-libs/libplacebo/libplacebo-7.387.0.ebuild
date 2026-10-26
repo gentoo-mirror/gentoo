@@ -22,7 +22,7 @@ else
 		)
 	"
 	S="${WORKDIR}/${PN}-v${PV}"
-	KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Reusable library for GPU-accelerated image processing primitives"
@@ -33,7 +33,7 @@ HOMEPAGE="
 
 LICENSE="
 	LGPL-2.1+
-	|| ( Apache-2.0 Boost-1.0 MIT )
+	|| ( Apache-2.0 Boost-1.0 MIT ) public-domain
 	opengl? ( MIT )
 "
 SLOT="0/$(ver_cut 2 ${PV}.9999)" # soname
@@ -69,7 +69,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.229.1-llvm-libunwind.patch
-	"${FILESDIR}"/${P}-nvidia595-vulkan.patch
 )
 
 python_check_deps() {
