@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://keepassxc.org/verifying-signatures/
 INHERIT=sec-keys
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=public-domain
 PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://keys.openpgp.org/vks/v1/by-fingerprint/BF5A669F2272CF4324C1FDA8CFB4C2166397D0D2 -> openpgp-keys-keepassxc-openpgp-20261023.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBF5A669F2272CF4324C1FDA8CFB4C2166397D0D2 -> openpgp-keys-keepassxc-ubuntu-20261023.asc https://keepassxc.org/keepassxc_master_signing_key.asc -> openpgp-keys-keepassxc-20261023-keepassxc.org.asc
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
-_md5_=b8145649401d6e03079a75ac6ba1934c
+_md5_=7546e98d438b4e6855afa5028164ccf9
