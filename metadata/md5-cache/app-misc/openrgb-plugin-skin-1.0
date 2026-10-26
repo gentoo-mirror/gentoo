@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=>=app-misc/openrgb-1.0:= dev-qt/qtbase:6[gui,widgets] dev-cpp/nlohmann_json
+DESCRIPTION=Plugin for OpenRGB that allows you to customize the look and feel of OpenRGB
+EAPI=8
+HOMEPAGE=https://gitlab.com/OpenRGBDevelopers/OpenRGBSkinPlugin
+INHERIT=qmake-utils
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=app-misc/openrgb-1.0:= dev-qt/qtbase:6[gui,widgets]
+SLOT=0
+SRC_URI=https://codeberg.org/OpenRGB/OpenRGBSkinPlugin/archive/release_1.0.tar.gz -> openrgb-plugin-skin-1.0.tar.gz
+_eclasses_=qt-utils	5b7ae92788820ab4495683740521513c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	91f1d001b598c8e4730a7a36b2c1849d
+_md5_=e9776cb1e80b05c1416f3fd07b073533
