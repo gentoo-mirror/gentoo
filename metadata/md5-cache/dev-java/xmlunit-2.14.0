@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/junit:4 >=dev-java/xmlunit-core-2.14.0:0 >=virtual/jdk-1.8:* test? ( >=dev-java/mockito-5.20.0:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=XMLUnit extends JUnit and NUnit to enable unit testing of XML
+EAPI=9
+HOMEPAGE=https://sourceforge.net/projects/xmlunit/ https://www.xmlunit.org
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/xmlunit/xmlunit/archive/v2.14.0.tar.gz -> xmlunit-2.14.0.tar.gz test? ( https://github.com/xmlunit/test-resources/archive/67a7aa5ac345fa46bfcb5fc1154ed14807e3f87d.tar.gz -> xmlunit-test-resources-2.14.0.tar.gz )
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c
+_md5_=17e645e58d9281156cb73c464965ee72
