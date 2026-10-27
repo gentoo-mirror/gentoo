@@ -5,7 +5,8 @@ EAPI=8
 
 inherit readme.gentoo-r1 secureboot
 
-BINPKG="${P/-bin/}-1"
+BINPKG="${P/_p/-r}"
+BINPKG="${BINPKG/-bin/}-1"
 EDK2_QEMU_TARGETS="aarch64 loongarch64 riscv64 x86_64"
 
 DESCRIPTION="TianoCore EDK II UEFI firmware for virtual machines"
@@ -16,7 +17,7 @@ done
 S="${WORKDIR}"
 LICENSE="BSD-2-with-patent MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~loong ~ppc ppc64 ~riscv x86"
 printf -v IUSE ' qemu_softmmu_targets_%s' ${EDK2_QEMU_TARGETS}
 REQUIRED_USE="|| ( ${IUSE} )"
 

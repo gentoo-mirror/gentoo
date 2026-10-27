@@ -5,34 +5,30 @@ EAPI=8
 
 inherit readme.gentoo-r1 secureboot
 
-BINPKG="${P/-bin/}-1"
-EDK2_QEMU_TARGETS="aarch64 loongarch64 riscv64 x86_64"
+BINPKG="${P/_p/-r}"
+BINPKG="${BINPKG/-bin/}-1"
+ARCHES="amd64 arm64"
 
 DESCRIPTION="TianoCore EDK II UEFI firmware for virtual machines"
 HOMEPAGE="https://github.com/tianocore/edk2"
-for a in ${EDK2_QEMU_TARGETS}; do
-	SRC_URI+=" qemu_softmmu_targets_${a}? ( https://dev.gentoo.org/~chewi/distfiles/${BINPKG}-qemu-${a}.xpak )"
-done
+SRC_URI=$(printf "https://dev.gentoo.org/~chewi/distfiles/${BINPKG}-%s.xpak\n" ${ARCHES})
 S="${WORKDIR}"
 LICENSE="BSD-2-with-patent MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
-printf -v IUSE ' qemu_softmmu_targets_%s' ${EDK2_QEMU_TARGETS}
-REQUIRED_USE="|| ( ${IUSE} )"
+KEYWORDS="amd64 arm64 ~loong ~ppc ppc64 ~riscv x86"
 
 RDEPEND="!sys-firmware/edk2"
 
 DOC_CONTENTS="This package includes the TianoCore EDK II UEFI firmware for virtual \
-machines of these QEMU architectures: ${EDK2_QEMU_TARGETS}. See each architecture's README \
-for usage details."
+machines of these architectures: ${ARCHES}. See each architecture's README for \
+usage details."
 
 src_unpack() {
 	local a
-	for a in ${EDK2_QEMU_TARGETS}; do
-		use "qemu_softmmu_targets_${a}" || continue
+	for a in ${ARCHES}; do
 		mkdir "${a}" || die
-		tar -C "${a}" -xf - < <(xz -c -d --single-stream "${DISTDIR}/${BINPKG}-qemu-${a}.xpak") ||
-			die "unpacking ${a} QEMU binpkg failed"
+		tar -C "${a}" -xf - < <(xz -c -d --single-stream "${DISTDIR}/${BINPKG}-${a}.xpak") ||
+			die "unpacking ${a} binpkg failed"
 	done
 }
 
@@ -46,21 +42,20 @@ src_install() {
 	doins -r */usr/share/{edk2,qemu}/
 
 	# Compatibility with older package versions.
-	use qemu_softmmu_targets_x86_64 && dosym edk2/OvmfX64 /usr/share/edk2-ovmf
+	dosym edk2/OvmfX64 /usr/share/edk2-ovmf
 
 	secureboot_auto_sign --in-place
 	readme.gentoo_create_doc
 
 	local a
-	for a in ${EDK2_QEMU_TARGETS}; do
-		use "qemu_softmmu_targets_${a}" || continue
+	for a in ${ARCHES}; do
 		newdoc "${a}"/usr/share/doc/*/README.gentoo README-"${a}".gentoo
 	done
 }
 
 pkg_preinst() {
 	local OLD=${EROOT}/usr/share/edk2-ovmf NEW=${EROOT}/usr/share/edk2/OvmfX64
-	if use qemu_softmmu_targets_x86_64 && [[ -d ${OLD} && ! -L ${OLD} ]]; then
+	if [[ -d ${OLD} && ! -L ${OLD} ]]; then
 		{
 			rm -vf "${OLD}"/{OVMF_{CODE,CODE.secboot,VARS}.fd,EnrollDefaultKeys.efi,Shell.efi,UefiShell.img} &&
 			mkdir -p "${NEW}" &&
