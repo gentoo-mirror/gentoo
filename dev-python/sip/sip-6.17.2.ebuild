@@ -32,7 +32,3 @@ distutils_enable_sphinx docs \
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.17.0-abi-int.patch
-)
