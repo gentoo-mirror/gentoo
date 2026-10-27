@@ -8,6 +8,8 @@ inherit toolchain-funcs cmake
 SIMDJSON_DATA_HASH="351949906abde446f0314bf79606fb5d884f5be7"
 CPM_SIMDJSON_DATA_HASH="3a55454e9d9a7133903378c28fb053f478f24537"
 CPM_VERSION="0.40.2"
+COUNTERS_HASH="2c9f1c5695230724ac9b2b7a88f43ec81761f3a0"
+COUNTERS_VER="3.1.0"
 DESCRIPTION="SIMD accelerated C++ JSON library"
 HOMEPAGE="
 	https://simdjson.org/
@@ -17,12 +19,13 @@ SRC_URI="
 	https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/cpm-cmake/CPM.cmake/releases/download/v${CPM_VERSION}/CPM.cmake -> CPM_${CPM_VERSION}.cmake
 	https://github.com/${PN}/${PN}-data/archive/${SIMDJSON_DATA_HASH}.tar.gz -> ${PN}-data-${SIMDJSON_DATA_HASH}.tar.gz
+	https://github.com/lemire/counters/archive/refs/tags/v${COUNTERS_VER}.tar.gz -> ${PN}-counters-${COUNTERS_VER}.tar.gz
 "
 
 LICENSE="Apache-2.0 Boost-1.0 BSD MIT"
-SLOT="0/33"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
-IUSE="+all-impls test tools"
+SLOT="0/34"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="+all-impls nan test tools"
 
 BDEPEND="
 	sys-apps/file
@@ -51,9 +54,10 @@ DOCS=(
 
 src_prepare() {
 	# Need to make sure that CPM finds the data package
-	mkdir "${WORKDIR}/cpm" "${WORKDIR}/${PN}-data" || die
+	mkdir "${WORKDIR}/cpm" "${WORKDIR}/${PN}-data" "${WORKDIR}/counters" || die
 	cp "${DISTDIR}/CPM_${CPM_VERSION}.cmake" "${WORKDIR}/cpm/CPM_${CPM_VERSION}.cmake" || die
 	ln -s "../${PN}-data-${SIMDJSON_DATA_HASH}" "${WORKDIR}/${PN}-data/${CPM_SIMDJSON_DATA_HASH}" || die
+	ln -s "../counters-${COUNTERS_VER}" "${WORKDIR}/counters/${COUNTERS_HASH}" || die
 
 	sed -e 's:-Werror ::' -i cmake/developer-options.cmake || die
 	sed -e '/Werror/ d ; /Werror/ d ' -i tests/ondemand/compilation_failure_tests/CMakeLists.txt || die
@@ -66,7 +70,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DSIMDJSON_INSTALL:BOOL=ON
 		-DSIMDJSON_ENABLE_THREADS:BOOL=ON
-		-DSIMDJSON_ENABLE_FUZZING:BOOL=OFF
+		$(usex test '-DSIMDJSON_ENABLE_FUZZING:BOOL=OFF' '')
+		-DSIMDJSON_ENABLE_NAN_INF:BOOL=$(usex nan 'ON' 'OFF')
 		-DCPM_SOURCE_CACHE:STRING="${WORKDIR}"
 		-Wno-dev
 	)
