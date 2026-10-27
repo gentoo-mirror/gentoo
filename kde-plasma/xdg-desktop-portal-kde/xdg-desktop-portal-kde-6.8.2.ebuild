@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.22.0
+	>=dev-libs/plasma-wayland-protocols-1.23.0
 	>=dev-libs/wayland-protocols-1.25
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "

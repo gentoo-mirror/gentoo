@@ -39,9 +39,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	tools? ( virtual/zlib:= )
 "
-RDEPEND="${DEPEND}
-	widgets? ( kde-plasma/breeze:6 )
-"
+RDEPEND="${DEPEND}"
 BDEPEND="
 	doc? ( >=dev-qt/qttools-${QTMIN}:6[qdoc] )
 "

@@ -16,7 +16,8 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
-IUSE="accessibility gamepad gles2-only lock screencast selinux +shortcuts systemd X"
+IUSE="accessibility activities gamepad gles2-only lock screencast selinux
++shortcuts systemd X"
 
 RESTRICT="test"
 
@@ -54,7 +55,6 @@ COMMON_DEPEND="
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
-	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	media-libs/lcms:2
 	media-libs/libcanberra
 	>=media-libs/libdisplay-info-0.2.0:=
@@ -67,6 +67,7 @@ COMMON_DEPEND="
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
+	activities? ( >=kde-plasma/plasma-activities-${KDE_CATV}:6= )
 	gamepad? ( dev-libs/libevdev )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
 	screencast? ( >=media-video/pipewire-1.4.0:= )
@@ -83,7 +84,6 @@ COMMON_DEPEND="
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!kde-plasma/kdeplasma-addons:5
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
@@ -155,6 +155,7 @@ src_configure() {
 		# KWIN_BUILD_DECORATIONS exists, drops aurorae, breeze
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
+		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
 		-DKWIN_BUILD_X11=$(usex X)

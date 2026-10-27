@@ -49,7 +49,7 @@ COMMON_DEPEND="
 	media-libs/libsdl3
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/plasma-wayland-protocols
+	>=dev-libs/plasma-wayland-protocols-1.23.0
 "
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6

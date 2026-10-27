@@ -34,14 +34,13 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/union-${KDE_CATV}:6
 	X? (
 		x11-libs/libXcursor
 		x11-libs/libxcb
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.22.0
+	>=dev-libs/plasma-wayland-protocols-1.23.0
 "
 RDEPEND="${COMMON_DEPEND}
 	!<${CATEGORY}/${PN}-6.5.0:5

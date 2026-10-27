@@ -41,7 +41,7 @@ COMMON_DEPEND="
 	activities? ( =kde-plasma/plasma-activities-${KDE_CATV}*:6= )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.22.0
+	>=dev-libs/plasma-wayland-protocols-1.23.0
 	>=dev-libs/wayland-protocols-1.46
 	test? ( >=kde-frameworks/karchive-${KFMIN}:6 )
 "

@@ -13,9 +13,8 @@ SLOT="6"
 KEYWORDS="~amd64 ~arm64"
 IUSE="accessibility +backup bluetooth +browser-integration +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine
-+xwayland"
++networkmanager oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart systemd
+thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -76,8 +75,8 @@ RDEPEND="
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
 		sddm? (
+			gui-apps/sddm[elogind?,systemd?]
 			>=kde-plasma/sddm-kcm-${PV}:${SLOT}
-			>=gui-apps/sddm-0.21.0_p20240302[elogind?,systemd?]
 		)
 		!sddm? ( x11-misc/lightdm )
 	)
@@ -131,10 +130,9 @@ case ${PV} in
 		"
 		;;
 esac
-# Optional runtime deps: kde-plasma/plasma-desktop, kde-plasma/spectacle
+# Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
-	ocr? ( app-text/tesseract )
 "
 
 pkg_postinst() {

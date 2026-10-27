@@ -19,7 +19,7 @@ IUSE="systemd"
 
 COMMON_DEPEND="
 	>=dev-libs/libei-1.6.0
-	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+	>=dev-libs/qtkeychain-0.16.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,wayland]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
@@ -37,7 +37,7 @@ COMMON_DEPEND="
 	systemd? ( >=sys-apps/systemd-254:= )
 "
 DEPEND="${COMMON_DEPEND}
-	dev-libs/plasma-wayland-protocols
+	>=dev-libs/plasma-wayland-protocols-1.23.0
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:6

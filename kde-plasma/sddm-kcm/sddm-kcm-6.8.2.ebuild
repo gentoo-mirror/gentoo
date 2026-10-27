@@ -30,9 +30,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
+	gui-apps/sddm
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
-	gui-apps/sddm
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
