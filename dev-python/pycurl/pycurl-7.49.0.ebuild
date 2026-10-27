@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="curl_ssl_gnutls +curl_ssl_openssl examples ssl"
 
 # Depend on a curl with curl_ssl_* USE flags.
@@ -53,18 +53,6 @@ EPYTEST_PLUGINS=( flaky )
 : ${EPYTEST_TIMEOUT:=120}
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	local PATCHES=(
-		# https://github.com/pycurl/pycurl/pull/1072
-		"${FILESDIR}/${PN}-7.47.0-except.patch"
-	)
-
-	distutils-r1_python_prepare_all
-
-	# docs installed into the wrong directory
-	sed -e "/setup_args\['data_files'\] = /d" -i setup.py || die
-}
 
 python_configure_all() {
 	# Override faulty detection in setup.py, bug #510974.
