@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=x11-libs/gtk+:3[X,wayland?] x11-libs/libX11 x11-libs/libXi media-libs/fontconfig media-libs/freetype wayland? ( dev-libs/wayland x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes x11-libs/libXtst )
+DESCRIPTION=Digital audio workstation
+EAPI=8
+HOMEPAGE=https://www.reaper.fm
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+IUSE=+jack pulseaudio mp3 ffmpeg wayland
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=Cockos
+RDEPEND=x11-libs/gtk+:3[X,wayland?] x11-libs/libX11 x11-libs/libXi media-libs/fontconfig media-libs/freetype wayland? ( dev-libs/wayland x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes x11-libs/libXtst ) media-libs/alsa-lib media-libs/libglvnd jack? ( virtual/jack ) pulseaudio? ( media-libs/libpulse ) mp3? ( media-sound/lame ) ffmpeg? ( media-video/ffmpeg ) wayland? ( x11-base/xwayland )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=amd64? ( https://www.reaper.fm/files/7.x/reaper783_linux_x86_64.tar.xz ) x86? ( https://www.reaper.fm/files/7.x/reaper783_linux_i686.tar.xz ) arm64? ( https://www.reaper.fm/files/7.x/reaper783_linux_aarch64.tar.xz ) arm? ( https://www.reaper.fm/files/7.x/reaper783_linux_armv7l.tar.xz ) !wayland? ( https://github.com/justinfrankel/WDL/archive/61c5553aad0d257775a4dd7bf36b8be617ec8281.tar.gz -> WDL-61c5553aad0d257775a4dd7bf36b8be617ec8281.tar.gz ) wayland? ( https://github.com/GoranKovac/WDL/archive/refs/tags/0.6.6.tar.gz -> WDL-wayland-0.6.6.tar.gz )
+_eclasses_=desktop	e447b5f77146d69797e9f03ff177f3f1	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=081affce4eeff19e355efbdcb3e617fb
