@@ -64,11 +64,12 @@ done
 IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 debug +llvm
 	lm-sensors opencl +opengl +proprietary-codecs
-	sysprof test unwind vaapi valgrind vulkan
+	sysprof test unwind vaapi valgrind virtio vulkan
 	wayland +X +zstd"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	llvm? ( ${LLVM_REQUIRED_USE} )
+	virtio? ( || ( video_cards_freedreno video_cards_intel video_cards_panfrost video_cards_radeonsi ) )
 	video_cards_i915? ( llvm )
 	video_cards_lavapipe? ( llvm vulkan )
 	video_cards_radeon? ( x86? ( llvm ) amd64? ( llvm ) )
@@ -303,6 +304,18 @@ multilib_src_configure() {
 	use wayland && platforms+=",wayland"
 	emesonargs+=(-Dplatforms=${platforms#,})
 
+	local amd_options
+	use llvm && amd_options+="use-llvm"
+
+	if use virtio; then
+		use video_cards_freedreno && emesonargs+=(-Dfreedreno-kmds=msm,virtio)
+		use video_cards_intel && emesonargs+=(-Dintel-virtio-experimental=true)
+		use video_cards_panfrost && emesonargs+=(-Dpanfrost-virtio=true)
+		use video_cards_radeonsi && amd_options+=",virtio"
+	fi
+
+	emesonargs+=(-Damd-options=${amd_options#,})
+
 	if use video_cards_d3d12 ||
 	   use video_cards_nouveau ||
 	   use video_cards_r600 ||
@@ -411,7 +424,6 @@ multilib_src_configure() {
 		$(meson_feature unwind libunwind)
 		$(meson_feature vulkan display-info)
 		$(meson_feature zstd)
-		$(meson_use llvm amd-use-llvm)
 		$(meson_use sysprof)
 		$(meson_use cpu_flags_x86_sse2 sse2)
 		-Dvalgrind=$(usex valgrind auto disabled)
