@@ -21,13 +21,14 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 BDEPEND="
 	test? (
 		>=dev-python/fakeredis-2.31.0[${PYTHON_USEDEP}]
 		dev-python/redis[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-6.0.0[${PYTHON_USEDEP}]
+		>=dev-python/typing-extensions-4.4[${PYTHON_USEDEP}]
 	)
 "
 

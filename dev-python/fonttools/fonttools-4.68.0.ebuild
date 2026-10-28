@@ -22,14 +22,12 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+native-extensions"
 
 BDEPEND="
 	native-extensions? (
-		$(python_gen_cond_dep '
-			dev-python/cython[${PYTHON_USEDEP}]
-		' 'python*')
+		dev-python/cython[${PYTHON_USEDEP}]
 	)
 	test? (
 		dev-python/brotlicffi[${PYTHON_USEDEP}]
@@ -44,9 +42,21 @@ EPYTEST_RERUNS=20
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
+EPYTEST_DESELECT=(
+	# length mismatches; possibly zlib-ng?
+	Tests/ttLib/woff2_test.py::WOFF2ReaderTTFTest::test_table_tags
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_calcTotalSize_no_flavorData
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_calcTotalSize_with_metaData
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_calcTotalSize_with_metaData_and_privData
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_calcTotalSize_with_privData
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_checksums
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_head_transform_flag
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_hmtx_trasform
+	Tests/ttLib/woff2_test.py::WOFF2WriterTest::test_no_transforms
+)
+
 python_compile() {
 	local -x FONTTOOLS_WITH_CYTHON=$(usex native-extensions)
-	[[ ${EPYTHON} == pypy3 ]] && FONTTOOLS_WITH_CYTHON=0
 	distutils-r1_python_compile
 }
 

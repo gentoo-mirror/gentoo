@@ -19,6 +19,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+# socksio for httpx2[socks]
 RDEPEND="
 	>=dev-python/argcomplete-3.6.3[${PYTHON_USEDEP}]
 	dev-python/certifi[${PYTHON_USEDEP}]
@@ -27,22 +28,22 @@ RDEPEND="
 	>=dev-python/findpython-0.7.0[${PYTHON_USEDEP}]
 	dev-python/blinker[${PYTHON_USEDEP}]
 	dev-python/filelock[${PYTHON_USEDEP}]
-	>=dev-python/hishel-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
-	dev-python/httpx[${PYTHON_USEDEP}]
+	>=dev-python/hishel-1.4.0[${PYTHON_USEDEP}]
+	>=dev-python/httpx2-2.9.1[${PYTHON_USEDEP}]
 	>=dev-python/id-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/installer-1[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22.1[${PYTHON_USEDEP}]
-	>=dev-python/pbs-installer-2025.10.07[${PYTHON_USEDEP}]
+	>=dev-python/pbs-installer-2026.10.25[${PYTHON_USEDEP}]
 	dev-python/platformdirs[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
 	>=dev-python/resolvelib-1.2.0[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/shellingham[${PYTHON_USEDEP}]
+	dev-python/socksio[${PYTHON_USEDEP}]
 	dev-python/tomlkit[${PYTHON_USEDEP}]
 	>=dev-python/truststore-0.10.4[${PYTHON_USEDEP}]
-	>=dev-python/unearth-0.17.5[${PYTHON_USEDEP}]
+	>=dev-python/unearth-0.19[${PYTHON_USEDEP}]
 	dev-python/virtualenv[${PYTHON_USEDEP}]
 "
 BDEPEND="

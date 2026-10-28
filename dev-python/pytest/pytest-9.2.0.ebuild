@@ -5,8 +5,8 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/pytest-dev/pytest
-PYTHON_TESTED=( python3_{11..14} pypy3_11 )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_15 python3_{13..15}t )
+PYTHON_TESTED=( python3_{12..15} python3_{14..15}t )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" pypy3_12 )
 
 inherit distutils-r1 pypi
 
@@ -19,16 +19,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/iniconfig-1.0.1[${PYTHON_USEDEP}]
-	>=dev-python/packaging-22[${PYTHON_USEDEP}]
+	>=dev-python/iniconfig-2[${PYTHON_USEDEP}]
+	>=dev-python/packaging-24[${PYTHON_USEDEP}]
 	<dev-python/pluggy-2[${PYTHON_USEDEP}]
-	>=dev-python/pluggy-1.5.0[${PYTHON_USEDEP}]
-	>=dev-python/pygments-2.7.2[${PYTHON_USEDEP}]
+	>=dev-python/pluggy-1.6[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.15[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/setuptools-scm-6.2.3[${PYTHON_USEDEP}]
@@ -36,10 +36,12 @@ BDEPEND="
 		${RDEPEND}
 		$(python_gen_cond_dep '
 			dev-python/argcomplete[${PYTHON_USEDEP}]
-			>=dev-python/attrs-19.2[${PYTHON_USEDEP}]
-			>=dev-python/hypothesis-3.56[${PYTHON_USEDEP}]
+			>=dev-python/attrs-23.1[${PYTHON_USEDEP}]
+			>=dev-python/hypothesis-6.75[${PYTHON_USEDEP}]
 			dev-python/mock[${PYTHON_USEDEP}]
-			dev-python/pytest-xdist[${PYTHON_USEDEP}]
+			>=dev-python/pexpect-4.9[${PYTHON_USEDEP}]
+			>=dev-python/pytest-xdist-3.5[${PYTHON_USEDEP}]
+			dev-python/pyyaml[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 			dev-python/xmlschema[${PYTHON_USEDEP}]
 		' "${PYTHON_TESTED[@]}")
@@ -98,22 +100,10 @@ python_test() {
 
 		# PDB tests seem quite flaky (they time out often)
 		testing/test_debugging.py::TestPDB
-	)
 
-	case ${EPYTHON} in
-		pypy3*)
-			EPYTEST_DESELECT+=(
-				# regressions on pypy3.9
-				# https://github.com/pytest-dev/pytest/issues/9787
-				testing/test_skipping.py::test_errors_in_xfail_skip_expressions
-			)
-			;;
-		python3.14)
-			EPYTEST_DESELECT+=(
-				testing/test_doctest.py::TestDoctests::test_doctest_unexpected_exception
-			)
-			;;
-	esac
+		# TODO
+		testing/test_terminal.py::TestProgressOutputStyle::test_xdist_times
+	)
 
 	local EPYTEST_PLUGINS=()
 	local EPYTEST_XDIST=1

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=poetry-core
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
@@ -28,11 +28,3 @@ RDEPEND="
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	# fix broken pytest config syntax
-	sed -e '/python_files = "/d' \
-		-e '/norecursedirs = "/d' \
-		-i pyproject.toml || die
-	distutils-r1_src_prepare
-}

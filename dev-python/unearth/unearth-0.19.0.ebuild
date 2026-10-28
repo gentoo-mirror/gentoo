@@ -21,8 +21,8 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
-	<dev-python/httpx-1[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.27.0[${PYTHON_USEDEP}]
+	<dev-python/httpx2-3[${PYTHON_USEDEP}]
+	>=dev-python/httpx2-2.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -35,7 +35,3 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( pytest-{httpserver,mock} )
 distutils_enable_tests pytest
-
-PATCHES=(
-	"${FILESDIR}"/unearth-0.18.2-fix-tests-packaging-26.patch
-)

@@ -20,19 +20,20 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # curio is not packaged
 # asyncio is the only backend we have, so dep on its deps unconditionally
 # TODO: revisit
 BDEPEND="
 	test? (
-		>=dev-python/async-timeout-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/flask-1.1.2[${PYTHON_USEDEP}]
-		>=dev-python/tiny-proxy-0.1.1[${PYTHON_USEDEP}]
-		>=dev-python/trio-0.24[${PYTHON_USEDEP}]
-		>=dev-python/trustme-0.9.0[${PYTHON_USEDEP}]
-		>=dev-python/yarl-1.4.2[${PYTHON_USEDEP}]
+		>=dev-python/starlette-0.49.3[${PYTHON_USEDEP}]
+		>=dev-python/tiny-proxy-0.3.0[${PYTHON_USEDEP}]
+		>=dev-python/trio-0.30.0[${PYTHON_USEDEP}]
+		>=dev-python/trustme-1.2.1[${PYTHON_USEDEP}]
+		>=dev-python/uvicorn-0.39.0[${PYTHON_USEDEP}]
+		>=dev-python/yarl-1.22.0[${PYTHON_USEDEP}]
 	)
 "
 
