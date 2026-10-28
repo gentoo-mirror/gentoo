@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-lang/ghc-8.0.2:=[profile?] <dev-lang/ghc-9.13:=[profile?] >=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-lang/ghc-8.0.2:=[profile?] <dev-lang/ghc-9.15:=[profile?] >=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=GHC plugin to do inspection testing
 EAPI=8
 HOMEPAGE=https://github.com/nomeata/inspection-testing
@@ -8,9 +8,9 @@ INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ghc-8.0.2:=[profile?] <dev-lang/ghc-9.13:=[profile?] >=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-lang/ghc-8.0.2:=[profile?] <dev-lang/ghc-9.15:=[profile?] >=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
-SLOT=0/0.6
-SRC_URI=https://hackage.haskell.org/package/inspection-testing-0.6/inspection-testing-0.6.tar.gz
+SLOT=0/0.6.3
+SRC_URI=https://hackage.haskell.org/package/inspection-testing-0.6.3/inspection-testing-0.6.3.tar.gz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	haskell-cabal	1138de808f4356a4380a4f7cc6d4d8a3
-_md5_=771be1c891d48bcba3a8d98bdf744068
+_md5_=2b89589c2103715aacb762b3f919e67a

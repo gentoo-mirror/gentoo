@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.10:=[profile?] >=dev-haskell/random-1.2:=[profile?] dev-haskell/tasty:=[profile?] >=dev-haskell/vector-stream-0.1:=[profile?] <dev-haskell/vector-stream-0.2:=[profile?] >=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 test? ( >=dev-haskell/base-orphans-0.6 >=dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.16 dev-haskell/tasty-hunit >=dev-haskell/tasty-inspection-testing-0.1 dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.10:=[profile?] >=dev-haskell/random-1.2:=[profile?] dev-haskell/tasty:=[profile?] >=dev-haskell/vector-stream-0.1:=[profile?] <dev-haskell/vector-stream-0.2:=[profile?] >=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 test? ( >=dev-haskell/base-orphans-0.6 >=dev-haskell/doctest-0.15 <dev-haskell/doctest-0.26 >=dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.20 dev-haskell/tasty-hunit >=dev-haskell/tasty-inspection-testing-0.1 dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Efficient Arrays
 EAPI=8
 HOMEPAGE=https://github.com/haskell/vector
@@ -11,6 +11,6 @@ LICENSE=BSD
 RDEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.10:=[profile?] >=dev-haskell/random-1.2:=[profile?] dev-haskell/tasty:=[profile?] >=dev-haskell/vector-stream-0.1:=[profile?] <dev-haskell/vector-stream-0.2:=[profile?] >=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.13.2.0
-SRC_URI=https://hackage.haskell.org/package/vector-0.13.2.0/vector-0.13.2.0.tar.gz https://hackage.haskell.org/package/vector-0.13.2.0/revision/1.cabal -> vector-0.13.2.0-rev1.cabal
+SRC_URI=https://hackage.haskell.org/package/vector-0.13.2.0/vector-0.13.2.0.tar.gz https://hackage.haskell.org/package/vector-0.13.2.0/revision/5.cabal -> vector-0.13.2.0-rev5.cabal
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	haskell-cabal	1138de808f4356a4380a4f7cc6d4d8a3
-_md5_=25b2027086c9b4871124590e20655b14
+_md5_=e4caec7f347ba8b78d8f5fe6393c9e23
