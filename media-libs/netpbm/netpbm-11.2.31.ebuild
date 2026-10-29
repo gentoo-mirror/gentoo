@@ -172,11 +172,6 @@ src_prepare() {
 		-e 's:ppmpat-random.*::' \
 		-i test/Test-Order || die
 
-	# fix typo
-	sed -i \
-		-e 's/^o#!/#!/' \
-		-i test/stdin-ppm3.test || die
-
 	# gif-transparent1 broken by the latest changes; disable it temporarily
 	sed \
 		-e 's:gif-transparent1.*::' \
