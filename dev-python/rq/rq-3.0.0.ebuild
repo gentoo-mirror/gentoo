@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/click-5.0[${PYTHON_USEDEP}]
@@ -32,6 +32,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=()
+EPYTEST_RERUNS=5
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
@@ -45,12 +46,6 @@ EPYTEST_DESELECT=(
 	# already present in older versions
 	tests/test_spawn_worker.py::TestWorker::test_work_and_quit
 )
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# strip pin
-	sed -i -e '/dependencies/s:,!=[0-9.]*::' pyproject.toml || die
-}
 
 src_test() {
 	local -x TZ=UTC

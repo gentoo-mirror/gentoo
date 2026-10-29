@@ -23,7 +23,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
 RDEPEND="
-	=dev-python/pyflakes-4.0*[${PYTHON_USEDEP}]
+	=dev-python/pyflakes-4.1*[${PYTHON_USEDEP}]
 	=dev-python/pycodestyle-2.15*[${PYTHON_USEDEP}]
 "
 PDEPEND="

@@ -20,11 +20,12 @@ HOMEPAGE="
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="examples"
 
 RDEPEND="
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.4[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.5.0[${PYTHON_USEDEP}]
+	' 3.12)
+	>=dev-python/wcwidth-0.9.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
@@ -37,11 +38,6 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	sed -i -e 's:--cov --cov-report=term::' pyproject.toml || die
-}
-
-python_install_all() {
-	use examples && dodoc -r examples
-	distutils-r1_python_install_all
 }
 
 pkg_postinst() {

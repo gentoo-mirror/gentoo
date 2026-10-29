@@ -18,16 +18,17 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/pbr-1.3[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/netaddr-0.7.18[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-5.6.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/rfc3986-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.18.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.11.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
