@@ -1,0 +1,17 @@
+BDEPEND=examples? ( dev-util/patchelf ) python? ( python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/setuptools[python_targets_python3_14(-)] ) ) test? ( python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/boost:= ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) )
+DESCRIPTION=C++ BitTorrent implementation focusing on efficiency and scalability
+EAPI=8
+HOMEPAGE=https://libtorrent.org/ https://github.com/arvidn/libtorrent
+INHERIT=cmake python-single-r1
+IUSE=+dht debug examples gnutls python ssl test python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/boost:= ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) python? ( python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-libs/boost[python,python_targets_python3_14(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
+RESTRICT=!test? ( test )
+SLOT=0/2.0
+SRC_URI=https://github.com/arvidn/libtorrent/releases/download/v2.0.15/libtorrent-rasterbar-2.0.15.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=c562b7459536d926db8373a614915247
