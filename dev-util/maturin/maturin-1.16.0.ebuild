@@ -25,7 +25,7 @@ LICENSE+="
 	BZIP2
 " # crates
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ssl test"
 RESTRICT="!test? ( test )"
 
@@ -76,7 +76,6 @@ src_prepare() {
 		git config --global user.name "Larry the Cow" || die
 		git add . || die
 		git commit -qm init || die
-
 	fi
 }
 
@@ -128,18 +127,23 @@ python_test() {
 		errors::pyo3_no_extension_module
 		# fails for unsupported rust targets, non-issue here (bug #973104)
 		errors::pypi_compatibility_linux_tag
-		# unimportant tests that require uv, and not obvious to get it
-		# to work with network-sandbox (not worth the trouble)
+		# minor tests that require pip or uv, and are a hassle with sandbox
+		develop::develop_pip_cases::case_01_pyo3_pure
+		develop::develop_pip_cases::case_12_pyo3_pure_with_dependency_group
 		develop::develop_uv_cases::case_1_hello_world
 		develop::develop_uv_cases::case_2_pyo3_ffi_pure
-		# compliance tests using zig (if present) need old libc (bug #946967)
+		develop::develop_uv_cases::case_3_pyo3_pure_with_dependency_group
+		# compliance tests that require a old glibc (bug #946967,#982570)
 		integration::integration_cases::case_07_cffi_mixed_py_subdir
 		integration::integration_cases::case_16_pyo3_stub_generation_zig
+		integration::integration_cases::case_16_pyo3_stub_generation_pure_zig
 		# avoid need for wasm over a single hello world test
 		integration::integration_wasm_hello_world
 		# these currently attempt to install tomli regardless of python version
 		pep517::pep517_default_profile
 		pep517::pep517_editable_profile
+		# has troublesome requirements and is unimportant for us
+		pgo::pgo_pyo3_mixed
 		# unimportant and simpler to skip, does not work with just `git init`
 		sdist::lib_with_parent_workspace_git_dep_sdist
 	)
