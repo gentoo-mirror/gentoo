@@ -8,17 +8,21 @@ EAPI=8
 CABAL_FEATURES="lib profile haddock hoogle hscolour"
 inherit haskell-cabal
 
-DESCRIPTION="A Testing Framework for Haskell"
+DESCRIPTION="A version of Hspec which is used to test Hspec itself"
 HOMEPAGE="https://hspec.github.io/"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
-RDEPEND="~dev-haskell/hspec-core-2.11.16:=[profile?]
-	~dev-haskell/hspec-discover-2.11.16:=[profile?]
+RDEPEND=">=dev-haskell/ansi-terminal-0.6.2:=[profile?]
+	>=dev-haskell/call-stack-0.2.0:=[profile?]
+	dev-haskell/haskell-lexer:=[profile?]
 	>=dev-haskell/hspec-expectations-0.8.4:=[profile?] <dev-haskell/hspec-expectations-0.8.5:=[profile?]
-	>=dev-haskell/quickcheck-2.12:=[profile?]
+	>=dev-haskell/hunit-1.6:=[profile?] <dev-haskell/hunit-1.7:=[profile?]
+	>=dev-haskell/quickcheck-2.13.1:=[profile?] <dev-haskell/quickcheck-2.20:=[profile?]
+	>=dev-haskell/quickcheck-io-0.2.0:=[profile?]
+	dev-haskell/random:=[profile?]
 	>=dev-lang/ghc-9.0.2:=
 "
 DEPEND="${RDEPEND}
