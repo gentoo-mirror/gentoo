@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://lttng.org
 INHERIT=autotools flag-o-matic python-any-r1 verify-sig
 IUSE=examples numa test verify-sig
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/userspace-rcu-0.12:= numa? ( sys-process/numactl )
 RESTRICT=!test? ( test )
 SLOT=0/2.14
 SRC_URI=https://lttng.org/files/lttng-ust/lttng-ust-2.14.3.tar.bz2 verify-sig? ( https://lttng.org/files/lttng-ust/lttng-ust-2.14.3.tar.bz2.asc )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	8e8dec541e781133e5176ee95a872f17	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=6e3c220a02365c0c08de5fb247704de1
+_md5_=2ead341ae7e7e69479bd0550ec67eab1
