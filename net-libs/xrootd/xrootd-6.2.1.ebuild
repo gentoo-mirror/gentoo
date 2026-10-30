@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..14} python3_14t )
+PYTHON_COMPAT=( python3_{10..14} python3_14t )
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517="setuptools"
@@ -17,11 +17,11 @@ DOCS_DEPEND="
 inherit cmake docs distutils-r1 systemd
 
 DESCRIPTION="Extended ROOT remote file server"
-HOMEPAGE="https://xrootd.slac.stanford.edu/"
+HOMEPAGE="https://xrootd.org/"
 LICENSE="LGPL-3+"
 
-SLOT="0"
-IUSE="ceph examples fuse http kerberos +libxml2 macaroons python readline scitokens +server systemd test xrdec"
+SLOT="0/6"
+IUSE="ceph examples fuse +http +kerberos +libxml2 macaroons python readline scitokens +server systemd test"
 
 if [[ ${PV} =~ "9999" ]] ; then
 	inherit git-r3
@@ -34,42 +34,40 @@ fi
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
+	http? ( server )
 	macaroons? ( server http )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	scitokens? ( server )
-	test? ( server http )
+	test? ( http server )
 "
 
 CDEPEND="acct-group/xrootd
 	acct-user/xrootd
 	dev-libs/openssl:0=
+	net-misc/curl:=
 	virtual/zlib:=
 	virtual/libcrypt:=
 	ceph? ( sys-cluster/ceph )
 	fuse? ( sys-fs/fuse:0= )
-	http? (
-		net-misc/curl:=
-		net-libs/davix
-	)
 	kerberos? ( app-crypt/mit-krb5 )
 	libxml2? ( dev-libs/libxml2:2= )
 	macaroons? ( dev-libs/libmacaroons )
 	python? ( ${PYTHON_DEPS} )
 	readline? ( sys-libs/readline:0= )
 	scitokens? ( dev-cpp/scitokens-cpp )
+	server? ( dev-libs/libzip:= )
 	systemd? ( sys-apps/systemd:= )
-	xrdec? ( dev-libs/isa-l )
 "
 DEPEND="${CDEPEND}"
 BDEPEND="
 	python? (
 		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
-		test? ( >=dev-python/pytest-7.1.2[${PYTHON_USEDEP}] )
+		test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	)
 	test? (
+		app-misc/jq
 		dev-cpp/gtest
-		dev-util/cppunit
 	)
 "
 RDEPEND="${CDEPEND}
@@ -79,7 +77,7 @@ RDEPEND="${CDEPEND}
 # XRootD plugins are not intended to be linked with,
 # they are loaded at runtime by the XRootD server.
 # See https://github.com/xrootd/xrootd/issues/447
-QA_SONAME="/usr/lib.*/libXrd.*-5\.so"
+QA_SONAME="/usr/lib.*/libXrd.*-6\.so"
 
 pkg_setup() {
 	use python && python_setup
@@ -89,7 +87,7 @@ src_prepare() {
 	cmake_src_prepare
 
 	if use python; then
-		pushd "${S}"/bindings/python > /dev/null || die
+		pushd "${S}"/python > /dev/null || die
 		distutils-r1_src_prepare
 		popd > /dev/null || die
 	fi
@@ -112,15 +110,15 @@ src_configure() {
 		-DENABLE_TESTS=$(usex test)
 		-DENABLE_VOMS=no
 		-DENABLE_XRDCL=yes
-		-DENABLE_XRDCLHTTP=$(usex http)
-		-DENABLE_XRDEC=$(usex xrdec)
+		-DENABLE_XRDEC=no
+		-DENABLE_XRDOSSARC=$(usex server)
 		-DFORCE_ENABLED=yes
 		-DXRDCL_ONLY=$(usex server "no" "yes")
 	)
 	cmake_src_configure
 
 	if use python; then
-		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
+		pushd "${BUILD_DIR}"/python > /dev/null || die
 		distutils-r1_src_configure
 		popd > /dev/null || die
 	fi
@@ -129,7 +127,7 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 	if use python; then
-		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
+		pushd "${BUILD_DIR}"/python > /dev/null || die
 		distutils-r1_src_compile
 		popd > /dev/null || die
 	fi
@@ -137,7 +135,7 @@ src_compile() {
 	docs_compile
 	# secondary documentation for python bindings
 	if use python && use doc; then
-		emake -C bindings/python/docs html
+		emake -C python/docs html
 	fi
 }
 
@@ -150,7 +148,8 @@ src_test() {
 
 	local CMAKE_SKIP_TESTS=(
 		# bug 937090, these fail on tmpfs, as they require
-		# a filesystem with extended attributes
+		# a filesystem with extended attributes, or the server
+		# fails to start due to long path to unix domain socket
 		$(usev server '
 			XrdCl::LocalFileHandlerTest.XAttrTest
 			XrdCl::FileTest.XAttrTest
@@ -159,23 +158,22 @@ src_test() {
 			XrdCl::FileSystemTest.XAttrTest
 			XrdCl::WorkflowTest.XAttrWorkflowTest
 			XrdCl::WorkflowTest.CheckpointTest
+			XrdCl::tpc
+			XrdHttp::StressTests
 			XRootD::authenticated_cluster
-			XRootD::httpnoclient
-			XRootD::macaroons
-			XRootD::xcachewithcsi
+			XRootD::http
+			XRootD::cache
+			XRootD::xcache
 			XRootD::badredir
 			XRootD::posix
 		')
-		# server fails to start due to long path to unix domain socket
 		$(usev scitokens '
+			XRootD::macaroons
 			XRootD::scitokens
 			XRootD::tpc
 		')
 	)
 	cmake_src_test
-	# Python tests currently require manual configuration and start-up of an xrootd server.
-	# TODO: get this to run properly.
-	#use python && distutils-r1_src_test
 }
 
 src_install() {
@@ -192,33 +190,31 @@ src_install() {
 		newconfd "${FILESDIR}"/xrootd.confd xrootd
 
 		if use systemd; then
-			systemd_dounit packaging/common/*.{service,socket}
+			systemd_dounit systemd/*.{service,socket}
 		fi
 	fi
 
 	# base configs
 	insinto /etc/xrootd
-	doins packaging/common/*.cfg
+	doins config/*.{cfg,conf,example}
 
-	keepdir /etc/xrootd/config.d
-	keepdir /var/log/xrootd
-
-	fowners -R xrootd:xrootd /etc/xrootd
-	fowners -R xrootd:xrootd /var/log/xrootd
+	# client configs
+	insinto /etc/xrootd/client.plugins.d
+	doins config/client.plugins.d/*.conf
 
 	if use python; then
-		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
+		pushd "${BUILD_DIR}"/python > /dev/null || die
 		distutils-r1_src_install
 		popd > /dev/null || die
 
 		if use doc; then
 			docinto python
 			docompress -x "/usr/share/doc/${PF}/python/html"
-			dodoc -r bindings/python/docs/build/html
+			dodoc -r python/docs/build/html
 		fi
 		if use examples; then
 			docinto python
-			dodoc -r bindings/python/examples
+			dodoc -r python/examples
 		fi
 	fi
 

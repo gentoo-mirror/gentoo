@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..14} python3_14t )
+PYTHON_COMPAT=( python3_{9..14} python3_14t )
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517="setuptools"
@@ -17,11 +17,11 @@ DOCS_DEPEND="
 inherit cmake docs distutils-r1 systemd
 
 DESCRIPTION="Extended ROOT remote file server"
-HOMEPAGE="https://xrootd.org/"
+HOMEPAGE="https://xrootd.slac.stanford.edu/"
 LICENSE="LGPL-3+"
 
-SLOT="0/6"
-IUSE="ceph examples fuse +http +kerberos +libxml2 macaroons python readline scitokens +server systemd test"
+SLOT="0"
+IUSE="ceph examples fuse http kerberos +libxml2 macaroons python readline scitokens +server systemd test xrdec"
 
 if [[ ${PV} =~ "9999" ]] ; then
 	inherit git-r3
@@ -34,40 +34,42 @@ fi
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	http? ( server )
 	macaroons? ( server http )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	scitokens? ( server )
-	test? ( http server )
+	test? ( server http )
 "
 
 CDEPEND="acct-group/xrootd
 	acct-user/xrootd
 	dev-libs/openssl:0=
-	net-misc/curl:=
 	virtual/zlib:=
 	virtual/libcrypt:=
 	ceph? ( sys-cluster/ceph )
 	fuse? ( sys-fs/fuse:0= )
+	http? (
+		net-misc/curl:=
+		net-libs/davix
+	)
 	kerberos? ( app-crypt/mit-krb5 )
 	libxml2? ( dev-libs/libxml2:2= )
 	macaroons? ( dev-libs/libmacaroons )
 	python? ( ${PYTHON_DEPS} )
 	readline? ( sys-libs/readline:0= )
 	scitokens? ( dev-cpp/scitokens-cpp )
-	server? ( dev-libs/libzip:= )
 	systemd? ( sys-apps/systemd:= )
+	xrdec? ( dev-libs/isa-l )
 "
 DEPEND="${CDEPEND}"
 BDEPEND="
 	python? (
 		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
-		test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+		test? ( >=dev-python/pytest-7.1.2[${PYTHON_USEDEP}] )
 	)
 	test? (
-		app-misc/jq
 		dev-cpp/gtest
+		dev-util/cppunit
 	)
 "
 RDEPEND="${CDEPEND}
@@ -77,7 +79,7 @@ RDEPEND="${CDEPEND}
 # XRootD plugins are not intended to be linked with,
 # they are loaded at runtime by the XRootD server.
 # See https://github.com/xrootd/xrootd/issues/447
-QA_SONAME="/usr/lib.*/libXrd.*-6\.so"
+QA_SONAME="/usr/lib.*/libXrd.*-5\.so"
 
 pkg_setup() {
 	use python && python_setup
@@ -87,7 +89,7 @@ src_prepare() {
 	cmake_src_prepare
 
 	if use python; then
-		pushd "${S}"/python > /dev/null || die
+		pushd "${S}"/bindings/python > /dev/null || die
 		distutils-r1_src_prepare
 		popd > /dev/null || die
 	fi
@@ -110,15 +112,15 @@ src_configure() {
 		-DENABLE_TESTS=$(usex test)
 		-DENABLE_VOMS=no
 		-DENABLE_XRDCL=yes
-		-DENABLE_XRDEC=no
-		-DENABLE_XRDOSSARC=$(usex server)
+		-DENABLE_XRDCLHTTP=$(usex http)
+		-DENABLE_XRDEC=$(usex xrdec)
 		-DFORCE_ENABLED=yes
 		-DXRDCL_ONLY=$(usex server "no" "yes")
 	)
 	cmake_src_configure
 
 	if use python; then
-		pushd "${BUILD_DIR}"/python > /dev/null || die
+		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
 		distutils-r1_src_configure
 		popd > /dev/null || die
 	fi
@@ -127,7 +129,7 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 	if use python; then
-		pushd "${BUILD_DIR}"/python > /dev/null || die
+		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
 		distutils-r1_src_compile
 		popd > /dev/null || die
 	fi
@@ -135,7 +137,7 @@ src_compile() {
 	docs_compile
 	# secondary documentation for python bindings
 	if use python && use doc; then
-		emake -C python/docs html
+		emake -C bindings/python/docs html
 	fi
 }
 
@@ -159,13 +161,14 @@ src_test() {
 			XrdCl::WorkflowTest.CheckpointTest
 			XRootD::authenticated_cluster
 			XRootD::httpnoclient
+			XRootD::https
+			XRootD::macaroons
 			XRootD::xcachewithcsi
 			XRootD::badredir
 			XRootD::posix
 		')
 		# server fails to start due to long path to unix domain socket
 		$(usev scitokens '
-			XRootD::macaroons
 			XRootD::scitokens
 			XRootD::tpc
 		')
@@ -190,31 +193,33 @@ src_install() {
 		newconfd "${FILESDIR}"/xrootd.confd xrootd
 
 		if use systemd; then
-			systemd_dounit systemd/*.{service,socket}
+			systemd_dounit packaging/common/*.{service,socket}
 		fi
 	fi
 
 	# base configs
 	insinto /etc/xrootd
-	doins config/*.{cfg,conf,example}
+	doins packaging/common/*.cfg
 
-	# client configs
-	insinto /etc/xrootd/client.plugins.d
-	doins config/client.plugins.d/*.conf
+	keepdir /etc/xrootd/config.d
+	keepdir /var/log/xrootd
+
+	fowners -R xrootd:xrootd /etc/xrootd
+	fowners -R xrootd:xrootd /var/log/xrootd
 
 	if use python; then
-		pushd "${BUILD_DIR}"/python > /dev/null || die
+		pushd "${BUILD_DIR}"/bindings/python > /dev/null || die
 		distutils-r1_src_install
 		popd > /dev/null || die
 
 		if use doc; then
 			docinto python
 			docompress -x "/usr/share/doc/${PF}/python/html"
-			dodoc -r python/docs/build/html
+			dodoc -r bindings/python/docs/build/html
 		fi
 		if use examples; then
 			docinto python
-			dodoc -r python/examples
+			dodoc -r bindings/python/examples
 		fi
 	fi
 
