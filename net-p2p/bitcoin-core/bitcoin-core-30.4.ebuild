@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit bash-completion-r1 check-reqs cmake desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 
@@ -12,14 +12,15 @@ HOMEPAGE="https://bitcoincore.org/"
 SRC_URI="
 	https://github.com/bitcoin/bitcoin/archive/v${PV/_rc/rc}.tar.gz -> ${P}.tar.gz
 	https://github.com/bitcoin/bitcoin/commit/fac5a1b10a6979a7898c5c3555d62b593560772f.patch?full_index=1 -> ${PN}-fix-mempool_updatefromblock.patch
-	https://github.com/bitcoin/bitcoin/commit/9632450ff65c1fee29c2564a6ad64dfaad4d663c.patch?full_index=1 -> ${PN}-30.2-multi_index-fix-compilation-failure-with-boost-1.91.patch
+	https://github.com/google/leveldb/commit/ed72a3496ed01e1c6a28f743258623a58f6867ee.patch?full_index=1 -> leveldb-cxx-standard.patch
+	https://github.com/google/leveldb/commit/9e273a6aef69ceb8717c083e46002641f6f51c8f.patch?full_index=1 -> leveldb-cmake-3.22.patch
 "
 S="${WORKDIR}/${PN/-core}-${PV/_rc/rc}"
 
 LICENSE="MIT"
 SLOT="0"
 if [[ "${PV}" != *_rc* ]] ; then
-	KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 IUSE="asm +cli +daemon dbus examples +external-signer gui qrcode +system-libsecp256k1 systemtap test test-full +wallet zeromq"
 RESTRICT="!test? ( test )"
@@ -92,7 +93,6 @@ DOCS=(
 )
 
 PATCHES=(
-	"${DISTDIR}/${PN}-30.2-multi_index-fix-compilation-failure-with-boost-1.91.patch"
 	"${FILESDIR}/30.0-cmake-syslibs.patch"
 	"${FILESDIR}/26.0-init.patch"
 	"${T}/${PN}-fix-mempool_updatefromblock.patch"
@@ -170,9 +170,10 @@ src_prepare() {
 	# https://github.com/google/crc32c/commit/2bbb3be42e20a0e6c0f7b39dc07dc863d9ffbc07
 	sed -e '/^cmake_minimum_required(VERSION 3\.1)$/s/)$/6)/' -i src/crc32c/CMakeLists.txt || die
 
-	# https://bugs.gentoo.org/965371
-	# https://github.com/google/leveldb/issues/1289
-	sed -e '/^cmake_minimum_required(VERSION 3\.9)$/s/9)$/10)/' -i src/leveldb/CMakeLists.txt || die
+	pushd src/leveldb >/dev/null || die
+	eapply "${DISTDIR}/leveldb-cxx-standard.patch"
+	eapply "${DISTDIR}/leveldb-cmake-3.22.patch"
+	popd >/dev/null || die
 
 	# https://github.com/bitcoin/bitcoin/pull/34136
 	cp -- "${DISTDIR}/${PN}-fix-mempool_updatefromblock.patch" "${T}/" || die
