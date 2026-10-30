@@ -16,15 +16,15 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/xenodium/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/acp-0.12.2
-	>=app-emacs/shell-maker-0.93.3
+	>=app-emacs/acp-0.18.1
+	>=app-emacs/shell-maker-0.98.2
 "
 BDEPEND="
 	${RDEPEND}
