@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prerm pretend setup
+DEPEND=!vhosts? ( daemon? ( acl? ( sys-apps/acl ) ) ) || ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
+DESCRIPTION=Tiny Tiny RSS - A web-based news feed (RSS/Atom) aggregator using AJAX
+EAPI=8
+HOMEPAGE=https://github.com/tt-rss/
+INHERIT=webapp
+IUSE=+acl daemon gd vhosts
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=GPL-3
+RDEPEND=daemon? ( acl? ( sys-apps/acl ) ) daemon? ( acct-user/ttrssd acct-group/ttrssd || ( ( virtual/httpd-php:8.5 dev-lang/php:8.5[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ( virtual/httpd-php:8.4 dev-lang/php:8.4[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ( virtual/httpd-php:8.2 dev-lang/php:8.2[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ) ) !daemon? ( || ( ( virtual/httpd-php:8.5 dev-lang/php:8.5[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ( virtual/httpd-php:8.4 dev-lang/php:8.4[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ( virtual/httpd-php:8.2 dev-lang/php:8.2[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ) ) app-admin/webapp-config
+SLOT=20261025
+SRC_URI=https://github.com/tt-rss/tt-rss/archive/c02520ff1c26a0aab0c81ada1f42d377f02ac29c.tar.gz -> tt-rss-20261025.tar.gz
+_eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5
+_md5_=74db00ee56cf87d9d090a0efb1b96f37
