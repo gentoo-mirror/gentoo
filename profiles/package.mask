@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# James Le Cuirot <chewi@gentoo.org> (2026-10-30)
+# This version is widely reported to be broken. Upstream has been silent on the
+# issue. Bug #983634.
+=media-video/makemkv-2.0.0
+
 # Alfred Wingate <parona@protonmail.com> (2026-10-25)
 # Ruby 3.2 is no longer supported upstream and will no longer
 # receive security updates. This mask also includes any
@@ -303,11 +308,6 @@ www-apps/kibana-bin
 =dev-qt/qtwebengine-6.140.0*
 =dev-qt/qtwebsockets-6.12.0*
 =dev-qt/qtwebview-6.12.0*
-
-# James Le Cuirot <chewi@gentoo.org> (2026-09-28)
-# Previously split out of games-engines/uzdoom as an external dependency but is
-# now bundled. Not used by anything else. Removal on 2026-10-28. Bug #957494.
-media-libs/zmusic
 
 # Viorel Munteanu <ceamac@gentoo.org> (2026-09-27)
 # Drupal 11.2.x is EOL, no longer receives security updates.
