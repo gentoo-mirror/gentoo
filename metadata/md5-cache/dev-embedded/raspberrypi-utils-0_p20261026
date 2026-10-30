@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=sys-apps/dtc
+DESCRIPTION=Raspberry Pi userspace utilities
+EAPI=8
+HOMEPAGE=https://github.com/raspberrypi/utils
+INHERIT=cmake optfeature python-single-r1
+IUSE=python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15
+KEYWORDS=~arm ~arm64
+LICENSE=BSD
+RDEPEND=sys-apps/dtc python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_15? ( dev-lang/python:3.15 ) !media-libs/raspberrypi-userland !media-libs/raspberrypi-userland-bin
+REQUIRED_USE=^^ ( python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15 )
+SLOT=0
+SRC_URI=https://github.com/raspberrypi/utils/archive/b8961eb9a689a3c0465db108176d0ee425379730.tar.gz -> raspberrypi-utils-0_p20261026.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=7f2321daee89aca0f95104d7b1a8b590
