@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=hatchling
 PYPI_PN=${PN^}
 PYTHON_COMPAT=( python3_{12..15} )
 
@@ -17,23 +17,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	dev-python/wrapt[${PYTHON_USEDEP}]
+	>=dev-python/wrapt-1.16[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/pkg-resources[${PYTHON_USEDEP}]
+		dev-python/packaging[${PYTHON_USEDEP}]
 	)
 "
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# unpin deps
-	sed -i -e 's:< [0-9.]*,::' setup.py || die
-}
