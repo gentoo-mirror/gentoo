@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN="Flask-Compress"
 PYPI_VERIFY_REPO=https://github.com/colour-science/flask-compress
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 # brotli on cpython, brotlicffi on pypy3
 RDEPEND="
@@ -26,7 +26,7 @@ RDEPEND="
 	dev-python/flask[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/backports-zstd[${PYTHON_USEDEP}]
-	' 3.{11..13})
+	' 3.{12..13})
 "
 BDEPEND="
 	test? (

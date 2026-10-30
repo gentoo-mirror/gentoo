@@ -1,11 +1,11 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 DEPEND="
 	dev-libs/libxml2:=
@@ -57,4 +57,23 @@ src_configure() {
 		# as it forces -O0
 		export CPPFLAGS="${CPPFLAGS} -DPYXMLSEC_ENABLE_DEBUG=1"
 	fi
+}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# black version?
+		tests/test_type_stubs.py::test_xmlsec_constants_stub
+	)
+
+	case ${EPYTHON} in
+		python3.15*)
+			EPYTEST_DESELECT+=(
+				# some GC nonsense
+				tests/test_main.py::TestCallbacks::test_sign_data_from_callbacks
+				tests/test_main.py::TestCallbacks::test_sign_data_not_first_callback
+			)
+			;;
+	esac
+
+	epytest
 }

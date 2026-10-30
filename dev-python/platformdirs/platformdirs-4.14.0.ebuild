@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=flit-core
 PYPI_VERIFY_REPO=https://github.com/tox-dev/platformdirs
-PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
+PYTHON_COMPAT=( pypy3_12 python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -47,4 +47,16 @@ src_configure() {
 		__version__ = version = '${PV}'
 		__version_tuple__ = version_tuple = (${PV//./, })
 	EOF
+}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# failing on -Werror, because upstream doesn't bother using
+		# new pytest
+		tests/test_pytest_plugin.py::test_import_before_pytest_main
+	)
+
+	# have to disable removing tmp_paths since upstream mocks are
+	# incomplete and break teardown
+	epytest -p platformdirs.pytest_plugin -o tmp_path_retention_policy=all
 }

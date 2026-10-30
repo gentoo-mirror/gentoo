@@ -17,10 +17,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="telemetry"
 
 RDEPEND="
+	dev-python/certifi[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.20[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.7.0[${PYTHON_USEDEP}]
 "
@@ -40,7 +41,15 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		# use system certs via certifi
+		"${FILESDIR}/${PN}-16.0.1-certifi.patch"
+	)
+
 	distutils-r1_src_prepare
+
+	# remove bundled certificates
+	rm stripe/data/ca-certificates.crt || die
 
 	if ! use telemetry; then
 		sed -i -e '/enable_telemetry/s:True:False:' stripe/__init__.py || die

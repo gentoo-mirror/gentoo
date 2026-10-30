@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	dev-python/cachetools[${PYTHON_USEDEP}]
@@ -37,6 +37,7 @@ RDEPEND="
 "
 BDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		dev-python/argcomplete[${PYTHON_USEDEP}]
@@ -51,7 +52,7 @@ EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,timeout,xdist} time-machine )
 EPYTEST_RERUNS=3
 # upstream timeouts are quite short
 : ${EPYTEST_TIMEOUT:=180}
-# xdist seems to mess up state between successive implementation runs
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_prepare() {
