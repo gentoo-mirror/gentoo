@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( ~sec-keys/openpgp-keys-apache-tomcat-11 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Allows Tomcat to use certain native resources for better performance
+EAPI=9
+HOMEPAGE=https://tomcat.apache.org/native-doc/
+INHERIT=java-pkg-2 java-pkg-simple verify-sig
+IUSE=static-libs doc source test verify-sig
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/apr:1= >=dev-libs/openssl-3.5.9:0/3 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/tomcat/tomcat-connectors/native/1.3.10/source/tomcat-native-1.3.10-src.tar.gz verify-sig? ( mirror://apache/tomcat/tomcat-connectors/native/1.3.10/source/tomcat-native-1.3.10-src.tar.gz.asc )
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=119dba8807c9c762ac8b1544d1315359
