@@ -5,11 +5,11 @@ EAPI=9
 HOMEPAGE=https://javacc.github.io/javacc-8/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~ppc64
 LICENSE=BSD-2
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=8
 SRC_URI=https://github.com/javacc/javacc-8-core/archive/core-8.1.0.tar.gz -> javacc-8.1.0.tar.gz
 _eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c
-_md5_=f1c3a9b04b0e10cfdabec8636dc44b09
+_md5_=75d9893356df63fc6629047941d4e6d8
