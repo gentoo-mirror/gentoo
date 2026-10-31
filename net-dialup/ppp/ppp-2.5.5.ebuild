@@ -3,20 +3,16 @@
 
 EAPI=8
 
-inherit flag-o-matic linux-info pam tmpfiles
+inherit flag-o-matic linux-info pam tmpfiles autotools
 
 DESCRIPTION="Point-to-Point Protocol (PPP)"
 HOMEPAGE="https://ppp.samba.org/"
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3 autotools
-	EGIT_REPO_URI="https://github.com/ppp-project/ppp.git"
-else
-	SRC_URI="https://download.samba.org/pub/ppp/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-fi
+SRC_URI="https://download.samba.org/pub/ppp/${P}.tar.gz"
 
 LICENSE="BSD GPL-2"
 SLOT="0/${PV}"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+
 IUSE="activefilter atm pam selinux systemd"
 
 DEPEND="
@@ -33,6 +29,10 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 PDEPEND="net-dialup/ppp-scripts"
+
+PATCHES=(
+	"${FILESDIR}/ppp-2.5.5-libatm.patch"
+)
 
 pkg_setup() {
 	local CONFIG_CHECK="~PPP ~PPP_ASYNC ~PPP_SYNC_TTY"
@@ -72,7 +72,7 @@ src_prepare() {
 		pppd/plugins/radius/{*.8,*.c,*.h} \
 		pppd/plugins/radius/etc/* || die
 
-	[[ "${PV}" = 9999 ]] && eautoreconf
+	eautoreconf
 }
 
 src_configure() {
@@ -82,8 +82,9 @@ src_configure() {
 	local args=(
 		--localstatedir="${EPREFIX}"/var
 		--runstatedir="${EPREFIX}"/run
+		--with-external-atm
 		$(use_enable systemd)
-		$(use_with atm)
+		$(use_enable atm)
 		$(use_with pam)
 		$(use_with activefilter pcap)
 		--enable-cbcp
