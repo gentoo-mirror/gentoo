@@ -15,6 +15,10 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc
 IUSE="bzip2 gtk +introspection test"
 RESTRICT="!test? ( test )"
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	g_chown #923132
+)
+
 RDEPEND="
 	>=dev-libs/glib-2.62.0:2
 	>=dev-libs/libxml2-2.4.16:2=
