@@ -11,18 +11,19 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 pax-utils unpacker xdg
 
-DESCRIPTION="Opera, but for 'gamers'"
-HOMEPAGE="https://www.opera.com/gx"
+DESCRIPTION="A fast and secure web browser"
+HOMEPAGE="https://www.opera.com/"
 
 SRC_URI_BASE=(
-	"https://download1.operacdn.com/pub/${PN//-/_}"
-	"https://download2.operacdn.com/pub/${PN//-/_}"
-	"https://download3.operacdn.com/pub/${PN//-/_}"
-	"https://download4.operacdn.com/pub/${PN//-/_}"
+	"https://download1.operacdn.com/pub/${PN}"
+	"https://download2.operacdn.com/pub/${PN}"
+	"https://download3.operacdn.com/pub/${PN}"
+	"https://download4.operacdn.com/pub/${PN}"
 )
 
-if [[ ${PN} == opera-gx ]]; then
+if [[ ${PN} == opera ]]; then
 	MY_PN=${PN}-stable
+	SRC_URI_BASE=( "${SRC_URI_BASE[@]/%//desktop}" )
 else
 	MY_PN=${PN}
 fi
@@ -30,13 +31,16 @@ fi
 # Commit ref from `strings libffmpeg.so | grep -F "FFmpeg version"` matches this Chromium version
 # or use Chromicler to handle bumps.
 # Does not _need_ to be updated for every new version of Opera, only when it breaks.
-CHROMIUM_VERSION="150"
-SRC_URI="${SRC_URI_BASE[*]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb}"
+CHROMIUM_VERSION="155"
+SRC_URI="
+	amd64? ( ${SRC_URI_BASE[*]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb} )
+	arm64? ( https://deb.opera.com/opera-stable/pool/non-free/o/${MY_PN}/${MY_PN}_${PV}_arm64.deb )
+"
 S=${WORKDIR}
 
-LICENSE="OPERA-2020"
+LICENSE="OPERA-2018"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64 arm64"
 IUSE="+ffmpeg-chromium +proprietary-codecs +suid qt6"
 RESTRICT="bindist mirror strip"
 
@@ -79,7 +83,7 @@ OPERA_HOME="opt/${MY_PN}"
 
 pkg_pretend() {
 	# Protect against people using autounmask overzealously
-	use amd64 || die "opera only works on amd64"
+	use amd64 || use arm64 || die "opera only works on amd64 or arm64"
 }
 
 pkg_setup() {
@@ -91,23 +95,31 @@ src_unpack() {
 }
 
 src_install() {
+	local deb_libdir="x86_64-linux-gnu"
+	use arm64 && deb_libdir="aarch64-linux-gnu"
+
 	dodir /
 	cd "${ED}" || die
 	unpacker
 
 	# move to /opt, bug #573052
 	mkdir opt || die
-	mv "usr/lib/x86_64-linux-gnu/${MY_PN}" "${OPERA_HOME}" || die
+	mv "usr/lib/${deb_libdir}/${MY_PN}" "${OPERA_HOME}" || die
 	rm -r "usr/lib" || die
 
 	# disable auto update
-	rm "${OPERA_HOME}/opera_autoupdate"{,.licenses,.version} || die
+	rm "${OPERA_HOME}/${PN%-*}_autoupdate"{,.licenses,.version} || die
 
 	rm -r "usr/share/lintian" || die
 
 	# fix docs
 	mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
 	gzip -d usr/share/doc/${PF}/changelog.gz || die
+
+	# fix desktop file
+	sed -i \
+		-e 's|^TargetEnvironment|X-&|g' \
+		usr/share/applications/${PN}.desktop || die
 
 	# remove unused language packs
 	pushd "${OPERA_HOME}/localization" > /dev/null || die
@@ -116,7 +128,7 @@ src_install() {
 
 	# setup opera symlink
 	rm "usr/bin/${PN}" || die
-	dosym "../../${OPERA_HOME}/opera" "/usr/bin/${PN}"
+	dosym "../../${OPERA_HOME}/${PN}" "/usr/bin/${PN}"
 
 	# install proprietary codecs
 	rm "${OPERA_HOME}/resources/ffmpeg_preload_config.json" || die
