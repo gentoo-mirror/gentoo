@@ -14,14 +14,19 @@ SRC_URI="
 		https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v"${PV}"/onlyoffice-desktopeditors_amd64.deb
 		-> "${P}"_amd64.deb
 	)
+	arm64? (
+		https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v"${PV}"/onlyoffice-desktopeditors_arm64.deb
+		-> "${P}"_arm64.deb
+	)
 "
 S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 RESTRICT="mirror strip test"
 
+# Qt5Gui links directly against harfbuzz on arm64, not amd64 for whatever reason
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
@@ -42,11 +47,14 @@ RDEPEND="
 	sys-libs/glibc
 	x11-libs/cairo
 	x11-libs/gtk+:3[X]
+	x11-libs/libICE
+	x11-libs/libSM
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
+	x11-libs/libXi
 	x11-libs/libXrandr
 	x11-libs/libdrm
 	x11-libs/libnotify
@@ -57,6 +65,7 @@ RDEPEND="
 		media-libs/libpulse
 		media-sound/apulse
 	)
+	arm64? ( media-libs/harfbuzz )
 "
 
 QA_PREBUILT="*"
@@ -68,8 +77,12 @@ src_prepare() {
 	sed -i -e "/^export LD_LIBRARY_PATH=/ s|$|:${EPREFIX}/usr/$(get_libdir)/apulse|" \
 		"${S}"/usr/bin/onlyoffice-desktopeditors || die
 
-	# Drop lib with unresolved soname dependencies, bug #970999
+	# Drop libs with unresolved soname dependencies, bug #970999
 	rm -v opt/onlyoffice/desktopeditors/platforminputcontexts/libqtvirtualkeyboardplugin.so || die
+	if use arm64; then
+		rm -v opt/onlyoffice/desktopeditors/platforms/libqeglfs.so \
+			opt/onlyoffice/desktopeditors/platforms/libqwayland-*.so || die
+	fi
 }
 
 src_install() {
