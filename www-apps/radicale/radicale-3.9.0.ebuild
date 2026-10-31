@@ -37,13 +37,7 @@ BDEPEND="
 	)
 "
 
-# backport so we do not need to wait for 3.8.2
-# https://github.com/Kozea/Radicale/issues/2243
-PATCHES=(
-	"${FILESDIR}/${P}-0001-change-exception-error-in-case-required-module-is-no.patch"
-	"${FILESDIR}/${P}-0002-test-group-skip-if-ldap-or-pam-module-are-not-availa.patch"
-)
-
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 RDIR=/var/lib/"${PN}"
