@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit flag-o-matic multilib multiprocessing toolchain-funcs
 inherit cuda java-pkg-opt-2 cmake-multilib python-r1 virtualx xdg-utils
@@ -380,6 +380,7 @@ PATCHES=(
 
 	"${FILESDIR}/${PN}-4.14.0-use-system-flatbuffers.patch"
 	"${FILESDIR}/${PN}-4.14.0-openjpeg-version.patch"
+	"${FILESDIR}/${PN}-4.14.0-clang23-build-fix.patch"
 
 	# TODO applied in src_prepare
 	# "${FILESDIR}/${PN}_contrib-4.8.1-rgbd.patch"
