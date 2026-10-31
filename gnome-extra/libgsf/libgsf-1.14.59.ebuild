@@ -4,7 +4,7 @@
 EAPI=8
 
 GNOME2_EAUTORECONF=yes
-inherit gnome2
+inherit gnome2 toolchain-funcs
 
 DESCRIPTION="The GNOME Structured File Library"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libgsf"
@@ -14,6 +14,10 @@ SLOT="0/114" # libgsf-1.so version
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-solaris"
 IUSE="bzip2 gtk +introspection test"
 RESTRICT="!test? ( test )"
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	g_chown #923132
+)
 
 RDEPEND="
 	>=dev-libs/glib-2.62.0:2
@@ -39,6 +43,7 @@ PATCHES=(
 )
 
 src_configure() {
+	export ac_cv_path_PKG_CONFIG="$(tc-getPKG_CONFIG)"
 	gnome2_src_configure \
 		--disable-static \
 		$(use_with bzip2 bz2) \
