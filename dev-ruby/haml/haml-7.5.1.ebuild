@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,13 +23,13 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos ~x6
 
 IUSE="doc test"
 
-ruby_add_rdepend ">=dev-ruby/temple-0.8.2 dev-ruby/thor dev-ruby/tilt:*"
+ruby_add_rdepend ">=dev-ruby/prism-1.1.0 >=dev-ruby/temple-0.8.2 dev-ruby/thor dev-ruby/tilt:*"
 
 ruby_add_bdepend "
 	test? (
-		dev-ruby/minitest:5
+		dev-ruby/minitest:*
 		dev-ruby/nokogiri
-		<dev-ruby/rails-7.2
+		>=dev-ruby/rails-4.0
 		|| ( dev-ruby/sassc dev-ruby/sass )
 		dev-ruby/unindent
 	)

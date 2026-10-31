@@ -17,25 +17,28 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="MIT"
 SLOT="0/1.6.$(ver_cut 3)"
 KEYWORDS="~amd64"
-IUSE="disable-mitigations +l0 +vaapi"
+IUSE="disable-mitigations +level-zero +vaapi"
 
 RDEPEND="
 	!dev-libs/intel-compute-runtime:legacy
-	>=dev-util/intel-graphics-compiler-2.37.1:0
+	>=dev-util/intel-graphics-compiler-2.43.2:0
 	!dev-util/intel-graphics-compiler:legacy
-	>=media-libs/gmmlib-22.10.0:=
+	>=media-libs/gmmlib-22.10.2:=
 "
 
 DEPEND="
 	${RDEPEND}
 	dev-libs/intel-metrics-discovery:=
-	>=dev-libs/intel-metrics-library-1.0.231:=
+	>=dev-libs/intel-metrics-library-1.0.248:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
-	>=dev-util/intel-graphics-system-controller-1.3.0:=
+	>=dev-util/intel-graphics-system-controller-1.3.2:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( <dev-libs/level-zero-1.33.1:= )
+	level-zero? (
+		>=dev-libs/level-zero-1.34.0-r0:=
+		<dev-libs/level-zero-1.35.0-r0:=
+	)
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva
@@ -63,7 +66,7 @@ src_configure() {
 		-DCCACHE_ALLOWED="OFF"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"
-		-DBUILD_WITH_L0="$(usex l0)"
+		-DBUILD_WITH_L0="$(usex level-zero)"
 		-DDISABLE_LIBVA="$(usex !vaapi)"
 		-DNEO_ALLOW_LEGACY_PLATFORMS_SUPPORT="ON"
 		-DNEO_DISABLE_LTO="ON"
