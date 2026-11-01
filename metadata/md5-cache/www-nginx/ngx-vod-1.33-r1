@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/openssl:= dev-libs/libxml2:= media-video/ffmpeg-compat:8= virtual/zlib:= virtual/libiconv www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX-based MP4 Repackager
+EAPI=8
+HOMEPAGE=https://github.com/kaltura/nginx-vod-module
+INHERIT=ffmpeg-compat flag-o-matic nginx-module toolchain-funcs
+KEYWORDS=~amd64 ~arm64
+LICENSE=AGPL-3+
+RDEPEND=dev-libs/openssl:= dev-libs/libxml2:= media-video/ffmpeg-compat:8= virtual/zlib:= virtual/libiconv www-servers/nginx:=[modules(-)]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/kaltura/nginx-vod-module/archive/refs/tags/1.33.tar.gz -> ngx-vod-1.33.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	ffmpeg-compat	4a8a2b175d26607087672d84aa9da8a9	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	nginx-module	bd36172a645386a122635a74da116b20
+_md5_=1b4df8676cc36a67b113b3c4c9c7e9ac
