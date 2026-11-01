@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gnupg.org/related_software/gpgme
 INHERIT=cmake verify-sig
 IUSE=test verify-sig
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2+ test? ( GPL-2 )
 RDEPEND=>=app-crypt/gpgme-2.2:= >=dev-cpp/gpgmepp-2.2:= >=dev-libs/libgpg-error-1.47:= >=dev-qt/qtbase-6.5.0:6 !<app-crypt/gpgme-2[qt6(-)] !dev-libs/qgpgme:1
 RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=mirror://gnupg/qgpgme/qgpgme-2.2.0.tar.xz verify-sig? ( mirror://gnupg/qgpgme/qgpgme-2.2.0.tar.xz.sig )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=5db94a99286ad2d2c8582364506db382
+_md5_=5b77d4b9e0a5419c56ae0d7218678f32
