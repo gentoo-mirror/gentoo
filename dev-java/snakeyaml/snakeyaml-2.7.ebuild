@@ -11,7 +11,7 @@ inherit java-pkg-2 java-pkg-simple
 LV="1.18.42" # lombok is presently not packaged
 
 DESCRIPTION="YAML 1.1 parser and emitter for Java"
-HOMEPAGE="https://bitbucket.org/snakeyaml/snakeyaml"
+HOMEPAGE="https://codeberg.org/snakeyaml/snakeyaml"
 SRC_URI="https://codeberg.org/snakeyaml/snakeyaml/archive/snakeyaml-${PV}.tar.gz
 	test? ( https://repo.maven.apache.org/maven2/org/projectlombok/lombok/${LV}/lombok-${LV}.jar )"
 S="${WORKDIR}"/snakeyaml
