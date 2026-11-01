@@ -1,22 +1,23 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-GNOME_ORG_MODULE="${PN/pp/++}"
 
 inherit gnome2 meson
 
 DESCRIPTION="C++ wrapper for the libxml2 XML parser library"
-HOMEPAGE="https://libxmlplusplus.sourceforge.net/"
+HOMEPAGE="https://libxmlplusplus.github.io/libxmlplusplus/"
+SRC_URI="https://github.com/libxmlplusplus/libxmlplusplus/releases/download/${PV}/${P/pp/++}.tar.xz"
+S="${WORKDIR}/${P/pp/++}"
 
 LICENSE="LGPL-2.1"
 SLOT="5.0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/libxml2-2.7.7:=
+	>=dev-libs/libxml2-2.7.7:2=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -50,6 +51,7 @@ src_configure() {
 		-Dvalidation=false
 		-Dbuild-pdf=false
 		-Dbuild-examples=false
+		-Dbuild-manual=false
 		$(meson_use test build-tests)
 		-Dmsvc14x-parallel-installable=false
 	)

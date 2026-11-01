@@ -192,6 +192,7 @@ RESTRICT="!test? ( test )"
 
 # NOTE
 # dev-libs/flatbuffers is header only, but we still want to rebuild on sub-slot changes
+# <media-video/ffmpeg-9 is due to bug #980612, should be fixed next release
 COMMON_DEPEND="
 	dev-libs/protobuf:=[protoc(+),protobuf(+),${MULTILIB_USEDEP}]
 	virtual/zlib:=[${MULTILIB_USEDEP}]
@@ -211,7 +212,7 @@ COMMON_DEPEND="
 		media-libs/harfbuzz:=[${MULTILIB_USEDEP}]
 	)
 	contribovis? ( >=dev-games/ogre-1.12:= )
-	ffmpeg? ( media-video/ffmpeg:0=[${MULTILIB_USEDEP}] )
+	ffmpeg? ( <media-video/ffmpeg-9:=[${MULTILIB_USEDEP}] )
 	gdal? ( sci-libs/gdal:= )
 	gflags? ( dev-cpp/gflags:=[${MULTILIB_USEDEP}] )
 	glog? ( dev-cpp/glog:=[${MULTILIB_USEDEP}] )
