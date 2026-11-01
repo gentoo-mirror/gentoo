@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Customization extension for the gnome-shell lock screen
+EAPI=8
+HOMEPAGE=https://github.com/phenrique-coder/lockscreen-studio
+INHERIT=gnome2-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-45
+SLOT=0
+SRC_URI=https://github.com/phenrique-coder/lockscreen-studio/archive/v1.2.1.tar.gz -> gnome-shell-extension-lockscreen-studio-1.2.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
+_md5_=b534bb528d0ce7862104edbf17151bec
