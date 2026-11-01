@@ -14,8 +14,7 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://chromium.googlesource.com/chromium/third_party/ffmpeg"
 else
-	SRC_URI="https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}"
+	SRC_URI="https://deps.gentoo.zip/media-video/${P}.tar.xz"
 	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64"
 fi
 
