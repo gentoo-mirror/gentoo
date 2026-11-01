@@ -241,7 +241,6 @@ app-alternatives/yacc:bison - Symlink to app-alternatives/yacc.
 app-alternatives/yacc:byacc - Symlink to dev-util/byacc.
 app-alternatives/yacc:reference - Symlink to dev-util/yacc.
 app-antivirus/clamav:clamapp - Build applications (clamscan, clamd, clamdscan, clamonacc (also has its own USE flag), sigtool, clambc, clamav-milter (also requires milter USE flag), clamdtop, clamsubmit, clamconf).
-app-antivirus/clamav:clamdtop - A Top like tool which shows what clamd is currently scanning amongst other things
 app-antivirus/clamav:clamonacc - Build the clamonacc on-access scanner
 app-antivirus/clamav:clamsubmit - A tool to submit false positives / negatives
 app-antivirus/clamav:experimental - Enable experimental features
@@ -6973,6 +6972,10 @@ net-print/hplip-plugin:orblite - Install the ORBlite scanner plugin
 net-print/kyocera-1x2x-mfp-driver:rastertokpsl-fix - Use custom wrapper script to sanitize arguments before passing to 'rastertokpsl' filter program
 net-print/libcupsfilters:poppler - Build the pdftoraster filter
 net-print/libppd:poppler - Use the app-text/poppler pdftops filter
+net-proxy/3proxy:ftp - enable FTP proxy (ftppr) and FTP over HTTP proxy
+net-proxy/3proxy:http-server - enable httpsrv service to serve both a site and a proxy, also required by administration pages
+net-proxy/3proxy:mail - enable IMAP/POP3/SMTP proxies (imapp/pop3/smtpp)
+net-proxy/3proxy:modules - build standalone modules in addition to the combined proxy 3proxy
 net-proxy/haproxy:51degrees - Device Detection using 51 Degrees
 net-proxy/haproxy:ech - Enable OpenSSL ECH
 net-proxy/haproxy:net_ns - Enable network namespace support (CONFIG_NET_NS)
