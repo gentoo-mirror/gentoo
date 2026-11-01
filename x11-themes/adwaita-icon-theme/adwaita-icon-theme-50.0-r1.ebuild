@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}
 	x11-themes/adwaita-icon-theme-legacy
 "
 BDEPEND="
+	dev-util/gtk-update-icon-cache
 	sys-devel/gettext
 	virtual/pkgconfig
 "

@@ -19,6 +19,7 @@ RDEPEND="${DEPEND}
 	|| ( >=gui-libs/gtk-4.22 >=gnome-base/librsvg-2.48:2 )
 "
 BDEPEND="
+	dev-util/gtk-update-icon-cache
 	sys-devel/gettext
 	virtual/pkgconfig
 "
