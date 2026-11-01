@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-lang/lua:5.3 net-misc/curl virtual/zlib:= client? ( dev-libs/mxml:4 media-libs/libglvnd[X] media-libs/libjpeg-turbo:= media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick,opengl,sound,threads(+),video] media-libs/libvorbis media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf ) server? ( media-libs/libsdl2[threads(+)] ) sys-devel/gettext
+DESCRIPTION=UFO: Alien Invasion - X-COM inspired strategy game
+EAPI=8
+HOMEPAGE=https://ufoai.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake desktop flag-o-matic xdg git-r3
+IUSE=+client cpu_flags_x86_sse debug server
+LICENSE=GPL-2 GPL-3 public-domain CC-BY-3.0 CC-BY-SA-3.0 MIT
+PROPERTIES=live
+RDEPEND=dev-lang/lua:5.3 net-misc/curl virtual/zlib:= client? ( dev-libs/mxml:4 media-libs/libglvnd[X] media-libs/libjpeg-turbo:= media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick,opengl,sound,threads(+),video] media-libs/libvorbis media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf ) server? ( media-libs/libsdl2[threads(+)] )
+REQUIRED_USE=|| ( client server )
+SLOT=0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	desktop	e447b5f77146d69797e9f03ff177f3f1	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=cd3a5e8d8aab143dbac2eea7be775027
