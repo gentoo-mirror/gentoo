@@ -51,6 +51,17 @@ QA_FLAGS_IGNORED=(
 )
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/apache-maven.asc"
 
+src_prepare() {
+	java-pkg-2_src_prepare
+	rm -r lib/jline-native/{Windows,FreeBSD} || die "Windows,FreeBSD"
+	local JLINE="lib/jline-native/Linux"
+	use amd64 || rm -r "${JLINE}"/x86_64 || die "arm"
+	use arm || rm -r "${JLINE}"/arm{,v6,v7} || die "arm"
+	use arm64 || rm -r "${JLINE}"/arm64 || die "arm64"
+	use ppc64 || rm -r "${JLINE}"/ppc64 || die "ppc64"
+	use x86 || rm -r "${JLINE}"/x86 || die "x86"
+}
+
 # TODO:
 # We should use jars from packages, instead of what is bundled.
 src_install() {
