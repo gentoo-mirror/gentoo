@@ -1,8 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit autotools db flag-o-matic multilib-minimal toolchain-funcs
+
+DESCRIPTION="Oracle Berkeley DB"
+HOMEPAGE="https://www.oracle.com/database/technologies/related/berkeleydb.html"
 
 #Number of official patches
 #PATCHNO=`echo ${PV}|sed -e "s,\(.*_p\)\([0-9]*\),\2,"`
@@ -16,51 +20,46 @@ else
 	MY_P="${PN}-${MY_PV}"
 fi
 
-RESTRICT="!test? ( test )"
-
-S_BASE="${WORKDIR}/${MY_P}"
-S="${S_BASE}/build_unix"
-DESCRIPTION="Oracle Berkeley DB"
-HOMEPAGE="https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
 SRC_URI="https://download.oracle.com/berkeley-db/${MY_P}.tar.gz"
 for (( i=1 ; i<=${PATCHNO} ; i++ )) ; do
 	SRC_URI+=" https://www.oracle.com/technology/products/berkeley-db/db/update/${MY_PV}/patch.${MY_PV}.${i}"
 done
+S_BASE="${WORKDIR}/${MY_P}"
+S="${S_BASE}/build_unix"
 
-LICENSE="Sleepycat"
+LICENSE="AGPL-3"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc cxx tcl test"
 
 REQUIRED_USE="test? ( tcl )"
+
+RESTRICT="!test? ( test )"
 
 # the entire testsuite needs the TCL functionality
 DEPEND="tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )
 	test? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )"
 RDEPEND="tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )"
-# bug #841698
 # Need binutils for tc-ld-force-bfd
-BDEPEND="
-	dev-build/autoconf-archive
-	sys-devel/binutils:*
-"
+BDEPEND="sys-devel/binutils:*"
 
 MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/db${SLOT}/db.h
 )
 
 PATCHES=(
+	# fix CVE-2017-10140, bug 638434
+	"${FILESDIR}"/${PN}-5.3.28-CVE-2017-10140-cwd-db_config.patch
+
 	# sqlite configure call has an extra leading ..
-	# upstreamed:5.2.36, missing in 5.3.x
-	"${FILESDIR}"/${PN}-5.2.28-sqlite-configure-path.patch
+	# upstreamed:5.2.36, missing in 5.3.x/6.x
+	# still needs to be patched in 6.0.20
+	"${FILESDIR}"/${PN}-6.0.35-sqlite-configure-path.patch
 
 	# The upstream testsuite copies .lib and the binaries for each parallel test
 	# core, ~300MB each. This patch uses links instead, saves a lot of space.
 	"${FILESDIR}"/${PN}-6.0.20-test-link.patch
 
-	# Needed when compiling with clang
-	"${FILESDIR}"/${PN}-5.1.29-rename-atomic-compare-exchange.patch
-	"${FILESDIR}"/${PN}-5.3.28-clang16.patch
 	"${FILESDIR}"/${PN}-4.8.30-tls-configure.patch
 )
 
@@ -122,10 +121,6 @@ src_configure() {
 
 multilib_src_configure() {
 	local myconf=(
-		# sql_compat will cause a collision with sqlite3
-		#--enable-sql_compat
-		# Don't --enable-sql* because we don't want to use bundled sqlite.
-		# See Gentoo bug #605688
 		--enable-compat185
 		--enable-dbm
 		--enable-o_direct
@@ -143,7 +138,7 @@ multilib_src_configure() {
 
 	# compilation with -O0 fails on amd64, see bug #171231
 	if [[ ${ABI} == amd64 ]]; then
-		local CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
+		local CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS}
 		replace-flags -O0 -O2
 		is-flagq -O[s123] || append-flags -O2
 	fi
@@ -162,6 +157,10 @@ multilib_src_configure() {
 		myconf+=(--disable-tcl )
 	fi
 
+	# sql_compat will cause a collision with sqlite3
+	# --enable-sql_compat
+	# Don't --enable-sql* because we don't want to use bundled sqlite.
+	# See Gentoo bug #605688
 	ECONF_SOURCE="${S_BASE}"/dist \
 	STRIP="true" \
 	econf "${myconf[@]}"
@@ -212,9 +211,9 @@ src_test() {
 	# db_repsite is used directly in the setup_site_prog,
 	# setup_site_prog is called from open_site_prog
 	# which is called only from tests in the multi_repmgr group.
-	#sed -ri \
+	#sed -r \
 	#	-e '/set subs/s,multi_repmgr,,g' \
-	#	"${S_BASE}/test/testparams.tcl"
+	#	-i "${S_BASE}/test/testparams.tcl"
 	sed -r \
 		-e '/multi_repmgr/d' \
 		-i "${S_BASE}/test/tcl/test.tcl" || die

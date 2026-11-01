@@ -1,8 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit autotools db flag-o-matic multilib-minimal toolchain-funcs
+
+DESCRIPTION="Oracle Berkeley DB"
+HOMEPAGE="https://www.oracle.com/database/technologies/related/berkeleydb.html"
 
 #Number of official patches
 #PATCHNO=`echo ${PV}|sed -e "s,\(.*_p\)\([0-9]*\),\2,"`
@@ -16,23 +20,21 @@ else
 	MY_P="${PN}-${MY_PV}"
 fi
 
-RESTRICT="!test? ( test )"
-
-S_BASE="${WORKDIR}/${MY_P}"
-S="${S_BASE}/build_unix"
-DESCRIPTION="Oracle Berkeley DB"
-HOMEPAGE="https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
 SRC_URI="https://download.oracle.com/berkeley-db/${MY_P}.tar.gz"
 for (( i=1 ; i<=${PATCHNO} ; i++ )) ; do
 	SRC_URI+=" https://www.oracle.com/technology/products/berkeley-db/db/update/${MY_PV}/patch.${MY_PV}.${i}"
 done
+S_BASE="${WORKDIR}/${MY_P}"
+S="${S_BASE}/build_unix"
 
 LICENSE="Sleepycat"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc cxx tcl test"
 
 REQUIRED_USE="test? ( tcl )"
+
+RESTRICT="!test? ( test )"
 
 # the entire testsuite needs the TCL functionality
 DEPEND="tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[${MULTILIB_USEDEP}] )
@@ -54,13 +56,17 @@ PATCHES=(
 	# upstreamed:5.2.36, missing in 5.3.x
 	"${FILESDIR}"/${PN}-5.2.28-sqlite-configure-path.patch
 
+	# fix CVE-2017-10140, bug 638434
+	"${FILESDIR}"/${PN}-5.3.28-CVE-2017-10140-cwd-db_config.patch
+
 	# The upstream testsuite copies .lib and the binaries for each parallel test
 	# core, ~300MB each. This patch uses links instead, saves a lot of space.
 	"${FILESDIR}"/${PN}-6.0.20-test-link.patch
 
 	# Needed when compiling with clang
 	"${FILESDIR}"/${PN}-5.1.29-rename-atomic-compare-exchange.patch
-	"${FILESDIR}"/${PN}-5.3.28-clang16.patch
+	"${FILESDIR}"/${PN}-5.3.28-modern-c.patch
+	"${FILESDIR}"/${PN}-4.8.30-tls-configure.patch
 )
 
 src_prepare() {
