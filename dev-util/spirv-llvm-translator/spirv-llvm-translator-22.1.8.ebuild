@@ -3,7 +3,7 @@
 
 EAPI=8
 
-HASH_SPIRV="04fd3caa1e8267e4d95c806cad901181728e1006"
+HASH_SPIRV="fef168c54ed2e37c314eb251806aaf9877f38465"
 MY_PN="SPIRV-LLVM-Translator"
 MY_P="${MY_PN}-${PV}"
 
@@ -37,7 +37,7 @@ RDEPEND="
 "
 # We need to use currently newer spirv-headers, as stable release is too old..
 # DEPEND="${RDEPEND}
-#	>=dev-util/spirv-headers-1.4.350.0
+#	>=dev-util/spirv-headers-1.4.363.0
 # "
 BDEPEND="
 	virtual/pkgconfig

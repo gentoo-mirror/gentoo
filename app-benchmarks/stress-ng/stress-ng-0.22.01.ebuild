@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ColinIanKing/${PN}/archive/refs/tags/V${PV}.tar.gz -
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="apparmor keyutils jpeg sctp"
 
 DEPEND="
@@ -34,6 +34,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 DOCS=( "README.md" "README.Android" "TODO" "syscalls.txt" )
+
+PATCHES=( "${FILESDIR}/${PN}-0.22.01-fix-to-mismatch.patch" )
 
 pkg_pretend() {
 	if use apparmor; then

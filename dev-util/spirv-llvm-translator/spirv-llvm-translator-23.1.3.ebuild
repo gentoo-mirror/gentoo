@@ -3,6 +3,7 @@
 
 EAPI=8
 
+HASH_SPIRV="fef168c54ed2e37c314eb251806aaf9877f38465"
 MY_PN="SPIRV-LLVM-Translator"
 MY_P="${MY_PN}-${PV}"
 
@@ -13,6 +14,8 @@ HOMEPAGE="https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
 SRC_URI="
 	https://github.com/KhronosGroup/${MY_PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz
+	https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz
+		-> spirv-headers-${HASH_SPIRV}.tar.gz
 "
 S="${WORKDIR}/${MY_P}"
 
@@ -32,9 +35,10 @@ RDEPEND="
 	dev-util/spirv-tools[${MULTILIB_USEDEP}]
 	llvm-core/llvm:${SLOT}=[${MULTILIB_USEDEP}]
 "
-DEPEND="${RDEPEND}
-	>=dev-util/spirv-headers-1.4.357.0
-"
+# We need to use currently newer spirv-headers, as stable release is too old..
+# DEPEND="${RDEPEND}
+#	>=dev-util/spirv-headers-1.4.363.0
+# "
 BDEPEND="
 	virtual/pkgconfig
 	test? (
@@ -54,10 +58,11 @@ src_prepare() {
 
 multilib_src_configure() {
 	local mycmakeargs=(
-		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${SLOT}"
 		-DCCACHE_ALLOWED="OFF"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/${SLOT}"
-		-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${ESYSROOT}/usr/include/spirv"
+		-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${WORKDIR}/SPIRV-Headers-${HASH_SPIRV}"
+		# -DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${ESYSROOT}/usr/include/spirv"
+		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${SLOT}"
 		-DLLVM_SPIRV_INCLUDE_TESTS=$(usex test "ON" "OFF")
 		-Wno-dev
 	)
