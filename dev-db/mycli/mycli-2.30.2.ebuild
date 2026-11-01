@@ -24,23 +24,23 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	app-shells/fzf
-	>=dev-python/cli-helpers-2.15.1[${PYTHON_USEDEP}]
+	>=dev-python/cli-helpers-2.15.3[${PYTHON_USEDEP}]
 	>=dev-python/click-8.5.0[${PYTHON_USEDEP}]
 	>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-50.0.1[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-50.0.2[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.1.6[${PYTHON_USEDEP}]
 	>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
 	>=dev-python/prompt-toolkit-3.0.53[${PYTHON_USEDEP}]
-	>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
+	>=dev-python/pycryptodome-3.24.1[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.21.0[${PYTHON_USEDEP}]
 	>=dev-python/pymysql-1.2.3[${PYTHON_USEDEP}]
 	>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
 	>=dev-python/rapidfuzz-3.14.6[${PYTHON_USEDEP}]
-	>=dev-python/sqlglot-30.17.0[${PYTHON_USEDEP}]
+	>=dev-python/sqlglot-30.23.0[${PYTHON_USEDEP}]
 	>=dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 	>=dev-python/yaspin-3.5.1[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.9.1[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.9.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
