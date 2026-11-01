@@ -1,11 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 multiprocessing pypi toolchain-funcs
 
@@ -20,12 +20,14 @@ LICENSE="LGPL-2.1+"
 # Note that as of 0.0.31 at least, the API+ABI of libdrgn is unstable.
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="debuginfod lzma openmp"
+IUSE="debuginfod +json lzma openmp pcre"
 
 DEPEND="
 	>=dev-libs/elfutils-0.165[debuginfod?]
 	dev-libs/libkdumpfile:=
+	json? ( dev-libs/json-c:= )
 	lzma? ( app-arch/xz-utils )
+	pcre? ( dev-libs/libpcre2 )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -59,8 +61,10 @@ src_configure() {
 	CONFIGURE_FLAGS+=" --enable-python-extension"
 	CONFIGURE_FLAGS+=" --disable-dlopen-debuginfod"
 	CONFIGURE_FLAGS+=" $(use_with debuginfod)"
+	CONFIGURE_FLAGS+=" $(use_with json json-c)"
 	CONFIGURE_FLAGS+=" $(use_with lzma)"
 	CONFIGURE_FLAGS+=" $(use_enable openmp)"
+	CONFIGURE_FLAGS+=" $(use_with pcre pcre2)"
 	CONFIGURE_FLAGS+=" --build=${CBUILD}"
 	CONFIGURE_FLAGS+=" --host=${CHOST}"
 	CONFIGURE_FLAGS+=" --target=${CTARGET}"
