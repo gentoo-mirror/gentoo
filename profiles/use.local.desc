@@ -4554,7 +4554,11 @@ media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa-amber:gles1 - Enable GLESv1 support.
 media-libs/mesa-amber:wayland - Enable support for dev-libs/wayland
 media-libs/mlt:frei0r - Build the module for media-plugins/frei0r-plugins
+media-libs/mlt:gpl - Build GPL code. Should be enabled unless you require LGPL libraries.
+media-libs/mlt:libplacebo - Enable use of GPU-accelerated filters from media-libs/libplacebo
+media-libs/mlt:lv2 - Enable LV2 features using media-libs/lilv
 media-libs/mlt:opencv - Build motion tracking module using media-libs/opencv
+media-libs/mlt:openfx - Build support for OpenFX plugins
 media-libs/mlt:python - Build SWIG bindings for Python
 media-libs/mlt:rnnoise - Build noise-reduction module using media-libs/rnnoise
 media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms
@@ -8733,6 +8737,7 @@ sys-power/nut:modbus - Includes all UPS drivers that use MODBUS.
 sys-power/nut:monitor - Add a Qt6 gui monitor.
 sys-power/nut:serial - Includes all UPS drivers that use SERIAL.
 sys-power/nut:snmp - Includes all UPS drivers that use SNMP.
+sys-power/nut:upower - Monitor UPS and battery devices managed by the UPower daemon.
 sys-power/nut:usb - Includes all UPS drivers that use USB.
 sys-power/nut:xml - Includes all UPS drivers that use XML.
 sys-power/nvclock:gtk - Install the GTK+ based graphical interface
