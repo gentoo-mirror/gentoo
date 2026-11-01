@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/hughsie.asc
-inherit meson python-single-r1 vala verify-sig udev xdg
+inherit meson python-single-r1 vala verify-sig udev xdg virtualx
 
 DESCRIPTION="Aims to make updating firmware on Linux automatic, safe and reliable"
 HOMEPAGE="https://fwupd.org"
@@ -17,17 +17,17 @@ SRC_URI="
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="amdgpu bash-completion bluetooth elogind +gnutls gtk-doc introspection minimal modemmanager policykit selinux seccomp systemd test tpm readline uefi"
+IUSE="amdgpu bash-completion bluetooth elogind +gnutls gtk-doc introspection minimal"
+IUSE+=" modemmanager policykit selinux seccomp systemd test tpm readline uefi valgrind"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )
 	minimal? ( !introspection )
 	seccomp? ( systemd )
 	uefi? ( gnutls )
+	test? ( introspection )
 "
-# DBus permission failures in 2.0.20 and then other new issues in 2.1.1
-# Likely needs wrangling for ebuild environment
-RESTRICT="!test? ( test ) test"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
@@ -36,13 +36,13 @@ COMMON_DEPEND="
 	dev-db/sqlite:3
 	>=dev-libs/glib-2.72:2
 	>=dev-libs/libxmlb-0.3.19:=[introspection?]
+	>=dev-libs/libusb-1.0.27
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
 	net-libs/libmnl:=
 	>=net-misc/curl-7.62.0
 	sys-apps/util-linux
-	virtual/libusb:1
 	virtual/zlib:=
 
 	amdgpu? (
@@ -72,6 +72,7 @@ DEPEND="
 	${COMMON_DEPEND}
 	x11-libs/pango[introspection]
 	virtual/os-headers
+	valgrind? ( dev-debug/valgrind )
 "
 BDEPEND="
 	$(vala_depend)
@@ -97,8 +98,10 @@ BDEPEND="
 	)
 	uefi? (
 		$(python_gen_cond_dep '
-			dev-python/pygobject:3[cairo]
+			dev-python/pycairo[${PYTHON_USEDEP}]
+			dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 		')
+		x11-libs/pango[introspection]
 	)
 	verify-sig? ( sec-keys/openpgp-keys-hughsie )
 "
@@ -106,12 +109,21 @@ BDEPEND="
 src_prepare() {
 	default
 
+	xdg_environment_reset
 	vala_setup
 
 	sed -i -e "/install_dir.*'doc'/s/doc/gtk-doc/" \
 		docs/meson.build || die
 
 	python_fix_shebang "${S}"/contrib/*.py
+
+	# fwupd:fu-engine-gtypes-test fails with LTO, something to do with
+	# _get_type, even with Glib fixed for the G_GNUC_CONST issues
+	sed -i -e '/engine-gtypes/d' src/meson.build || die
+	# and here too
+	sed -i -e "s/if get_option('tests')/if false/" plugins/dfu/meson.build || die
+	# test can't find service file via dbus
+	sed -i -e "/'client'/d" libfwupd/meson.build || die
 }
 
 src_configure() {
@@ -155,7 +167,9 @@ src_configure() {
 		$(meson_feature readline)
 		$(meson_feature systemd)
 		$(meson_use test tests)
-		$(meson_feature test umockdev_tests)
+		# Fails in ebuild environment
+		-Dumockdev_tests=disabled
+		$(meson_feature valgrind)
 
 		${plugins[@]}
 	)
@@ -171,7 +185,16 @@ src_configure() {
 }
 
 src_test() {
-	LC_ALL="C.UTF-8" meson_src_test
+	local -x VERBOSE=1
+	local -x CI=1
+	#local -x XDG_SESSION_TYPE="x11"
+	#local -x GIO_USE_NETWORK_MONITOR="base"
+	#local -x GIO_USE_VFS="local"
+	#local -x GIO_USE_VOLUME_MONITOR="unix"
+
+	unset DBUS_SESSION_BUS_ADDRESS
+
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die 'tests failed'
 }
 
 src_install() {

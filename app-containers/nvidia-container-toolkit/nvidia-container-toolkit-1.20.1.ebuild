@@ -33,7 +33,7 @@ RDEPEND="
 "
 
 # go.mod requires a newer Go than go-module.eclass guarantees (bug 976194)
-BDEPEND=">=dev-lang/go-1.25.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.19.0-no-prestrip.patch"

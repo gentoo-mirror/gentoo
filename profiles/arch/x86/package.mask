@@ -1,6 +1,13 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Ionen Wolkens <ionen@gentoo.org> (2026-11-01)
+# Newer versions fail to build on x86 (or more specifically, the
+# slang-bootstrap command that it builds & run at build time errors
+# out without an error message), needs looking into but mask for
+# the time being.
+>=dev-util/shader-slang-2026.15
+
 # Alexey Sokolov <alexey+gentoo@asokolov.org> (2026-05-05)
 # New versions dropped support for 32 bits. Bug #973312
 dev-cpp/cpp-httplib
