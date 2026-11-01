@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..15} )
+PYPI_VERIFY_REPO=https://github.com/breezy-team/setuptools-gettext
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -19,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/setuptools-61.0.0[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-69[${PYTHON_USEDEP}]
 	sys-devel/gettext
 "
 
