@@ -6,6 +6,7 @@ EAPI=8
 HOMEPAGE=https://breathe.readthedocs.io/en/latest/ https://github.com/breathe-doc/breathe/ https://pypi.org/project/breathe/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_13 python_targets_python3_14 python_targets_python3_15
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD
 RDEPEND=app-text/doxygen dev-python/docutils[python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?] >=dev-python/sphinx-7.2.0[python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?] dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) python_targets_python3_15? ( dev-lang/python:3.15 )
 REQUIRED_USE=|| ( python_targets_python3_13 python_targets_python3_14 python_targets_python3_15 )
@@ -13,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/breathe-doc/breathe/archive/v5.0.0.tar.gz -> breathe-5.0.0.gh.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	7d8b6aa7c8fa4a1ee59367f20cfb3c75
-_md5_=79bd40312422c403917a8e9905070b81
+_md5_=0ff25ea4988453efca472fb4c724b9e2
