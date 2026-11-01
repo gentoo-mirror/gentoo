@@ -52,6 +52,7 @@ fi
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.54.1-changeset.patch
+	"${FILESDIR}"/${PN}-3.54.1-disable-sanitized-tests.patch
 )
 
 _fossil_fetch() {
