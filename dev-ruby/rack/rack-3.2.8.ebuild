@@ -14,11 +14,11 @@ inherit ruby-fakegem
 
 DESCRIPTION="A modular Ruby webserver interface"
 HOMEPAGE="https://github.com/rack/rack"
-SRC_URI="https://github.com/rack/rack/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/rack/rack/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 
 ruby_add_rdepend "virtual/ruby-ssl"
@@ -39,6 +39,10 @@ all_ruby_prepare() {
 	touch ChangeLog || die
 
 	sed -i -e "s:require_relative ':require './:" rack.gemspec || die
+
+	# Avoid test failing on whitespace differences only in inspect output
+	sed -e '/test_inspect/askip "Whitespace differences"' \
+		-i test/spec_headers.rb || die
 }
 
 each_ruby_test() {

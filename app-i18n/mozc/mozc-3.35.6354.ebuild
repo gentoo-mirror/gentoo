@@ -3,27 +3,30 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
-inherit desktop dot-a edo elisp-common flag-o-matic multiprocessing python-any-r1 savedconfig toolchain-funcs xdg
+PYTHON_COMPAT=( python3_{12..15} )
+inherit desktop dot-a edo elisp-common multiprocessing python-any-r1 savedconfig toolchain-funcs xdg
 
 # USE_BAZEL_VERSION in .bazeliskrc
-BAZEL_VER="8.4.1"
-# 2025-10-22, date of release of mozc
-BAZEL_BCR_HASH="470a7a43196aeffd5f6c3ff41bbcfeb120a04341"
-# commit: Merge "Update BUILD_OSS to 5994"
-MOZC_FCITX_HASH="6c54b5d52a3a9d949502ad8e6c2eab2c66e7f1a7"
+BAZEL_VER="9.0.2"
+# 2026-06-27, release of mozc-3.34.6239, bump only if required
+BAZEL_BCR_HASH="4a07120f4a17edc0c7dd4d93c7f76eabccdf8864"
+# Merge remote just after the tag of mozc or 'Sync mozc version to metainfo'
+MOZC_FCITX_HASH="a74b67127d710da4dc6fdbbd17320d04741174de"
 
-# submodules, but archives are fetched by bazel from bazel_dist
-ABS_VER="20250814.0"
+# main deps
+ABS_VER="20260107.1"
 GTEST_VER="1.17.0"
+PROTO_VER="34.1"
+# Japanese Usage Dictionary
 JUD_VER="2025-01-25"
 # sha256sum of tarball
 JUD_CHECKSUM="ebfc8681eb207f14a2c36a7a71522b1aa8a405d10ab36a83a9a024d4ce58c0ca"
-PROTO_VER="32.0"
 
 # to simplify update
-CPYTHON_VER="3.11.13+20250610"
-RPYTHON_VER="1.5.4"
+CPYTHON_VER="3.11.14+20251031"
+RPYTHON_VER="1.9.0"
+JAPZIP_HASH="621d059" # short hash
+GICONS_VER="4.0.0"
 
 DESCRIPTION="Japanese input method editor"
 HOMEPAGE="https://github.com/google/mozc"
@@ -32,53 +35,69 @@ SRC_URI="
 	amd64? (
 		https://releases.bazel.build/${BAZEL_VER}/release/bazel-${BAZEL_VER}-linux-x86_64
 		https://github.com/astral-sh/python-build-standalone/releases/download/${CPYTHON_VER#*+}/cpython-${CPYTHON_VER}-x86_64-unknown-linux-gnu-install_only.tar.gz
+		https://github.com/protocolbuffers/protobuf/releases/download/v${PROTO_VER}/protoc-${PROTO_VER}-linux-x86_64.zip
 	)
 	arm64? (
 		https://releases.bazel.build/${BAZEL_VER}/release/bazel-${BAZEL_VER}-linux-arm64
 		https://github.com/astral-sh/python-build-standalone/releases/download/${CPYTHON_VER#*+}/cpython-${CPYTHON_VER}-aarch64-unknown-linux-gnu-install_only.tar.gz
+		https://github.com/protocolbuffers/protobuf/releases/download/v${PROTO_VER}/protoc-${PROTO_VER}-linux-aarch_64.zip
 	)
 	!fcitx5? ( https://github.com/google/${PN}/archive/refs/tags/${PV}.tar.gz
 		-> ${P}.tar.gz )
 	fcitx5? ( https://github.com/fcitx/${PN}/archive/${MOZC_FCITX_HASH}.tar.gz
 		-> ${PN}-fcitx5-${PV}.tar.gz )
-	test? ( https://github.com/google/googletest/releases/download/v${GTEST_VER}/googletest-${GTEST_VER}.tar.gz )
+	test? (
+		https://github.com/google/benchmark/archive/refs/tags/v1.9.5.tar.gz
+			-> ${PN}-benchmark__v1.9.5.tar.gz
+		https://github.com/google/googletest/releases/download/v${GTEST_VER}/googletest-${GTEST_VER}.tar.gz
+		https://github.com/google/re2/releases/download/2025-08-12/re2-2025-08-12.zip
+		)
 	https://github.com/bazelbuild/bazel-central-registry/archive/${BAZEL_BCR_HASH}.tar.gz
 		-> ${PN}-bcr-${BAZEL_BCR_HASH}.tar.gz
 	https://github.com/abseil/abseil-cpp/releases/download/${ABS_VER}/abseil-cpp-${ABS_VER}.tar.gz
+	https://github.com/abseil/abseil-py/archive/refs/tags/v2.1.0.tar.gz
+		-> ${PN}-abseil-py__v2.1.0.tar.gz
 	https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/${JUD_VER}.tar.gz
-		-> japanese-usage-dictionary-${JUD_VER}.tar.gz
-	https://github.com/protocolbuffers/protobuf/releases/download/v${PROTO_VER}/protobuf-${PROTO_VER}.zip
+		-> ${PN}-japanese-usage-dictionary__${JUD_VER}.tar.gz
+	https://github.com/protocolbuffers/protobuf/releases/download/v${PROTO_VER}/protobuf-${PROTO_VER}.bazel.tar.gz
+	https://github.com/bats-core/bats-core/archive/v1.10.0.tar.gz
+		-> ${PN}-archive__v1.10.0.tar.gz
+	https://github.com/bazelbuild/rules_android/releases/download/v0.7.1/rules_android-v0.7.1.tar.gz
+	https://github.com/bazelbuild/rules_android_ndk/releases/download/v0.1.5/rules_android_ndk-v0.1.5.tar.gz
+	https://github.com/bazel-contrib/rules_go/releases/download/v0.60.0/rules_go-v0.60.0.zip
 	https://github.com/bazel-contrib/rules_python/releases/download/${RPYTHON_VER}/rules_python-${RPYTHON_VER}.tar.gz
-	https://github.com/bazelbuild/apple_support/releases/download/1.23.1/apple_support.1.23.1.tar.gz
-	https://github.com/bazel-contrib/bazel_features/releases/download/v1.30.0/bazel_features-v1.30.0.tar.gz
-	https://github.com/bazelbuild/bazel-skylib/releases/download/1.8.1/bazel-skylib-1.8.1.tar.gz
+	https://github.com/bazel-contrib/bazel_features/releases/download/v1.42.1/bazel_features-v1.42.1.tar.gz
+	https://github.com/bazel-contrib/bazel-lib/releases/download/v2.22.5/bazel-lib-v2.22.5.tar.gz
+	https://github.com/bazel-contrib/bazel-lib/releases/download/v3.0.0/bazel-lib-v3.0.0.tar.gz
+	https://github.com/bazel-contrib/tar.bzl/releases/download/v0.5.1/tar.bzl-v0.5.1.tar.gz
+	https://github.com/bazelbuild/apple_support/releases/download/2.4.0/apple_support.2.4.0.tar.gz
+	https://github.com/bazelbuild/bazel-skylib/releases/download/1.9.0/bazel-skylib-1.9.0.tar.gz
 	https://github.com/bazelbuild/platforms/releases/download/1.0.0/platforms-1.0.0.tar.gz
-	https://github.com/bazelbuild/rules_android_ndk/releases/download/v0.1.3/rules_android_ndk-v0.1.3.tar.gz
-	https://github.com/bazelbuild/rules_apple/releases/download/4.1.2/rules_apple.4.1.2.tar.gz
-	https://github.com/bazelbuild/rules_cc/releases/download/0.2.2/rules_cc-0.2.2.tar.gz
-	https://github.com/bazelbuild/rules_java/releases/download/8.14.0/rules_java-8.14.0.tar.gz
-	https://github.com/bazelbuild/rules_kotlin/releases/download/v1.9.6/rules_kotlin-v1.9.6.tar.gz
+	https://github.com/bazelbuild/rules_apple/releases/download/4.5.2/rules_apple.4.5.2.tar.gz
+	https://github.com/bazelbuild/rules_cc/releases/download/0.2.17/rules_cc-0.2.17.tar.gz
+	https://github.com/bazelbuild/rules_java/releases/download/9.3.0/rules_java-9.3.0.tar.gz
+	https://github.com/bazelbuild/rules_kotlin/releases/download/v2.2.2/rules_kotlin-v2.2.2.tar.gz
 	https://github.com/bazelbuild/rules_license/releases/download/1.0.0/rules_license-1.0.0.tar.gz
-	https://github.com/bazelbuild/rules_pkg/releases/download/1.1.0/rules_pkg-1.1.0.tar.gz
-	https://github.com/bazelbuild/rules_shell/releases/download/v0.3.0/rules_shell-v0.3.0.tar.gz
-	https://github.com/bazelbuild/rules_swift/releases/download/3.1.2/rules_swift.3.1.2.tar.gz
+	https://github.com/bazelbuild/rules_pkg/releases/download/1.2.0/rules_pkg-1.2.0.tar.gz
+	https://github.com/bazelbuild/rules_shell/releases/download/v0.6.1/rules_shell-v0.6.1.tar.gz
+	https://github.com/bazelbuild/rules_swift/releases/download/3.5.0/rules_swift.3.5.0.tar.gz
 	https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz
-	https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/33524763837473258e7ba2f14b17fc3a70519831/ken_all.zip
-		-> ${P}-ken_all.zip
-	https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/33524763837473258e7ba2f14b17fc3a70519831/jigyosyo.zip
-		-> ${P}-jigyosyo.zip
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/png/action/chrome_reader_mode/materialiconsoutlined/48dp/1x/outline_chrome_reader_mode_black_48dp.png
-		-> ${P}-dictionary.png
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/src/action/chrome_reader_mode/materialiconsoutlined/24px.svg
-		-> ${P}-dictionary.svg
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/png/action/settings/materialiconsround/48dp/1x/round_settings_black_48dp.png
-		-> ${P}-properties.png
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/src/action/settings/materialiconsround/24px.svg
-		-> ${P}-properties.svg
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/png/action/build/materialicons/48dp/1x/baseline_build_black_48dp.png
-		-> ${P}-tool.png
-	https://raw.githubusercontent.com/google/material-design-icons/4.0.0/src/action/build/materialicons/24px.svg
-		-> ${P}-tool.svg
+	https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/${JAPZIP_HASH}/ken_all.zip
+		-> ${PN}-${JAPZIP_HASH}__ken_all.zip
+	https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/${JAPZIP_HASH}/jigyosyo.zip
+		-> ${PN}-${JAPZIP_HASH}__jigyosyo.zip
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/png/action/chrome_reader_mode/materialiconsoutlined/48dp/1x/outline_chrome_reader_mode_black_48dp.png
+		-> ${PN}-${GICONS_VER}__dictionary.png
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/src/action/chrome_reader_mode/materialiconsoutlined/24px.svg
+		-> ${PN}-${GICONS_VER}__dictionary.svg
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/png/action/settings/materialiconsround/48dp/1x/round_settings_black_48dp.png
+		-> ${PN}-${GICONS_VER}__properties.png
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/src/action/settings/materialiconsround/24px.svg
+		-> ${PN}-${GICONS_VER}__properties.svg
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/png/action/build/materialicons/48dp/1x/baseline_build_black_48dp.png
+		-> ${PN}-${GICONS_VER}__tool.png
+	https://raw.githubusercontent.com/google/material-design-icons/${GICONS_VER}/src/action/build/materialicons/24px.svg
+		-> ${PN}-${GICONS_VER}__tool.svg
 "
 S="${WORKDIR}/${P}/src"
 
@@ -88,7 +107,7 @@ S="${WORKDIR}/${P}/src"
 # japanese-usage-dictionary: BSD-2
 LICENSE="BSD BSD-2 ipadic public-domain unicode"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="debug emacs fcitx5 +gui +ibus renderer test"
 REQUIRED_USE="|| ( emacs fcitx5 ibus )"
 RESTRICT="!test? ( test )"
@@ -116,8 +135,6 @@ SITEFILE="50${PN}-gentoo.el"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.31.5851.102-fix_path.patch
-	# from upstream
-	"${FILESDIR}"/${PN}-2.32.5994.102-rm_reinterpret_cast.patch
 )
 
 pkg_setup() {
@@ -138,12 +155,12 @@ src_unpack() {
 
 	# create symlinks for distdir with the name wanted by bazel
 	mkdir bazel_dist || die
-	pushd "${DISTDIR}" || die
+	pushd "${DISTDIR}" >/dev/null || die
+	local dep
 	for dep in *.{tar.gz,zip,png,svg}; do
-		ln -sfT "${DISTDIR}/${dep}" "${WORKDIR}/bazel_dist/${dep#${P}-}" || die
+		ln -sfT "${DISTDIR}/${dep}" "${WORKDIR}/bazel_dist/${dep#*__}" || die
 	done
-	ln -sfT "${DISTDIR}"/japanese-usage-dictionary-${JUD_VER}.tar.gz "${WORKDIR}"/bazel_dist/${JUD_VER}.tar.gz  || die
-	popd || die
+	popd >/dev/null || die
 
 	if use fcitx5; then
 		unpack ${PN}-fcitx5-${PV}.tar.gz
@@ -151,6 +168,11 @@ src_unpack() {
 	else
 		unpack ${P}.tar.gz
 	fi
+
+	# use local rules_python to fix the shebang
+	mkdir "${S}"/third_party || die
+	unpack rules_python-${RPYTHON_VER}.tar.gz
+	ln -sfT "${WORKDIR}"/rules_python-${RPYTHON_VER} "${S}"/third_party/rules_python || die
 }
 
 ebazel() {
@@ -173,20 +195,15 @@ src_prepare() {
 		-e "\@.*github.com/hiroyuki-komatsu/japanese-usage-dictionary@s:%s.zip:%s.tar.gz:" \
 		-i MODULE.bazel || die
 
-	# declare a patch to bazel for rules_python
+	# fix shebang
 	cat >> MODULE.bazel <<-_EOF_ || die
-		single_version_override(
+		local_path_override(
 			module_name = "rules_python",
-			patches = [ "bazel/rules_python_fix_shebang.patch" ],
-			version = "${RPYTHON_VER}",
+			path = "third_party/rules_python",
 		)
 	_EOF_
-	# 'install' the patch for rules_python
-	# check py_runtime_info.bzl from ${WORKDIR}/bazel_dist/rules_python-${RPYTHON_VER}.tar.gz to update the patch
-	cp "${FILESDIR}"/${PN}-2.32.5994.102-bazel_patch-fix_shebang.patch bazel/rules_python_fix_shebang.patch || die
-	# fix shebang
-	sed -e "s:@PYTHON@:${PYTHON}:" \
-		-i bazel/rules_python_fix_shebang.patch || die
+	sed -e 's@^DEFAULT_STUB_SHEBANG = .*@DEFAULT_STUB_SHEBANG = "#!'"${PYTHON}"'"@' \
+		-i third_party/rules_python/python/private/py_runtime_info.bzl || die
 
 	# fix paths to preserve compatibility
 	sed -e "/LINUX_MOZC_SERVER_DIR/s:=.*:= \"/usr/libexec/mozc\":" \
@@ -246,9 +263,6 @@ src_configure() {
 	# https://bazel.build/reference/be/make-variables
 	tc-export CC AR
 
-	# fix external/zlib+ w/ clang-21
-	append-cppflags -DHAVE_UNISTD_H=1
-
 	MYEBAZELARGS=(
 		--compilation_mode="$(usex debug dbg opt)"
 		--config="oss_linux"
@@ -260,6 +274,10 @@ src_configure() {
 		--strip="$(usex debug never always)"
 		--subcommands # be verbose
 		--verbose_failures
+
+		# pass PATH through bazel (e.g. to find ld)
+		--action_env=PATH="${PATH}"
+		--host_action_env=PATH="${PATH}"
 	)
 
 	if use fcitx5; then
@@ -356,11 +374,14 @@ src_install() {
 		insinto /usr/share/fcitx5/inputmethod
 		doins unix/fcitx5/mozc.conf
 
-		export MOPREFIX="fcitx5-mozc"
-		local mo_file
-		for mo_file in unix/fcitx5/po/*.po; do
-			msgfmt "${mo_file}" -o "${mo_file%.po}.mo" && domo "${mo_file%.po}.mo"  || die
+		pushd unix/fcitx5/po >/dev/null || die
+		local lang
+		for lang in $(cat LINGUAS); do
+			msgfmt ${lang}.po -o ${lang}.mo || die
+			insinto /usr/share/locale/${lang}/LC_MESSAGES/
+			newins ${lang}.mo fcitx5-mozc.mo
 		done
+		popd >/dev/null || die
 
 		msgfmt --xml -d unix/fcitx5/po/ \
 			--template unix/fcitx5/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml.in \
@@ -369,15 +390,16 @@ src_install() {
 		doins unix/fcitx5/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml
 
 		# see scripts/install_fcitx5_icons
-		local orgfcitx5="org.fcitx.Fcitx5.fcitx-mozc"
+		local orgfcitx5="org.fcitx.Fcitx5.fcitx_mozc"
 		newicon -s 128 data/images/product_icon_32bpp-128.png ${orgfcitx5}.png
-		newicon -s 128 data/images/product_icon_32bpp-128.png fcitx-mozc.png
+		newicon -s 128 data/images/product_icon_32bpp-128.png fcitx_mozc.png
 		newicon -s 32 data/images/unix/ime_product_icon_opensource-32.png ${orgfcitx5}.png
-		newicon -s 32 data/images/unix/ime_product_icon_opensource-32.png fcitx-mozc.png
+		newicon -s 32 data/images/unix/ime_product_icon_opensource-32.png fcitx_mozc.png
+		local dimg uiimg
 		for uiimg in ../scripts/icons/ui-*.png; do
 			dimg="${uiimg#*ui-}"
-			newicon -s 48 "${uiimg}" "${orgfcitx5}-${dimg/_/-}"
-			newicon -s 48 "${uiimg}" "fcitx-mozc-${dimg/_/-}"
+			newicon -s 48 "${uiimg}" "${orgfcitx5}_${dimg}"
+			newicon -s 48 "${uiimg}" "fcitx_mozc_${dimg}"
 		done
 	fi
 

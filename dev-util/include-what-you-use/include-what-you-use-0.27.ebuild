@@ -36,6 +36,10 @@ DEPEND="
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+PATCHES=(
+	"${FILESDIR}"/include-what-you-use-0.27-optional-tests.patch
+)
+
 pkg_setup() {
 	llvm-r2_pkg_setup
 	python-single-r1_pkg_setup
@@ -66,6 +70,7 @@ src_configure() {
 		# https://github.com/include-what-you-use/include-what-you-use/commit/e046d23571876e72719ef96a36ff0cb1cb2e64b6
 		-DIWYU_RESOURCE_DIR="../../../clang/${LLVM_SLOT}"
 
+		-DBUILD_TESTS=$(usex test)
 		-DIWYU_USE_SYSTEM_GTEST=ON
 	)
 	cmake_src_configure
