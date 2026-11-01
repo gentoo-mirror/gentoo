@@ -2055,6 +2055,7 @@ dev-libs/cutlass:tools - Enable CUTLASS Tools
 dev-libs/cyberjack:tools - Build and install optional management tools.
 dev-libs/cyrus-sasl:authdaemond - Add Courier-IMAP authdaemond unix socket support (net-mail/courier-imap, mail-mta/courier)
 dev-libs/cyrus-sasl:ldapdb - Enable ldapdb plugin
+dev-libs/cyrus-sasl:ntlm - Enable NTLM authentication (discouraged)
 dev-libs/cyrus-sasl:openldap - Add ldap support for saslauthd
 dev-libs/cyrus-sasl:sample - Enable sample client and server
 dev-libs/cyrus-sasl:srp - Enable SRP authentication
@@ -8769,8 +8770,6 @@ sys-process/fcron:system-crontab - Set up fcron to respect /etc/crontab and /etc
 sys-process/htop:bfd - With USE=unwind, demangle symbol names (like for C++) in backtraces via sys-libs/binutils-libs
 sys-process/htop:delayacct - Enable Linux delay accounting support via dev-libs/libnl
 sys-process/htop:hwloc - Use sys-apps/hwloc for CPU affinity support
-sys-process/htop:openvz - Enable openvz support
-sys-process/htop:vserver - Enable vserver support
 sys-process/lsof:rpc - support looking up RPC service info
 sys-process/nvtop:unicode - Enable support for ncurses Unicode choice
 sys-process/procenv:numa - Enable NUMA support using sys-process/numactl
