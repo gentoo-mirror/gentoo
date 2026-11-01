@@ -27,6 +27,7 @@ REQUIRED_USE="
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-libs/openssl:=
 	bzip2? ( app-arch/bzip2:=[${MULTILIB_USEDEP}] )
 	icu? ( dev-libs/icu:=[${MULTILIB_USEDEP}] )
 	!icu? ( virtual/libiconv[${MULTILIB_USEDEP}] )
@@ -53,6 +54,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.89.0-python-exclude-broken-tests.patch
 	"${FILESDIR}"/${PN}-1.89.0-unordered-no-tbb.patch
 	"${FILESDIR}"/${PN}-1.90.0-cobalt.patch
+	"${FILESDIR}"/${PN}-1.92.0-mpi-missing-operator.patch
+	"${FILESDIR}"/${PN}-1.92.0-mpi-fix-operator-namespace.patch
 	"${FILESDIR}"/${PN}-1.92.0-msm-std.patch
 	"${FILESDIR}"/${PN}-1.90.0-unsigned-char-EOF.patch
 	"${FILESDIR}"/${PN}-1.91.0-spirit-test.patch
