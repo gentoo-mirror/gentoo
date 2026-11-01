@@ -4,18 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/httplib2/httplib2
 PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A comprehensive HTTP client library"
 HOMEPAGE="
 	https://pypi.org/project/httplib2/
 	https://github.com/httplib2/httplib2/
-"
-SRC_URI="
-	https://github.com/httplib2/httplib2/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
