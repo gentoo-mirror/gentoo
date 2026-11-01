@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-aherbert ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-11:* test? ( >=dev-java/commons-math-3.6.1-r2:3 >=dev-java/jmh-core-1.37:0 dev-java/opentest4j:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 ) test? ( dev-java/junit:5 )
+DESCRIPTION=Apache Commons Random Numbers Generators
+EAPI=9
+HOMEPAGE=https://commons.apache.org/proper/commons-rng/
+INHERIT=java-pkg-2 java-pkg-simple junit5 verify-sig
+IUSE=doc source test verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/commons/rng/source/commons-rng-1.7-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/rng/source/commons-rng-1.7-src.tar.gz.asc )
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c	junit5	0858cedbc14b1e574952835f5ddc6ded	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=3567aa48eef4d8ef9a4755c52ccfbe27
