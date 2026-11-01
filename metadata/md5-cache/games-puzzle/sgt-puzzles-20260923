@@ -1,0 +1,14 @@
+BDEPEND=app-text/halibut dev-lang/perl virtual/imagemagick-tools[png] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=x11-libs/gtk+:3
+DESCRIPTION=Simon Tatham's Portable Puzzle Collection
+EAPI=8
+HOMEPAGE=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/
+INHERIT=cmake xdg-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/gtk+:3 x11-misc/xdg-utils
+SLOT=0
+SRC_URI=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20260923.616da16.tar.gz -> sgt-puzzles-20260923.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
+_md5_=c96aaf9362625a1eb5664a19137f662c
