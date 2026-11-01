@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYTHON_COMPAT=( python3_{12..15} )
 RUST_MIN_VER="1.87.0"
 
 declare -A GIT_CRATES=(
@@ -88,6 +89,7 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.4.1-pointer-types.patch"
+	"${FILESDIR}/${P}-openssl-4.patch"
 )
 
 python_check_deps() {

@@ -15,8 +15,8 @@ SRC_URI="https://github.com/texstudio-org/texstudio/archive/${PV}.tar.gz -> ${P}
 # CC0-1.0: Colibre icon theme
 LICENSE="GPL-3 MIT LGPL-2 CC-BY-SA-3.0 CC0-1.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
-IUSE="video"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="qtermwidget video"
 
 DEPEND="
 	app-text/hunspell:=
@@ -29,6 +29,7 @@ DEPEND="
 	dev-qt/qttools:6[widgets]
 	virtual/zlib:=
 	x11-libs/libX11
+	qtermwidget? ( >=x11-libs/qtermwidget-2.0.0:= )
 	video? ( dev-qt/qtmultimedia:6 )
 "
 RDEPEND="
@@ -41,15 +42,17 @@ BDEPEND="
 "
 
 src_prepare() {
+	# avoid bundled libs as a fallback
 	local dir
 	for dir in src/quazip src/hunspell utilities/poppler-data; do
 		rm -r "${dir}" || die "Failed to delete ${dir}"
 	done
 
-	# https://bugs.gentoo.org/940747
-	sed -i 's/Qt5 //' CMakeLists.txt || die
-
 	cmake_src_prepare
+
+	# fix docdir for the menu 'help'
+	sed -e "s:share/doc/texstudio:share/doc/${PF}:g" \
+		-i src/utilsSystem.cpp || die
 }
 
 src_configure() {
@@ -61,6 +64,7 @@ src_configure() {
 		# it requires debug and make changes in the UI
 		# see #940928
 		-DTEXSTUDIO_ENABLE_TESTS=NO
+		$(cmake_use_find_package qtermwidget QTermWidget)
 	)
 	cmake_src_configure
 }

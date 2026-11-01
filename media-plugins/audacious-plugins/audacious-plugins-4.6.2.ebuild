@@ -28,7 +28,7 @@ SRC_URI="
 # public-domain modplug
 LICENSE="BSD-2 BSD CC-BY-SA-4.0 GPL-2+ GPL-3 ISC LGPL-2.1+ MIT public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="
 	aac +alsa ampache bs2b cdda cue ffmpeg flac fluidsynth gme gtk http jack
 	lame libnotify libsamplerate lirc mms modplug +mp3 mpris opengl openmpt opus
@@ -48,6 +48,7 @@ REQUIRED_USE="
 #   ladspa (gtk)
 #   skins/Winamp (X)
 BDEPEND="
+	sys-devel/gettext
 	virtual/pkgconfig
 	mpris? ( >=dev-util/gdbus-codegen-2.80.5-r1 )
 "
