@@ -1,19 +1,20 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
+
 inherit font
 
 DESCRIPTION="Google's font family that aims to support all the world's languages"
 HOMEPAGE="https://fonts.google.com/noto https://github.com/notofonts/notofonts.github.io"
 
-COMMIT="113d8e66a13a47d514be6c07e616842258982f42"
+COMMIT="412a7edb2c8c535d1066157e5b17e661fd5591fe"
 SRC_URI="https://github.com/notofonts/notofonts.github.io/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/notofonts.github.io-${COMMIT}"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 # Extra allows to optionally reduce disk usage even returning to tofu
 # issue as described in https://fonts.google.com/noto
 IUSE="+extra"
