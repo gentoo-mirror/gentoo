@@ -1,8 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYTHON_COMPAT=( python3_{12..14} )
 inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Image viewer and browser for Gnome"
@@ -59,11 +60,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-PATCHES=(
-	# https://gitlab.gnome.org/GNOME/gthumb/-/issues/376
-	"${FILESDIR}/${P}-disabled-lcms2.patch"
-)
-
 src_configure() {
 	use X || append-cflags -DGENTOO_GTK_HIDE_X11
 

@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit gnome.org gnome2-utils meson python-single-r1 xdg
@@ -12,14 +13,14 @@ HOMEPAGE="http://meldmerge.org/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=x11-libs/gtk+-3.20:3[introspection]
+	>=x11-libs/gtk+-3.22:3[introspection]
 	>=dev-libs/glib-2.48:2
 	>=x11-libs/gtksourceview-4.0.0:4[introspection]
 	$(python_gen_cond_dep '
@@ -32,7 +33,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		dev-util/desktop-file-utils
-		dev-libs/appstream-glib
+		dev-libs/appstream
 	)
 "
 BDEPEND="
@@ -49,7 +50,7 @@ pkg_setup() {
 src_configure() {
 	local emesonargs=(
 		-Dprofile=''
-		-Dbyte-compile=false
+		-Dis_wheel=false
 	)
 	meson_src_configure
 }
