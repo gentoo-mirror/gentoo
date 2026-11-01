@@ -117,7 +117,7 @@ src_prepare() {
 	# po files not installed so symlinks would be orphans.
 	# Even so symlinks would be only useful for gtk2 and qt5 as per upstream.
 	sed -e '/^install-data-hook-app-locale-symlinks:/,/^$/ { /UTF8_POFILE/d }' \
-		-i scripts/python/Makefile.am || die
+		-i scripts/python/Makefile.* || die
 
 	if [[ ${PV} == *9999 ]] || [[ ${PATCH_NEEDS_AUTOGEN} == 1 ]] ; then
 		./autogen.sh || die
@@ -144,6 +144,8 @@ src_configure() {
 		# systemdsystemunitdir implies "basic" systemd support, bug #977380
 		--with-systemdsystemunitdir="$(usex systemd $(systemd_get_systemunitdir) no)"
 		--with-systemdtmpfilesdir="/usr/lib/tmpfiles.d"
+		# Shortcut systemd feature tests to avoid sandbox violations, bug #985347
+		ac_cv_path_SYSTEMD_ANALYZE_PROGRAM="${BROOT}/bin/$(usex systemd true false)"
 		--with-udev-dir="$(get_udevdir)"
 		--with-user=nut
 		--without-powerman

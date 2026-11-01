@@ -8,7 +8,7 @@ HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="+browsed +foomatic foomatic-db-ppds pdf +postscript +poppler zeroconf"
 
 RDEPEND="
