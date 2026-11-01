@@ -8,16 +8,14 @@ inherit desktop xdg
 DESCRIPTION="Digital audio workstation"
 HOMEPAGE="https://www.reaper.fm"
 
-X11_WDL_COMMIT="61c5553aad0d257775a4dd7bf36b8be617ec8281"
-WAYLAND_WDL_COMMIT="f6190086374d8cbddafbc220c7ddbfd32e53b2ea"
+WDL_COMMIT="1156aaac95088cc200993415a1347cbc9949df9f"
 
 SRC_URI="
 	amd64? ( https://www.reaper.fm/files/$(ver_cut 1).x/reaper$(ver_cut 1)$(printf %02d $(( 10#$(ver_cut 2) )))_linux_x86_64.tar.xz )
 	x86? ( https://www.reaper.fm/files/$(ver_cut 1).x/reaper$(ver_cut 1)$(printf %02d $(( 10#$(ver_cut 2) )))_linux_i686.tar.xz )
 	arm64? ( https://www.reaper.fm/files/$(ver_cut 1).x/reaper$(ver_cut 1)$(printf %02d $(( 10#$(ver_cut 2) )))_linux_aarch64.tar.xz )
 	arm? ( https://www.reaper.fm/files/$(ver_cut 1).x/reaper$(ver_cut 1)$(printf %02d $(( 10#$(ver_cut 2) )))_linux_armv7l.tar.xz )
-	!wayland? ( https://github.com/justinfrankel/WDL/archive/${X11_WDL_COMMIT}.tar.gz -> WDL-${X11_WDL_COMMIT}.tar.gz )
-	wayland? ( https://github.com/justinfrankel/WDL/archive/${WAYLAND_WDL_COMMIT}.tar.gz -> WDL-${WAYLAND_WDL_COMMIT}.tar.gz )
+	https://github.com/justinfrankel/WDL/archive/${WDL_COMMIT}.tar.gz -> WDL-${WDL_COMMIT}.tar.gz
 "
 
 LICENSE="Cockos"
@@ -57,12 +55,12 @@ S="${WORKDIR}"
 
 src_prepare() {
 	default
-	cd "WDL-"* || die
+	cd "WDL-${WDL_COMMIT}" || die
 	eapply "${FILESDIR}"/libSwell-makefile-cflags.patch
 }
 
 src_compile() {
-	emake -C "WDL-"*"/WDL/swell" \
+	emake -C "WDL-${WDL_COMMIT}/WDL/swell" \
 		PRELOAD_GDK=1 \
 		WAYLAND=$(usex wayland 1 0)
 }
@@ -71,7 +69,7 @@ QA_PREBUILT="*/*.so */reaper */reaper_host_*"
 
 src_install() {
 	cd "reaper_linux_"* || die
-	mv -fv "../WDL-"*"/WDL/swell/libSwell.so" REAPER/ || die
+	mv -fv "../WDL-${WDL_COMMIT}/WDL/swell/libSwell.so" REAPER/ || die
 
 	./install-reaper.sh --install "${D}"/opt || die
 	rm -f "${D}"/opt/REAPER/uninstall-reaper.sh
