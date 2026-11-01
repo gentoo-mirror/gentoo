@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-libs/json-glib-1.0.4
 	>=dev-libs/libmspack-0.4
 	dev-libs/libxml2:2=
-	>=gnome-extra/evolution-data-server-3.54.3:0=
+	>=gnome-extra/evolution-data-server-3.60.2:0=
 	>=mail-client/evolution-3.54.3:2.0
 	>=net-libs/libsoup-3.0:3.0
 	>=x11-libs/gtk+-3.10:3
