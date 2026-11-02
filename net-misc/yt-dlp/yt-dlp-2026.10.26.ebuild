@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit distutils-r1 optfeature shell-completion wrapper
 
 if [[ ${PV} == 9999 ]]; then
@@ -54,6 +54,10 @@ fi
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/${P}-pytest-9.2.patch
+)
 
 python_compile() {
 	if [[ ${PV} == 9999 ]]; then
