@@ -3,18 +3,16 @@
 
 EAPI=9
 
-NEED_EMACS="28.1"
-
 inherit elisp
 
-DESCRIPTION="ELisp library that helps keeping Emacs configuration directory clean"
-HOMEPAGE="https://github.com/emacscollective/no-littering/"
+DESCRIPTION="Tools for assembling a package archive"
+HOMEPAGE="https://github.com/melpa/package-build/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/emacscollective/${PN}"
+	EGIT_REPO_URI="https://github.com/melpa/${PN}"
 else
-	SRC_URI="https://github.com/emacscollective/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/melpa/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -29,5 +27,7 @@ BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( README.org migrate.org )
 SITEFILE="50${PN}-gentoo.el"
+DOCS=( README.org CHANGELOG )
+
+elisp-enable-tests ert ./test/ -l "./test/${PN}-tests.el"
