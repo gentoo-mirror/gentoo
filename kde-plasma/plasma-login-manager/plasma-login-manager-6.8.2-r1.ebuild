@@ -36,10 +36,9 @@ DEPEND="
 	sys-libs/pam
 	x11-libs/libXau
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
 	acct-user/plasmalogin
-	kde-plasma/kwin[lock]
+	>=kde-plasma/kwin-6.8.2-r2
 "
 BDEPEND="
 	dev-python/docutils

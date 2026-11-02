@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PATCHSET="${P}-patchset"
+PATCHSET="${P}-patchset-1"
 ECM_HANDBOOK="optional"
 # TODO: ECMGenerateQDoc
 ECM_TEST="true"
@@ -127,6 +127,8 @@ FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
 PATCHES=(
 	"${WORKDIR}/${PATCHSET}" # in 6.8.3
+	"${FILESDIR}/${PN}-6.7.6-persistent-cli-no_options.patch" # in 6.8.3; bug #985093
+	"${FILESDIR}/${P}-optional-setcap.patch" # pending; bug #984516
 )
 
 pkg_pretend() {
@@ -160,6 +162,7 @@ src_configure() {
 	local mycmakeargs=(
 		# KWIN_BUILD_DECORATIONS exists, drops aurorae, breeze
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
+		-DKWIN_BUILD_SET_CAP_SYS_NICE=OFF # see fcaps.eclass, FILECAPS
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		$(cmake_use_find_package activities PlasmaActivities)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
