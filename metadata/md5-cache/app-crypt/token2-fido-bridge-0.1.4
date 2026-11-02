@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=sys-apps/pcsc-lite
+DESCRIPTION=Expose PC/SC smartcards as virtual FIDO2/WebAuthn USB-HID security keys
+EAPI=8
+HOMEPAGE=https://github.com/token2/token2-fido-bridge
+INHERIT=cmake linux-info optfeature systemd udev
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-apps/pcsc-lite
+SLOT=0
+SRC_URI=https://github.com/token2/token2-fido-bridge/archive/refs/tags/v0.1.4.tar.gz -> token2-fido-bridge-0.1.4.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	linux-info	efd923656513c879204fec6638eadee5	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34
+_md5_=e1736231a15890a57491b5809506dc68
