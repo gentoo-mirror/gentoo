@@ -6,8 +6,8 @@ EAPI=8
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=6.27.0
-QTMIN=6.11.2
+KFMIN=6.22.0
+QTMIN=6.10.1
 inherit ecm flag-o-matic gear.kde.org xdg
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
@@ -77,11 +77,22 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-openssl4.patch" # in 26.08
+	"${FILESDIR}/${P}-solid-6.26-freeze.patch" # in 26.08
+	# Pending: https://invent.kde.org/network/kdeconnect-kde/-/merge_requests/997
+	"${FILESDIR}/${P}-with_x11.patch"
+	"${FILESDIR}/${P}-CVE-2026-111426.patch" # bug 985463
+)
+
 src_prepare() {
 	ecm_src_prepare
 
-	# TODO: make conditional on X upstream (uses private/qxkbcommon_p.h):
-	use X || cmake_comment_add_subdirectory -f plugins shareinputdevices
+	if ! use X; then
+		# TODO: make conditional on X upstream
+		# uses private/qxkbcommon_p.h:
+		cmake_comment_add_subdirectory -f plugins shareinputdevices
+	fi
 }
 
 src_configure() {
