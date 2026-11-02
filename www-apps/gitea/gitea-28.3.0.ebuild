@@ -12,8 +12,8 @@ SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${
 S="${WORKDIR}/${PN}-src-${PV}"
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv ~x86"
-IUSE="+acct gogit pam sqlite pie"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+IUSE="+acct gogit pam pie"
 
 DEPEND="
 	acct? (
@@ -22,10 +22,10 @@ DEPEND="
 	pam? ( sys-libs/pam )"
 RDEPEND="${DEPEND}
 	!gogit? ( dev-vcs/git )"
-BDEPEND=">=dev-lang/go-1.26.3:="
+BDEPEND=">=dev-lang/go-1.27.0:="
 
 DOCS=(
-	custom/conf/app.example.ini CHANGELOG.md CONTRIBUTING.md README.md
+	custom/conf/app.example.ini CONTRIBUTING.md README.md
 )
 FILECAPS=(
 	-m 711 cap_net_bind_service+ep usr/bin/gitea
@@ -53,14 +53,13 @@ src_compile() {
 	# The space-separated list of the -tags flag is deprecated, please
 	# always use the comma-separated list in the future.
 	gitea_tags="bindata"
-	gitea_tags+="$(usex gogit ',gogit' '')"
-	gitea_tags+="$(usex pam ',pam' '')"
-	gitea_tags+="$(usex sqlite ',sqlite,sqlite_unlock_notify' '')"
+	gitea_tags+="$(usex gogit ' gogit' '')"
+	gitea_tags+="$(usex pam ' pam' '')"
 
 	gitea_settings=(
-		"-X code.gitea.io/gitea/modules/setting.CustomConf=${EPREFIX}/etc/gitea/app.ini"
-		"-X code.gitea.io/gitea/modules/setting.CustomPath=${EPREFIX}/var/lib/gitea/custom"
-		"-X code.gitea.io/gitea/modules/setting.AppWorkPath=${EPREFIX}/var/lib/gitea"
+		"-X gitea.dev/modules/setting.CustomConf=${EPREFIX}/etc/gitea/app.ini"
+		"-X gitea.dev/modules/setting.CustomPath=${EPREFIX}/var/lib/gitea/custom"
+		"-X gitea.dev/modules/setting.AppWorkPath=${EPREFIX}/var/lib/gitea"
 	)
 
 	makeenv=(
@@ -126,31 +125,21 @@ pkg_postinst() {
 	fi
 
 	if [[ -n ${REPLACING_VERSIONS} ]]; then
-		if ver_test "${REPLACING_VERSIONS}" -lt 1.22; then
-			ewarn "Since version 1.22.0:"
-			ewarn "  1. Minimum database requirements updated to MySQL 8.0, PostgreSQL 12, and MSSQL 2012."
-			ewarn "  2. There are a lot of refactoring changes related to customizing templates."
-			ewarn "  3. The default duration of the 'Remember login' feature has been"
-			ewarn "     changed from one week to one month."
-			ewarn "  4. Enhanced auth token/remember me, the obsolete setting"
-			ewarn "     '[security].COOKIE_USERNAME' has been removed."
-			ewarn "  5. For MinIO storage, adds a prefix path for all MinIO storage"
-			ewarn "     and override base path will override the path."
-			ewarn "  6. Now use a more restricted sanitizer for the repository description."
-			ewarn "For more details, see <https://github.com/go-gitea/gitea/releases/tag/v1.22.0>."
-		fi
-		if ver_test "${REPLACING_VERSIONS}" -lt 1.23; then
-			ewarn "Since version 1.23.0:"
-			ewarn "  1. The config option '[camo].Allways' has been renamed to '[camo].Always'."
-			ewarn "  2. The SHA1 for support for SSH RSA signing has been removed."
-			ewarn "  3. Use UTC as the default timezone when scheduling Actions cron tasks."
-			ewarn "  4. Make OIDC introspection authentication strictly require Client ID and secret."
-			ewarn "For other breaking changes, see <https://github.com/go-gitea/gitea/releases/tag/v1.23.0>."
-		fi
-		if ver_test "${REPLACING_VERSIONS}" -lt 1.24; then
-			ewarn "Since version 1.24.0:"
-			ewarn "  1. Always use its internal config, ignore /etc/gitconfig."
-			ewarn "For other breaking changes, see <https://github.com/go-gitea/gitea/releases/tag/v1.24.0>."
+		if ver_test "${REPLACING_VERSIONS}" -lt 28; then
+			ewarn "Since version 28.0.0 (the release following 1.27.x):"
+			ewarn "  1. Egress controls (git, webhooks, migrations) are reworked around"
+			ewarn "     '[security] EGRESS_MODE' (default 'lax'): ALLOWED_HOST_LIST then"
+			ewarn "     only restricts private/loopback/CGNAT hosts, public hosts are"
+			ewarn "     always allowed. Set EGRESS_MODE = strict for an exclusive list."
+			ewarn "  2. The 'external' and '*' entries and wildcard IPs are rejected;"
+			ewarn "     'example.com' now also matches subdomains, '*.example.com' does"
+			ewarn "     not match the apex. Invalid block list entries are fatal."
+			ewarn "  3. '[migrations]' ALLOWED_DOMAINS/BLOCKED_DOMAINS/ALLOW_LOCALNETWORKS"
+			ewarn "     are deprecated."
+			ewarn "  4. Proxy URLs must use 'socks5://', 'socks://' is no longer accepted."
+			ewarn "  5. Completed action runs are now deleted after '[actions]"
+			ewarn "     RUN_RETENTION_DAYS' (default: 400, 0 keeps them forever)."
+			ewarn "For other breaking changes, see <https://github.com/go-gitea/gitea/releases/tag/v28.0.0>."
 		fi
 	fi
 }
