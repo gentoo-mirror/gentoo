@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) doc? ( || ( ( dev-lang/python:3.15 dev-python/sphinx[python_targets_python3_15(-)] dev-python/sphinx-rtd-theme[python_targets_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/sphinx[python_targets_python3_14(-)] dev-python/sphinx-rtd-theme[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
+DESCRIPTION=OpenGL Mathematics (glm) for C
+EAPI=8
+HOMEPAGE=https://github.com/recp/cglm
+INHERIT=python-any-r1 docs meson
+IUSE=test doc
+KEYWORDS=~amd64 ~arm ~ppc64 ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/recp/cglm/archive/refs/tags/v0.9.7.tar.gz -> cglm-0.9.7.tar.gz
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0	docs	006125f2158d2f16904ebd9114336058	flag-o-matic	fd3558f73f6503093adee69adf41020d	ninja-utils	d063ea1900a793f93eb095010d6d9156	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d
+_md5_=4ddeb5a18a65b48813f39f79b613c02f
