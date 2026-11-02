@@ -28,7 +28,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/cryptography-45.0.1[${PYTHON_USEDEP}]
-	>=dev-python/joserfc-1.6.1[${PYTHON_USEDEP}]
+	>=dev-python/joserfc-1.6.8[${PYTHON_USEDEP}]
 	django? (
 		>=dev-python/django-3.2.9[${PYTHON_USEDEP}]
 	)

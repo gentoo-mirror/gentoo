@@ -11,17 +11,17 @@ inherit distutils-r1
 MY_P=python-nbxmpp-${PV}
 DESCRIPTION="Python library to use Jabber/XMPP networks in a non-blocking way"
 HOMEPAGE="
-	https://dev.gajim.org/gajim/python-nbxmpp/
+	https://gitlab.com/gajim/python-nbxmpp/
 	https://pypi.org/project/nbxmpp/
 "
 SRC_URI="
-	https://dev.gajim.org/gajim/python-nbxmpp/-/archive/${PV}/${MY_P}.tar.bz2
+	https://gitlab.com/gajim/python-nbxmpp/-/archive/${PV}/${MY_P}.tar.bz2
 "
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/gobject-introspection-1.82.0-r2

@@ -17,29 +17,29 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/idna-2.8[${PYTHON_USEDEP}]
 	>=dev-python/truststore-0.9.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.16.0[${PYTHON_USEDEP}]
-	' 3.{11..14})
+	' 3.{12..14})
 "
 # On amd64, let's get more test coverage by dragging in uvloop, but let's
 # not bother on other arches where uvloop may not be supported.
 BDEPEND="
 	>=dev-python/setuptools-scm-6.4[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/blockbuster-1.5.29[${PYTHON_USEDEP}]
 		>=dev-python/psutil-5.9[${PYTHON_USEDEP}]
+		>=dev-python/trio-0.32.0[${PYTHON_USEDEP}]
 		>=dev-python/trustme-1.0.0[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/blockbuster-1.5.23[${PYTHON_USEDEP}]
-			>=dev-python/trio-0.32.0[${PYTHON_USEDEP}]
 			amd64? (
 				>=dev-python/uvloop-0.22.1[${PYTHON_USEDEP}]
 			)
-		' 3.{11..14})
+		' 3.{12..14})
 	)
 "
 
@@ -72,5 +72,7 @@ python_test() {
 		)
 	fi
 
+	# AF_UNIX paths too long
+	local -x TMPDIR=/tmp
 	epytest -m 'not network' "${filter[@]}"
 }
