@@ -1,7 +1,8 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit cmake
 
 DESCRIPTION="DSP IIR realtime filter library written in C++"
@@ -17,6 +18,7 @@ RESTRICT="!test? ( test )"
 src_configure() {
 	local mycmakeargs=(
 		-DIIR1_BUILD_DEMO=no
+		-DIIR1_INSTALL_STATIC=OFF
 		-DIIR1_BUILD_TESTING=$(usex test)
 	)
 	cmake_src_configure
