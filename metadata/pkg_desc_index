@@ -1291,7 +1291,7 @@ app-backup/snapper 0.12.2-r1 0.13.0 0.13.1: Command-line program for btrfs and l
 app-backup/spideroak-bin 7.5.0-r3: Secure free online backup, storage, and sharing system
 app-backup/synology-cloud-station-backup 4469: Back up your files from multiple client computers to a centralized Synology NAS
 app-backup/tarsnap 1.0.41: Online backups for the truly paranoid
-app-backup/tsm 8.1.27.0-r2 8.1.27.1-r1 8.2.1.0 8.2.2.0: IBM Storage Protect (former Tivoli Storage Manager) Backup/Archive Client, API
+app-backup/tsm 8.1.27.0-r3 8.1.27.1-r2 8.2.1.0-r1 8.2.2.0-r1: IBM Storage Protect (former Tivoli Storage Manager) Backup/Archive Client, API
 app-backup/untangle-https-backup 0.2.0: Back up Untangle configurations via the web admin UI
 app-benchmarks/bashmark 0.6.2: Geno's cross platform benchmarking suite
 app-benchmarks/bonnie 2.0.6-r3: Performance Test of Filesystem I/O using standard C library calls
@@ -1854,7 +1854,7 @@ app-editors/kakoune 2022.10.31 2023.08.05 2024.05.18 2025.06.03 2026.05.21 9999:
 app-editors/kile 2.9.94: Latex Editor and TeX shell based on KDE Frameworks
 app-editors/leafpad 0.8.18.1-r1: Simple GTK2 text editor
 app-editors/levee 4.0: Really tiny vi clone, for things like rescue disks
-app-editors/logseq-desktop-bin 0.10.15-r1 1.0.0 2.0.2-r1: A privacy-first, open-source platform for knowledge sharing and management
+app-editors/logseq-desktop-bin 0.10.15-r2 1.0.0-r1 2.0.2-r2: A privacy-first, open-source platform for knowledge sharing and management
 app-editors/lpe 1.2.8_p20210401: A lightweight programmers editor
 app-editors/mg 20240709 20260719: MicroGnuEmacs, a port from the BSDs
 app-editors/micro 2.0.13-r1 2.0.15: Modern and intuitive terminal-based text editor
@@ -1889,8 +1889,8 @@ app-editors/vim-classic 8.3.0 9999: Long term support Vim text editor
 app-editors/vim-classic-core 8.3.0 9999: vim-classic and gvim-classic shared files
 app-editors/vim-core 9.1.1652-r3 9.2.1125 9.2.1202 9.2.1229 9.2.1275 9999: vim and gvim shared files
 app-editors/vis 0.9 0.9-r2 9999: Modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.141.0 1.142.0 1.143.0 1.144.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.135.06055 1.140.06880: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscode 1.141.0-r1 1.142.0-r1 1.143.0-r1 1.144.0-r1: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium 1.135.06055-r1 1.140.06880-r1: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r3: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r4: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.5.36-r6 21.5.37-r1 21.5.37-r2 21.5.9999: highly customizable open source text editor and application development system
@@ -3184,7 +3184,7 @@ app-shells/powerline 2.8.4 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
 app-shells/pwsh 7.6.3-r1 7.6.5 7.6.6: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.6.3-r1 7.6.5: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh-bin 7.6.3-r2 7.6.5-r1: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r3: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -4041,7 +4041,7 @@ dev-db/mariadb 10.11.18 10.11.19 11.4.9-r1 11.4.13-r1 11.8.5-r1 11.8.6 11.8.9-r1
 dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 3.4.9-r2 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18 3.1.23 3.1.24 3.2.8 3.2.9 3.2.10: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.32 6.0.27 7.0.28 8.0.29 8.3.8: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.49.8 1.50.0: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.49.8-r1 1.50.0-r1: GUI for MongoDB
 dev-db/mycli 2.30.0 2.30.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2 0.21.3.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -4151,7 +4151,7 @@ dev-dotnet/dotnet-outdated 4.7.1 4.8.1: Display and update outdated NuGet packag
 dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.8 8.0.21 8.0.22 8.0.26 8.0.30 8.0.32 9.0.10 9.0.11 9.0.15 9.0.19 9.0.21 10.0.11 10.0.13: .NET runtime nugets
 dev-dotnet/dotnet-script 2.0.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 9.0.111-r1: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r5 7.0.404-r5 8.0.108-r1 9.0.112 9.0.308 10.0.111 10.0.113 10.0.402: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r6 7.0.404-r6 8.0.108-r2 9.0.112-r1 9.0.308-r1 10.0.111-r1 10.0.113-r1 10.0.402-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.29.0-r2 5.0.0-r2 5.20.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 7.0.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.84.0 0.85.0 0.85.4: F# language server using the Language Server Protocol
@@ -12655,7 +12655,7 @@ kde-plasma/ksystemstats 6.7.5 6.8.2: Plugin-based system monitoring daemon
 kde-plasma/kup 6.8.2: Backup scheduler for the Plasma desktop
 kde-plasma/kwallet-pam 6.7.5 6.8.2: PAM module to not enter KWallet password again after login
 kde-plasma/kwayland 6.7.5 6.8.2: Qt-style API to interact with the wayland-client API
-kde-plasma/kwin 6.7.5-r1 6.8.2 6.8.2-r1: Flexible, composited Window Manager for windowing systems on Linux
+kde-plasma/kwin 6.7.5-r1 6.8.2-r1: Flexible, composited Window Manager for windowing systems on Linux
 kde-plasma/kwin-x11 6.7.5-r2: Flexible, composited X window manager
 kde-plasma/kwrited 6.7.5 6.8.2: KDE Plasma daemon listening for wall and write messages
 kde-plasma/layer-shell-qt 6.7.5 6.8.2: Qt component to allow applications make use of Wayland wl-layer-shell protocol
@@ -12687,7 +12687,7 @@ kde-plasma/plasma-systemmonitor 6.7.5 6.8.2: Monitor system sensors, process inf
 kde-plasma/plasma-thunderbolt 6.7.5 6.8.2: Plasma integration for controlling Thunderbolt devices
 kde-plasma/plasma-vault 6.7.5 6.8.2: Plasma applet and services for creating encrypted vaults
 kde-plasma/plasma-welcome 6.7.5 6.8.2: Friendly onboarding wizard for Plasma
-kde-plasma/plasma-workspace 6.7.5-r1 6.8.2 6.8.2-r1: KDE Plasma workspace
+kde-plasma/plasma-workspace 6.7.5-r1 6.8.2-r1: KDE Plasma workspace
 kde-plasma/plasma-workspace-wallpapers 6.7.5 6.8.2: Wallpapers for the Plasma workspace
 kde-plasma/plasma5support 6.7.5 6.8.2: Support components for porting from KF5/Qt5 to KF6/Qt6
 kde-plasma/plymouth-kcm 6.7.5 6.8.2: KDE Plasma control module for Plymouth
@@ -14464,7 +14464,7 @@ media-video/gpac 2.4.0-r1: Implementation of the MPEG-4 Systems standard develop
 media-video/guvcview 2.2.1 2.2.2: Simple Qt6 or GTK+3 interface for capturing and viewing video from v4l2 devices
 media-video/h264enc 10.4.7-r1: Script to encode H.264/AVC/MPEG-4 Part 10 formats
 media-video/handbrake 1.11.2-r1 9999: Open-source, GPL-licensed, multiplatform, multithreaded video transcoder
-media-video/haruna 1.8.1-r1: Video player built with Qt/QML and libmpv
+media-video/haruna 1.8.1-r1 1.9.0: Video player built with Qt/QML and libmpv
 media-video/harvid 0.9.1: HTTP Ardour Video Daemon
 media-video/hevc-hm 17.0: HEVC HM reference software
 media-video/imagination 3.6: Simple DVD slideshow maker
@@ -15773,7 +15773,7 @@ net-vpn/iodine 0.7.0-r5: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
 net-vpn/libreswan 4.15 5.1-r1 5.2 5.3: IPsec implementation for Linux, fork of Openswan
 net-vpn/logmein-hamachi 2.1.0.203: LogMeIn Hamachi VPN tunneling engine
-net-vpn/microsoft-azurevpnclient 3.0.0: Microsoft Azure VPN client for connecting securely to the Azure cloud
+net-vpn/microsoft-azurevpnclient 3.0.0-r1: Microsoft Azure VPN client for connecting securely to the Azure cloud
 net-vpn/mullvad-netns 0.2-r1 0.3-r1 0.4 9999: Script to run a command within a Mullvad network namespace
 net-vpn/networkmanager-fortisslvpn 1.4.0-r2: NetworkManager Fortinet SSLVPN compatible plugin
 net-vpn/networkmanager-l2tp 1.20.16-r1 1.52.6: NetworkManager L2TP plugin
@@ -17386,7 +17386,7 @@ sys-apps/init-system-helpers 1.66: Helper scripts useful for both OpenRC and sys
 sys-apps/input-utils 1.3: Small collection of linux input layer utils
 sys-apps/install-xattr 0.10-r1 0.11 0.12 0.13 9999: Wrapper to coreutils install to preserve Filesystem Extended Attributes
 sys-apps/intel-sa-00075-tools 1.0-r1: Tools from Intel to detect and mitigate the AMT/MEI vulnerability
-sys-apps/intune-portal 1.2607.4-r1 1.2609.5: Microsoft Intune Company Portal to access a corporate environment
+sys-apps/intune-portal 1.2607.4-r2 1.2609.5-r1: Microsoft Intune Company Portal to access a corporate environment
 sys-apps/inxi 3.3.35.1 3.3.38.1 3.3.40.1 3.3.41.1: The CLI inxi collects and prints hardware and system information
 sys-apps/iotools 1.5: Simple commands to access hardware device registers
 sys-apps/ipmi-fan-control 0.4.0-r1 9999: SuperMicro IPMI fan control daemon
@@ -17578,13 +17578,13 @@ sys-auth/elogind 255.24 255.25 255.27 257.14-r1 257.16: The systemd project's lo
 sys-auth/fprintd 1.94.2-r1 1.94.3-r1 1.94.5: D-Bus service to access fingerprint readers
 sys-auth/google-authenticator 1.11 9999: PAM Module for two step verification via mobile platform
 sys-auth/libfprint 1.94.4 1.94.7 1.94.9 1.94.9-r1 1.94.10: Library to add support for consumer fingerprint readers
-sys-auth/libfprint-2-tod1-broadcom 5.12.018 5.15.285: Proprietary driver for the fingerprint reader on the Dell Latitude
+sys-auth/libfprint-2-tod1-broadcom 5.12.018-r1 5.15.285-r1: Proprietary driver for the fingerprint reader on the Dell Latitude
 sys-auth/libnss-cache 0.10.2: libnss-cache is a library that serves nss lookups
 sys-auth/libnss-mysql 1.7.1 1.7.1-r1: NSS MySQL Library
 sys-auth/libnss-nis 3.1 3.2 3.4: NSS module to provide NIS support
 sys-auth/libnss-pgsql 1.5.0_beta-r1: Name Service Switch module for use with PostgreSQL
 sys-auth/libyubikey 1.13-r1: Yubico C low-level library
-sys-auth/microsoft-identity-broker 3.0.2-r1: Microsoft Authentication Broker to access a corporate environment
+sys-auth/microsoft-identity-broker 3.0.2-r2: Microsoft Authentication Broker to access a corporate environment
 sys-auth/munge 0.5.18: An authentication service for creating and validating credentials
 sys-auth/nss-docker-ng 1.0.7 1.1.3 1.2.1: NSS plugin for finding Docker containers by their ID or name
 sys-auth/nss-mdns 0.15.1 9999: Name Service Switch module for Multicast DNS
