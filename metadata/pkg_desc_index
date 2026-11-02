@@ -1383,7 +1383,7 @@ app-containers/cosign 2.5.0 2.6.1 3.0.3 3.1.0 3.1.3: container signing utility
 app-containers/cri-o 1.36.1-r1 1.36.5: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.33.0 1.35.0 1.36.0 1.37.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.19.1 1.20 1.21 1.25.1 1.28-r1 1.29.1-r1: Fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.88.0 0.89.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.89.0 0.90.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.8.2.5 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2 3.3.1 3.4.0: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
@@ -2204,7 +2204,7 @@ app-emacs/nginx-mode 1.1.10: Emacs editing mode for Nginx config files
 app-emacs/nim-mode 0.4.2_p20231101: Emacs major mode for the Nim programming language support
 app-emacs/ninja-mode 1.11.1-r2 1.12.0 1.12.1: GNU Emacs mode for handling Ninja build files
 app-emacs/nix-mode 1.5.0: GNU Emacs major mode for editing Nix expressions
-app-emacs/no-littering 1.9.0 1.9.1 1.9.2: ELisp library that helps keeping Emacs configuration directory clean
+app-emacs/no-littering 1.9.2 1.9.3: ELisp library that helps keeping Emacs configuration directory clean
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20260922: Extension for nxml-mode with Gentoo-specific schemas
@@ -2222,7 +2222,7 @@ app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's 
 app-emacs/org-superstar-mode 1.6.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
 app-emacs/osm 2.5 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
-app-emacs/package-build 5.0.3 5.1.0: Tools for assembling a package archive
+app-emacs/package-build 5.0.3 5.1.0 5.1.1: Tools for assembling a package archive
 app-emacs/package-lint 0.26: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.35 2.90.2: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r2: Minor mode for performing structured editing of S-expressions
@@ -2329,7 +2329,7 @@ app-emacs/tempo-snippets 0.1.5-r1: Visual insertion of tempo templates
 app-emacs/thinks 1.13: Insert text in a think bubble
 app-emacs/timu-caribbean-theme 1.5 9999: Color theme with cyan as a dominant color
 app-emacs/tp 0.9: Utilities to create transient menus for POSTing to an API for GNU Emacs
-app-emacs/transient 0.13.7 0.13.8 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.13.8 0.13.9 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.2: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.2: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.3: Generic tree traversing tools for Emacs Lisp
@@ -2367,7 +2367,7 @@ app-emacs/wgrep 3.0.0-r1: Writable grep buffer and apply the changes to files
 app-emacs/which-key 3.6.1: Display the key bindings following your currently entered keys
 app-emacs/whine 20231020: Complaint generator for GNU Emacs
 app-emacs/wikipedia-mode 0.5-r2: Mode for editing Wikipedia articles off-line
-app-emacs/with-editor 3.5.3 3.5.4 9999: Use the Emacsclient as the $EDITOR of child processes
+app-emacs/with-editor 3.5.4 3.6.0 9999: Use the Emacsclient as the $EDITOR of child processes
 app-emacs/with-simulated-input 3.0: Emacs Lisp macro to simulate user input non-interactively
 app-emacs/ws-butler 1.3: Unobtrusively trim extraneous white-space *ONLY* in lines edited
 app-emacs/xclip 1.11.1: Emacs Interface to XClip
@@ -3039,7 +3039,7 @@ app-office/gnumeric 1.12.61 1.12.62: The GNOME Spreadsheet
 app-office/grisbi 3.0.4-r1 3.90.1: Grisbi is a personal accounting application for Linux
 app-office/homebank 5.9.7 5.10.2: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 3.7.18 3.7.21-r1: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 3.7.18 3.7.21-r1 3.7.22: Secure note taking and to-do app with synchronization capabilities
 app-office/kmymoney 5.2.2_p20260906: Personal finance manager based on KDE Frameworks
 app-office/kraft 2.0.0: Quotes and invoices manager for small enterprises
 app-office/ktimetracker 6.0.0: Todo management and time tracker
@@ -5341,7 +5341,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.5 1.12.6: General-purpose programming language with an emphasis on functional programming
 dev-lang/clojure-clr 1.12.2: Port of the functional programming language Clojure to the CLR and .NET
 dev-lang/closure-compiler-bin 20260909 20261005 20261015 20261018 20261021: JavaScript optimizing compiler
-dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
+dev-lang/coffee-script 2.7.0 2.7.1: A little language that compiles into javascript
 dev-lang/crystal 1.21.0 1.22.0 1.22.1: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r3: A WAM based Prolog system
@@ -5646,7 +5646,7 @@ dev-libs/level-zero 1.30.0-r1 1.32.0-r1 1.33.1-r1 1.34.0 1.35.0: oneAPI Level Ze
 dev-libs/leveldb 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113-r2 0.3.113_p8 9999: Asynchronous input/output library that uses the kernels native interface
-dev-libs/libansilove 1.4.2-r1 1.4.3 9999: library to convert ANSi and artscene related file formats into PNG images
+dev-libs/libansilove 1.4.2-r1 1.4.3 1.4.4 9999: library to convert ANSi and artscene related file formats into PNG images
 dev-libs/libassuan 2.5.7 3.0.0-r1 3.0.1-r1: IPC library used by GnuPG and GPGME
 dev-libs/libatasmart 0.19_p5 0.19_p6: Small and lightweight parser library for ATA S.M.A.R.T. hard disks
 dev-libs/libatomic_ops 7.8.4 7.10.0: Implementation for atomic memory update operations
@@ -13108,7 +13108,7 @@ media-gfx/aewan 1.0.01-r2: A curses-based editor for ASCII art
 media-gfx/ahoviewer 2.0.0_pre20241230-r1: A GTK image viewer, manga reader, and booru browser
 media-gfx/album 4.15-r1: HTML photo album generator
 media-gfx/alembic 1.8.8: Open framework for storing and sharing scene data
-media-gfx/ansilove 4.2.2 9999: ANSI and ASCII art to PNG converter (using libansilove)
+media-gfx/ansilove 4.2.2 4.2.3 9999: ANSI and ASCII art to PNG converter (using libansilove)
 media-gfx/apng2gif 1.8: Create a GIF from an APNG
 media-gfx/apngasm 3.1.10-r1: create an APNG from multiple PNG files
 media-gfx/apngdis 2.9: Extract PNG frames from an APNG
@@ -15363,7 +15363,7 @@ net-misc/exabgp 4.2.23 4.2.25 5.0.8 5.0.12 5.0.14 5.0.15: The BGP swiss army kni
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 3.32.1 3.32.2 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.4-r2 10.1.5-r1 10.2.5-r2 10.2.6 10.3.3-r2 10.3.4-r1 10.4.3-r2 10.4.4-r1 10.4.5 10.5.3-r2 10.5.4-r1 10.5.5 10.6.1-r1 10.6.2 10.7.0 10.7.1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.32.13 1.32.15 1.32.16 1.32.17-r1 1.32.18 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.32.13 1.32.15 1.32.16 1.32.17-r1 1.32.18 1.32.19 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0 0.37.0 0.37.1: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
