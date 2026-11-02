@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/cppo >=dev-ml/dune-3.15 dev-ml/findlib test? ( dev-ml/ppx_here ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-libs/libev dev-ml/luv:=[ocamlopt?] dev-ml/mmap:=[ocamlopt?] dev-ml/ocplib-endian:=[ocamlopt?] dev-ml/ppx_let:=[ocamlopt?] >=dev-ml/ppxlib-0.36:=[ocamlopt?] dev-ml/react:= dev-ml/result:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Cooperative light-weight thread library for OCaml
+EAPI=8
+HOMEPAGE=http://ocsigen.org/lwt
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-libs/libev dev-ml/luv:=[ocamlopt?] dev-ml/mmap:=[ocamlopt?] dev-ml/ocplib-endian:=[ocamlopt?] dev-ml/ppx_let:=[ocamlopt?] >=dev-ml/ppxlib-0.36:=[ocamlopt?] dev-ml/react:= dev-ml/result:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/5.10.1
+SRC_URI=https://github.com/ocsigen/lwt/archive/5.10.1.tar.gz -> lwt-5.10.1.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
+_md5_=0fd938986b48f324489e11bd6845a3a8
