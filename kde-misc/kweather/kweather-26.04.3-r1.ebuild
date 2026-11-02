@@ -33,10 +33,7 @@ DEPEND="
 	>=kde-frameworks/krunner-${KFMIN}:6
 	kde-plasma/libplasma:6=
 "
-RDEPEND="${DEPEND}
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtpositioning-${QTMIN}:6[geoclue]
-"
+RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_prepare() {
