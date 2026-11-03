@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/tox-dev/python-discovery
-PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
+PYTHON_COMPAT=( pypy3_12 python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -17,14 +17,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	>=dev-python/filelock-3.15.4[${PYTHON_USEDEP}]
+	>=dev-python/filelock-3.16.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
 		>=dev-python/setuptools-75.1[${PYTHON_USEDEP}]
 	)
 "
@@ -51,5 +53,6 @@ python_test() {
 			;;
 	esac
 
+	local -x TMPDIR=/tmp
 	epytest
 }

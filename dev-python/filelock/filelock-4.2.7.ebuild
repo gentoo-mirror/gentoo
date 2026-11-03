@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/tox-dev/filelock
-PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
+PYTHON_COMPAT=( pypy3_12 python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -17,9 +17,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		dev-python/virtualenv[${PYTHON_USEDEP}]

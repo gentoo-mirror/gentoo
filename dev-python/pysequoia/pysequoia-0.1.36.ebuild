@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.88.0"
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
@@ -19,12 +19,10 @@ HOMEPAGE="
 	https://pypi.org/project/pysequoia/
 "
 
-if [[ ${PKGBUMPING} != ${PVR} ]]; then
-	SRC_URI+="
-		https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
-		${CARGO_CRATE_URIS}
-	"
-fi
+SRC_URI+="
+	https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/${P}-crates.tar.xz
+	${CARGO_CRATE_URIS}
+"
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
@@ -33,11 +31,13 @@ LICENSE+="
 	Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 QA_FLAGS_IGNORED="usr/lib/python.*/site-packages/pysequoia/.*.so"
 
-distutils_enable_tests import-check
+EPYTEST_PLUGINS=()
+EPYTEST_XDIST=1
+distutils_enable_tests pytest
 
 src_test() {
 	cargo_src_test

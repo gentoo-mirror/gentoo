@@ -17,16 +17,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="
-	dev-python/cryptography[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-47.0.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	=dev-python/pyasn1-0.6*[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2.10.0[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/rfc3986[${PYTHON_USEDEP}]
-	=dev-python/sigstore-4*[${PYTHON_USEDEP}]
+	<dev-python/sigstore-5[${PYTHON_USEDEP}]
+	>=dev-python/sigstore-4.5[${PYTHON_USEDEP}]
 	dev-python/sigstore-models[${PYTHON_USEDEP}]
 "
 BDEPEND="
