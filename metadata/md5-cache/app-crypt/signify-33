@@ -1,0 +1,14 @@
+BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/libbsd-0.7
+DESCRIPTION=Cryptographically sign and verify files
+EAPI=8
+HOMEPAGE=https://www.openbsd.org/ https://github.com/aperezdc/signify/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD-1
+RDEPEND=>=dev-libs/libbsd-0.7 !net-mail/signify
+SLOT=0
+SRC_URI=https://github.com/aperezdc/signify/archive/refs/tags/v33.tar.gz -> signify-33.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d
+_md5_=0c6977f1e25c6ceb1b794d3f43a86c02
