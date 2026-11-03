@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PATCHSET="${P}-patchset"
 ECM_EXAMPLES="true"
 ECM_TEST="true"
 KFMIN=6.30.0
@@ -11,6 +12,7 @@ inherit ecm plasma.kde.org
 
 DESCRIPTION="Style engine providing a unified style description to separate output styles"
 HOMEPAGE="https://quantumproductions.info/articles/2025-02/moving-kdes-styling-future"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) GPL-3 BSD-2"
 SLOT="6"
@@ -45,6 +47,10 @@ BDEPEND="
 "
 
 DOCS=( README.md )
+
+PATCHES=(
+	"${WORKDIR}/${PATCHSET}" # in 6.8.3; KDE-bugs #527260, #527246, #527767, #527409
+)
 
 src_prepare() {
 	if ! use doc ; then

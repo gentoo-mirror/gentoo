@@ -17,7 +17,7 @@ SRC_URI="
 LICENSE="Apache-2.0 Artistic BSD CC-BY-2.5 CC-BY-3.0 CC-BY-SA-3.0 EPL-1.0 GPL-2 GPL-3 LGPL-2.1 LGPL-3 MIT public-domain WTFPL-2"
 SLOT="0"
 
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 LANGS=(
 	ar az bg ca cs da de el en es es-AR et fa fi fr gl he hi hr hu id it ja ko ku mg nb nl nn pl pt pt-BR ro ru sk sl sq
 	sr sv tk tr uk vi zh zh-TW
@@ -42,7 +42,6 @@ CP_DEPEND="
 	sys-devel/gettext:0[java]
 	www-servers/tomcat:9
 "
-# jdk-11 for bug #932030
 DEPEND="
 	dev-libs/gmp:0=
 	${CP_DEPEND}
@@ -67,7 +66,7 @@ RDEPEND="
 	>=virtual/jre-17:*
 "
 
-PATCHES=( "${FILESDIR}/2.12.0-force-gentoo-classpath.patch" )
+PATCHES=( "${FILESDIR}/2.13.0-force-gentoo-classpath.patch" )
 
 DOCS=( README.md history.txt )
 
@@ -262,8 +261,8 @@ src_install() {
 	systemd_dounit "${FILESDIR}/i2p.service"
 
 	# setup dirs
-	keepdir /var/log/i2p /var/lib/i2p
-	fowners i2p:i2p /var/lib/i2p /var/log/i2p
+	keepdir /var/log/i2p /var/lib/i2p /var/lib/i2p/eepsite/logs
+	fowners i2p:i2p /var/lib/i2p /var/log/i2p /var/lib/i2p/eepsite/logs
 
 	# create own launchers
 	java-pkg_dolauncher i2prouter --main net.i2p.router.Router --jar i2p.jar \
