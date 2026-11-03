@@ -16,7 +16,8 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+gif +svg +chm +harfbuzz +libunibreak +fribidi +zstd +libutf8proc"
 
 CDEPEND=">=app-text/crengine-ng-0.9.12:0=[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=]
-	dev-qt/qtbase:6[gui,widgets]"
+	dev-qt/qtbase:6[gui,widgets]
+	dev-qt/qtsvg:6"
 RDEPEND="${CDEPEND}"
 BDEPEND="${CDEPEND}
 	dev-qt/qttools:6[linguist]"
