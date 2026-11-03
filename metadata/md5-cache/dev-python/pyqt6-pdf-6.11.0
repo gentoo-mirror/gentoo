@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Python bindings for QtPdf
+EAPI=8
+HOMEPAGE=https://www.riverbankcomputing.com/software/pyqtpdf/
+IUSE=debug python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 python_targets_python3_15 +widgets
+KEYWORDS=amd64 arm64
+LICENSE=metapackage
+RDEPEND==dev-python/pyqt6-6.11*[debug?,pdfium,widgets?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?]
+SLOT=0
+_md5_=65e0931dfd3057fe6da6733d2549f3ed
