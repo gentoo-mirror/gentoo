@@ -5,7 +5,7 @@ EAPI=8
 
 WANT_AUTOMAKE="none"
 POSTGRES_COMPAT=( {15..18} )
-inherit flag-o-matic multilib postgres systemd toolchain-funcs
+inherit flag-o-matic multilib multiprocessing postgres systemd toolchain-funcs
 
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
@@ -19,7 +19,7 @@ LICENSE="PHP-3.01
 	unicode? ( BSD-2 LGPL-2.1 )"
 
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
 
 # We can build the following SAPIs in the given order.
 ALL_SAPIS=( embed cli cgi fpm apache2 phpdbg )
@@ -787,6 +787,7 @@ src_test() {
 		"${TEST_PHP_EXECUTABLE}" -n \
 		"${WORKDIR}/sapis-build/cli/run-tests.php" --offline -n -q --show-diff \
 		$(usex test-full "--set-timeout 300" "") \
+		-j$(get_makeopts_jobs) \
 		-d "session.save_path=${T}" \
 		|| die "tests failed"
 }
