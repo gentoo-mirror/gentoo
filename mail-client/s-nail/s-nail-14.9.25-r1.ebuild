@@ -1,17 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs flag-o-matic
 
-HOMEPAGE="https://www.sdaoden.eu/code.html"
 DESCRIPTION="Enhanced mailx-compatible mail client based on Heirloom mailx (nail)"
-LICENSE="BSD BSD-4 ISC RSA"
-
+HOMEPAGE="https://www.sdaoden.eu/code.html"
 SRC_URI="https://ftp.sdaoden.eu/${P}.tar.xz"
+
+LICENSE="BSD BSD-4 ISC RSA"
 SLOT="0"
-KEYWORDS="amd64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="idn kerberos net +split-usr ssl"
 
 RDEPEND="
@@ -24,13 +24,14 @@ RDEPEND="
 	)
 	!mail-client/mailx
 	!net-mail/mailutils
-	!mail-client/nail
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/xz-utils[extra-filters(+)]
 	app-alternatives/awk
 "
+
+PATCHES=( "${FILESDIR}/${P}-openssl-4.patch" )
 
 src_configure() {
 	has_cflag() {
