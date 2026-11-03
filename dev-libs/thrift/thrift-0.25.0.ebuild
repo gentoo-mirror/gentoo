@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ppc64 ~riscv ~s390 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~s390 ~x86"
 
 IUSE="libevent lua +ssl test"
 REQUIRED_USE="test? ( ssl libevent )"
@@ -34,11 +34,6 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
-PATCHES=(
-	"${FILESDIR}/thrift-0.21.0-gcc15-cstdint.patch"
-	"${FILESDIR}/thrift-0.21.0-cmake4.patch"
-)
-
 src_configure() {
 	local mycmakeargs=(
 		# follow order in build/cmake/DefineOptions.cmake
@@ -47,7 +42,6 @@ src_configure() {
 		-DBUILD_TESTING=$(usex test)
 		-DBUILD_TUTORIALS=OFF
 		-DBUILD_LIBRARIES=ON
-		-DWITH_AS3=ON
 		-DWITH_CPP=ON
 		-DWITH_ZLIB=ON
 		-DWITH_LIBEVENT=$(usex libevent)
