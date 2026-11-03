@@ -116,10 +116,6 @@ media-libs/svt-av1 -test
 # Pulls in sci-libs/linux-gpib which is not yet keyworded here
 sci-libs/libsigrok gpib
 
-# Paul Zander <negril.nx+gentoo@gmail.com> (2025-05-06)
-# dev-python/nanobind is not keyworded here
-media-gfx/openvdb python
-
 # Alfredo Tupone <tupone@gentoo.org> (2025-05-03)
 # test add dependency on torchvision, not read for arm64
 sci-ml/datasets test
@@ -472,10 +468,6 @@ net-wireless/kismet ubertooth
 media-video/ffmpeg-chromium -cpu_flags_arm_neon
 net-misc/sunshine -cpu_flags_arm_neon
 
-# Tomáš Mózes <hydrapolic@gmail.com> (2019-12-19)
-# dev-libs/criterion is not keyworded yet
-app-admin/syslog-ng test
-
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2019-09-27)
 # some testsuite deps are not keyworded
 sys-fs/zfs test-suite
@@ -553,10 +545,6 @@ net-libs/gnutls test-full
 # USE=upnp-av requires net-libs/dleyna that is not keyworded yet.
 media-sound/rhythmbox upnp-av
 >=media-plugins/grilo-plugins-0.3.5 upnp-av
-
-# Mart Raudsepp <leio@gentoo.org> (2018-02-13)
-# USE=lua requires dev-lua/lgi that is not keyworded yet.
-dev-libs/libpeas lua
 
 # Michał Górny <mgorny@gentoo.org> (2018-01-23)
 # USE=eds requires USE=gnome that is masked here.
