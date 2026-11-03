@@ -13,7 +13,7 @@ SRC_URI="https://gitlab.com/coolreader-ng/${PN}/-/archive/${PV}/${P}.tar.bz2
 LICENSE="GPL-2+"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="+png +jpeg webp +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +libutf8proc static-libs test"
+IUSE="+png +jpeg webp jpegxl +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +xxhash +libutf8proc static-libs test"
 
 RESTRICT="!test? ( test )"
 
@@ -21,11 +21,13 @@ CDEPEND="virtual/zlib:=
 	png? ( media-libs/libpng:0 )
 	jpeg? ( media-libs/libjpeg-turbo )
 	webp? ( media-libs/libwebp )
+	jpegxl? ( media-libs/libjxl )
 	>=media-libs/freetype-2.10.0
 	harfbuzz? ( media-libs/harfbuzz:=[truetype] )
-	libunibreak? ( <=dev-libs/libunibreak-7.0-r9999:= )
+	libunibreak? ( dev-libs/libunibreak:= )
 	fribidi? ( dev-libs/fribidi )
 	zstd? ( app-arch/zstd:= )
+	xxhash? ( dev-libs/xxhash )
 	libutf8proc? ( dev-libs/libutf8proc:= )
 	fontconfig? ( media-libs/fontconfig )"
 
@@ -39,8 +41,6 @@ BDEPEND=">=dev-build/cmake-3.14
 	virtual/pkgconfig
 	${CDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-unittests.patch )
-
 src_prepare() {
 	cmake_src_prepare
 	if use test; then
@@ -52,23 +52,24 @@ src_prepare() {
 src_configure() {
 	CMAKE_BUILD_TYPE="Release"
 	local mycmakeargs=(
-		-DCRE_BUILD_SHARED=ON
-		-DCRE_BUILD_STATIC=$(usex static-libs)
+		-DBUILD_SHARED_LIBS=$(usex static-libs "OFF" "ON")
 		-DUSE_COLOR_BACKBUFFER=ON
 		-DWITH_LIBPNG=$(usex png)
 		-DWITH_LIBJPEG=$(usex jpeg)
 		-DWITH_LIBWEBP=$(usex webp)
+		-DWITH_LIBJXL=$(usex jpegxl)
 		-DWITH_FREETYPE=ON
 		-DWITH_HARFBUZZ=$(usex harfbuzz)
 		-DWITH_LIBUNIBREAK=$(usex libunibreak)
 		-DWITH_FRIBIDI=$(usex fribidi)
 		-DWITH_ZSTD=$(usex zstd)
+		-DWITH_XXHASH=$(usex xxhash)
 		-DWITH_UTF8PROC=$(usex libutf8proc)
 		-DUSE_GIF=$(usex gif)
 		-DUSE_NANOSVG=$(usex svg)
 		-DUSE_CHM=$(usex chm)
 		-DUSE_ANTIWORD=ON
-		-DUSE_FONTCONFIG=$(usex fontconfig)
+		-DWITH_FONTCONFIG=$(usex fontconfig)
 		-DUSE_SHASUM=OFF
 		-DUSE_MD4C=ON
 		-DBUILD_TOOLS=OFF
