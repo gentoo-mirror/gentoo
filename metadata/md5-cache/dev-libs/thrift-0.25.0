@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://thrift.apache.org/lib/cpp.html
 INHERIT=cmake
 IUSE=libevent lua +ssl test
-KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ppc64 ~riscv ~s390 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~s390 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/boost:=[nls(+)] dev-libs/openssl:= virtual/zlib:= libevent? ( dev-libs/libevent:= )
 REQUIRED_USE=test? ( ssl libevent )
 RESTRICT=!test? ( test )
-SLOT=0/0.21.0
-SRC_URI=https://github.com/apache/thrift/archive/refs/tags/v0.21.0.tar.gz -> thrift-0.21.0.gh.tar.gz
+SLOT=0/0.25.0
+SRC_URI=https://github.com/apache/thrift/archive/refs/tags/v0.25.0.tar.gz -> thrift-0.25.0.gh.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
-_md5_=827fbb908529eba6a0dfbacfab39cdaa
+_md5_=502de83dfb56bc3a4958faeb6a949bc4
