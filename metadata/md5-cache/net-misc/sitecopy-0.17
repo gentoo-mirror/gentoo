@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install
+DEPEND=>=net-libs/neon-0.29[expat?,ssl?,zlib?] rsh? ( net-misc/netkit-rsh ) nls? ( virtual/libintl ) xml? ( >=net-libs/neon-0.24.6:=[-expat] )
+DESCRIPTION=Maintain remote web sites with ease
+EAPI=8
+HOMEPAGE=https://notroj.github.io/sitecopy/
+IUSE=expat nls rsh ssl webdav xml zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=net-libs/neon-0.29[expat?,ssl?,zlib?] rsh? ( net-misc/netkit-rsh ) nls? ( virtual/libintl ) xml? ( >=net-libs/neon-0.24.6:=[-expat] )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://notroj.github.io/sitecopy/sitecopy-0.17.tar.gz
+_md5_=7954972076964707f46e05ba5bfb3727
