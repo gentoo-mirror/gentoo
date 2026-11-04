@@ -6,6 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=SQLAlchemy
+PYPI_VERIFY_REPO=https://github.com/sqlalchemy/sqlalchemy
 PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite?"
 

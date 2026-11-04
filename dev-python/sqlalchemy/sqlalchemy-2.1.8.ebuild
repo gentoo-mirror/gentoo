@@ -6,6 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=SQLAlchemy
+PYPI_VERIFY_REPO=https://github.com/sqlalchemy/sqlalchemy
 PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite?"
 
@@ -54,6 +55,17 @@ python_test() {
 		test/base/test_concurrency_py3k.py::TestAsyncioCompat::test_await_fallback_no_greenlet
 	)
 	local sqlite_version=$(sqlite3 --version | cut -d' ' -f1)
+	case ${EPYTHON} in
+		python3.15)
+			EPYTEST_DESELECT+=(
+				# repr() changes
+				test/orm/declarative/test_dc_transforms.py::DCTransformsTest::test_basic_constructor_repr_base_cls
+				test/orm/declarative/test_dc_transforms_future_anno_sync.py::DCTransformsTest::test_basic_constructor_repr_base_cls
+				# exception message changes
+				test/engine/test_processors.py::PyDateProcessorTest::test_no_string
+			)
+			;;
+	esac
 	if ! has_version "dev-python/greenlet[${PYTHON_USEDEP}]"; then
 		EPYTEST_DESELECT+=(
 			test/ext/asyncio/test_engine_py3k.py::TextSyncDBAPI::test_sync_driver_execution
