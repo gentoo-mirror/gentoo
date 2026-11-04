@@ -5,7 +5,7 @@ HOMEPAGE=https://wiki.gentoo.org/wiki/SDDM
 IUSE=custom-compositor kwin systemd weston
 KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=public-domain
-RDEPEND=!<gui-apps/sddm-0.21.0_p20250818 kwin? ( kde-plasma/kwin:6 ) weston? ( dev-libs/weston[kiosk] ) !custom-compositor? ( !kwin? ( !weston? ( x11-base/xorg-server ) ) )
+RDEPEND=!<gui-apps/sddm-0.21.0_p20250818 kwin? ( >=kde-plasma/kwin-6.7.6:6 ) weston? ( dev-libs/weston[kiosk] ) !custom-compositor? ( !kwin? ( !weston? ( x11-base/xorg-server ) ) )
 REQUIRED_USE=?? ( custom-compositor kwin weston )
 SLOT=0
-_md5_=c3864f65616765e55b85c31c1fd89b39
+_md5_=8c957e37659e7d843af9c7c98d7690e5
