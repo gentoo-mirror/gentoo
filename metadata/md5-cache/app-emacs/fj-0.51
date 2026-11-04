@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-29.1[json(+)] >=app-emacs/compat-31.0 >=app-emacs/fedi-0.5 >=app-emacs/magit-4.3.8 >=app-emacs/tp-0.9 >=app-emacs/transient-0.10.0 >=app-editors/emacs-29.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=GNU Emacs client for interacting with remote Forgejo instances
+EAPI=9
+HOMEPAGE=https://codeberg.org/martianh/fj.el/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-29.1[json(+)] >=app-emacs/compat-31.0 >=app-emacs/fedi-0.5 >=app-emacs/magit-4.3.8 >=app-emacs/tp-0.9 >=app-emacs/transient-0.10.0 >=app-editors/emacs-29.1:*
+SLOT=0
+SRC_URI=https://codeberg.org/martianh/fj.el/archive/0.51.tar.gz -> fj-0.51.codeberg.tar.gz
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
+_md5_=e897b754ff909f591ba4a2c3e2cb0224
