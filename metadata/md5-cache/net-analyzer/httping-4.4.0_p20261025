@@ -1,0 +1,15 @@
+BDEPEND=ncurses? ( virtual/pkgconfig ) nls? ( sys-devel/gettext ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=fftw? ( sci-libs/fftw:3.0= ) ncurses? ( sys-libs/ncurses:= ) ssl? ( >=dev-libs/openssl-3:= ) nls? ( virtual/libintl ) virtual/os-headers
+DESCRIPTION=http protocol ping-like program
+EAPI=8
+HOMEPAGE=https://www.vanheusden.com/httping/
+INHERIT=cmake
+IUSE=fftw ncurses nls ssl
+KEYWORDS=~amd64 ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=AGPL-3
+RDEPEND=fftw? ( sci-libs/fftw:3.0= ) ncurses? ( sys-libs/ncurses:= ) ssl? ( >=dev-libs/openssl-3:= ) nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=https://github.com/folkertvanheusden/HTTPing/archive/5a66c619421e6ba6267ea8c8291d6eed8c314f2a.tar.gz -> httping-4.4.0_p20261025.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
+_md5_=fcda73939cfb27456fc2cccfce2441f2
