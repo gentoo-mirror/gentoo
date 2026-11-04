@@ -12,11 +12,11 @@ S=${WORKDIR}/SDL3-${PV}
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="
-	X alsa aqua dbus doc ibus io-uring jack kms opengl oss pipewire
-	pulseaudio sndio test udev usb vulkan wayland
+	X alsa aqua bidi dbus doc ibus io-uring jack kms opengl oss
+	pipewire pulseaudio sndio test udev usb vulkan wayland
 	cpu_flags_ppc_altivec cpu_flags_x86_avx cpu_flags_x86_avx2
 	cpu_flags_x86_avx512f cpu_flags_x86_mmx cpu_flags_x86_sse
 	cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1
@@ -40,8 +40,10 @@ RDEPEND="
 		x11-libs/libXfixes[${MULTILIB_USEDEP}]
 		x11-libs/libXi[${MULTILIB_USEDEP}]
 		x11-libs/libXrandr[${MULTILIB_USEDEP}]
+		x11-libs/libXtst[${MULTILIB_USEDEP}]
 	)
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
+	bidi? ( dev-libs/fribidi[${MULTILIB_USEDEP}] )
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	ibus? ( app-i18n/ibus )
 	io-uring? ( sys-libs/liburing:=[${MULTILIB_USEDEP}] )
@@ -95,9 +97,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DSDL_ASSERTIONS=disabled
-		-DSDL_DBUS=$(usex dbus)
 		-DSDL_DEPS_SHARED=no # link rather than dlopen() where possible
-		-DSDL_LIBURING=$(usex io-uring)
 		-DSDL_RPATH=no
 		-DSDL_STATIC=no
 		-DSDL_TESTS=$(usex test)
@@ -119,6 +119,7 @@ src_configure() {
 		-DSDL_COCOA=$(usex aqua)
 		-DSDL_DIRECTX=no
 		-DSDL_KMSDRM=$(usex kms)
+		-DSDL_LIBTHAI=no # not packaged
 		-DSDL_OPENGL=$(usex opengl)
 		-DSDL_OPENGLES=$(usex opengl)
 		-DSDL_OPENVR=no # not packaged, note needs opengl REQUIRED_USE if added
@@ -130,6 +131,11 @@ src_configure() {
 		-DSDL_X11=$(usex X)
 		# SDL disallows this by default, allow it but warn in pkg_postinst
 		$(use !X && use !wayland && echo -DSDL_UNIX_CONSOLE_BUILD=yes)
+
+		# misc
+		-DSDL_DBUS=$(usex dbus)
+		-DSDL_FRIBIDI=$(usex bidi)
+		-DSDL_LIBURING=$(usex io-uring)
 
 		# cpu instruction sets
 		-DSDL_ALTIVEC=$(usex cpu_flags_ppc_altivec)
