@@ -16,7 +16,7 @@ REQUIRED_USE="?? ( custom-compositor kwin weston )"
 
 RDEPEND="
 	!<gui-apps/sddm-0.21.0_p20250818
-	kwin? ( kde-plasma/kwin:6 )
+	kwin? ( >=kde-plasma/kwin-6.7.6:6 )
 	weston? ( dev-libs/weston[kiosk] )
 	!custom-compositor? ( !kwin? ( !weston? ( x11-base/xorg-server ) ) )
 "
@@ -37,9 +37,7 @@ src_prepare() {
 	_compositorcommand() {
 		local cc=()
 		if use kwin; then
-			cc=( kwin_wayland --drm )
-			has_version "kde-plasma/kwin[lock]" && cc+=( --no-lockscreen )
-			has_version "kde-plasma/kwin[shortcuts]" && cc+=( --no-global-shortcuts )
+			cc=( kwin_wayland --drm --no-lockscreen --no-global-shortcuts --no-kactivities )
 			use systemd && cc+=( --locale1 )
 		elif use weston; then
 			cc=( weston --shell=kiosk )
