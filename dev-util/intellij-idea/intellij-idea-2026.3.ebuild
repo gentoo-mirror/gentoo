@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs desktop wrapper
 
-MY_PV=idea-$(ver_cut 1-3)
+MY_PV=idea-$(ver_cut 1-2)
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
