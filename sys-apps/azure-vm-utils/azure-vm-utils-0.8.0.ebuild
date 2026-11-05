@@ -1,16 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake udev
+inherit cmake optfeature udev
 
 DESCRIPTION="Utilities and udev rules to support Linux on Azure"
 HOMEPAGE="https://github.com/Azure/azure-vm-utils"
 SRC_URI="https://github.com/Azure/${PN}/archive/refs/tags/v${PV}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="dracut test"
 RESTRICT="!test? ( test )"
 
@@ -31,10 +31,11 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
+		-DAZURE_EPHEMERAL_DISK_SETUP_CONF_INSTALL_DIR="${EPREFIX}/etc"
 		-DDRACUT=$(usex dracut dracut "")
 		-DENABLE_TESTS=$(usex test)
 		-DINITRAMFS_TOOLS=
-		-DUDEV_RULES_INSTALL_DIR="$(get_udevdir)/rules.d"
+		-DUDEV_RULES_INSTALL_DIR="${EPREFIX}$(get_udevdir)/rules.d"
 		-DVERSION="v${PV}"
 	)
 	cmake_src_configure
@@ -52,6 +53,7 @@ src_install() {
 
 pkg_postinst() {
 	udev_reload
+	optfeature "aggregating multiple NVMe devices into a RAID-0 array" sys-fs/mdadm
 }
 
 pkg_postrm() {
