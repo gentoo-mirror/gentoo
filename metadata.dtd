@@ -50,6 +50,10 @@
       the usage of the status attribute is nevertheless _only_ allowed
       in the upstream maintainer element. -->
     <!ATTLIST maintainer status (active|inactive|unknown) "unknown" >
+    <!-- cc-on-bugs="yes" asks for the upstream maintainer to be CC-ed on
+      bugs for the package. Like status, it is only allowed in the upstream
+      maintainer element, and the element must then have an email. -->
+    <!ATTLIST maintainer cc-on-bugs (yes|no) "no" >
     <!-- URL where the upstream changelog can be found -->
     <!ELEMENT changelog (#PCDATA)>
     <!-- URL where the location of the upstream documentation can be found -->
