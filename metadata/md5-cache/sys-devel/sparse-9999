@@ -1,15 +1,15 @@
 BDEPEND=gtk? ( virtual/pkgconfig ) xml? ( virtual/pkgconfig ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install setup test unpack
-DEPEND=gtk? ( x11-libs/gtk+:3 ) llvm? ( <llvm-core/llvm-15:= ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= ) !!llvm-core/llvm:0
+DEFINED_PHASES=compile install test unpack
+DEPEND=gtk? ( x11-libs/gtk+:3 ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= )
 DESCRIPTION=C semantic parser
 EAPI=7
 HOMEPAGE=https://sparse.wiki.kernel.org/index.php/Main_Page
-INHERIT=llvm toolchain-funcs git-r3
-IUSE=gtk llvm sqlite test xml
+INHERIT=toolchain-funcs git-r3
+IUSE=gtk sqlite test xml
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=gtk? ( x11-libs/gtk+:3 ) llvm? ( <llvm-core/llvm-15:= ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= )
+RDEPEND=gtk? ( x11-libs/gtk+:3 ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=llvm-utils	e7edb4086e31c8537574b263d899f826	llvm	f1656377c75425ca07770416bed23521	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=cadde6e13180b8acdf6545a652b4969a
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=b787abe47ae4ccf518b4b47eb965ad65
