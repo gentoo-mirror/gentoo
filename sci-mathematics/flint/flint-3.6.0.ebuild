@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit flag-o-matic python-any-r1
 
 DESCRIPTION="Fast Library for Number Theory"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/flintlib/flint/releases/download/v${PV}/flint-${PV}.
 LICENSE="LGPL-2.1+"
 
 # Based off the soname, e.g. /usr/lib64/libflint.so -> libflint.so.15
-SLOT="0/22"
+SLOT="0/24"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc ntl test"
@@ -57,6 +57,7 @@ src_configure() {
 	# Test failures:
 	# * https://bugs.gentoo.org/934463
 	# * https://github.com/flintlib/flint/issues/2029
+	# * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=115697
 	filter-flags -floop-nest-optimize \
 				 -ftree-loop-linear \
 				 -floop-strip-mine \
