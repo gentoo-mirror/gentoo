@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/zlib-ng/minizip-ng/archive/refs/tags/${PV}.tar.gz ->
 
 LICENSE="ZLIB"
 SLOT="0/4"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
 IUSE="compat lzma openssl test zstd"
 RESTRICT="!test? ( test )"
 
@@ -26,18 +26,14 @@ RDEPEND="
 	sys-libs/zlib-ng[${MULTILIB_USEDEP}]
 	virtual/libiconv
 	compat? ( !sys-libs/zlib[minizip] )
-	lzma? ( app-arch/xz-utils )
+	lzma? ( app-arch/xz-utils[${MULTILIB_USEDEP}] )
 	openssl? ( dev-libs/openssl:=[${MULTILIB_USEDEP}] )
 	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
 "
 DEPEND="
 	${RDEPEND}
-	test? ( dev-cpp/gtest )
+	test? ( dev-cpp/gtest[${MULTILIB_USEDEP}] )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.0.4-libbsd-overlay.patch
-)
 
 run_both() {
 	local MULTIBUILD_VARIANTS=( base )
@@ -73,6 +69,7 @@ multilib_src_configure() {
 		-DMZ_LZMA=$(usex lzma)
 		-DMZ_ZSTD=$(usex zstd)
 		-DMZ_LIBCOMP=OFF
+		-DMZ_PPMD=OFF
 
 		# Encryption support options
 		-DMZ_PKCRYPT=ON
