@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/fortran
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/boost dev-libs/gmp[cxx(+)] doc? ( app-text/texlive[science] dev-texlive/texlive-latex dev-tex/latex2html dev-texlive/texlive-latexextra ) virtual/fortran
+DESCRIPTION=Matrix elements (integrals) evaluation over Cartesian Gaussian functions
+EAPI=8
+HOMEPAGE=https://github.com/evaleev/libint
+INHERIT=cmake flag-o-matic fortran-2 multiprocessing
+IUSE=static-libs doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/fortran
+SLOT=2
+SRC_URI=https://github.com/evaleev/libint/archive/v2.13.1.tar.gz -> libint-2.13.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	fortran-2	ae6d43513003405bd4a48698fc20370a
+_md5_=f320a2aa7bafaa033d472de89b8d4024
