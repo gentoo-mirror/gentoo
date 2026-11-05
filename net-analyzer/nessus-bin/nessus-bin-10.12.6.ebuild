@@ -3,9 +3,10 @@
 
 EAPI=8
 
+RPM_COMPRESS_TYPE="zstd"
 inherit rpm systemd
 
-MY_P="Nessus-${PV}-el8"
+MY_P="Nessus-${PV}-el9"
 
 DESCRIPTION="A remote security scanner for Linux"
 HOMEPAGE="https://www.tenable.com/"
@@ -25,6 +26,11 @@ QA_PREBUILT="opt/nessus/bin/*
 	opt/nessus/lib/nessus/iconv/*.so
 	opt/nessus/lib/nessus/libjemalloc.so.*
 	opt/nessus/sbin/*"
+
+BDEPEND="
+	app-arch/rpm
+	app-arch/zstd
+"
 
 src_install() {
 	# Using doins -r would strip executable bits from all binaries
