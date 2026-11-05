@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/rapidjson llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= ) llvm_slot_24? ( llvm-core/clang:24= llvm-core/llvm:24= )
+DEPEND=dev-libs/rapidjson llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= ) llvm_slot_24? ( llvm-core/clang:24= llvm-core/llvm:24= )
 DESCRIPTION=C/C++/ObjC language server
 EAPI=8
 HOMEPAGE=https://github.com/MaskRay/ccls
 INHERIT=cmake llvm-r2
-IUSE=+llvm_slot_22 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_23 llvm_slot_24
+IUSE=+llvm_slot_22 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_23 llvm_slot_24
 KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=Apache-2.0
-RDEPEND=dev-libs/rapidjson llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= ) llvm_slot_24? ( llvm-core/clang:24= llvm-core/llvm:24= )
-REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 llvm_slot_23 llvm_slot_24 )
+RDEPEND=dev-libs/rapidjson llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= ) llvm_slot_24? ( llvm-core/clang:24= llvm-core/llvm:24= )
+REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 llvm_slot_23 llvm_slot_24 )
 SLOT=0
 SRC_URI=https://github.com/MaskRay/ccls/archive/0.20261004.tar.gz -> ccls-0.20261004.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	a14333b7a46739f55f45dd77d478805d
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	477de99c2083bb0d20106ef3be47fd7c
 _md5_=4b9aae03d6d5fc9ae7c1fcec245f64b2
