@@ -23,7 +23,7 @@ HOMEPAGE="
 LICENSE="BSD"
 SLOT="0"
 if [[ ${PV} != *_rc* ]]; then
-	KEYWORDS="amd64 arm64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 IUSE="big-endian full-support minimal test X"
 RESTRICT="!test? ( test )"
@@ -70,7 +70,7 @@ DEPEND="
 "
 COMMON_DEPEND="
 	${DEPEND}
-	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.9.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	${COMMON_DEPEND}
