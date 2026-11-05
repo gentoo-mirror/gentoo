@@ -62,6 +62,7 @@ COMMON_DEPEND="
 	>=app-text/poppler-0.69.0[cairo]
 	>=app-text/poppler-data-0.4.9
 	>=dev-libs/appstream-0.16.1:=
+	>=dev-libs/fribidi-1.0.8:=
 	>=dev-libs/glib-2.70.0:2[introspection]
 	>=dev-libs/gobject-introspection-1.82.0-r2
 	>=dev-libs/json-glib-1.2.6
@@ -162,9 +163,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		use openmp && tc-check-openmp
-	fi
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 
 	python-single-r1_pkg_setup
 	use lua && lua-single_pkg_setup
@@ -198,6 +197,9 @@ src_prepare() {
 
 	# Disable automagic pandoc use that isn't relevant for a package build
 	sed -e '/pandoc/ s/ = .*/ = disabler()/' -i docs/meson.build || die
+
+	# Needs to be properly hooked up to USE="test-full"
+	sed -e "s|subdir('app/tests/uitests')|ui_tests_status = 'disabled by ebuild'|" -i meson.build || die
 }
 
 src_configure() {
