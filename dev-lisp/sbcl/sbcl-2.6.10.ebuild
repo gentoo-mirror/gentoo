@@ -6,7 +6,7 @@ EAPI=8
 inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
-BV_AMD64=2.6.8
+BV_AMD64=2.6.10
 BV_X86=1.4.3
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
@@ -268,4 +268,13 @@ src_install() {
 	echo "SBCL_HOME=${EPREFIX}/usr/$(get_libdir)/${PN}" > "${ENVD}"
 	echo "SBCL_SOURCE_ROOT=${EPREFIX}/usr/$(get_libdir)/${PN}/src" >> "${ENVD}"
 	doenvd "${ENVD}"
+}
+
+pkg_postinst() {
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
+		elog "If youwant to run sbcl in a bash session"
+		elog "started before sbcl was installed, do"
+		elog ". /etc/profile"
+		elog "in this session"
+	fi
 }
