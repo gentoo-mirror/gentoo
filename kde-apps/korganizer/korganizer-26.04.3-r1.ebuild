@@ -22,7 +22,7 @@ IUSE="activities telemetry"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.0.1:6=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=

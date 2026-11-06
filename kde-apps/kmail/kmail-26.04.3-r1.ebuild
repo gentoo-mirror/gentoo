@@ -24,7 +24,7 @@ RESTRICT="test" # bug 616878
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
-	>=dev-libs/ktextaddons-2.0.1:6[speech?]
+	>=dev-libs/ktextaddons-2.0.1:6=[speech?]
 	dev-libs/libgpg-error
 	dev-libs/qgpgme:=
 	>=dev-libs/qtkeychain-0.16.0:=
@@ -80,8 +80,6 @@ COMMON_DEPEND="
 	telemetry? ( >=kde-frameworks/kuserfeedback-${KFMIN}:6 )
 "
 DEPEND="${COMMON_DEPEND}
-	>=kde-apps/kcalutils-${PVCUT}:6
-	>=kde-apps/kldap-${PVCUT}:6
 	test? ( kde-apps/akonadi-config[sqlite] )
 "
 RDEPEND="${COMMON_DEPEND}

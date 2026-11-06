@@ -22,7 +22,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-libs/cyrus-sasl:2
-	>=dev-libs/ktextaddons-2.0.1:6[speech?]
+	>=dev-libs/ktextaddons-2.0.1:6=[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/kidentitymanagement-${PVCUT}:6=

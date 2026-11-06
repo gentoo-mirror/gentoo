@@ -24,7 +24,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-libs/cyrus-sasl:2
 	>=dev-libs/qtkeychain-0.16.0:=
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.0.1:6=
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtnetworkauth-${QTMIN}:6
 	>=kde-apps/akonadi-${PVCUT}:6=

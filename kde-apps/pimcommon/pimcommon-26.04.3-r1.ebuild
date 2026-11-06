@@ -19,7 +19,7 @@ KEYWORDS="amd64 arm64"
 IUSE="activities"
 
 RDEPEND="
-	>=dev-libs/ktextaddons-2.0.1:6
+	>=dev-libs/ktextaddons-2.0.1:6=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-contacts-${PVCUT}:6=

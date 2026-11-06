@@ -24,7 +24,7 @@ DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
 	>=dev-libs/openssl-3.0.0:=
-	>=dev-libs/ktextaddons-2.0.1:6[speech?]
+	>=dev-libs/ktextaddons-2.0.1:6=[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
