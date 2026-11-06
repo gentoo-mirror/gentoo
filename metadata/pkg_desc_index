@@ -1009,7 +1009,7 @@ app-admin/keepassxc 2.8.0_beta1 2.8.0: KeePassXC - KeePass Cross-platform Commun
 app-admin/kernel-hardening-checker 0.6.17.1: A tool for checking the security hardening options of the Linux kernel
 app-admin/killproc 2.13-r2: killproc and assorted tools for boot scripts
 app-admin/kio-admin 26.04.3 26.08.3: Manage files as administrator using the admin:// KIO protocol
-app-admin/kpcli 4.1 4.1.3 4.1.3-r1: Command line interface to KeePass database files
+app-admin/kpcli 4.1 4.1.3 4.1.3-r1 4.1.3-r2: Command line interface to KeePass database files
 app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernetes Benchmark
 app-admin/kubectx 0.9.5 0.11.0: Fast way to switch between clusters and namespaces in kubectl
 app-admin/lib_users 0.15-r2: Check for mapped libs and open files that are marked as deleted
@@ -1517,7 +1517,7 @@ app-crypt/nwipe 0.43.1: Securely erase disks using a variety of recognized metho
 app-crypt/onak 0.6.3 0.6.4: onak is an OpenPGP keyserver
 app-crypt/ophcrack 3.8.0-r2: A time-memory-trade-off-cracker
 app-crypt/ophcrack-tables 1.0-r2: Tables available for ophcrack
-app-crypt/osslsigncode 2.9 2.13: Platform-independent tool for Authenticode signing of EXE/CAB files
+app-crypt/osslsigncode 2.13 2.14: Platform-independent tool for Authenticode signing of EXE/CAB files
 app-crypt/p11-kit 0.26.4 0.26.5: Provides a standard configuration setup for installing PKCS#11
 app-crypt/paperkey 1.6: OpenPGP key archiver
 app-crypt/pdfcrack 0.20-r1 0.21: Tool for recovering passwords and content from PDF-files
@@ -15755,7 +15755,7 @@ net-proxy/trojan 1.16.0-r4: An unidentifiable mechanism that helps you bypass GF
 net-proxy/tsocks 1.8_beta5-r9 1.8_beta5-r10: Transparent SOCKS v4 proxying library
 net-proxy/wwwoffle 2.9j: Web caching proxy suitable for non-permanent Internet connections
 net-proxy/ziproxy 3.3.2-r1: Forwarding, non-caching, compressing web proxy server
-net-voip/mumble 1.6.0_pre20250920-r3 1.6.0_pre20260215-r2 9999: Open source, low-latency, high quality voice chat software
+net-voip/mumble 1.6.0_pre20250920-r3 1.6.0_pre20260215-r3 9999: Open source, low-latency, high quality voice chat software
 net-voip/murmur 1.6.0_pre20250920-r3 1.6.0_pre20260215-r1 9999: Open source, low-latency, high quality voice chat server
 net-voip/sipvicious 0.3.7 0.3.8: SIPVicious is a SIP security package
 net-voip/umurmur 0.3.1: Minimalistic Murmur (Mumble server)
@@ -16075,7 +16075,7 @@ sci-chemistry/MDAnalysis 2.9.0 2.10.0: A python library to analyze and manipulat
 sci-chemistry/ParmEd 4.3.0 4.3.1: Parameter and topology file editor and molecular mechanical simulator engine
 sci-chemistry/autodock 4.2.6-r1: A suite of automated docking tools
 sci-chemistry/autodock_vina 1.2.7: Program for drug discovery, molecular docking and virtual screening
-sci-chemistry/avogadro2 1.103.0 2.0.0: Advanced molecule editor and visualizer 2
+sci-chemistry/avogadro2 2.0.0 2.1.0: Advanced molecule editor and visualizer 2
 sci-chemistry/bodr 10: The Blue Obelisk Data Repository listing element and isotope properties
 sci-chemistry/cara-bin 1.8.4-r2: Analysis of NMR spectra and Computer Aided Resonance Assignment
 sci-chemistry/chemex 2026.9.0 2026.9.2: Program to fit chemical exchange induced shift and relaxation data
@@ -16215,7 +16215,7 @@ sci-libs/armadillo 14.6.1 15.0.3: Streamlined C++ linear algebra library
 sci-libs/arpack 3.9.1 9999: Arnoldi package library to solve large scale eigenvalue problems
 sci-libs/arprec 2.2.19-r1 2.2.20: Arbitrary precision float arithmetics and functions
 sci-libs/atlas 3.10.2-r1 3.10.3 3.11.41: Automatically Tuned Linear Algebra Software
-sci-libs/avogadrolibs 1.103.0 2.0.0: Advanced molecule editor and visualizer 2 - libraries
+sci-libs/avogadrolibs 2.0.0 2.1.0: Advanced molecule editor and visualizer 2 - libraries
 sci-libs/blas-lapack-aux-wrapper 6: BLAS/LAPACK wrappers for FlexiBLAS
 sci-libs/blis 2.0 2.1: BLAS-like Library Instantiation Software Framework
 sci-libs/bliss 0.77 0.77-r1: Compute Automorphism Groups and Canonical Labelings of Graphs
@@ -16315,7 +16315,7 @@ sci-libs/indilib 2.2.4.2 2.2.5: INDI Astronomical Control Protocol library
 sci-libs/ipopt 3.14.4-r1: Interior-Point Optimizer for large-scale nonlinear optimization
 sci-libs/itpp 4.3.1-r2: C++ library of mathematical, signal processing and communication
 sci-libs/jama 1.2.5-r1: Java-like matrix C++ templates
-sci-libs/jkqtplotter 5.0.0_beta1: Extensive Qt Plotter framework
+sci-libs/jkqtplotter 5.0.0_beta1 5.0.0_beta2: Extensive Qt Plotter framework
 sci-libs/kissfft 131.1.0-r3 131.2.0 9999: Fast Fourier Transform (FFT) library that tries to Keep it Simple, Stupid
 sci-libs/klu 1.3.9-r2 2.3.6-r1: Sparse LU factorization for circuit simulation
 sci-libs/lapack 3.12.1-r2: BLAS, CBLAS, LAPACK, LAPACKE reference implementations
@@ -16412,7 +16412,7 @@ sci-libs/rtabmap 0.21.13 9999: Real-Time Appearance-Based Mapping (RGB-D Graph S
 sci-libs/scalapack 2.2.2-r1 2.2.3-r2: Subset of LAPACK routines redesigned for heterogenous (MPI) computing
 sci-libs/scotch 7.0.8 7.0.11 7.0.13: Software for graph, mesh and hypergraph partitioning
 sci-libs/shapelib 1.6.0: Library for manipulating ESRI Shapefiles
-sci-libs/spglib 2.6.0-r1 2.7.0: Spglib is a C library for finding and handling crystal symmetries
+sci-libs/spglib 2.7.0 2.8.0: C library for finding and handling crystal symmetries
 sci-libs/spooles 2.2: SParse Object Oriented Linear Equations Solver
 sci-libs/spqr 2.0.9-r4 4.3.6-r1: Multithreaded multifrontal sparse QR factorization library
 sci-libs/spr 3.3.2-r2: Statistical analysis and machine learning library
@@ -18440,7 +18440,7 @@ www-apps/readarr-bin 0.4.18.2805-r1: An ebook and audiobook collection manager f
 www-apps/redmine 6.0.7 6.0.9 6.0.11: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.5.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rt 5.0.6-r1: RT is an enterprise-grade ticketing system
-www-apps/rutorrent 5.3.19 5.3.20 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
+www-apps/rutorrent 5.3.20 5.3.21 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
 www-apps/selfoss 2.20_pre20230730: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/sfpg 4.11.0: A web gallery in one single PHP file
 www-apps/sonarr-bin 4.0.19.2979-r1: Sonarr is a Smart PVR for newsgroup and bittorrent users

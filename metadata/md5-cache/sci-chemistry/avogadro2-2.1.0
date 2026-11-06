@@ -1,0 +1,18 @@
+BDEPEND=doc? ( app-text/doxygen ) test? ( dev-libs/weston[desktop,headless] || ( ( dev-lang/python:3.15 dev-python/pytest[python_targets_python3_15(-)] sci-libs/avogadrolibs[python_single_target_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/pytest[python_targets_python3_14(-)] sci-libs/avogadrolibs[python_single_target_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] sci-libs/avogadrolibs[python_single_target_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] sci-libs/avogadrolibs[python_single_target_python3_12(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=dev-cpp/eigen:= dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-2.1.0[archive,python,qt6] test? ( dev-qt/qtbase:6[wayland] )
+DESCRIPTION=Advanced molecule editor and visualizer 2
+EAPI=8
+HOMEPAGE=https://www.openchemistry.org/ https://two.avogadro.cc/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake optfeature python-any-r1 xdg
+IUSE=doc rpc test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD GPL-2+
+RDEPEND=dev-cpp/eigen:= dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-2.1.0[archive,python,qt6] test? ( dev-qt/qtbase:6[wayland] )
+REQUIRED_USE=test? ( rpc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OpenChemistry/avogadroapp/archive/2.1.0.tar.gz -> avogadro2-2.1.0.tar.gz https://github.com/OpenChemistry/avogadro-i18n/archive/2.1.0.tar.gz -> avogadro2-2.1.0-i18n.tar.gz test? ( https://github.com/OpenChemistry/avogadrodata/archive/2.1.0.tar.gz -> avogadro2-2.1.0-data.tar.gz )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=18ba640a46eee99e630e4acc84bb598a
