@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/libxslt app-text/docbook-xsl-stylesheets
+DEFINED_PHASES=compile configure install pretend setup
+DEPEND=dev-libs/gmp:= sci-mathematics/primesieve:=
+DESCRIPTION=Elliptic Curve Method for Integer Factorization
+EAPI=9
+HOMEPAGE=https://gitlab.inria.fr/zimmerma/ecm
+INHERIT=toolchain-funcs
+IUSE=+custom-tune openmp cpu_flags_x86_sse2
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~x64-macos
+LICENSE=GPL-3 LGPL-3
+RDEPEND=dev-libs/gmp:= sci-mathematics/primesieve:=
+SLOT=0
+SRC_URI=https://gitlab.inria.fr/-/project/24244/uploads/0cfe6c56d11fc01c98a193fabdbd015c/ecm-7.0.7.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=5af3cbdd653754afe1771fa2393b4f13
