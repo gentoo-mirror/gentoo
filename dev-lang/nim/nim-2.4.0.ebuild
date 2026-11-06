@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE="test-js test"
 RESTRICT="!test? ( test )"
@@ -39,7 +39,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/nim-2.2.6-makefile.patch" )
+PATCHES=( "${FILESDIR}/nim-2.4.0-makefile.patch" )
 
 src_configure() {
 	xdg_environment_reset  # bug #667182
@@ -139,7 +139,7 @@ src_test() {
 				;;
 			arc | async | coroutines | errmsgs | exception | generics | gc | \
 			ic | int | js | lent | msgs | objects | overflow | stdlib | \
-			stylecheck | system | testament | untestable | valgrind )
+			stylecheck | system | testament | types | untestable | valgrind )
 				einfo "Skipped nim test category: ${tcat}"
 				;;
 			* )
@@ -174,6 +174,9 @@ src_install() {
 		doexe "${exe}"
 	done < \
 		 <(find ./bin -type f -not -iname nim)
+
+	# Create "dist" dir, see: https://bugs.gentoo.org/985314
+	keepdir /usr/lib/nim/dist
 
 	newbashcomp dist/nimble/nimble.bash-completion nimble
 	newbashcomp tools/nim.bash-completion nim

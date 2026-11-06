@@ -14,13 +14,11 @@ HOMEPAGE="https://www.nickg.me.uk/nvc/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nickg/nvc"
-
 	NVC_SOURCEDIR="${WORKDIR}/${PN}-${PV}"
 else
 	SRC_URI="https://github.com/nickg/nvc/archive/r${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
-
+	KEYWORDS="~amd64 ~x86"
 	NVC_SOURCEDIR="${WORKDIR}/${PN}-r${PV}"
 fi
 
@@ -30,7 +28,7 @@ S="${NVC_BUILDDIR}"
 LICENSE="GPL-3+"
 SLOT="0"
 IUSE="llvm test"
-RESTRICT="test"         # Some tests fail.
+RESTRICT="test"  # Some tests fail.
 
 RDEPEND="
 	app-arch/bzip2:=
@@ -65,9 +63,8 @@ PATCHES=(
 	"${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch"
 	"${FILESDIR}/nvc-1.21.1-fpurge.patch"
 )
-
 # Special libraries for NVC.
-QA_FLAGS_IGNORED="usr/lib[0-9]*/nvc/preload[0-9]*.so"
+QA_FLAGS_IGNORED="usr/lib[0-9]*/nvc/preload[0-9]*.so usr/lib[0-9]*/nvc/plugins/siginit.so"
 
 pkg_setup() {
 	if use llvm ; then
@@ -91,6 +88,7 @@ src_configure() {
 	# Needs "bison" and "flex" exactly.
 	unset LEX
 	unset YACC
+	export V="1"  # Verbose compilation and install.
 
 	local ECONF_SOURCE="${NVC_SOURCEDIR}"
 	local -a myconf=(
@@ -99,8 +97,6 @@ src_configure() {
 		$(use_enable llvm)
 	)
 	econf "${myconf[@]}"
-
-	export V="1"  # Verbose compilation and install.
 }
 
 src_compile() {
