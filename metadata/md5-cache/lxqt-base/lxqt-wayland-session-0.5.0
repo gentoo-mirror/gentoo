@@ -1,0 +1,14 @@
+BDEPEND=>=dev-qt/qttools-6.6:6[linguist] >=dev-util/lxqt-build-tools-2.5.0 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=app-misc/qtxdg-tools-4.5.0 kde-plasma/layer-shell-qt:6 >=lxqt-base/lxqt-session-2.5.0 x11-misc/xdg-user-dirs
+DESCRIPTION=LXQt Wayland Session Support
+EAPI=8
+HOMEPAGE=https://lxqt-project.org/ https://github.com/lxqt/lxqt-wayland-session/
+INHERIT=cmake
+KEYWORDS=~amd64 ~arm64
+LICENSE=BSD CC-BY-SA-4.0 GPL-2 GPL-3 LGPL-2.1 MIT
+RDEPEND=>=app-misc/qtxdg-tools-4.5.0 kde-plasma/layer-shell-qt:6 >=lxqt-base/lxqt-session-2.5.0 x11-misc/xdg-user-dirs
+SLOT=0
+SRC_URI=https://github.com/lxqt/lxqt-wayland-session/releases/download/0.5.0/lxqt-wayland-session-0.5.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
+_md5_=e23f7e2130021d459c1338b28db2bac8
