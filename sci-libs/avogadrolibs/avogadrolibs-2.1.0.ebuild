@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit cmake dot-a python-single-r1
 
 MY_PV_GENXRD=1.1
@@ -50,7 +50,6 @@ REQUIRED_USE="
 # sci-libs/libmsym (https://github.com/mcodev31/libmsym)
 RDEPEND="
 	dev-cpp/eigen:=
-	dev-cpp/nlohmann_json
 	dev-libs/pugixml
 	hdf5? ( sci-libs/hdf5:= )
 	python? (
@@ -58,23 +57,27 @@ RDEPEND="
 		$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
 	)
 	qt6? (
+		>=dev-cpp/tomlplusplus-3.4.0
 		dev-qt/qtbase:6[concurrent,gui,network,opengl,widgets]
 		dev-qt/qtsvg:6
 		media-libs/glew:0=
 		>=sci-chemistry/openbabel-3.1.1_p20241221:=[json]
 		virtual/opengl
-		archive? ( app-arch/libarchive:= )
+		archive? (
+			app-arch/libarchive:=
+			virtual/zlib:=
+		)
 		jkqtplotter? ( sci-libs/jkqtplotter:= )
 	)
 	spglib? ( >=sci-libs/spglib-2.6.0:= )
 "
 DEPEND="
 	${RDEPEND}
-"
-BDEPEND="
-	doc? ( app-text/doxygen )
+	>=dev-cpp/fast_float-7.0.0
+	dev-cpp/nlohmann_json
 	test? ( dev-cpp/gtest )
 "
+BDEPEND="doc? ( app-text/doxygen )"
 
 PATCHES=(
 	"${FILESDIR}/"${PN}-1.91.0_pre20180406-bundled-genxrdpattern.patch
@@ -108,17 +111,11 @@ src_unpack() {
 	fi
 
 	if use test; then
-		mv avogadrodata-${PV} avogadrodata || die
+		ln -sfT avogadrodata-${PV} avogadrodata || die
 	fi
 }
 
 src_prepare() {
-	# fix default value for BABEL_LIBDIR
-	sed -i -e "s:/../lib/openbabel:/../$(get_libdir)/openbabel:g" \
-		avogadro/qtplugins/forcefield/obenergy.cpp \
-		avogadro/qtplugins/forcefield/obmmenergy.cpp \
-		avogadro/qtplugins/openbabel/obprocess.cpp || die
-
 	# avoid cmake_min warning w/ this unused file
 	rm thirdparty/tinycolormap/CMakeLists.txt || die
 
@@ -138,8 +135,11 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=ON
+		-DAVOGADRO_RELEASE_BUILD=ON
+		-DUSE_EXTERNAL_FASTFLOAT=ON
 		-DUSE_EXTERNAL_NLOHMANN=ON
 		-DUSE_EXTERNAL_PUGIXML=ON
+		-DUSE_EXTERNAL_TOMLPLUSPLUS=ON
 		-DUSE_LIBARCHIVE=$(usex archive $(usex qt6))
 		-DBUILD_DOCUMENTATION=$(usex doc)
 		-DUSE_HDF5=$(usex hdf5)
@@ -195,16 +195,16 @@ src_test() {
 
 src_install() {
 	if use doc; then
-		local DOCS+=( "${BUILD_DIR}"/docs/xml )
 		local HTML_DOCS=( "${BUILD_DIR}"/docs/html/. )
+		dodoc -r "${BUILD_DIR}"/docs/xml
 		docompress -x /usr/share/doc/${PF}/xml
 	fi
 
 	cmake_src_install
 
 	if use python; then
-		python_fix_shebang "${ED}"
-		python_optimize "${ED}"
+		python_optimize
+		use qt6 && python_fix_shebang "${ED}"/usr/share/avogadro2/fragments/scripts/
 	fi
 
 	# always strip due to libgwavi.a

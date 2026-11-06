@@ -1,17 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
-DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=scikit-build-core
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..15} )
 FORTRAN_NEEDED=fortran
 inherit cmake distutils-r1 fortran-2 toolchain-funcs
 
-DESCRIPTION="Spglib is a C library for finding and handling crystal symmetries"
+DESCRIPTION="C library for finding and handling crystal symmetries"
 HOMEPAGE="https://github.com/spglib/spglib/"
 SRC_URI="https://github.com/spglib/spglib/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -25,21 +24,23 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	python? (
 		${PYTHON_DEPS}
-		$(python_gen_cond_dep '
-			dev-python/numpy[${PYTHON_USEDEP}]
-			dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-		')
+		dev-python/numpy[${PYTHON_USEDEP}]
+		dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
 			dev-python/typing-extensions[${PYTHON_USEDEP}]
-		' 3.11 3.12)
+		' 3.12)
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	python? ( dev-python/pybind11[${PYTHON_USEDEP}] )
+"
 BDEPEND="
 	python? (
 		${DISTUTILS_DEPS}
 		${PYTHON_DEPS}
-		test? ( $(python_gen_cond_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]') )
+		dev-python/setuptools-scm[${PYTHON_USEDEP}]
+		test? ( dev-python/pyyaml[${PYTHON_USEDEP}] )
 	)
 	test? ( dev-cpp/gtest )
 "
@@ -49,6 +50,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.0-dist_sources.patch
 )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 pkg_pretend() {
@@ -58,7 +60,7 @@ pkg_pretend() {
 pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	use fortran && fortran-2_pkg_setup
-	use python && python-single-r1_pkg_setup
+	use python && python_setup
 }
 
 src_prepare() {
@@ -84,17 +86,23 @@ src_compile() {
 }
 
 src_test() {
-	local -x LD_LIBRARY_PATH="${BUILD_DIR}"
+	CMAKE_SKIP_TESTS=(
+		# the testsuites are already quite extensive
+		example-*
+	)
+	local -x LD_LIBRARY_PATH="${BUILD_DIR}:${BUILD_DIR}/fortran"
 	cmake_src_test
 	use python && distutils-r1_src_test
 }
 
+python_install() {
+	distutils-r1_python_install
+
+	# remove duplicate headers/lib
+	rm -r "${ED}"/$(python_get_sitedir)/spglib/{$(get_libdir),include} || die
+}
+
 src_install() {
 	cmake_src_install
-	if use python; then
-		distutils-r1_src_install
-
-		# remove duplicate headers/lib
-		rm -r "${ED}"/$(python_get_sitedir)/spglib/{$(get_libdir),include} || die
-	fi
+	use python && distutils-r1_src_install
 }
