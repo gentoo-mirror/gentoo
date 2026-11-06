@@ -26,7 +26,6 @@ RDEPEND="
 		>=kde-apps/kaccounts-integration-${PV}:*
 		>=kde-apps/kaccounts-providers-${PV}:*
 		>=kde-apps/signon-kwallet-extension-${PV}:*
-		>=kde-misc/kio-gdrive-${PV}:*
 		>=net-im/neochat-${PV}
 	)
 	zeroconf? (
