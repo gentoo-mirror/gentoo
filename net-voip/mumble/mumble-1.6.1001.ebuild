@@ -3,10 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit cmake flag-o-matic multilib python-any-r1 xdg
 
-DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
+DESCRIPTION="Open source, low-latency, high quality voice chat software"
 HOMEPAGE="https://wiki.mumble.info"
 if [[ "${PV}" == 9999 ]] ; then
 	inherit git-r3
@@ -26,15 +26,20 @@ if [[ "${PV}" == 9999 ]] ; then
 		3rdparty/tracy
 	)
 else
+	MY_TAG="alpha2"
+
 	if [[ "${PV}" == *_pre* ]] ; then
 		SRC_URI="https://dev.gentoo.org/~concord/distfiles/${P}.tar.xz"
+	elif [[ -n "${MY_TAG}" ]] ; then
+		MY_PV="$(ver_cut 1-2).0-${MY_TAG}"
+		SRC_URI="https://github.com/mumble-voip/${PN}/releases/download/v${MY_PV}/${P}.tar.gz"
 	else
 		MY_PV="${PV/_/-}"
 		MY_P="${PN}-${MY_PV}"
-		SRC_URI="https://github.com/mumble-voip/mumble/releases/download/v${MY_PV}/${MY_P}.tar.gz"
+		SRC_URI="https://github.com/mumble-voip/${PN}/releases/download/v${MY_PV}/${MY_P}.tar.gz"
 		S="${WORKDIR}/${P/_*}"
 	fi
-	KEYWORDS="amd64 arm64 ppc64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
 LICENSE="BSD MIT"
@@ -43,14 +48,13 @@ IUSE="+alsa debug jack pipewire portaudio pulseaudio multilib nls +rnnoise speec
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-cpp/cli11
-	>=dev-db/soci-4.1.2-r2[sqlite]
+	>=dev-db/soci-4.1.4[sqlite]
 	>=dev-libs/openssl-1.0.0b:0=
 	dev-libs/poco:=[util,xml,zip]
 	>=dev-libs/protobuf-2.2.0:=
 	dev-libs/libfmt:=
 	dev-libs/spdlog:=
-	dev-qt/qtbase:6[dbus,gui,network,sqlite,widgets,xml]
+	dev-qt/qtbase:6[dbus,gui,network,sql,sqlite,ssl,widgets,xml]
 	dev-qt/qtsvg:6
 	>=media-libs/libsndfile-1.0.20[-minimal]
 	>=media-libs/opus-1.3.1
@@ -70,6 +74,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
+	dev-cpp/cli11
 	dev-cpp/nlohmann_json
 	dev-qt/qtbase:6[concurrent]
 	dev-libs/boost
@@ -81,6 +86,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.6.1001-plugins-exception-include.patch"
+)
+
 pkg_setup() {
 	python-any-r1_pkg_setup
 }
@@ -88,7 +97,6 @@ pkg_setup() {
 src_prepare() {
 	sed '/TRACY_ON_DEMAND/s@ ON @ OFF @' -i src/CMakeLists.txt || die
 
-	# required because of xdg.eclass also providing src_prepare
 	cmake_src_prepare
 }
 
@@ -99,8 +107,8 @@ src_configure() {
 		-Dbundled-cli11="OFF"
 		-Dbundled-json="OFF"
 		-Dbundled-rnnoise="OFF"
-		-Dbundled-spdlog="OFF"
 		-Dbundled-soci="OFF"
+		-Dbundled-spdlog="OFF"
 		-Dbundled-speex="OFF"
 		-Dbundled-utfcpp="OFF"
 		-Dg15="OFF"
@@ -151,8 +159,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	echo
+	elog
 	elog "Visit https://wiki.mumble.info/ for futher configuration instructions."
 	elog "Run 'mumble-overlay <program>' to start the OpenGL overlay (after starting mumble)."
-	echo
 }

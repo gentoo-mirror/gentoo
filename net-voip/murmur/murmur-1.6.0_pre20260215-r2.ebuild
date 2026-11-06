@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic systemd readme.gentoo-r1 tmpfiles
 
-DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
+DESCRIPTION="Open source, low-latency, high quality voice chat server"
 HOMEPAGE="https://wiki.mumble.info"
 if [[ "${PV}" == 9999 ]] ; then
 	inherit git-r3
@@ -54,7 +54,7 @@ RDEPEND="
 	>=dev-libs/protobuf-2.2.0:=
 	dev-libs/spdlog:=
 	>=dev-libs/utfcpp-4.0.0
-	dev-qt/qtbase:6[dbus,network,sqlite?,xml]
+	dev-qt/qtbase:6[dbus,network,sqlite?,ssl,xml]
 	sys-apps/lsb-release
 	>=sys-libs/libcap-2.15
 	ice? ( dev-libs/Ice:= )
@@ -94,6 +94,10 @@ src_prepare() {
 		-e 's:;logfile=mumble-server.log:logfile=/var/log/murmur/murmur.log:' \
 		-e 's:;pidfile=:pidfile=/run/murmur/murmur.pid:' \
 		-i auxiliary_files/mumble-server.ini || die
+
+	# Fix path to server config file in the systemd unit
+	sed -e 's|mumble-server\.ini|murmur.ini|' \
+		-i auxiliary_files/config_files/mumble-server.service.in || die
 
 	# Replace the default group and user _mumble-server with murmur
 	grep -r -l _mumble-server auxiliary_files/ | xargs sed -i 's/_mumble-server/murmur/g' || die
@@ -149,17 +153,17 @@ src_install() {
 	fi
 
 	newinitd "${T}"/murmur.initd murmur
-	newconfd "${FILESDIR}"/murmur.confd-r2 murmur
+	newconfd "${FILESDIR}"/murmur.confd-r3 murmur
 
 	keepdir /var/lib/murmur /var/log/murmur
 	fowners -R murmur /var/lib/murmur /var/log/murmur
 	fperms 750 /var/lib/murmur /var/log/murmur
 
 	mv "${ED}"/etc/murmur/mumble-server.ini "${ED}"/etc/murmur/murmur.ini || die
+	fperms 640 /etc/murmur/murmur.ini
+
 	mv "${D}/$(systemd_get_systemunitdir)/mumble-server.service" \
 		"${D}/$(systemd_get_systemunitdir)/murmur.service" || die
-	sed -i 's|mumble-server\.ini|murmur.ini|' "${D}/$(systemd_get_systemunitdir)/murmur.service" || die
-	sed -i '/^ExecStart/{s|-ini|--ini|;s| -fg||}' "${D}/$(systemd_get_systemunitdir)/murmur.service" || die
 
 	readme.gentoo_create_doc
 }

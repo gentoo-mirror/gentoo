@@ -6,8 +6,8 @@
 EAPI=8
 
 CRATES="
-	glob@0.3.3
-	libc@0.2.180
+	glob@0.3.4
+	libc@0.2.189
 "
 
 RUST_MIN_VER="1.85.0"
@@ -27,15 +27,20 @@ LICENSE+=" || ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-IUSE="pam su system-names"
+IUSE="su system-names"
+
+DEPEND="
+	sys-libs/pam:=
+"
 
 RDEPEND="
+	${DEPEND}
 	system-names? (
 		!app-admin/sudo
 		su? (
 			!sys-apps/util-linux[su]
 			!sys-apps/shadow[su]
-			pam? ( sys-apps/util-linux[pam] )
+			sys-apps/util-linux[pam]
 		)
 	)
 "
@@ -107,16 +112,14 @@ src_install() {
 	dosym sudo${ext} /usr/bin/sudoedit${ext}
 
 	insinto /etc
-	doins "${FILESDIR}"/sudoers-rs
+	newins "${FILESDIR}"/sudoers-rs-r1 sudoers-rs
 
 	keepdir /etc/sudoers.d
 
-	if use pam; then
-		pamd_mimic system-auth sudo${ext} auth account session
-		pamd_mimic system-auth sudo${ext}-i auth account session
+	pamd_mimic system-auth sudo${ext} auth account session
+	pamd_mimic system-auth sudo${ext}-i auth account session
 
-		if ! use system-names && use su; then
-			pamd_mimic system-auth su${ext}-l auth account session
-		fi
+	if ! use system-names && use su; then
+		pamd_mimic system-auth su${ext}-l auth account session
 	fi
 }
