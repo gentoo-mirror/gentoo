@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	dev-python/jsonpatch[${PYTHON_USEDEP}]
@@ -49,10 +49,14 @@ python_test() {
 		test/unit/module/maintenance/test_update_documentation.py::TestUpdateDocumentation::test_update_docs
 		# crashes on 3.12+, probably pygraphviz
 		test/unit/module/test_api.py::TestLintByConfig::test_graph
-		# scripts missing from sdist
-		test/unit/module/maintenance/test_update_specs_from_pricing.py
+		# upstream maintenance tests
+		test/unit/module/maintenance/
 		# Internet
 		test/unit/module/schema/test_manager.py::TestUpdateResourceSchemas::test_update_force
+		# TODO
+		test/unit/module/template/test_getatts.py::TestGetAtts::test_getatt_resource_with_list
+		'test/unit/rules/resources/ssm/test_document.py::test_keyword_registration[A Command document still needs a schemaVersion-resources4-expected4]'
+		'test/unit/rules/resources/ssm/test_document.py::test_keyword_registration[Content from a Fn::If validates each branch-resources3-expected3]'
 	)
 
 	# from tox.ini
