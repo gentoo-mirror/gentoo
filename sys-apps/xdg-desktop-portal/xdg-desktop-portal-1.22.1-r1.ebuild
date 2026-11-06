@@ -63,6 +63,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.20.4-optional-gstreamer.patch"
 	# These tests require connections to pipewire, internet, /dev/fuse
 	"${FILESDIR}/${PN}-1.20.0-sandbox-disable-failing-tests.patch"
+	# Pending upstream issue: https://github.com/flatpak/xdg-desktop-portal/pull/2027
+	"${FILESDIR}/${P}-fix-dbus-service-startup.patch" # bug 985834
 )
 
 python_check_deps() {
