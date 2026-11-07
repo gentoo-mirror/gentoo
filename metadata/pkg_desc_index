@@ -1479,7 +1479,7 @@ app-crypt/hashalot 0.3-r3: Reads a passphrase and prints a hash
 app-crypt/hashcat 6.2.6-r1 7.1.2 7.1.2-r1 9999: World's fastest and most advanced password recovery utility
 app-crypt/hashcat-utils 1.10: a set of small utilities that are useful in advanced password cracking
 app-crypt/heimdal 7.8.0-r3: Kerberos 5 implementation from KTH
-app-crypt/ima-evm-utils 1.4-r1 9999: Supporting tools for IMA and EVM
+app-crypt/ima-evm-utils 1.7 9999: Supporting tools for IMA and EVM
 app-crypt/jacksum 4.0.0 4.0.2: Java utility for working with checksums, CRCs, and message digests (hashes)
 app-crypt/jetring 0.31 0.32: GPG keyring maintenance using changesets
 app-crypt/jitterentropy 3.6.0 3.6.3: Hardware RNG based on CPU timing jitter
@@ -2638,7 +2638,7 @@ app-i18n/tomoe-gtk 0.6.0-r7: Tomoe GTK+ interface widget library
 app-i18n/transifex-client 1.6.14 1.6.17: The Transifex command-line client
 app-i18n/translate-shell 0.9.7.1: Online command-line translator
 app-i18n/uchardet 0.0.8: Encoding detector library
-app-i18n/uim 1.9.6-r1: Multilingual input method framework
+app-i18n/uim 1.9.6-r1 1.9.9: Multilingual input method framework
 app-i18n/uim-tomoe-gtk 0.6.0: Japanese input method Tomoe IMEngine for uim
 app-i18n/unicode-cldr 47.0 48.0 48.1 49.0: Unicode Common Locale Data Repository
 app-i18n/unicode-data 15.1.0 16.0.0 17.0.0 18.0.0: Unicode data from unicode.org
@@ -2776,7 +2776,7 @@ app-misc/dailystrips 1.0.28-r4: Dailystrips automatically downloads your favorit
 app-misc/dasel 2.7.0: Query, update and convert data structures from the command line
 app-misc/datefudge 1.26 1.27: A program (and preload library) to fake system date
 app-misc/dateutils 0.4.10 0.4.11: Command line date and time utilities
-app-misc/datovka 4.26.0 4.29.0: GUI to access the Czech data box e-government system
+app-misc/datovka 4.29.5: GUI to access the Czech data box e-government system
 app-misc/ddate 0.2.2_p20160627-r1: Perpetual date converter from gregorian to poee calendar
 app-misc/ddccontrol 1.0.3-r1: Control monitor parameters, like brightness, contrast, RGB color levels via DDC
 app-misc/ddccontrol-db 20240920: DDCControl monitor database
@@ -2872,7 +2872,7 @@ app-misc/lcdproc 0.5.9_p20211220: Displays real-time system information from you
 app-misc/leave 20100918-r2: FreeBSD command-line tool that reminds you when its time to leave
 app-misc/ledit 2.04-r1: A line editor to be used with interactive commands
 app-misc/lfm 3.1-r1: Last File Manager is a powerful file manager for the console
-app-misc/libdatovka 0.7.1 0.7.3: Client library for accessing ISDS SOAP services
+app-misc/libdatovka 0.8.0: Client library for accessing ISDS SOAP services
 app-misc/linux-logo 6.01: A utility that displays an ANSI/ASCII logo and some system information
 app-misc/linuxspa 0.7.1-r2: Linux Serial Protocol Analyser
 app-misc/liquidctl 1.15.0 1.16.0: Cross-platform tool and drivers for liquid coolers and other devices
@@ -5591,7 +5591,7 @@ dev-libs/gnulib 2025.08.27.16.03.17 2026.01.14.22.26.00 9999-r1: Gnulib is a lib
 dev-libs/gobject-introspection 1.84.0-r2 1.86.0 1.86.0-r1: Introspection system for GObject-based libraries
 dev-libs/gobject-introspection-common 1.82.0 1.84.0 1.86.0: Build infrastructure for GObject Introspection
 dev-libs/gom 0.5.4 0.5.5 0.5.6: GObject to SQLite object mapper library
-dev-libs/gost-engine 3.0.1 3.0.1-r1 3.0.2 3.0.3 9999: A reference implementation of the Russian GOST crypto algorithms for OpenSSL
+dev-libs/gost-engine 3.0.5 9999: A reference implementation of the Russian GOST crypto algorithms for OpenSSL
 dev-libs/granite 7.6.0 7.7.0 7.8.1-r1: Elementary OS library that extends GTK+
 dev-libs/gumbo 0.13.2-r1 0.14.0 0.14.1: The HTML5 parsing algorithm implemented as a pure C99 library
 dev-libs/gweather-locations 2026.2: GWeather Locations Database
@@ -6131,7 +6131,7 @@ dev-lua/lua-bit32 5.3.5.1-r1: Backported Lua bit manipulation library
 dev-lua/lua-cjson 2.1.0.10-r1: A fast JSON encoding/parsing module for Lua
 dev-lua/lua-http 0.4_p20240908: HTTP Library for Lua. Supports HTTP(S) 1.0, 1.1 and 2.0; client and server
 dev-lua/lua-mmdb 0.2: Maxmind database parser for lua
-dev-lua/lua-openssl 0.9.0_p0: OpenSSL binding for Lua
+dev-lua/lua-openssl 0.11.1_p1: OpenSSL binding for Lua
 dev-lua/lua-resty-core 0.1.30: FFI-based API for lua-nginx-module
 dev-lua/lua-resty-lrucache 0.15: Lua-land LRU Cache based on LuaJIT FFI
 dev-lua/lua-resty-memcached 0.17: Lua memcached client driver based on cosocket API for ngx-lua-module
@@ -10918,7 +10918,7 @@ dev-util/cargo-audit 0.22.0 0.22.1 0.22.2: Audit Cargo.lock for crates with secu
 dev-util/cargo-c 0.10.16 0.10.26: Helper program to build and install c-like libraries
 dev-util/cargo-license 0.6.1-r1 0.7.0: Cargo subcommand to see license of dependencies
 dev-util/cargo-nextest 0.9.140 0.9.143 0.9.144 0.9.148: Next-generation test runner for Rust
-dev-util/cargo-pgrx 0.12.7 0.12.9 0.13.1 0.14.3 0.15.0 0.16.0 0.16.1 0.18.0: pgrx: A Rust framework for creating Postgres extensions
+dev-util/cargo-pgrx 0.19.3: pgrx: A Rust framework for creating Postgres extensions
 dev-util/cargo-tarpaulin 0.35.0 0.35.1 0.35.2 0.37.0 0.37.5: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/cargo-vendor-filterer 0.5.18: Tool to 'cargo vendor' with filtering
 dev-util/catalyst 4.1.0 4.1.1-r1 4.2.0 9999: Release metatool used for creating releases based on Gentoo Linux
@@ -11185,7 +11185,7 @@ dev-util/ropper 1.13.13 9999: Use to display information about binary files in d
 dev-util/rt-tests 2.9 2.10: A collection of latency testing tools for the linux(-rt) kernel
 dev-util/ruff 0.16.5 0.16.10 0.17.2 0.17.3 0.17.4: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5 3.15.0: Execute your runbooks, docs and READMEs
-dev-util/rustup 1.28.2-r2 1.29.0 9999: Rust toolchain installer
+dev-util/rustup 1.29.3 9999: Rust toolchain installer
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
 dev-util/sccache 0.16.0 0.17.0 0.18.0: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.13_p7-r2: Utility to execute commands in a chroot environment
@@ -15061,9 +15061,9 @@ net-libs/glib-networking 2.80.1: Network-related giomodules for glib
 net-libs/gloox 1.0.24-r1 1.0.28: A portable high-level Jabber/XMPP client library for C++
 net-libs/gnome-online-accounts 3.56.5 3.58.1: GNOME framework for accessing online accounts
 net-libs/gnutls 3.8.11 3.8.12 3.8.12-r1 3.8.13: Secure communications library implementing the SSL, TLS and DTLS protocols
-net-libs/google-cloud-cpp 2.19.0 2.30.0: Google Cloud Client Library for C++
+net-libs/google-cloud-cpp 2.30.0-r1: Google Cloud Client Library for C++
 net-libs/grpc 1.71.0 1.72.0 1.75.1 1.80.0 1.85.1: Modern open source high performance RPC framework
-net-libs/gsoap 2.8.114-r1 2.8.130 2.8.130-r1: A cross-platform open source C and C++ SDK for SOAP/XML Web services
+net-libs/gsoap 2.8.130-r1 2.8.146: A cross-platform open source C and C++ SDK for SOAP/XML Web services
 net-libs/gssdp 1.6.6: GObject-based API for handling resource discovery and announcement over SSDP
 net-libs/gtk-vnc 1.3.1-r1 1.5.0: VNC viewer widget for GTK
 net-libs/gupnp 1.6.9 1.6.10: An object-oriented framework for creating UPnP devs and control points
@@ -15189,7 +15189,7 @@ net-libs/pjproject 2.15.1-r1 2.15.1-r3 2.16-r2 2.17 2.17-r1: Open source SIP, Me
 net-libs/ppp-defs 0: Shim header for net/ppp_defs.h on musl
 net-libs/quiche 0.30.0 0.30.0-r1 9999: Implementation of the QUIC transport protocol and HTTP/3
 net-libs/qxmpp 1.16.3: Cross-platform C++ XMPP client and server library
-net-libs/rabbitmq-c 0.13.0: RabbitMQ C client
+net-libs/rabbitmq-c 0.13.0 0.18.1: RabbitMQ C client
 net-libs/radcli 1.4.0: A simple RADIUS client library
 net-libs/rest 0.10.2-r1: Helper library for RESTful services
 net-libs/rpc2 2.37: Remote procedure call package for IP/UDP (used by Coda)
@@ -15373,7 +15373,7 @@ net-misc/freerdp 3.32.1 3.32.2 9999: Free implementation of the Remote Desktop P
 net-misc/frr 10.1.4-r2 10.1.5-r2 10.2.5-r2 10.2.6-r1 10.3.3-r2 10.3.4-r2 10.4.3-r2 10.4.4-r1 10.4.5-r1 10.5.3-r2 10.5.4-r1 10.5.5-r1 10.6.1-r1 10.6.2-r1 10.7.0 10.7.1-r1: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.32.13 1.32.15 1.32.16 1.32.17-r1 1.32.18 1.32.19 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0 0.37.0 0.37.1: Proxy for using WebDriver clients to interact with Gecko-based browsers
-net-misc/gensio 2.8.5: General Stream I/O
+net-misc/gensio 2.8.5 3.0.4: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geoipyupdate 0.0.5: Simple python replacement for the MaxMind geoipupdate program
 net-misc/geomyidae 0.96: A daemon to serve the gopher protocol
@@ -15422,7 +15422,7 @@ net-misc/jlj 2.12-r1: Simple console LiveJournal entry system
 net-misc/jwhois 4.0-r2: Advanced Internet Whois client capable of recursive queries
 net-misc/kafka-bin 4.2.2 4.3.2 4.4.0: A high-throughput distributed messaging system
 net-misc/kafkacat 1.7.1: Generic command line non-JVM Apache Kafka producer and consumer
-net-misc/kea 3.0.3-r1 3.2.0 3.2.0-r1 9999: High-performance production grade DHCPv4 & DHCPv6 server
+net-misc/kea 3.0.3-r1 3.0.5 3.2.0 3.2.0-r1 3.2.1 9999: High-performance production grade DHCPv4 & DHCPv6 server
 net-misc/keychain 2.8.5-r2 2.9.8: Agent manager for OpenSSH, ssh.com, Sun SSH, and GnuPG
 net-misc/kio-zeroconf 26.04.3 26.08.3: KIO worker to discover file systems by DNS-SD (DNS Service Discovery)
 net-misc/knock 0.8 0.8.2: Simple port-knocking daemon
@@ -15543,7 +15543,7 @@ net-misc/scponly 4.8-r9: A tiny pseudoshell which only permits scp and sftp
 net-misc/seafile 9.0.20 9.0.21 9.0.22: File syncing and sharing software with file encryption and group sharing
 net-misc/seafile-client 9.0.20 9.0.21 9.0.22: Seafile desktop client
 net-misc/secpanel 0.6.1-r1: Graphical frontend for managing and running SSH and SCP connections
-net-misc/ser2net 2.10.0-r1 4.6.2: Serial To Network Proxy
+net-misc/ser2net 2.10.0-r1 4.6.2-r1 4.6.8: Serial To Network Proxy
 net-misc/sgopherd 18.08: Small Gopher Server written in GNU Bash
 net-misc/shigofumi 0.9-r1 9999: Command line client for ISDS
 net-misc/shmux 1.0.3: run the same command across many hosts in parallel
@@ -15844,7 +15844,7 @@ net-wireless/hackrf-tools 2024.02.1-r1 2026.01.3 9999: tools for communicating w
 net-wireless/hidclient 20120728: Use your machine as a bluetooh keyboard/mouse
 net-wireless/horst 5.1 9999: Small 802.11 wireless LAN analyzer
 net-wireless/hostap-utils 0.4.7-r1: Utilities for Intersil Prism2/2.5/3 based IEEE 802.11b wireless LAN products
-net-wireless/hostapd 2.11 9999: IEEE 802.11 wireless LAN Host AP daemon
+net-wireless/hostapd 2.11 2.12 9999: IEEE 802.11 wireless LAN Host AP daemon
 net-wireless/inspectrum 0.4.0 9999: Tool for analysing captured signals from software-defined radio receivers
 net-wireless/iw 6.9 6.17: nl80211 configuration utility for wireless devices using the mac80211 stack
 net-wireless/iwd 3.8 3.9 3.10 3.11 3.12 9999: Wireless daemon for linux
@@ -16271,7 +16271,7 @@ sci-libs/colpack 1.0.10 1.0.10_p20190621 9999: C++ algorithms for specialized ve
 sci-libs/composable-kernel 6.4.3 7.0.2 7.1.0 7.2.0 10.1.0: High Performance Composable Kernel for AMD GPUs
 sci-libs/cqrlib 1.1.4: Utility library for quaternion arithmetic / rotation math (ANSI C implemented)
 sci-libs/cxsparse 3.2.0 4.4.2-r1: Extended sparse matrix package
-sci-libs/dcmtk 3.6.7-r2 3.6.8-r1 3.6.9-r1: The DICOM Toolkit
+sci-libs/dcmtk 3.6.9-r1 3.7.1: The DICOM Toolkit
 sci-libs/dealii 9.7.1-r1 9.8.0-r1 9999: Solving partial differential equations with the finite element method
 sci-libs/dlib 20.0 20.0.1: Numerical and networking C++ library
 sci-libs/dmlc-core 0_p20170719-r1 0.5: Common bricks library for building distributed machine learning

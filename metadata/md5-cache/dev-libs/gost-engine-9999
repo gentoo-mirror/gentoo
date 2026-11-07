@@ -1,15 +1,15 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-libs/openssl-3.0.0:0= virtual/pkgconfig test? ( dev-lang/perl )
+DEPEND=>=dev-libs/openssl-3.4:0= test? ( dev-lang/perl )
 DESCRIPTION=A reference implementation of the Russian GOST crypto algorithms for OpenSSL
 EAPI=8
 HOMEPAGE=https://github.com/gost-engine/engine
 INHERIT=cmake git-r3
 IUSE=test
-LICENSE=openssl
+LICENSE=Apache-2.0 CC0-1.0
 PROPERTIES=live
-RDEPEND=>=dev-libs/openssl-3.0.0:0=
+RDEPEND=>=dev-libs/openssl-3.4:0=
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=57ba94f908216412cbc82339a5cc96e4
+_md5_=930204a1de7b101234d5b69466eab3b7
