@@ -8,15 +8,16 @@ inherit cmake
 DESCRIPTION="Cross-platform library for building Telegram clients"
 HOMEPAGE="https://github.com/tdlib/td"
 
-MY_PV="11e254af695060d8890024dd7faa1cc2d6685ef8"
+MY_PV="0e88653dcbf4e44c73cb655a05b58cd749a91169"
 SRC_URI="https://github.com/tdlib/td/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/td-${MY_PV}"
 
 LICENSE="Boost-1.0"
 SLOT="0/${PV%_p*}"
-KEYWORDS="amd64 ~arm64 ~loong ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 IUSE="+tde2e test"
-RESTRICT="!test? ( test )"
+PROPERTIES="test_network"
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -34,13 +35,12 @@ src_prepare() {
 		-e '/generate_pkgconfig(tdjson_static /d' \
 		-i CMakeLists.txt || die
 
-	# Benchmarks take way too long to compile
-	sed -e '/add_subdirectory(benchmark)/d' \
-		-i CMakeLists.txt || die
-
 	# Fix tests linking
 	sed -e 's/target_link_libraries(run_all_tests PRIVATE /&tdmtproto /' \
 		-i test/CMakeLists.txt
+
+	# Benchmarks take way too long to compile
+	cmake_comment_add_subdirectory benchmark
 
 	cmake_src_prepare
 }
