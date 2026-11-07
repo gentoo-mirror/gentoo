@@ -9,7 +9,7 @@ inherit qmake-utils xdg-utils
 
 DESCRIPTION="GUI to access the Czech data box e-government system"
 HOMEPAGE="https://www.datovka.cz/cs/"
-SRC_URI="https://secure.nic.cz/files/datove_schranky/${PV}/${P}.tar.xz"
+SRC_URI="https://datovka.nic.cz/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,sqlite,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebsockets-${QTMIN}:6
-	>=app-misc/libdatovka-0.7.3
+	>=app-misc/libdatovka-0.7.3:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

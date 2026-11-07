@@ -1,10 +1,10 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES=""
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.95.0"
 inherit cargo prefix shell-completion toolchain-funcs
 
 DESCRIPTION="Rust toolchain installer"
@@ -23,7 +23,7 @@ fi
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT openssl Unicode-3.0 ZLIB
+	Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT Unicode-3.0 ZLIB
 "
 SLOT="0"
 # uses network

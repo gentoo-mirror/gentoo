@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ HOMEPAGE="https://www.datovka.cz/cs/pages/libdatovka.html"
 SRC_URI="https://datovka.nic.cz/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-3"
-SLOT="0"
+SLOT="0/11"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="+curl debug doc nls openssl test"
@@ -24,7 +24,10 @@ RDEPEND="
 	)
 	openssl? ( dev-libs/openssl:= )
 	!openssl? (
-		app-crypt/gnupg
+		|| (
+			app-crypt/gnupg
+			app-crypt/freepg
+		)
 		app-crypt/gpgme:=
 		dev-libs/libgcrypt:=
 	)"
@@ -33,6 +36,20 @@ DEPEND="${RDEPEND}
 BDEPEND="
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-musl-strptime-yday.patch
+)
+
+src_prepare() {
+	default
+
+	# musl accepts any locale name (cs_CZ.ISO8859-2 stays UTF-8) and its
+	# iconv substitutes unrepresentable characters instead of failing
+	if use elibc_musl; then
+		sed -i '/^TESTS = /,/[^\\]$/s/ utf82locale\$(EXEEXT)//' test/offline/Makefile.in || die
+	fi
+}
 
 src_configure() {
 	local myeconfargs=(
