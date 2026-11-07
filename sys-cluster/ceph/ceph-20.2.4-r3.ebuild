@@ -218,7 +218,6 @@ PATCHES=(
 	"${FILESDIR}/ceph-19.2.1-isa-l.patch"
 	"${FILESDIR}/ceph-19.2.2-QATAPP-Fix-clang-16-compiling-issue.patch"
 	"${FILESDIR}/ceph-19.2.2-add-option-to-build-agains-system-opentelemetry.patch"
-	"${FILESDIR}/ceph-19.2.2-common-add-dependency-on-legacy-option-headers.patch"
 	"${FILESDIR}/ceph-19.2.2-rbd-make-enums-statically-castable.patch"
 	"${FILESDIR}/ceph-19.2.2-rgw-remove-FMT_STRING-to-fix-clang-20-build-failure.patch"
 	# https://bugs.gentoo.org/960812
@@ -237,6 +236,13 @@ PATCHES=(
 	"${FILESDIR}/ceph-20.2.1-clang++-libcxx.patch"
 	"${FILESDIR}/ceph-20.2.4-clang++-libcxx.patch"
 	"${FILESDIR}/ceph-20.2.1-qatzip-werror.patch"
+	"${FILESDIR}/ceph-20.1.1-fix-legacy-options-order.patch"
+	"${FILESDIR}/ceph-20.1.1-build-add-Mold-linker-compatibility.patch"
+	"${FILESDIR}/ceph-20.1.1-qatlib-autogen-shebang.patch"
+	"${FILESDIR}/ceph-20.1.1-musl-fixes.patch"
+	"${FILESDIR}/ceph-20.1.1-librados-drop-unused-Boost.Asio-symbols.patch"
+	"${FILESDIR}/ceph-20.1.1-qatzip-glibc-prereq.patch"
+	"${FILESDIR}/ceph-20.1.1-qatlib-glibc-prereq.patch"
 )
 
 check-reqs_export_vars() {
@@ -370,10 +376,13 @@ ceph_src_configure() {
 	fi
 
 	# conditionally used cmake args
-	use test && mycmakearts+=( -DWITH_SYSTEM_GTEST:BOOL=$(usex test) )
+	use test && mycmakeargs+=( -DWITH_SYSTEM_GTEST:BOOL=$(usex test) )
 	use systemd && mycmakeargs+=( -DSYSTEMD_SYSTEM_UNIT_DIR:PATH=$(systemd_get_systemunitdir) )
 
 	if use amd64 || use x86; then
+		# isa-l does not support arbitrary assemblers on amd64 and x86
+		unset AS  # avoid AS="clang -c" from the LLVM profile
+
 		local flag
 		for flag in "${CPU_FLAGS_X86[@]}"; do
 			case "${flag}" in
@@ -390,8 +399,14 @@ ceph_src_configure() {
 		done
 	fi
 
-	# needed for >=glibc-2.32
-	has_version '>=sys-libs/glibc-2.32' && mycmakeargs+=( -DWITH_REENTRANT_STRSIGNAL:BOOL=ON )
+	use elibc_musl && mycmakeargs+=( -DWITH_REENTRANT_STRSIGNAL:BOOL=ON )
+
+	if tc-is-clang && tc-ld-is-lld; then
+		mycmakeargs+=(
+			-DHAVE_ASM_SYMVER=OFF
+			-DHAVE_ATTR_SYMVER=OFF
+		)
+	fi
 
 	rm -f "${BUILD_DIR:-${S}}/CMakeCache.txt" \
 		|| die "failed to remove cmake cache"

@@ -1,12 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 # Upstream is moving tags repeatedly, then we use commit hash.
-RELEASE_COMMIT="bc71a5876e27a3810f3917fba1493d7487eb3876"
+RELEASE_COMMIT="0a4ec322cc654b903c163d52a019f798a0db5739"
 
 inherit autotools python-single-r1 vala
 
@@ -28,7 +28,7 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/jansson:=
 	dev-libs/libevent:=
 	net-libs/libsearpc[${PYTHON_SINGLE_USEDEP}]
-	net-libs/libwebsockets:=[client]
+	net-libs/libwebsockets:=[client,socks5]
 	net-misc/curl
 	sys-apps/util-linux
 	virtual/zlib:=
@@ -36,6 +36,10 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}
 	$(vala_depend)"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-9.0.20-fix-libwebsockets-with-mbedtls.patch"
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup

@@ -4,13 +4,13 @@
 EAPI=8
 
 # Upstream is moving tags repeatedly, then we use commit hash.
-RELEASE_COMMIT="048fda31bc9b6255f94f2937c4f4185738bfedf6"
+RELEASE_COMMIT="7a4612edf06e8a72198df199d6c96712c8616077"
 
 inherit xdg cmake
 
 DESCRIPTION="Seafile desktop client"
 HOMEPAGE="https://www.seafile.com/ https://github.com/haiwen/seafile-client/"
-SRC_URI="https://github.com/haiwen/${PN}/archive/${RELEASE_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/haiwen/seafile-client/archive/${RELEASE_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${RELEASE_COMMIT}"
 
 LICENSE="Apache-2.0"
@@ -22,20 +22,19 @@ RDEPEND="dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/openssl:=
-	dev-qt/qtbase:6[dbus,gui,network,widgets]
-	shibboleth? ( dev-qt/qtwebengine:6[widgets] )
 	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[dbus,gui,network,widgets]
 	>=net-libs/libsearpc-3.2.0_p1
 	~net-misc/seafile-${PV}
-	virtual/zlib:=
 	virtual/opengl
-	elibc_musl? ( sys-libs/fts-standalone )"
+	virtual/zlib:=
+	elibc_musl? ( sys-libs/fts-standalone )
+	shibboleth? ( dev-qt/qtwebengine:6[widgets] )"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/qttools:6[linguist]"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-9.0.11-select-qt6.patch"
-	"${FILESDIR}/${PN}-9.0.13-QJsonValue.patch"
 	"${FILESDIR}/${PN}-9.0.13-CMakeLists.patch"
 )
 
