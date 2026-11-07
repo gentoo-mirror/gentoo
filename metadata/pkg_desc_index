@@ -926,7 +926,7 @@ app-admin/ansible-core 2.19.2 2.19.3 2.19.3-r1 2.20.0-r1 2.20.3 2.20.5 2.21.1 2.
 app-admin/ansible-lint 25.9.0 25.11.0 26.3.0 26.8.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 25.9.0 25.11.0 26.3.0: A toolkit designed to aid in the development and testing of Ansible roles
-app-admin/apache-tools 2.4.68 2.4.69: Useful Apache tools - htdigest, htpasswd, ab, htdbm
+app-admin/apache-tools 2.4.69 2.4.70: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
@@ -5478,7 +5478,7 @@ dev-libs/apache-arrow 23.0.1 24.0.0 25.0.1-r1 26.0.0 26.0.1 9999: A cross-langua
 dev-libs/appstream 1.0.6: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.8.2 0.8.3: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.6-r1: Apache Portable Runtime Library
-dev-libs/apr-util 1.6.3 1.6.4 1.6.5: Apache Portable Runtime Utility Library
+dev-libs/apr-util 1.6.3 1.6.4 1.6.5 1.6.6: Apache Portable Runtime Utility Library
 dev-libs/argtable 2.13-r4: An ANSI C library for parsing GNU-style command-line options with minimal fuss
 dev-libs/argtable3 3.3.1: ANSI C command-line parsing library based on getopt
 dev-libs/asmjit 2024.10.25 2025.06.28-r1 2026.02.15 9999: Machine code generation for C++
@@ -9995,20 +9995,20 @@ dev-ruby/abbrev 0.1.2: Calculates a set of unique abbreviations for a given set 
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
 dev-ruby/acme-client 2.0.27 2.0.28 2.0.29 2.0.30: A Ruby client for the letsencrypt's ACME protocol
 dev-ruby/action_text-trix 2.1.15 2.1.16 2.1.16-r1: A rich text editor for everyday writing
-dev-ruby/actioncable 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Integrated WebSockets for Rails
-dev-ruby/actionmailbox 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Framework for designing email-service layers
-dev-ruby/actionmailer 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Framework for designing email-service layers
-dev-ruby/actionpack 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Eases web-request routing, handling, and response
+dev-ruby/actioncable 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Integrated WebSockets for Rails
+dev-ruby/actionmailbox 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Framework for designing email-service layers
+dev-ruby/actionmailer 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Framework for designing email-service layers
+dev-ruby/actionpack 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Eases web-request routing, handling, and response
 dev-ruby/actionpack-xml_parser 2.0.1-r4: XML parameters parser for Action Pack (removed from core in Rails 4.0)
-dev-ruby/actiontext 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Edit and display rich text in Rails applications
-dev-ruby/actionview 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Simple, battle-tested conventions and helpers for building web pages
-dev-ruby/activejob 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Job framework with pluggable queues
+dev-ruby/actiontext 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Edit and display rich text in Rails applications
+dev-ruby/actionview 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Simple, battle-tested conventions and helpers for building web pages
+dev-ruby/activejob 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Job framework with pluggable queues
 dev-ruby/activeldap 7.2.2: ActiveLDAP provides an activerecord inspired object oriented interface to LDAP
-dev-ruby/activemodel 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Toolkit for building modeling frameworks like Active Record and Active Resource
+dev-ruby/activemodel 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Toolkit for building modeling frameworks like Active Record and Active Resource
 dev-ruby/activemodel-serializers-xml 1.0.3: XML serialization for your Active Model objects and Active Record models
-dev-ruby/activerecord 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
-dev-ruby/activestorage 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Attach cloud and local files in Rails applications
-dev-ruby/activesupport 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.5.1 8.1.2 8.1.3.1: Utility Classes and Extension to the Standard Library
+dev-ruby/activerecord 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
+dev-ruby/activestorage 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Attach cloud and local files in Rails applications
+dev-ruby/activesupport 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.5.1 8.1.2 8.1.3.1 8.1.4: Utility Classes and Extension to the Standard Library
 dev-ruby/acts_as_list 1.2.4 1.2.6: Capabilities for sorting and reordering a number of objects in a list
 dev-ruby/addressable 2.8.7 2.8.8: A replacement for the URI implementation that is part of Ruby's standard library
 dev-ruby/ae 1.8.2-r1: Assertive Expressive is an assertions library designed for reuse
@@ -10435,10 +10435,10 @@ dev-ruby/rack-session 1.0.1 2.1.0 2.1.1: A session implementation for Rack
 dev-ruby/rack-test 2.2.0: Rack::Test is a small, simple testing API for Rack apps
 dev-ruby/rackup 2.2.1-r1 2.3.1: A general server command for Rack applications
 dev-ruby/radius 0.8.0: Powerful tag-based template system
-dev-ruby/rails 7.1.5.1 7.1.6 7.2.3 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Ruby on Rails is a web-application and persistence framework
+dev-ruby/rails 7.1.5.1 7.1.6 7.2.3 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Ruby on Rails is a web-application and persistence framework
 dev-ruby/rails-dom-testing 2.2.0 2.3.0: Compare doms and assert certain elements exists in doms using Nokogiri
 dev-ruby/rails-html-sanitizer 1.6.2: Sanitize HTML fragments in Rails applications
-dev-ruby/railties 7.1.5.1 7.1.6 7.1.6-r1 7.2.3 7.2.3-r1 7.2.3.2 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1: Tools for creating, working with, and running Rails applications
+dev-ruby/railties 7.1.5.1 7.1.6 7.1.6-r1 7.2.3 7.2.3-r1 7.2.3.2 7.2.4 8.0.4 8.0.4-r1 8.0.5.1 8.1.2 8.1.2-r1 8.1.3.1 8.1.4: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.1.1: Colorize printed text on ANSI terminals
 dev-ruby/rake 13.2.1 13.3.0 13.3.1: Make-like scripting in Ruby
 dev-ruby/rake-compiler 1.3.0 1.3.1: Provide a standard and simplified way to build and package Ruby extensions
@@ -18539,7 +18539,7 @@ www-plugins/lightspark 0.9.0 0.10.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript
 www-servers/adsf 1.5.2-r1 1.5.3: A Dead Simple Fileserver is a static file server that can launch in a directory
-www-servers/apache 2.4.68 2.4.69: The Apache Web Server
+www-servers/apache 2.4.69 2.4.70: The Apache Web Server
 www-servers/caddy 2.10.2-r1 2.11.7 2.11.8 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd
