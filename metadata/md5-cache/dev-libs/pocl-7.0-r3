@@ -1,17 +1,17 @@
-BDEPEND=llvm_slot_19? ( !cuda? ( llvm-core/clang:19= llvm-core/llvm:19= ) cuda? ( llvm-core/clang:19=[llvm_targets_NVPTX] llvm-core/llvm:19=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:19= ) ) llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=llvm_slot_19? ( !cuda? ( llvm-core/clang:19= llvm-core/llvm:19= ) cuda? ( llvm-core/clang:19=[llvm_targets_NVPTX] llvm-core/llvm:19=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:19= ) ) llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) dev-libs/libltdl dev-util/opencl-headers virtual/opencl debug? ( dev-util/lttng-ust:= ) cuda? ( dev-util/nvidia-cuda-toolkit:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
+DEPEND=llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) dev-libs/libltdl dev-util/opencl-headers virtual/opencl debug? ( dev-util/lttng-ust:= ) cuda? ( dev-util/nvidia-cuda-toolkit:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
 DESCRIPTION=Portable Computing Language (an implementation of OpenCL)
 EAPI=8
 HOMEPAGE=http://portablecl.org https://github.com/pocl/pocl
 INHERIT=cmake cuda llvm-r1
-IUSE=accel +conformance cuda debug examples +hwloc memmanager server spirv test +llvm_slot_20 llvm_slot_19
+IUSE=accel +conformance cuda debug examples +hwloc memmanager server spirv test +llvm_slot_20
 KEYWORDS=amd64 ppc64
 LICENSE=GPL-2
-RDEPEND=llvm_slot_19? ( !cuda? ( llvm-core/clang:19= llvm-core/llvm:19= ) cuda? ( llvm-core/clang:19=[llvm_targets_NVPTX] llvm-core/llvm:19=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:19= ) ) llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) dev-libs/libltdl dev-util/opencl-headers virtual/opencl debug? ( dev-util/lttng-ust:= ) cuda? ( dev-util/nvidia-cuda-toolkit:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
-REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 )
+RDEPEND=llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) dev-libs/libltdl dev-util/opencl-headers virtual/opencl debug? ( dev-util/lttng-ust:= ) cuda? ( dev-util/nvidia-cuda-toolkit:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
+REQUIRED_USE=^^ ( llvm_slot_20 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pocl/pocl/archive/v7.0.tar.gz -> pocl-7.0.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	cuda	8b660e223a1695e3884ee4c7dc2c5059	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	9d76edcb9e0da24d1ead57f3ebf7c46c
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	cuda	8b660e223a1695e3884ee4c7dc2c5059	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	d273b2052f283889d9b4d87365f425ac
 _md5_=ea61f17d82a276171c3d222a50a4a3d1

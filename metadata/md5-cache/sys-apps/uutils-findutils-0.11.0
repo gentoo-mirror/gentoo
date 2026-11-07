@@ -1,16 +1,16 @@
-BDEPEND=llvm_slot_19? ( llvm-core/clang:19 ) llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) llvm_slot_22? ( llvm-core/clang:22 ) || ( >=dev-lang/rust-bin-1.90.0:* >=dev-lang/rust-1.90.0:* )
+BDEPEND=llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) llvm_slot_22? ( llvm-core/clang:22 ) || ( >=dev-lang/rust-bin-1.90.0:* >=dev-lang/rust-1.90.0:* )
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=>=dev-libs/oniguruma-6.9.9:=
 DESCRIPTION=GNU findutils rewritten in Rust
 EAPI=8
 HOMEPAGE=https://uutils.github.io/findutils/ https://github.com/uutils/findutils
 INHERIT=cargo llvm-r2
-IUSE=debug +llvm_slot_22 llvm_slot_19 llvm_slot_20 llvm_slot_21
+IUSE=debug +llvm_slot_22 llvm_slot_20 llvm_slot_21
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT Apache-2.0 MIT Unicode-DFS-2016
 RDEPEND=>=dev-libs/oniguruma-6.9.9:=
-REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 )
+REQUIRED_USE=^^ ( llvm_slot_20 llvm_slot_21 llvm_slot_22 )
 SLOT=0
 SRC_URI=https://github.com/uutils/findutils/archive/refs/tags/0.11.0.tar.gz -> uutils-findutils-0.11.0.tar.gz https://github.com/gentoo-crate-dist/findutils/releases/download/0.11.0/findutils-0.11.0-crates.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	552cca5ca7af2571f710cc2177327f0a	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	477de99c2083bb0d20106ef3be47fd7c
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	552cca5ca7af2571f710cc2177327f0a	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	e661c568264eba308557241fbbe207e3
 _md5_=7c1270809a7ec0f7d65a2748f6249928
