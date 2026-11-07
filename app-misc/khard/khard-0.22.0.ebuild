@@ -4,25 +4,17 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
-inherit distutils-r1 shell-completion
+PYTHON_COMPAT=( python3_{12..15} )
+inherit distutils-r1 pypi shell-completion
 
-DESCRIPTION="Console CardDAV client"
+DESCRIPTION="Console vCard address book"
 HOMEPAGE="
 	https://github.com/lucc/khard
 	https://pypi.org/project/khard/
 "
-if [[ ${PV} == *9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/lucc/khard"
-else
-	inherit pypi
-
-	KEYWORDS="amd64 arm arm64 x86"
-fi
-
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/configobj-5.0.6[${PYTHON_USEDEP}]
@@ -33,12 +25,9 @@ BDEPEND="
 	test? (
 		dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	)
-	doc? (
-		dev-python/sphinx-autoapi
-		dev-python/sphinx-rtd-theme
-		dev-python/sphinx-autodoc-typehints
-	)
 "
+
+PATCHES=( "${FILESDIR}/khard-0.21.0-musl-testfix.patch" )
 
 DOCS=(
 	CHANGES
@@ -49,8 +38,9 @@ DOCS=(
 
 distutils_enable_tests unittest
 distutils_enable_sphinx docs \
+	dev-python/sphinx-argparse \
 	dev-python/sphinx-autoapi \
-	dev-python/sphinx-autodoc-typehints
+	dev-python/sphinx-rtd-theme
 
 python_compile_all() {
 	if use doc; then
