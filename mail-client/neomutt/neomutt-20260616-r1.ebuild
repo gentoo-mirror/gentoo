@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit flag-o-matic toolchain-funcs
 
@@ -25,8 +25,10 @@ IUSE="autocrypt berkdb doc gdbm gnutls gpgme idn kerberos kyotocabinet lmdb lz4
 	nls notmuch pgp-classic qdbm sasl selinux smime-classic ssl tokyocabinet
 	test zlib zstd"
 REQUIRED_USE="
-	autocrypt? ( gpgme )"
-
+	autocrypt? ( gpgme )
+	gnutls? ( !ssl )
+	ssl? ( !gnutls )
+"
 CDEPEND="
 	app-misc/mime-types
 	berkdb? (
@@ -74,6 +76,10 @@ RDEPEND="${CDEPEND}
 "
 
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-openssl-4.patch
+)
 
 src_unpack() {
 	if [[ -n ${A} ]]; then
