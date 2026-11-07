@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=boost? ( dev-libs/boost:= ) !boost? ( dev-libs/gmp:= ) debug? ( sys-libs/binutils-libs:= ) ecm? ( sci-mathematics/gmp-ecm:= ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( llvm_slot_20? ( llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/llvm:22= ) ) primesieve? ( sci-mathematics/primesieve:= ) tcmalloc? ( dev-util/google-perftools ) dev-libs/cereal
+DESCRIPTION=Fast symbolic manipulation library, written in C++
+EAPI=8
+HOMEPAGE=https://github.com/symengine/symengine/
+INHERIT=cmake llvm-r2 toolchain-funcs
+IUSE=boost debug ecm +flint llvm +mpc +mpfr openmp primesieve tcmalloc test +llvm_slot_22 llvm_slot_20 llvm_slot_21
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=boost? ( dev-libs/boost:= ) !boost? ( dev-libs/gmp:= ) debug? ( sys-libs/binutils-libs:= ) ecm? ( sci-mathematics/gmp-ecm:= ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( llvm_slot_20? ( llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/llvm:22= ) ) primesieve? ( sci-mathematics/primesieve:= ) tcmalloc? ( dev-util/google-perftools )
+REQUIRED_USE=boost? ( !flint !mpc !mpfr ) llvm? ( ^^ ( llvm_slot_20 llvm_slot_21 llvm_slot_22 ) ) mpc? ( mpfr )
+RESTRICT=!test? ( test )
+SLOT=0/0.15
+SRC_URI=https://github.com/symengine/symengine/archive/v0.15.0.tar.gz -> symengine-0.15.0.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	477de99c2083bb0d20106ef3be47fd7c
+_md5_=3e5fed244379006bd428f026ebcac743
