@@ -2,7 +2,7 @@ BDEPEND=dev-build/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-p
 DEFINED_PHASES=install prepare test
 DEPEND=>=app-crypt/tpm2-tss-3.2.0:= >=dev-libs/openssl-3:= test? ( app-crypt/swtpm[gnutls(+)] app-crypt/tpm2-abrmd app-crypt/tpm2-tools )
 DESCRIPTION=OpenSSL Provider for TPM2 integration
-EAPI=8
+EAPI=9
 HOMEPAGE=https://github.com/tpm2-software/tpm2-openssl
 INHERIT=autotools
 IUSE=test
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.3.0
 SRC_URI=https://github.com/tpm2-software/tpm2-openssl/releases/download/1.3.0/tpm2-openssl-1.3.0.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0bc520f407fb0152b3e41189803c83f7
-_md5_=bc3a8427df62b3f83cbac779d9b31531
+_md5_=29c1d6254728406cf4855173876c343d
