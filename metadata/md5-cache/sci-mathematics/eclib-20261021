@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=sci-mathematics/pari:= dev-libs/ntl:= sci-mathematics/flint:= boost? ( dev-libs/boost:= )
+DESCRIPTION=Programs for elliptic curves defined over the rational numbers
+EAPI=9
+HOMEPAGE=https://github.com/JohnCremona/eclib
+IUSE=boost minimal test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=sci-mathematics/pari:= dev-libs/ntl:= sci-mathematics/flint:= boost? ( dev-libs/boost:= )
+RESTRICT=!test? ( test )
+SLOT=0/16
+SRC_URI=https://github.com/JohnCremona/eclib/releases/download/v20261021/eclib-20261021.tar.bz2
+_md5_=de284f85b4d36915d9a0be77905239df
