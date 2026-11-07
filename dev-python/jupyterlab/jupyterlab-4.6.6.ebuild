@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/jupyterlab/jupyterlab
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi xdg
@@ -17,16 +18,17 @@ HOMEPAGE="
 
 LICENSE="BSD MIT GPL-3 Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64"
 
 RDEPEND="
 	>=dev-python/async-lru-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.28.0[${PYTHON_USEDEP}]
 	>=dev-python/ipykernel-6.5.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.0.3[${PYTHON_USEDEP}]
+	dev-python/jupyter-builder[${PYTHON_USEDEP}]
 	dev-python/jupyter-core[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-lsp-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/jupyter-server-2.4.0[${PYTHON_USEDEP}]
+	>=dev-python/jupyter-server-2.19.0[${PYTHON_USEDEP}]
 	<dev-python/jupyter-server-3[${PYTHON_USEDEP}]
 	>=dev-python/jupyterlab-server-2.28.0[${PYTHON_USEDEP}]
 	<dev-python/jupyterlab-server-3[${PYTHON_USEDEP}]
