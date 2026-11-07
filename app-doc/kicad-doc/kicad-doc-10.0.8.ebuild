@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 	LIVE_DEPEND=">=x11-misc/util-macros-1.18"
 else
 	SRC_URI="https://gitlab.com/kicad/services/${PN}/-/archive/${PV}/${P}.tar.bz2"
-	KEYWORDS="amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="|| ( GPL-3+ CC-BY-3.0 ) GPL-2"
@@ -35,14 +35,15 @@ BDEPEND="
 	dev-perl/Unicode-LineBreak
 	dev-util/source-highlight
 	pdf? (
+		app-text/pandoc
 		dev-texlive/texlive-xetex
 		media-fonts/noto-cjk
 		media-fonts/dejavu
-		virtual/pandoc
 	)"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-pandoc-pdf-generator.patch
+	"${FILESDIR}"/${PN}-9.0.9-cmake4-compat.patch
+	"${FILESDIR}"/${PN}-10.0.0-pandoc-pdf-generator.patch
 )
 
 src_configure() {
