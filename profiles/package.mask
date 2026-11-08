@@ -350,36 +350,10 @@ acct-group/croc
 acct-user/croc
 net-misc/croc
 
-# Brett A C Sheffield <bacs@librecast.net> (2026-08-09)
-# Unmaintained by upstream for 16 years. Two unpatched security bugs
-# (Bug #906111 and Bug #916866) and many more unpatched issues upstream.
-# Removal on 2026-09-09.
-app-text/catdoc
-
 # Nowa Ammerlaan <nowa@gentoo.org> (2026-08-06)
 # This version was pulled from upstream. The reason for this is
 # unclear. But masked just as a precaution. Bug #980367.
 =sys-boot/shim-16.1_p8
-
-# Alfred Wingate <parona@protonmail.com> (2026-07-24)
-# Renamed to libgedit-tepl upstream.
-# Unbuildable for half a year. Last revdep moved to libgedit-tepl.
-# Removal on 2026-07-27. Bug #949068.
-gui-libs/tepl
-
-# Sam James <sam@gentoo.org> (2026-07-16)
-# Stub since Bind 9.18. Maintaining a separate build just for the client
-# binaries proved brittle and unsustainable (see discussion in
-# bug #832218 for details). Please use net-dns/bind instead. Other options
-# include net-dns/cares-tools, net-libs/ldns's drill, and net-dns/doggo.
-# Removal on 2026-08-15.  Bug #977172.
-net-dns/bind-tools
-
-# Sam James <sam@gentoo.org> (2026-07-16)
-# Outdated and replaced by app-arch/7zip. Many unfixed bugs including
-# severe vulnerabilities.
-# Removal on 2026-08-15.  Bug #942397.
-app-arch/p7zip
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-07-07)
 # dev-embedded/ponyprog destabilisation mask, bug #978907
@@ -423,12 +397,6 @@ media-libs/svgalib
 # Paul Zander <negril.nx+gentoo@gmail.com> (2025-10-17)
 # to many breakages
 dev-cpp/eigen:3/5.0
-
-# Matt Turner <mattst88@gentoo.org> (2026-05-22)
-# Deprecated upstream. Relies on removed XA support in Mesa. Use the built-in
-# modesetting driver instead. Bug #957955.
-# Removal on 2026-06-21.
-x11-drivers/xf86-video-vmware
 
 # Sam James <sam@gentoo.org> (2026-05-17)
 # Tries to delete many files (bug #975236)
