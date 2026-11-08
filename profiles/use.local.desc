@@ -275,8 +275,6 @@ app-arch/libdeflate:test - Build the test programs (requires virtual/zlib)
 app-arch/libdeflate:utils - Build the libdeflate-gzip program
 app-arch/lrzip-next:largefile - Enables support for large files
 app-arch/lrzip-next:year2038 - Enables support for 64-bit 'time_t' (sets D_TIME_BITS=64; glibc only)
-app-arch/p7zip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
-app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/rar:all-sfx - Install all SFX (Self-Extracting) files rather than just the native format (allows creation of Windows EXEs on Linux ELF systems)
 app-arch/rpm:sequoia - Use app-crypt/rpm-sequoia instead of the deprecated internal parser
 app-arch/sasquatch:deprecated - Enable deprecated LZMA1 support
@@ -2955,6 +2953,7 @@ dev-util/intellij-idea:professional - Enable the Professional version which requ
 dev-util/kdevelop:gdbui - Enable GUI for attaching GDB to a running process
 dev-util/kdevelop:qmake - Enable support for QMake build system
 dev-util/kdevelop:share - Enable support for patch sharing using kde-frameworks/purpose
+dev-util/kdevelop:webengine - Enable integrated documentation viewer using dev-qt/qtwebengine
 dev-util/kdstatemachineeditor:gui - A proof-of-concept application called kdstatemachineditor
 dev-util/kernelshark:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS
 dev-util/kup:gitolite - Enable support for dev-vcs/gitolite in kup-server
@@ -5805,7 +5804,6 @@ net-dns/bind:fixed-rrset - Enables fixed rrset-order option
 net-dns/bind:gssapi - Enable gssapi support
 net-dns/bind:lmdb - Enable LMDB support to store configuration for 'addzone' zones
 net-dns/bind:systemtap - Build support for profiling and tracing using dev-debug/systemtap
-net-dns/bind-tools:gssapi - Enable gssapi support
 net-dns/ddclient:examples - Install various example files, like for cron.
 net-dns/djbdns:ipv6 - Apply Fefe's patch (https://www.fefe.de/dns/) for ipv6 support.
 net-dns/dnscap:cryptopant - Enable cryptopANT plugin, implementation of crypto-PAn algorithm using app-crypt/cryptopant to anonymize IP addresses
