@@ -306,25 +306,6 @@ www-apps/drupal:11.2.14
 # and tagged onto bug #981565 too).
 ~net-print/libcupsfilters-2.2.1
 
-# Michał Górny <mgorny@gentoo.org> (2026-09-16)
-# Used only by dev-python/jupyter-server with Python < 3.12.
-# No revdeps left.  Removal on 2026-10-16.  Bug #982608.
-dev-python/overrides
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2026-09-11)
-# EAPI=7, old PYTHON_COMPAT, doesn't work with spotify for a long time,
-# upstream inactive for a decade.
-# Removal on 2026-10-11.  Bugs #982278, #952501.
-gnome-extra/gnome-integration-spotify
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2026-09-09)
-# Upstream abandoned the project, suggests www-servers/gatling
-# by the same upstream instead.
-# Removal on 2026-10-09. Bugs #783666, #944275.
-www-servers/fnord
-acct-user/fnord
-acct-user/fnordlog
-
 # Sam James <sam@gentoo.org> (2026-09-08)
 # Changes ctest(1) behaviour to exit non-zero if no tests, which
 # may break many ebuilds. Needs some assessment.
@@ -338,17 +319,6 @@ sci-physics/espresso
 # Ulrich Müller <ulm@gentoo.org> (2026-08-31)
 # Snapshot versions, masked for testing.
 <app-editors/emacs-32.0.9999:32-vcs
-
-# Sam James <sam@gentoo.org> (2026-08-21)
-# Grave security vulnerabilities which either haven't been
-# fixed upstream or fixed insufficiently. Our version is out-of-date as
-# well though the latest version wouldn't fix all of these. Other distributions
-# have removed croc because of its poor security posture already.
-# Use net-misc/wormhole-william or net-misc/magic-wormhole-rust instead.
-# Removal on 2026-09-20.  Bug #980854 and the older bug #918091.
-acct-group/croc
-acct-user/croc
-net-misc/croc
 
 # Nowa Ammerlaan <nowa@gentoo.org> (2026-08-06)
 # This version was pulled from upstream. The reason for this is
