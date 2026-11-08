@@ -17,12 +17,13 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	>=dev-python/packaging-25[${PYTHON_USEDEP}]
+	>=dev-python/packaging-26.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	>=dev-python/hatch-vcs-0.3.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/setuptools-70.1.0[${PYTHON_USEDEP}]
