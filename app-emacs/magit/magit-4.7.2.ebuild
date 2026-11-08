@@ -17,7 +17,7 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 S="${WORKDIR}/${P}/lisp"
@@ -40,9 +40,11 @@ RDEPEND+="
 	>=dev-vcs/git-2.44.2
 "
 
-DOCS=( ../README.md ../docs/{AUTHORS.md,magit{,-section}.org} )
+DOCS=( ../README.org ../docs/{AUTHORS.md,magit{,-section}.org} )
 ELISP_TEXINFO="../docs/*.texi"
 SITEFILE="50${PN}-gentoo.el"
+
+elisp-enable-tests ert ../test/ -l ../test/magit-tests.el
 
 src_prepare() {
 	elisp_src_prepare
