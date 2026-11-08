@@ -1,14 +1,14 @@
 BDEPEND=virtual/fortran virtual/pkgconfig doc? ( app-text/doxygen[dot] ) test? ( sci-libs/coinor-sample )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sci-libs/coinor-clp:= sci-libs/coinor-cgl:= sci-libs/coinor-osi:= sci-libs/coinor-utils:= sci-libs/coinor-vol:=
+DEPEND=sci-libs/coinor-clp:= sci-libs/coinor-cgl:= sci-libs/coinor-osi:= sci-libs/coinor-utils:= sci-libs/coinor-vol:= asl? ( sci-libs/coinasl )
 DESCRIPTION=COIN-OR branch-and-cut mixed integer program solver
 EAPI=8
 HOMEPAGE=https://github.com/coin-or/Cbc/
-IUSE=doc examples static-libs test
+IUSE=asl doc examples static-libs test
 KEYWORDS=~amd64 ~loong ~riscv ~x86
 LICENSE=EPL-1.0
-RDEPEND=sci-libs/coinor-clp:= sci-libs/coinor-cgl:= sci-libs/coinor-osi:= sci-libs/coinor-utils:= sci-libs/coinor-vol:=
+RDEPEND=sci-libs/coinor-clp:= sci-libs/coinor-cgl:= sci-libs/coinor-osi:= sci-libs/coinor-utils:= sci-libs/coinor-vol:= asl? ( sci-libs/coinasl )
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/coin-or/Cbc/archive/releases/2.10.12.tar.gz -> coinor-cbc-2.10.12.tar.gz
-_md5_=9e53a01998b8c1ba02d1953b3c8ba03f
+_md5_=b6ec79fbb37184c403bebf8c352bdaf4
