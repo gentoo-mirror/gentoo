@@ -14,11 +14,18 @@ IUSE="doc static-libs"
 
 BDEPEND="virtual/pkgconfig
 	doc? ( virtual/latex-base )"
-DEPEND="sci-libs/suitesparseconfig"
+DEPEND="<sci-libs/suitesparseconfig-7"
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	econf \
 		$(use_with doc) \
 		$(use_enable static-libs static)
+}
+
+src_install() {
+	default
+	if ! use static-libs; then
+		rm "${ED}"/usr/$(get_libdir)/libldl.la || die
+	fi
 }
