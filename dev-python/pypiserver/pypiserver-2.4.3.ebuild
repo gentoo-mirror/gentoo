@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
@@ -20,18 +20,16 @@ SRC_URI="
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/bottle[${PYTHON_USEDEP}]
-	>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
-	>=dev-python/pip-7[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/importlib-resources[${PYTHON_USEDEP}]
-	' 3.11)
+	>=dev-python/defusedxml-0.7.1[${PYTHON_USEDEP}]
+	>=dev-python/packaging-26.0[${PYTHON_USEDEP}]
+	>=dev-python/pip-26.0.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/legacy-cgi[${PYTHON_USEDEP}]
-	' 3.14)
+	' 3.{14..15})
 "
 # NB: many test deps are optional/specific to tests we skip
 BDEPEND="
