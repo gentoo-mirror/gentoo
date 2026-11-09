@@ -4,7 +4,7 @@ DEPEND=sci-libs/fftw:3.0= virtual/blas virtual/lapack
 DESCRIPTION=C++ library of mathematical, signal processing and communication
 EAPI=8
 HOMEPAGE=https://itpp.sourceforge.net
-INHERIT=cmake
+INHERIT=cmake flag-o-matic
 IUSE=doc
 KEYWORDS=amd64 ~ppc ppc64 ~x86
 LICENSE=GPL-3+
@@ -12,4 +12,4 @@ RDEPEND=sci-libs/fftw:3.0= virtual/blas virtual/lapack
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/itpp/itpp-4.3.1.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
-_md5_=08a0a747fcd41144b0c1abbe790dd9f9
+_md5_=abcb3fd7ddb471f2d1ecba7255312203
