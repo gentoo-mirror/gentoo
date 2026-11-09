@@ -4,7 +4,7 @@ DEPEND=llvm_slot_21? ( llvm-core/llvm:21=[llvm_targets_BPF] ) llvm_slot_22? ( ll
 DESCRIPTION=Simple BPF static linker
 EAPI=8
 HOMEPAGE=https://github.com/aya-rs/bpf-linker/
-INHERIT=cargo llvm-r1 toolchain-funcs
+INHERIT=cargo llvm-r2 toolchain-funcs
 IUSE=test +llvm_slot_22 llvm_slot_21 llvm_slot_23 debug
 KEYWORDS=~amd64 ~arm64
 LICENSE=|| ( MIT Apache-2.0 ) ISC MIT Unicode-3.0 Unicode-DFS-2016 || ( Apache-2.0 Boost-1.0 )
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( llvm_slot_21 llvm_slot_22 llvm_slot_23 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aya-rs/bpf-linker/archive/v0.12.0.tar.gz -> bpf-linker-0.12.0.gh.tar.gz https://github.com/gentoo-crate-dist/bpf-linker/releases/download/v0.12.0/bpf-linker-0.12.0-crates.tar.xz https://github.com/Manishearth/compiletest-rs/archive/02b122626320f562914710bada39e637f051c7bb.tar.gz -> compiletest-rs-02b122626320f562914710bada39e637f051c7bb.gh.tar.gz
-_eclasses_=llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	d273b2052f283889d9b4d87365f425ac	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	552cca5ca7af2571f710cc2177327f0a	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	f03063726ee659e59a3df6eb1048dd0b
-_md5_=13e1129269df4cec9c86b103025ccff3
+_eclasses_=llvm-utils	e7edb4086e31c8537574b263d899f826	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	e661c568264eba308557241fbbe207e3	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	8a2beaaa77fb7c96f815f713b6920298	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	f37054abdadccfe8287ecf965ef5748f
+_md5_=650c8977c16bbaa2359aab9578f09ee4
