@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {18..22} )
+LLVM_COMPAT=( {20..23} )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{12..14} python3_{13,14}t)
 inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r2 toolchain-funcs python-single-r1
@@ -36,7 +36,7 @@ S="${S_K}/tools/perf"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
-IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug gtk java libpfm +libtraceevent lzma numa perl +python +slang systemtap tcmalloc"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -62,7 +62,7 @@ BDEPEND="
 "
 
 RDEPEND="
-	babeltrace? ( dev-util/babeltrace:0/1 )
+	babeltrace? ( dev-util/babeltrace:= )
 	bpf? (
 		dev-libs/libbpf
 		dev-util/bpftool
@@ -79,7 +79,6 @@ RDEPEND="
 	java? ( virtual/jre:* )
 	libpfm? ( dev-libs/libpfm:= )
 	libtraceevent? ( dev-libs/libtraceevent )
-	libtracefs? ( dev-libs/libtracefs )
 	lzma? ( app-arch/xz-utils )
 	numa? ( sys-process/numactl )
 	perl? ( dev-lang/perl:= )
