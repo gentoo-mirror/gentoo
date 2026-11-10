@@ -24,6 +24,7 @@ RDEPEND="
 		dev-libs/openssl-compat:3
 		dev-libs/openssl:0/3
 	)
+	dev-libs/libfido2:0/1
 	net-libs/libsoup:3.0
 	net-libs/webkit-gtk:4.1/0
 	net-misc/curl
