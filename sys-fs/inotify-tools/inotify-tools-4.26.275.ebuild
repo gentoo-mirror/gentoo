@@ -32,6 +32,9 @@ src_prepare() {
 	default
 
 	sed -i '/lto = true/d' Cargo.toml || die
+
+	# skip tests that require elevated privileges
+	rm t/fsnotifywait-errors.t || die
 }
 
 src_compile() {
