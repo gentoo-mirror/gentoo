@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup test
 DEPEND=dev-libs/glib:2 sys-apps/util-linux x11-libs/libxkbcommon introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 ) libcanberra? ( media-libs/libcanberra ) libnotify? ( x11-libs/gdk-pixbuf:2 ) notification? ( gnome-base/librsvg x11-libs/cairo x11-libs/pango x11-libs/gdk-pixbuf:2 X? ( x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:=[xkb(+)] x11-libs/xcb-util x11-libs/xcb-util-wm ) ) pulseaudio? ( media-libs/libpulse media-libs/libsndfile ) purple? ( net-im/pidgin ) speech? ( app-accessibility/speech-dispatcher ) systemd? ( sys-apps/systemd:= ) upnp? ( net-libs/gssdp:1.6= ) webhook? ( net-libs/libsoup:3.0 ) websocket? ( net-libs/libsoup:3.0 ) zeroconf? ( net-dns/avahi[dbus] ) fbcon? ( virtual/os-headers )
 DESCRIPTION=A small daemon to act on remote or local events
@@ -13,5 +13,5 @@ REQUIRED_USE=X? ( notification ) fbcon? ( notification ) notification? ( || ( X 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.eventd.org/download/eventd/eventd-0.29.0.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	a14f83aa916e4baebbdb09404df44efa	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=ff98e4383f38392d889f18303dd9b63c

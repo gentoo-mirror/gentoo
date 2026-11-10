@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxml2:2 app-text/docbook-xsl-stylesheets dev-libs/libxslt dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=dev-libs/libxml2:2 app-text/docbook-xsl-stylesheets dev-libs/libxslt dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=>=media-libs/libdvdread-4.2.0:0= >=dev-libs/glib-2.31:2 >=x11-libs/gtk+-3.16.0:3 || ( media-libs/libcanberra-gtk3 >=media-libs/libcanberra-0.1[gtk3(-)] ) >=gui-libs/libhandy-1.5.0:1 >=app-arch/xz-utils-5.0.5 >=x11-libs/libnotify-0.7 >=app-crypt/libsecret-0.7 >=dev-libs/libpwquality-1.0.0 >=sys-fs/udisks-2.7.6:2 elogind? ( >=sys-auth/elogind-209 ) systemd? ( >=sys-apps/systemd-209:0= )
 DESCRIPTION=Disk Utility for GNOME using udisks
@@ -13,5 +13,5 @@ RDEPEND=>=media-libs/libdvdread-4.2.0:0= >=dev-libs/glib-2.31:2 >=x11-libs/gtk+-
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz
-_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d	xdg	3ef49a87c52c8b77c476351195dfe575
+_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	a14f83aa916e4baebbdb09404df44efa	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=e66597478596d9e3b9e4931b12bba805
