@@ -17,11 +17,12 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="cli"
 
 RDEPEND="
 	>=dev-python/annotated-doc-0.0.2[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-2.5.3[${PYTHON_USEDEP}]
 	>=dev-python/rich-13.8.0[${PYTHON_USEDEP}]
 	>=dev-python/shellingham-1.3.0[${PYTHON_USEDEP}]
 	cli? ( !dev-lang/erlang )
