@@ -1178,7 +1178,7 @@ app-arch/lrzip 0.7.3 0.651 0.651-r1: Long Range ZIP or Lzma RZIP optimized for c
 app-arch/lrzip-next 0.14.1 9999: Fork of Con Kolivas' lrzip program for compressing large files
 app-arch/lunzip 1.16: Decompressor for the lzip format, written in C
 app-arch/lxqt-archiver 1.4.0 1.5.0: Qt GUI File Archiver
-app-arch/lz4 1.10.0-r1 1.11.0: Extremely Fast Compression algorithm
+app-arch/lz4 1.10.0-r1 1.11.0 1.11.1: Extremely Fast Compression algorithm
 app-arch/lz5 2.0-r1: An efficient compressor with very fast decompression
 app-arch/lzip 1.26: Lossless data compressor based on the LZMA algorithm
 app-arch/lziprecover 1.26 1.27_pre1: Lziprecover is a data recovery tool and decompressor for lzip compressed files
@@ -3014,7 +3014,7 @@ app-misc/zisofs-tools 1.0.8-r1: User utilities for zisofs
 app-mobilephone/adebar 2.4.2: Android DEvice Backup And Report, using Bash and ADB
 app-mobilephone/anyremote 6.7.3: Bluetooth, infrared or cable remote control service
 app-mobilephone/dfu-util 0.11 9999: implements the Host (PC) side of the USB DFU (Device Firmware Upgrade) protocol
-app-mobilephone/gammu 1.45.0 1.45.1: A tool to handle your cellular phone
+app-mobilephone/gammu 1.45.0 1.45.1 1.45.2: A tool to handle your cellular phone
 app-mobilephone/gnokii 0.6.31-r5: User space driver and tools for use with mobile phones
 app-mobilephone/heimdall 2.2.2: Tool suite used to flash firmware onto Samsung devices
 app-mobilephone/scmxx 0.9.0-r1: Exchange data with Siemens phones
@@ -5505,7 +5505,7 @@ dev-libs/boron 2.1.0: A scripting language similar to REBOL
 dev-libs/botan 3.13.0 3.14.1: C++ crypto library
 dev-libs/boxfort 0.1.4-r1 0.1.4-r2 0.1.5: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.6-r1 1.21.7: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.23.1 3.3.5 3.4.0 3.4.1 3.5.0: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.23.1 3.3.5 3.4.0 3.4.1 3.5.0 3.6.0: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3-r1: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/c-siphash 1.1.0-r1: Streaming-capable SipHash Implementation
 dev-libs/c-stdaux 1.6.0: Auxiliary macros and functions for the C standard library
@@ -8502,7 +8502,7 @@ dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/crispy-bootstrap3 2024.1: Bootstrap3 template pack for django-crispy-forms
 dev-python/crispy-bootstrap4 2026.2: Bootstrap4 template pack for django-crispy-forms
 dev-python/crispy-bootstrap5 2026.3 2026.9: Bootstrap5 template pack for django-crispy-forms
-dev-python/croniter 6.2.2 6.2.3 6.2.4: Python module to provide iteration for datetime object
+dev-python/croniter 6.2.4 7.0.0: Python module to provide iteration for datetime object
 dev-python/cryptography 50.0.1 50.0.2: Library providing cryptographic recipes and primitives
 dev-python/cson 0.8-r4: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/css-parser 1.0.10 1.1.1: A CSS Cascading Style Sheets library (fork of cssutils)
@@ -8642,7 +8642,7 @@ dev-python/feedparser-sgmllib 2.0.1 2.1.0: sgmllib from Python 2.7 for feedparse
 dev-python/ffmpeg-python 0.2.0_p20220711-r1: Python bindings for FFmpeg with complex filtering support
 dev-python/fido2 2.2.0 2.2.1: Python based FIDO 2.0 library
 dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable files
-dev-python/filelock 4.0.7 4.0.9 4.0.10 4.0.11 4.0.12 4.1.0 4.1.1 4.2.0 4.2.1 4.2.4 4.2.5 4.2.7 4.2.9: A platform independent file lock for Python
+dev-python/filelock 4.1.0 4.1.1 4.2.0 4.2.1 4.2.4 4.2.5 4.2.7 4.2.9: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 3.0.0: Python module import analysis tool
 dev-python/findpython 0.8.0 0.9.0: A utility to find python versions on your system
@@ -8778,7 +8778,7 @@ dev-python/imaplib2 3.6 9999: Threaded Python IMAP4 client
 dev-python/iminuit 2.32.0 2.33.0: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.3.1: An immutable wrapper around dictionaries
 dev-python/immutables 0.21: A high-performance immutable mapping type for Python
-dev-python/importlib-metadata 9.0.1 9.1.0 10.1.0: Read metadata from Python packages
+dev-python/importlib-metadata 9.0.1 9.1.0 10.1.0 10.2.0: Read metadata from Python packages
 dev-python/incremental 24.11.0: Incremental is a small library that versions your Python projects
 dev-python/indexed-gzip 1.10.3: Fast random access of gzip files in Python
 dev-python/inflect 7.5.0 7.6.0: Correctly inflect words and numbers
@@ -8786,7 +8786,7 @@ dev-python/inflection 0.5.1-r1: A port of Ruby on Rails' inflector to Python
 dev-python/ini2toml 0.15: Automatically conversion of .ini/.cfg files to TOML equivalents
 dev-python/iniconfig 2.3.0 2.3.1: Brain-dead simple config-ini parsing
 dev-python/iniparse 0.5.1_p20250425 0.5.2 0.5.3: Better INI parser for Python
-dev-python/inline-snapshot 0.35.4 0.36.0 0.36.1: Create and update inline snapshots in your Python tests
+dev-python/inline-snapshot 0.36.0 0.36.1 0.36.2: Create and update inline snapshots in your Python tests
 dev-python/insipid-sphinx-theme 0.4.4: Insipid Sphinx theme
 dev-python/installer 1.0.1 1.1.0: A library for installing Python wheels
 dev-python/intelhex 2.3.0-r1: Python library for Intel HEX files manipulations
@@ -8895,6 +8895,7 @@ dev-python/lap 0.5.13 0.5.14: Linear Assignment Problem solver (LAPJV/LAPMOD)
 dev-python/lark 1.3.1: Python module to propose a modern general-purpose parsing library for Python
 dev-python/latexcodec 3.0.1: Lexer and codec to work with LaTeX code in Python
 dev-python/latexrestricted 0.6.2: Library for creating executables compatible with LaTeX restricted shell escape
+dev-python/lazy-importer 0.1.0: A context manager for portable, opt-in lazy imports
 dev-python/lazy-loader 0.5 0.6: Populate library namespace without incurring immediate import costs
 dev-python/lazy-object-proxy 1.12.0 1.13.0: A fast and thorough lazy object proxy
 dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python client
@@ -9285,7 +9286,7 @@ dev-python/pymetar 1.4-r2: Downloads and decodes to the weather report for a giv
 dev-python/pymilter 1.0.7_pre20251111 9999: module to enable python scripts to attach to Sendmail's libmilter API
 dev-python/pymongo 4.16.0 4.17.0 4.18.0 4.18.1 4.18.2 4.18.3 4.19.0: Python driver for MongoDB
 dev-python/pymountboot 0.2.3-r2: Python extension module to (re)mount /boot
-dev-python/pymysql 1.2.0 1.2.3: Pure-Python MySQL Driver
+dev-python/pymysql 1.2.3 1.2.4: Pure-Python MySQL Driver
 dev-python/pynacl 1.6.2: Python binding to the Networking and Cryptography (NaCl) library
 dev-python/pynvim 0.6.0: Python client for Neovim
 dev-python/pyocr 0.8.5: An optical character recognition (OCR) tool wrapper
@@ -9610,7 +9611,7 @@ dev-python/seedir 0.5.1: Package for creating, editing, and reading folder tree 
 dev-python/segno 1.6.6: Python QR Code and Micro QR Code encoder
 dev-python/selenium 4.34.2 4.35.0 4.49.0 4.50.0 4.51.0 4.52.0: Python language binding for Selenium Remote Control
 dev-python/semantic-version 2.10.0: Python library providing a few tools handling SemVer in Python
-dev-python/semver 3.0.4 3.1.0: A Python module for semantic versioning
+dev-python/semver 3.1.0: A Python module for semantic versioning
 dev-python/send2trash 2.1.0: Sends files to the Trash (or Recycle Bin)
 dev-python/sense-hat 2.6.0: Raspberry Pi Sense HAT python library
 dev-python/serpent 1.43: A simple serialization library based on ast.literal_eval
@@ -9656,7 +9657,7 @@ dev-python/socketio-client-nexus 0.7.6: A socket.io 2.x client library for Pytho
 dev-python/socksio 1.0.0: Sans-I/O implementation of SOCKS4, SOCKS4A, and SOCKS5
 dev-python/sortedcontainers 2.4.0-r1: Python library to sort collections and containers
 dev-python/soundfile 0.14.0: audio library based on libsndfile, CFFI and NumPy
-dev-python/soupsieve 2.10 3.0.1 3.0.2 3.0.3 3.0.4 4.0 4.0.1: A modern CSS selector implementation for BeautifulSoup
+dev-python/soupsieve 2.10 3.0.1 3.0.2 3.0.3 3.0.4 4.0 4.0.1 4.1: A modern CSS selector implementation for BeautifulSoup
 dev-python/spake2 0.9: python implementation of SPAKE2 password-authenticated key exchange algorithm
 dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoization
 dev-python/sphinx 9.1.0-r1 9.1.1 9.2.0: Python documentation generator
@@ -9785,7 +9786,7 @@ dev-python/tomli-w 1.2.0: A lil' TOML writer
 dev-python/tomlkit 0.15.1 0.15.2: Style preserving TOML library
 dev-python/toolz 1.1.0-r1 1.2.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
-dev-python/tornado 6.5.10 6.6: Python web framework and asynchronous networking library
+dev-python/tornado 6.5.10 6.6 6.6.1: Python web framework and asynchronous networking library
 dev-python/towncrier 25.8.0 26.9.0: Building newsfiles for your project
 dev-python/tox 4.64.5 4.64.7 4.64.8 4.64.9 4.64.10 4.65.2 4.65.3 4.65.4 4.65.5 4.65.6 4.66.0 4.67.0 4.67.1 4.67.4 4.67.7 4.67.13: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r3 3.0.0: Python bindings for TSS
@@ -9812,7 +9813,7 @@ dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 26.6.0: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/type-lens 0.2.6: A library that allows for utilizing Python types at runtime
 dev-python/typeguard 4.5.2 4.6.0: Run-time type checker for Python
-dev-python/typer 0.27.2 0.27.3 0.28.0: Build great CLIs. Easy to code. Based on Python type hints
+dev-python/typer 0.27.3 0.28.0 0.29.0: Build great CLIs. Easy to code. Based on Python type hints
 dev-python/types-docutils 0.23.0.20260923 0.23.0.20261030 0.23.0.20261107: Typing stubs for docutils
 dev-python/types-gdb 16.3.0.20260712: Typing stubs for gdb
 dev-python/types-psutil 7.2.2.20260518 7.2.2.20260827 7.2.2.20260906: Typing stubs for psutil
@@ -9914,7 +9915,7 @@ dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17-r1 1.3.18: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.34 0.2.35 0.2.36 0.2.37: Python wrapper for running a display inside X virtual framebuffer
-dev-python/xxhash 4.0.1 4.0.2: Python binding for the xxHash library
+dev-python/xxhash 4.0.1 4.0.2 4.1.0: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
