@@ -3,9 +3,10 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.92.0"
+RUST_MIN_VER="1.95.0"
 
 CRATES="
+	openssl-sys@0.9.118
 "
 
 inherit cargo desktop shell-completion xdg
@@ -15,18 +16,21 @@ HOMEPAGE="
 	https://zellij.dev/
 	https://github.com/zellij-org/zellij
 "
-SRC_URI="https://github.com/zellij-org/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-SRC_URI+=" https://github.com/gentoo-crate-dist/zellij/releases/download/v${PV}/${P}-crates.tar.xz"
+SRC_URI="
+	https://github.com/zellij-org/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/gentoo-crate-dist/zellij/releases/download/v${PV}/${P}-crates.tar.xz
+	${CARGO_CRATE_URIS}
+"
 
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 ISC MIT
-	MPL-2.0 Unicode-3.0 ZLIB
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0
+	CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
-IUSE="man system-sqlite"
+KEYWORDS="~amd64 ~arm64 ~riscv"
+IUSE="system-sqlite"
 
 # libnghttp2 still bundled
 # https://github.com/alexcrichton/nghttp2-rs/pull/5
@@ -36,7 +40,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	man? ( dev-go/go-md2man )
 	virtual/pkgconfig
 "
 
@@ -52,6 +55,10 @@ DOCS=(
 	GOVERNANCE.md
 	README.md
 	docs/
+)
+
+PATCHES=(
+	"${FILESDIR}/zellij-0.46.0-openssl-sys-0.9.118.patch"
 )
 
 pkg_setup() {
@@ -75,10 +82,6 @@ src_compile() {
 	cargo_src_compile
 	popd 2>/dev/null || die
 
-	if use man; then
-		go-md2man -in docs/MANPAGE.md -out ${PN}.1 || die
-	fi
-
 	"$(cargo_target_dir)"/zellij setup --generate-completion bash > zellij.bash || die
 	"$(cargo_target_dir)"/zellij setup --generate-completion fish > zellij.fish || die
 	"$(cargo_target_dir)"/zellij setup --generate-completion zsh > zellij.zsh || die
@@ -92,12 +95,11 @@ src_install() {
 	insinto /usr/share/zellij
 	doins -r example/{themes,layouts}
 	doins -r ${PN}-utils/assets/{layouts,plugins,config,shell} \
-		${PN}-utils/assets/*.wasm ${PN}-utils/assets/README.md
+		${PN}-utils/assets/README.md
 
-	use man && doman ${PN}.1
-
-	domenu assets/zellij.desktop
+	domenu assets/dev.zellij.Zellij.desktop
 	newicon assets/logo.png zellij.png
+	newicon assets/logo.svg zellij.svg
 
 	newbashcomp zellij.bash zellij
 	newfishcomp zellij.fish zellij.fish
