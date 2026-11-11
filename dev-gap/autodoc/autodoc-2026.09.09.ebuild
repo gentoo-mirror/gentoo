@@ -5,14 +5,19 @@ EAPI=8
 
 inherit gap-pkg
 
-DESCRIPTION="Set-theoretic computations with residue classes in GAP"
+DESCRIPTION="Generate documentation from GAP source code"
+HOMEPAGE="https://gap-packages.github.io/AutoDoc/"
 SRC_URI="https://github.com/gap-packages/${PN}/releases/download/v${PV}/${P}.tar.gz"
+S="${WORKDIR}/AutoDoc-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
-RDEPEND="dev-gap/utils
-	dev-gap/polycyclic"
-
+BDEPEND="test? ( dev-gap/io )"
 gap-pkg_enable_tests
+
+src_prepare() {
+	default
+	rm Makefile || die
+}

@@ -1,18 +1,19 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit gap-pkg
 
-DESCRIPTION="GAP implementation of SHA256 and HMAC for the Jupyter kernel"
+DESCRIPTION="Set-theoretic computations with residue classes in GAP"
+HOMEPAGE="https://gap-packages.github.io/resclasses/"
 SRC_URI="https://github.com/gap-packages/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
-DEPEND="sci-mathematics/gap:="
-RDEPEND="${DEPEND}"
+RDEPEND="dev-gap/utils
+	dev-gap/polycyclic"
 
 gap-pkg_enable_tests

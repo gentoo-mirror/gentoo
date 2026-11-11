@@ -5,18 +5,15 @@ EAPI=8
 
 inherit gap-pkg
 
-DESCRIPTION="Generate documentation from GAP source code"
+DESCRIPTION="Computing the Automorphism Group of a p-Group"
+HOMEPAGE="https://gap-packages.github.io/autpgrp/"
 SRC_URI="https://github.com/gap-packages/${PN}/releases/download/v${PV}/${P}.tar.gz"
-S="${WORKDIR}/AutoDoc-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
-BDEPEND="test? ( dev-gap/io )"
-gap-pkg_enable_tests
+DOCS=( README CHANGES.md )
 
-src_prepare() {
-	default
-	rm Makefile || die
-}
+GAP_PKG_HTML_DOCDIR="htm"
+gap-pkg_enable_tests
