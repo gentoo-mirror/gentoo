@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,12 @@ SRC_URI="https://gitlab.gnome.org/GNOME/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1+"
 SLOT="1"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="gtk-doc sysprof vala"
 
 RDEPEND="
 	dev-libs/glib:2
-	>=gui-libs/gtk-4.15.5:4
+	>=gui-libs/gtk-4.15.5:4[introspection]
 	>=gui-libs/gtksourceview-5.10.0:5
 	app-text/enchant:2
 	dev-libs/icu:=
