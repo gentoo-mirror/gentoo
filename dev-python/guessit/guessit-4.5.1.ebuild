@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="
 	>=dev-python/babelfish-0.6.1[${PYTHON_USEDEP}]
 	<dev-python/rebulk-7[${PYTHON_USEDEP}]
-	>=dev-python/rebulk-6.0.1[${PYTHON_USEDEP}]
+	>=dev-python/rebulk-6.0.2[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.0[${PYTHON_USEDEP}]
 "
 # pyyaml is optional, keep it because we historically had it by default
