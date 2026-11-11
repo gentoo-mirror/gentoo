@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=sci-mathematics/gap:=
 DESCRIPTION=Bindings for low level C library I/O routines
 EAPI=8
-HOMEPAGE=https://www.gap-system.org/packages/#io
+HOMEPAGE=https://gap-packages.github.io/io/
 INHERIT=gap-pkg
 IUSE=examples test
 KEYWORDS=~amd64 ~riscv
@@ -11,6 +11,6 @@ LICENSE=GPL-3+
 RDEPEND=sci-mathematics/gap:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/gap-packages/io/releases/download/v4.10.0/io-4.10.0.tar.bz2
+SRC_URI=https://github.com/gap-packages/io/releases/download/v4.11.0/io-4.11.0.tar.bz2
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
-_md5_=bef798cf2244c6cd2d955cfea749be48
+_md5_=099fccc685654a1c8c366e3a579e7e29

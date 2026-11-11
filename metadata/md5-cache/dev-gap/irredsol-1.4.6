@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Irreducible soluble linear groups over finite fields and more
+EAPI=8
+HOMEPAGE=https://github.com/bh11/irredsol/
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=BSD-2
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bh11/irredsol/releases/download/IRREDSOL-1.4.6/irredsol-1.4.6.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
+_md5_=f29ab493af26f4e90e31064b41bfb38d

@@ -1,0 +1,14 @@
+BDEPEND=dev-cpp/magic_enum eigen? ( >=dev-cpp/eigen-5.0.1 ) test? ( =dev-cpp/catch-3* )
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/libfmt
+DESCRIPTION=C++ library for semigroups and monoids
+EAPI=9
+HOMEPAGE=https://github.com/libsemigroups/libsemigroups
+IUSE=cpu_flags_x86_popcnt eigen test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/libfmt eigen? ( >=dev-cpp/eigen-5.0.1:= ) dev-cpp/magic_enum
+RESTRICT=!test? ( test )
+SLOT=0/3
+SRC_URI=https://github.com/libsemigroups/libsemigroups/releases/download/v3.6.1/libsemigroups-3.6.1.tar.gz
+_md5_=e31a94fd250616954231b9bbf06ac6e2
