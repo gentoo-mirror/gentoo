@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="152"
+CHROMIUM_VERSION="158"
 CHROMIUM_LANGS="
 	af
 	am
@@ -97,7 +97,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
-KEYWORDS="-* amd64 arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt6 widevine"
 RESTRICT="bindist mirror"
 
