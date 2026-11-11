@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-04">
+    <title>libheif: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in libheif, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">libheif</product>
+    <announced>2026-11-11</announced>
+    <revised count="1">2026-11-11</revised>
+    <bug>897904</bug>
+    <bug>979186</bug>
+    <bug>982706</bug>
+    <bug>983125</bug>
+    <bug>983869</bug>
+    <bug>985013</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libheif" auto="yes" arch="*">
+            <unaffected range="ge">1.23.7</unaffected>
+            <vulnerable range="lt">1.23.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libheif is an ISO/IEC 23008-12 HEIF and AVIF (AV1 Image File Format) file format decoder and encoder. HEIC and AVIF are new image file formats employing HEVC (H.265) or AV1 image coding, respectively, for the best compression ratios currently possible.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libheif. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libheif users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libheif-1.23.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0996">CVE-2023-0996</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29659">CVE-2023-29659</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32738">CVE-2026-32738</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32739">CVE-2026-32739</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32740">CVE-2026-32740</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32741">CVE-2026-32741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32814">CVE-2026-32814</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-32882">CVE-2026-32882</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-41069">CVE-2026-41069</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-41071">CVE-2026-41071</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47178">CVE-2026-47178</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47247">CVE-2026-47247</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47251">CVE-2026-47251</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47254">CVE-2026-47254</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47709">CVE-2026-47709</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-47714">CVE-2026-47714</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-48029">CVE-2026-48029</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-49271">CVE-2026-49271</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50142">CVE-2026-50142</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-62292">CVE-2026-62292</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84383">CVE-2026-84383</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84384">CVE-2026-84384</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84444">CVE-2026-84444</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84446">CVE-2026-84446</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84447">CVE-2026-84447</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84448">CVE-2026-84448</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84450">CVE-2026-84450</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-84451">CVE-2026-84451</uri>
+        <uri>GHSA-24wx-9w62-c96w</uri>
+        <uri>GHSA-2g6j-vhr6-6wrj</uri>
+        <uri>GHSA-2jg2-4ch7-h545</uri>
+        <uri>GHSA-35mc-3887-rr37</uri>
+        <uri>GHSA-3gwx-cjv4-jr74</uri>
+        <uri>GHSA-46rp-pcq2-rpmr</uri>
+        <uri>GHSA-48p4-gj45-w9v6</uri>
+        <uri>GHSA-4h82-g446-83fm</uri>
+        <uri>GHSA-4jqm-2x34-6f6r</uri>
+        <uri>GHSA-4rv4-953r-p24q</uri>
+        <uri>GHSA-6fqc-p7r8-2g36</uri>
+        <uri>GHSA-73j7-gvm9-x8q6</uri>
+        <uri>GHSA-73p7-m7gg-w2jv</uri>
+        <uri>GHSA-74mj-m37q-h3q9</uri>
+        <uri>GHSA-7qm8-hj35-269r</uri>
+        <uri>GHSA-86ch-j429-fpr2</uri>
+        <uri>GHSA-8857-r8x5-7499</uri>
+        <uri>GHSA-8fmq-r4pf-7m57</uri>
+        <uri>GHSA-8p2c-9wv4-rx4p</uri>
+        <uri>GHSA-9c75-9g8r-4728</uri>
+        <uri>GHSA-9rj8-5mp5-26c9</uri>
+        <uri>GHSA-9rpf-2x22-78m9</uri>
+        <uri>GHSA-9ww4-9v47-m7pj</uri>
+        <uri>GHSA-fcmw-5764-7rq8</uri>
+        <uri>GHSA-fpr5-xpfr-vcq3</uri>
+        <uri>GHSA-fqpw-fj22-78w4</uri>
+        <uri>GHSA-g89c-p67h-r497</uri>
+        <uri>GHSA-gff5-3vgr-p8h2</uri>
+        <uri>GHSA-gh5q-69gg-c964</uri>
+        <uri>GHSA-h4h8-qgvc-m7r2</uri>
+        <uri>GHSA-hh47-fhqr-cj2r</uri>
+        <uri>GHSA-hpg4-g2gc-pq42</uri>
+        <uri>GHSA-j264-xvrp-5v7q</uri>
+        <uri>GHSA-jc8f-p23p-5hjg</uri>
+        <uri>GHSA-jx54-6rm6-2cgj</uri>
+        <uri>GHSA-mw6f-29j3-76f4</uri>
+        <uri>GHSA-p58j-h3vm-3fp5</uri>
+        <uri>GHSA-pfcm-ffqg-84hx</uri>
+        <uri>GHSA-prgh-72vc-3xmc</uri>
+        <uri>GHSA-q492-cfcm-895h</uri>
+        <uri>GHSA-q7mw-2fmm-5q94</uri>
+        <uri>GHSA-qwpf-5wf7-r996</uri>
+        <uri>GHSA-r7gr-2xm2-23wf</uri>
+        <uri>GHSA-r9cg-w542-g7hj</uri>
+        <uri>GHSA-rcqc-842v-m26h</uri>
+        <uri>GHSA-rhgw-q5g8-xjh2</uri>
+        <uri>GHSA-v8qw-hwjv-44hw</uri>
+        <uri>GHSA-vg7w-rp49-4fc2</uri>
+        <uri>GHSA-vv35-6hxg-95x8</uri>
+        <uri>GHSA-w7mc-p8jc-p853</uri>
+        <uri>GHSA-x8r2-mggj-j6wr</uri>
+        <uri>GHSA-x8xm-cm2c-cfc8</uri>
+        <uri>GHSA-xpw3-9rhw-482x</uri>
+        <uri>GHSA-xrp2-63fq-jm8q</uri>
+        <uri>GHSA-xw34-mjcp-jqh8</uri>
+        <uri>GHSA-xwcv-cp39-m2w4</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-11T04:27:40.580599Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-11T04:27:40.589763Z">sam</metadata>
+</glsa>

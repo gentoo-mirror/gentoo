@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-03">
+    <title>libde265: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in libde265, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">libde265</product>
+    <announced>2026-11-11</announced>
+    <revised count="1">2026-11-11</revised>
+    <bug>905099</bug>
+    <bug>917764</bug>
+    <bug>982723</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libde265" auto="yes" arch="*">
+            <unaffected range="ge">1.1.3</unaffected>
+            <vulnerable range="lt">1.1.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Open h.265 video codec implementation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libde265. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libde265 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libde265-1.1.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27102">CVE-2023-27102</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27103">CVE-2023-27103</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43887">CVE-2023-43887</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-33164">CVE-2026-33164</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-33165">CVE-2026-33165</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-45382">CVE-2026-45382</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-45383">CVE-2026-45383</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-49295">CVE-2026-49295</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-49337">CVE-2026-49337</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-49346">CVE-2026-49346</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-54240">CVE-2026-54240</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-54241">CVE-2026-54241</uri>
+        <uri>GHSA-ccfw-29x7-rrx3</uri>
+        <uri>GHSA-g2rg-wj66-w594</uri>
+        <uri>GHSA-g5hj-rf9f-7vxm</uri>
+        <uri>GHSA-hwhx-x2mq-ccr9</uri>
+        <uri>GHSA-j2qq-x2xq-g9wr</uri>
+        <uri>GHSA-mm7m-v26f-wf8x</uri>
+        <uri>GHSA-vv8h-932h-7r86</uri>
+        <uri>GHSA-wg9q-ppqw-6q38</uri>
+        <uri>GHSA-x27c-jp65-g395</uri>
+        <uri>GHSA-xp3h-6f5r-8cxp</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-11T04:11:10.820048Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-11T04:11:10.830131Z">sam</metadata>
+</glsa>
