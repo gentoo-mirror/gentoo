@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-01">
+    <title>Brotli: Remote code execution</title>
+    <synopsis>A vulnerability has been discovered in Brotli, allowing remote code execution.</synopsis>
+    <product type="ebuild">brotli</product>
+    <announced>2026-11-10</announced>
+    <revised count="1">2026-11-10</revised>
+    <bug>984677</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/brotli" auto="yes" arch="*">
+            <unaffected range="ge">1.2.0-r2</unaffected>
+            <vulnerable range="lt">1.2.0-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Brotli is a generic-purpose lossless compression algorithm.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Brotli. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A remote attacker could achieve code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Brotli users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/brotli-1.2.0-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-111497">CVE-2026-111497</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-10T23:31:14.026217Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-10T23:31:14.037924Z">sam</metadata>
+</glsa>
