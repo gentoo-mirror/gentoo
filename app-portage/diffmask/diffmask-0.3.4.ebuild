@@ -3,16 +3,18 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_USE_PEP517=flit-core
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
 DESCRIPTION="A utility to maintain package.unmask entries up-to-date with masks"
-HOMEPAGE="https://github.com/projg2/diffmask/"
-SRC_URI="https://github.com/projg2/diffmask/releases/download/${P}/${P}.tar.bz2"
+HOMEPAGE="https://gitweb.gentoo.org/proj/diffmask.git/"
+SRC_URI="
+	https://gitweb.gentoo.org/proj/diffmask.git/snapshot/${P}.tar.gz
+"
 
-LICENSE="BSD"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~mips ~x86"
 
