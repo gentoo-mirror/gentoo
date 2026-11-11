@@ -1,13 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=>=net-analyzer/icinga2-2.4.0 >=www-apps/icingaweb2-2.5.0
+DEPEND=>=net-analyzer/icinga2-2.4.0 >=dev-libs/icinga-php-library-0.19.0 >=dev-libs/icinga-php-thirdparty-0.15.0 >=www-apps/icingaweb2-2.12.5
 DESCRIPTION=Icinga Web 2 plugin for Graphite
 EAPI=8
 HOMEPAGE=https://www.icinga.com/docs/graphite/latest/
 INHERIT=git-r3
-LICENSE=GPL-2
+LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=>=net-analyzer/icinga2-2.4.0 >=www-apps/icingaweb2-2.5.0
+RDEPEND=>=net-analyzer/icinga2-2.4.0 >=dev-libs/icinga-php-library-0.19.0 >=dev-libs/icinga-php-thirdparty-0.15.0 >=www-apps/icingaweb2-2.12.5
 SLOT=0
 _eclasses_=git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=4db4be813c11212305213f0346489256
+_md5_=0c0288b0e585dfc02ffbc7c632a992d9

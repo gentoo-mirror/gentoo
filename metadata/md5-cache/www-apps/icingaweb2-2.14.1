@@ -1,0 +1,15 @@
+DEFINED_PHASES=config install postinst setup
+DEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.2[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.3[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.4[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.5[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-1.1.0 >=dev-libs/icinga-php-thirdparty-1.0.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
+DESCRIPTION=Icinga Web 2 - Frontend for icinga2
+EAPI=8
+HOMEPAGE=https://icinga.com/
+INHERIT=depend.apache eapi9-ver
+IUSE=apache2 apache2-server fpm ldap mysql nginx pdf postgres apache2
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.2[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.3[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.4[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.5[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-1.1.0 >=dev-libs/icinga-php-thirdparty-1.0.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( acct-user/apache[icingaweb2] ) nginx? ( acct-user/nginx[icingaweb2] ) apache2? ( =www-servers/apache-2* )
+REQUIRED_USE=( ?? ( apache2-server nginx ) ) apache2? ( apache2-server )
+SLOT=0
+SRC_URI=https://codeload.github.com/Icinga/icingaweb2/tar.gz/v2.14.1 -> icingaweb2-2.14.1.tar.gz
+_eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0
+_md5_=a68f36e75834a39507676dc8d9575fa6

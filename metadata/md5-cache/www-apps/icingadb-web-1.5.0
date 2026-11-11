@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=UI for Icinga DB
+EAPI=8
+HOMEPAGE=https://icinga.com/docs/icinga-db-web/
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3+
+RDEPEND=|| ( dev-lang/php:8.2[curl,xml] dev-lang/php:8.3[curl,xml] dev-lang/php:8.4[curl,xml] dev-lang/php:8.5[curl,xml] ) >=dev-libs/icinga-php-library-1.2.0 >=dev-libs/icinga-php-thirdparty-1.1.0 >=www-apps/icingaweb2-2.12.0
+SLOT=0
+SRC_URI=https://github.com/Icinga/icingadb-web/archive/refs/tags/v1.5.0.tar.gz -> icingadb-web-1.5.0.tar.gz
+_md5_=765335a0be23d8902703eb2a1492e775
