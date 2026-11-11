@@ -9,16 +9,18 @@ HOMEPAGE="
 	https://github.com/gentoo/mgorny-dev-scripts/
 "
 SRC_URI="
-	https://gitweb.gentoo.org/proj/mgorny-dev-scripts.git/snapshot/${P}.tar.bz2
+	https://distfiles.gentoo.org/pub/dev/mgorny%40gentoo.org/mgorny-dev-scripts/${P}.tar.xz
 "
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 
 RDEPEND="
+	app-misc/jq
 	app-portage/gentoolkit
 	>=app-portage/gpyutils-0.12
+	dev-libs/libxml2
 	dev-perl/URI
 	dev-util/pkgcheck
 	dev-vcs/git
