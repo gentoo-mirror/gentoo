@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-05">
+    <title>ImageMagick: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in ImageMagick, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">imagemagick</product>
+    <announced>2026-11-12</announced>
+    <revised count="1">2026-11-12</revised>
+    <bug>963606</bug>
+    <bug>972688</bug>
+    <bug>983405</bug>
+    <bug>986125</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/imagemagick" auto="yes" arch="*">
+            <unaffected range="ge">7.1.2.35</unaffected>
+            <vulnerable range="lt">7.1.2.35</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ImageMagick is a software suite to create, edit, and compose bitmap images, that can also read, write, and convert images in many other formats.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ImageMagick. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ImageMagick users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/imagemagick-7.1.2.35"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-55154">CVE-2025-55154</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-55160">CVE-2025-55160</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-55212">CVE-2025-55212</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-55298">CVE-2025-55298</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-57803">CVE-2025-57803</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-57807">CVE-2025-57807</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34238">CVE-2026-34238</uri>
+        <uri>GHSA-23hg-53q6-hqfg</uri>
+        <uri>GHSA-2pc3-3339-3qc9</uri>
+        <uri>GHSA-3pf7-cjfr-3fpq</uri>
+        <uri>GHSA-5222-mhv9-26rg</uri>
+        <uri>GHSA-528x-2384-jmxp</uri>
+        <uri>GHSA-5jf2-9gcp-q234</uri>
+        <uri>GHSA-5jwm-r7f4-4m53</uri>
+        <uri>GHSA-5v9f-r478-x7vx</uri>
+        <uri>GHSA-67p3-xhc7-g797</uri>
+        <uri>GHSA-6hgw-6x87-578x</uri>
+        <uri>GHSA-6p6q-wfrv-ffhh</uri>
+        <uri>GHSA-6xcw-8jvx-wh63</uri>
+        <uri>GHSA-7438-vh5v-v52h</uri>
+        <uri>GHSA-79p5-w6jv-r997</uri>
+        <uri>GHSA-7f2w-c8wf-xvf8</uri>
+        <uri>GHSA-7r5g-p7ff-jgcp</uri>
+        <uri>GHSA-83w9-w85j-h9jc</uri>
+        <uri>GHSA-8ghq-p369-g395</uri>
+        <uri>GHSA-8w9c-hj38-8pf9</uri>
+        <uri>GHSA-9ccg-6pjw-x645</uri>
+        <uri>GHSA-c2qq-jqw7-q4mx</uri>
+        <uri>GHSA-c764-55gw-gj6c</uri>
+        <uri>GHSA-fh55-q5pj-pxgw</uri>
+        <uri>GHSA-fp46-842c-2v83</uri>
+        <uri>GHSA-g5j8-ff59-wp88</uri>
+        <uri>GHSA-gr4q-6v79-qj3g</uri>
+        <uri>GHSA-h3qx-937j-245g</uri>
+        <uri>GHSA-h9f8-qmvx-p39m</uri>
+        <uri>GHSA-hpjv-7vmp-f58w</uri>
+        <uri>GHSA-j2rp-5r6m-f7x8</uri>
+        <uri>GHSA-j657-rmv3-4m94</uri>
+        <uri>GHSA-m2p5-qpx9-5mx6</uri>
+        <uri>GHSA-m938-565c-h9qf</uri>
+        <uri>GHSA-m9p2-wqc3-mj22</uri>
+        <uri>GHSA-mf84-8w53-2f2c</uri>
+        <uri>GHSA-mqmp-r5jh-jx7w</uri>
+        <uri>GHSA-mxvv-97wh-cfmm</uri>
+        <uri>GHSA-p58q-7cv7-7w3m</uri>
+        <uri>GHSA-pj4h-g4pf-66v3</uri>
+        <uri>GHSA-pp97-v3gv-9vh4</uri>
+        <uri>GHSA-pwpf-8799-94cj</uri>
+        <uri>GHSA-q66g-3m63-78mh</uri>
+        <uri>GHSA-qp29-wxp5-wh82</uri>
+        <uri>GHSA-qq8x-fq3x-43h4</uri>
+        <uri>GHSA-v5f5-4v9x-p3f2</uri>
+        <uri>GHSA-v86v-4xf8-xjq4</uri>
+        <uri>GHSA-v9q4-cm37-q2jm</uri>
+        <uri>GHSA-vm77-q83h-5fhg</uri>
+        <uri>GHSA-w67p-4ppm-gmrg</uri>
+        <uri>GHSA-wvfx-g9wq-253w</uri>
+        <uri>GHSA-x258-xjqf-6j3f</uri>
+        <uri>GHSA-x3j8-cjwr-m4pv</uri>
+        <uri>GHSA-x48p-6655-8qgv</uri>
+        <uri>GHSA-xvqp-rcj6-3h2q</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-12T02:04:20.825506Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-12T02:04:20.832253Z">sam</metadata>
+</glsa>
