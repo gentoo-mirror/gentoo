@@ -1,0 +1,16 @@
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 ) virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
+DESCRIPTION=Microsoft Defender Advanced Threat Protection for Endpoints
+EAPI=8
+HOMEPAGE=https://learn.microsoft.com/defender-endpoint/microsoft-defender-endpoint-linux
+IDEPEND=selinux? ( sys-apps/policycoreutils )
+INHERIT=linux-info rpm shell-completion systemd
+IUSE=selinux
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=acct-user/mdatp >=dev-lang/python-3.11 dev-libs/glib:2 dev-libs/libffi:0/8 dev-libs/libpcre2:0/3 || ( dev-libs/openssl-compat:3 dev-libs/openssl:0/3 ) net-libs/libmnl:0/0.2.0 net-libs/libnetfilter_queue net-libs/libnfnetlink net-misc/curl sys-apps/acl sys-apps/util-linux sys-libs/libseccomp sys-libs/libselinux virtual/zlib:0/1
+RESTRICT=bindist mirror strip
+SLOT=0
+SRC_URI=https://packages.microsoft.com/fedora/44/prod/Packages/m/mdatp-101.26101.0000-1.x86_64.rpm
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	716d8645cb3f94e78951eda6c33e0546	shell-completion	42587a281b8b546975e45fad82edcb50	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=0af83cd33ebcdc84902b46f98b35038f
