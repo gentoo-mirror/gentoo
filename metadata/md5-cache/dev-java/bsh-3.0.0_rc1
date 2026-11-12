@@ -5,11 +5,11 @@ EAPI=9
 HOMEPAGE=https://github.com/beanshell/beanshell
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm64 ppc64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=LGPL-2.1
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/beanshell/beanshell/archive/3.0.0RC1.tar.gz -> bsh-3.0.0_rc1.tar.gz
 _eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c
-_md5_=49b2210bcbe891bb8ad058f6587011dc
+_md5_=1a8fd2114cca8e95900c96b60afc2652
