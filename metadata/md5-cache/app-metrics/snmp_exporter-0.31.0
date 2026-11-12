@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.26.0 >=dev-lang/go-1.24.11:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst test unpack
+DEPEND=acct-group/snmp_exporter acct-user/snmp_exporter net-analyzer/net-snmp:=
+DESCRIPTION=Prometheus exporter for snmp metrics
+EAPI=8
+HOMEPAGE=https://github.com/prometheus/snmp_exporter
+INHERIT=eapi9-ver go-module systemd
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD BSD-2 MIT
+RDEPEND=acct-group/snmp_exporter acct-user/snmp_exporter net-analyzer/net-snmp:=
+SLOT=0
+SRC_URI=https://github.com/prometheus/snmp_exporter/archive/v0.31.0.tar.gz -> snmp_exporter-0.31.0.tar.gz https://github.com/gentoo-golang-dist/snmp_exporter/releases/download/v0.31.0/snmp_exporter-0.31.0-vendor.tar.xz
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=ebeae74fb8e6e0819ca42dac3e88bebf
