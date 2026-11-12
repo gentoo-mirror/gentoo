@@ -16,15 +16,10 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	>=dev-python/gast-0.7.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests unittest
-
-PATCHES=(
-	# https://github.com/serge-sans-paille/beniget/commit/8234baaaa433a8d23445be1ac48e20f63e96d0e8
-	"${FILESDIR}/${P}-pypy311.patch"
-)

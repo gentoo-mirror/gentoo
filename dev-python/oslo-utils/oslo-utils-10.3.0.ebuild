@@ -18,14 +18,14 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/iso8601-0.1.11[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/netaddr-0.10.0[${PYTHON_USEDEP}]
 	>=dev-python/debtcollector-1.2.0[${PYTHON_USEDEP}]
-	>=dev-python/pyparsing-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pyparsing-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20.4[${PYTHON_USEDEP}]
 	>=dev-python/pbr-6.1.0[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
