@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Efficient integer types on 64-bit architectures
+EAPI=8
+HOMEPAGE=https://github.com/mirage/optint
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/0.3.0
+SRC_URI=https://github.com/mirage/optint/archive/v0.3.0.tar.gz -> optint-0.3.0.gh.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
+_md5_=6db393fcaea2450a6b0d633d27463d83
