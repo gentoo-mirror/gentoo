@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-07">
+    <title>curl: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in curl, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">curl</product>
+    <announced>2026-11-12</announced>
+    <revised count="1">2026-11-12</revised>
+    <bug>937125</bug>
+    <bug>942952</bug>
+    <bug>946291</bug>
+    <bug>949330</bug>
+    <bug>949342</bug>
+    <bug>962682</bug>
+    <bug>966140</bug>
+    <bug>969430</bug>
+    <bug>971090</bug>
+    <bug>978006</bug>
+    <bug>982083</bug>
+    <bug>984218</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/curl" auto="yes" arch="*">
+            <unaffected range="ge">8.23.0</unaffected>
+            <vulnerable range="lt">8.23.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A command line tool and library for transferring data with URLs.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in curl. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All curl users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/curl-8.23.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7264">CVE-2024-7264</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9681">CVE-2024-9681</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11053">CVE-2024-11053</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0167">CVE-2025-0167</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0665">CVE-2025-0665</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0725">CVE-2025-0725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-9086">CVE-2025-9086</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-10148">CVE-2025-10148</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-11563">CVE-2025-11563</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-13034">CVE-2025-13034</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-14017">CVE-2025-14017</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-14524">CVE-2025-14524</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-14819">CVE-2025-14819</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-15079">CVE-2025-15079</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-15224">CVE-2025-15224</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-1965">CVE-2026-1965</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-3783">CVE-2026-3783</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-3784">CVE-2026-3784</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-3805">CVE-2026-3805</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8286">CVE-2026-8286</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8458">CVE-2026-8458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8924">CVE-2026-8924</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8925">CVE-2026-8925</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8926">CVE-2026-8926</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8927">CVE-2026-8927</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-8932">CVE-2026-8932</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-9079">CVE-2026-9079</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-9080">CVE-2026-9080</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-9545">CVE-2026-9545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-9546">CVE-2026-9546</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-9547">CVE-2026-9547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-10536">CVE-2026-10536</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-11352">CVE-2026-11352</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-11564">CVE-2026-11564</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-11586">CVE-2026-11586</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-11856">CVE-2026-11856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-12064">CVE-2026-12064</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-13608">CVE-2026-13608</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-18924">CVE-2026-18924</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-19931">CVE-2026-19931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-80229">CVE-2026-80229</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-80230">CVE-2026-80230</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-80231">CVE-2026-80231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-80255">CVE-2026-80255</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-80256">CVE-2026-80256</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-82208">CVE-2026-82208</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-82209">CVE-2026-82209</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86409">CVE-2026-86409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86410">CVE-2026-86410</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86411">CVE-2026-86411</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86412">CVE-2026-86412</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86413">CVE-2026-86413</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86414">CVE-2026-86414</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-86415">CVE-2026-86415</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87861">CVE-2026-87861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87862">CVE-2026-87862</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87863">CVE-2026-87863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87864">CVE-2026-87864</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87865">CVE-2026-87865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-87866">CVE-2026-87866</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92386">CVE-2026-92386</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92387">CVE-2026-92387</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92388">CVE-2026-92388</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92389">CVE-2026-92389</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92390">CVE-2026-92390</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92391">CVE-2026-92391</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-92392">CVE-2026-92392</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-94265">CVE-2026-94265</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-94266">CVE-2026-94266</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-107928">CVE-2026-107928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-107929">CVE-2026-107929</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-12T03:45:21.111320Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-12T03:45:21.114019Z">sam</metadata>
+</glsa>
