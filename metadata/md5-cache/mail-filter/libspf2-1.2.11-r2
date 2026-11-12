@@ -1,7 +1,7 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.20:1.20 >=dev-build/automake-1.19:1.19 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DESCRIPTION=implementation of Sender Policy Framework (SPF)
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.libspf2.net/
 INHERIT=autotools
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
@@ -9,4 +9,4 @@ LICENSE=|| ( LGPL-2.1 BSD-2 )
 SLOT=0
 SRC_URI=https://github.com/shevek/libspf2/archive/4915c308d57ff3abac9fb241f09c4bed2ab54815.tar.gz -> libspf2-1.2.11.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0bc520f407fb0152b3e41189803c83f7
-_md5_=1c8223020b8984fed843bf4e2f191e4e
+_md5_=b0a305d2c0278e2023ebf031b3f73ed6
