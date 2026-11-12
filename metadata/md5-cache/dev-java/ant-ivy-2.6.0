@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-apache-ant-20260402 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=>=dev-java/ant-1.10.15-r1:0 dev-java/bcpg:0 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/commons-vfs:2 dev-java/httpcomponents-client:4 dev-java/httpcore:0 dev-java/jakarta-oro:2.0 dev-java/jsch:0 dev-java/jsch-agent-proxy:0 || ( virtual/jdk:11 virtual/jdk:1.8 ) test? ( >=dev-java/ant-1.10.15-r1:0[junit,junit4,testutil] >=dev-java/ant-contrib-1.0_beta6_pre20201123-r3:0 >=dev-java/commons-io-2.21.0:0 >=dev-java/commons-lang-3.20.0-r1:0 >=dev-java/commons-logging-1.3.6:0 dev-java/junit:0 dev-java/junit:4 >=dev-java/hamcrest-3.0:0 dev-java/xmlunit:1 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Ivy is a free java based dependency manager
+EAPI=9
+HOMEPAGE=https://ant.apache.org/ivy/
+INHERIT=java-pkg-2 java-pkg-simple verify-sig
+IUSE=doc source test verify-sig
+KEYWORDS=~amd64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=>=dev-java/ant-1.10.15-r1:0 dev-java/bcpg:0 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/commons-vfs:2 dev-java/httpcomponents-client:4 dev-java/httpcore:0 dev-java/jakarta-oro:2.0 dev-java/jsch:0 dev-java/jsch-agent-proxy:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/ant/ivy/2.6.0/apache-ivy-2.6.0-src.tar.gz verify-sig? ( mirror://apache/ant/ivy/2.6.0/apache-ivy-2.6.0-src.tar.gz.asc )
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	e77da02b8784b3f0dab3a74228f7f82c	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
+_md5_=7bd2bb2b78da93e5ed8ae44052ed6499
