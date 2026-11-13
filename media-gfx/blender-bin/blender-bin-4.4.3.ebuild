@@ -39,7 +39,6 @@ RDEPEND="
 	sys-libs/glibc
 	sys-libs/ncurses
 	virtual/libcrypt
-	x11-base/xorg-server
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -48,6 +47,7 @@ RDEPEND="
 	x11-libs/libXi
 	x11-libs/libXrender
 	x11-libs/libXt
+	x11-libs/libXxf86vm
 	x11-libs/libdrm
 	x11-libs/libxkbcommon
 	cuda? (

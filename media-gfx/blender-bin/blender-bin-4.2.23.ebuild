@@ -34,12 +34,13 @@ fi
 
 # no := here, this is prebuilt
 RDEPEND="
+	app-arch/zstd
 	media-libs/libglvnd[X]
 	sys-apps/util-linux
 	sys-libs/glibc
 	sys-libs/ncurses
 	virtual/libcrypt
-	x11-base/xorg-server
+	virtual/zlib:0/1
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -48,7 +49,9 @@ RDEPEND="
 	x11-libs/libXi
 	x11-libs/libXrender
 	x11-libs/libXt
+	x11-libs/libXxf86vm
 	x11-libs/libdrm
+	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	cuda? (
 		x11-drivers/nvidia-drivers
@@ -143,7 +146,7 @@ src_prepare() {
 	if ! use oneapi; then
 		rm \
 			lib/libOpenImageDenoise_device_sycl* \
-			lib/libur_adapter_level_zero* \
+			lib/libpi_level_zero* \
 			|| eqawarn "failed cleaning oneapi"
 	fi
 
@@ -152,9 +155,11 @@ src_prepare() {
 	mv blender.svg "${P}.svg" || die
 	mv blender-symbolic.svg "${P}-symbolic.svg" || die
 
+	# X-KDE-RunOnDiscreteGpu is obsolete, so trim it
 	sed \
 		-e "s/=blender/=${P}/" \
 		-e "s/Name=Blender/Name=Blender Bin ${PV}/" \
+		-e "/X-KDE-RunOnDiscreteGpu.*/d" \
 		-i "${P}.desktop" || die
 }
 
