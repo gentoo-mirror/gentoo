@@ -134,6 +134,10 @@ python_test() {
 		test/test_client.py::TestClient::test_repr_srv_host
 		test/asynchronous/test_client.py::TestClient::test_repr_srv_host
 		test/asynchronous/test_ssl.py::TestSSL::test_pyopenssl_ignored_in_async
+
+		# requires pymongocrypt
+		test/asynchronous/test_kms_connect_prose.py
+		test/test_kms_connect.py
 	)
 
 	if ! use test-full; then

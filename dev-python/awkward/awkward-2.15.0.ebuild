@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-56[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-58[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.21.3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/fsspec-2022.11.0[${PYTHON_USEDEP}]
@@ -42,6 +42,8 @@ BDEPEND="
 EPYTEST_IGNORE=(
 	# fails if just caffe2 but not pytorch is installed
 	tests/test_3259_to_torch_from_torch.py
+	# needs files from the git repo, look like dev tooling tests
+	tests/test_4461_cuda_raw_kernel_registry.py
 )
 
 EPYTEST_PLUGINS=()

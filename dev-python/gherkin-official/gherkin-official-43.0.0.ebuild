@@ -21,13 +21,13 @@ S=${WORKDIR}/gherkin-${PV}/python
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/uv-build-0.11[${PYTHON_USEDEP}]
+	>=dev-python/uv-build-0.13[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()

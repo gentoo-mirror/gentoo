@@ -18,13 +18,13 @@ HOMEPAGE="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="big-endian"
 
 # Check QPDF_MIN_VERSION in pyproject.toml on bumps, as well as
 # https://qpdf.readthedocs.io/en/stable/release-notes.html.
 DEPEND="
-	>=app-text/qpdf-12.4.1:0=
+	>=app-text/qpdf-12.4.2:0=
 "
 RDEPEND="
 	${DEPEND}
@@ -33,7 +33,7 @@ RDEPEND="
 	>=dev-python/pillow-10.0.1[lcms,${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/nanobind-2.0[${PYTHON_USEDEP}]
+	>=dev-python/nanobind-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-77.0.3[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-scm-7.0.5[${PYTHON_USEDEP}]
 	test? (

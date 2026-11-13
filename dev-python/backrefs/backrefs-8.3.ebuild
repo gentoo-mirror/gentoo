@@ -4,25 +4,25 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYPI_VERIFY_REPO=https://github.com/python-humanize/humanize
+PYPI_VERIFY_REPO=https://github.com/facelessuser/backrefs
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Common humanization utilities"
+DESCRIPTION="Wrapper around re or regex that adds additional back references"
 HOMEPAGE="
-	https://github.com/python-humanize/humanize/
-	https://pypi.org/project/humanize/
+	https://github.com/facelessuser/backrefs/
+	https://pypi.org/project/backrefs/
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 BDEPEND="
-	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
-		dev-python/freezegun[${PYTHON_USEDEP}]
+		dev-python/regex[${PYTHON_USEDEP}]
+		dev-vcs/git
 	)
 "
 
