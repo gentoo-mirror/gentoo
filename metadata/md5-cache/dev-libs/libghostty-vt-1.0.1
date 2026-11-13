@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/zig:0.17[llvm(+)] dev-lang/zig-bin:0.17 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Zero-dependency C library for parsing terminal sequences and managing state
+EAPI=8
+HOMEPAGE=https://lib.ghostty.org/vt/
+INHERIT=zig
+IUSE=static-libs
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=!<x11-terms/ghostty-1.4.0-r1
+RESTRICT=test
+SLOT=0/1
+SRC_URI=https://github.com/ghostty-org/ghostty/archive/refs/tags/vt-1.0.1.tar.gz -> libghostty-vt-1.0.1.tar.gz https://deps.files.ghostty.org/translate_c-02ff0c523fb92a38939b04d0145c4a9602a74d56.tar.gz -> translate_c-2.0.0-Q_BUWltOBwBYABF84EUL208pIFeUIwbBs29FmVBaafN5.tar.gz https://deps.files.ghostty.org/wuffs-7411f488fe2e2c205c3d3b3d28638b7356522930.tar.gz -> N-V-__8AAP5JWgCGP_AD0teWpa4krRvE9VPZzvviGdbmN4jI.tar.gz https://deps.files.ghostty.org/highway-66486a10623fa0d72fe91260f96c892e41aceb06.tar.gz -> N-V-__8AAGmZhABbsPJLfbqrh6JTHsXhY6qCaLAQyx25e0XE.tar.gz https://deps.files.ghostty.org/uucode-1fb73433bba5d93366c57f23ff2e9d7939746500.tar.gz -> uucode-0.2.0-ZZjBPm6FVgBcY-79AHV8ckQj86z0JwOyVyj89VeZrEiv.tar.gz https://deps.files.ghostty.org/aro-d0c8c4d9c55daa7ef6e40cf0f630a5b5e900989b.tar.gz -> aro-0.0.0-JSD1QtuBNwCASyBtNF3pqTl_W3oAJQGEVyFAtrBSE_Pa.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5	zig-utils	b8670f9a610964359c8de10d86390c87	zig	a218411a88def83f42f4b6bcc71cf215
+_md5_=aec96fd12d42ba91023288d958302e6d
