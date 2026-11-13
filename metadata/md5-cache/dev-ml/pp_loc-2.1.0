@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Quote and highlight input fragments at a given source location
+EAPI=8
+HOMEPAGE=https://github.com/Armael/pp_loc
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+SLOT=0
+SRC_URI=https://github.com/Armael/pp_loc/releases/download/v2.1.0/pp_loc-2.1.0.tbz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
+_md5_=0e8a8547f8d7a0870a931847eafc7112
