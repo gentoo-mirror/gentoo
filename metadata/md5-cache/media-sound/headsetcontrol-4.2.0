@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-libs/hidapi udev? ( virtual/udev )
+DESCRIPTION=A tool to control certain aspects of USB-connected headsets on Linux
+EAPI=8
+HOMEPAGE=https://github.com/Sapd/HeadsetControl
+INHERIT=cmake udev
+IUSE=static-libs udev
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/hidapi udev? ( virtual/udev )
+SLOT=0
+SRC_URI=https://github.com/Sapd/HeadsetControl/archive/refs/tags/4.2.0.tar.gz -> headsetcontrol-4.2.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	udev	1a23882bb73bc31c64a6f00a5e515f34
+_md5_=f3f702aabe0405aac20720f5b2f3b957
