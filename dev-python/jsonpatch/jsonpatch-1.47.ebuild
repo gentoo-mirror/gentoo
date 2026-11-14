@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -32,18 +32,13 @@ RDEPEND="
 BDEPEND="
 	test? (
 		${RDEPEND}
+		dev-python/hypothesis[${PYTHON_USEDEP}]
+		dev-python/simplejson[${PYTHON_USEDEP}]
 	)
 "
 
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# https://github.com/stefankoegl/python-json-patch/pull/159
-	sed -e 's/unittest.makeSuite/unittest.defaultTestLoader.loadTestsFromTestCase/' \
-		-i ext_tests.py tests.py
-}
-
 python_test() {
+	# ext_tests is a runner for external test suites
 	"${EPYTHON}" tests.py || die "Tests of tests.py fail with ${EPYTHON}"
-	"${EPYTHON}" ext_tests.py || die "Tests of ext_tests.py fail with ${EPYTHON}"
+	"${EPYTHON}" property_tests.py || die "Tests of property_tests.py fail with ${EPYTHON}"
 }
