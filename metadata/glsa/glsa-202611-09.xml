@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-09">
+    <title>rsync: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in rsync, the worst of which could result in privilege escalation.</synopsis>
+    <product type="ebuild">rsync</product>
+    <announced>2026-11-14</announced>
+    <revised count="1">2026-11-14</revised>
+    <bug>980780</bug>
+    <bug>985840</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/rsync" auto="yes" arch="*">
+            <unaffected range="ge">3.5.2</unaffected>
+            <vulnerable range="lt">3.5.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>rsync is a server and client utility that provides fast incremental file transfers. It is used to efficiently synchronize files between hosts and is used by emerge to fetch Gentoo&#39;s Portage tree.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in rsync. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All rsync users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/rsync-3.5.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53783">CVE-2026-53783</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53784">CVE-2026-53784</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53785">CVE-2026-53785</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53786">CVE-2026-53786</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53788">CVE-2026-53788</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53789">CVE-2026-53789</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53790">CVE-2026-53790</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53791">CVE-2026-53791</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53792">CVE-2026-53792</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53793">CVE-2026-53793</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53794">CVE-2026-53794</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53795">CVE-2026-53795</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53796">CVE-2026-53796</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53797">CVE-2026-53797</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53798">CVE-2026-53798</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53799">CVE-2026-53799</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53800">CVE-2026-53800</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53801">CVE-2026-53801</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53802">CVE-2026-53802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-53803">CVE-2026-53803</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70452">CVE-2026-70452</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70453">CVE-2026-70453</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70454">CVE-2026-70454</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70455">CVE-2026-70455</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70456">CVE-2026-70456</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70457">CVE-2026-70457</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70458">CVE-2026-70458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70459">CVE-2026-70459</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70460">CVE-2026-70460</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70461">CVE-2026-70461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70462">CVE-2026-70462</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70463">CVE-2026-70463</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-70464">CVE-2026-70464</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-119741">CVE-2026-119741</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-14T05:07:11.702640Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-14T05:07:11.709263Z">sam</metadata>
+</glsa>
