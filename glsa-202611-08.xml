@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-08">
+    <title>Tor: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Tor, the worst of which could allow remote code execution.</synopsis>
+    <product type="ebuild">tor</product>
+    <announced>2026-11-14</announced>
+    <revised count="1">2026-11-14</revised>
+    <bug>982162</bug>
+    <bug>983172</bug>
+    <bug>983870</bug>
+    <bug>985320</bug>
+    <bug>986433</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-vpn/tor" auto="yes" arch="*">
+            <unaffected range="ge">0.4.9.17</unaffected>
+            <vulnerable range="lt">0.4.9.17</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Tor is an implementation of second generation Onion Routing, a connection-oriented anonymizing communication service.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Tor. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Tor users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-vpn/tor-0.4.9.17"
+        </code>
+    </resolution>
+    <references>
+        <uri>TROVE-2026-012</uri>
+        <uri>TROVE-2026-030</uri>
+        <uri>TROVE-2026-031</uri>
+        <uri>TROVE-2026-033</uri>
+        <uri>TROVE-2026-034</uri>
+        <uri>TROVE-2026-035</uri>
+        <uri>TROVE-2026-036</uri>
+        <uri>TROVE-2026-038</uri>
+        <uri>TROVE-2026-040</uri>
+        <uri>TROVE-2026-041</uri>
+        <uri>TROVE-2026-042</uri>
+        <uri>TROVE-2026-043</uri>
+        <uri>TROVE-2026-050</uri>
+        <uri>TROVE-2026-051</uri>
+        <uri>TROVE-2026-052</uri>
+        <uri>TROVE-2026-053</uri>
+        <uri>TROVE-2026-056</uri>
+        <uri>TROVE-2026-057</uri>
+        <uri>TROVE-2026-058</uri>
+        <uri>TROVE-2026-062</uri>
+        <uri>TROVE-2026-064</uri>
+        <uri>TROVE-2026-067</uri>
+        <uri>TROVE-2026-072</uri>
+        <uri>TROVE-2026-075</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-14T05:06:21.444718Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-14T05:06:21.457799Z">sam</metadata>
+</glsa>
