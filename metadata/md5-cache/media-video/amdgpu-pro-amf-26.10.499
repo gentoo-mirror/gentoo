@@ -1,0 +1,15 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=AMD's closed source GPU video encode/decode binary driver, for RDNA3 or newer
+EAPI=8
+HOMEPAGE=https://www.amd.com/en/support
+INHERIT=unpacker
+IUSE=video_cards_amdgpu
+KEYWORDS=-* amd64
+LICENSE=AMD-GPU-PRO-EULA
+RDEPEND=!media-video/amdgpu-pro-amf-legacy media-libs/mesa[proprietary-codecs,vulkan] x11-libs/libdrm
+REQUIRED_USE=video_cards_amdgpu
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://repo.radeon.com/amf/26.10.1/ubuntu/pool/main/noble//amf-amdgpu-pro_26.10.499-1_amd64.deb -> amdgpu-pro-amf-26.10.499.deb https://repo.radeon.com/amf/26.10.1/ubuntu/pool/main/noble//libamdenc-amdgpu-pro_26.10.499-1_amd64.deb -> amdgpu-pro-amf-26.10.499-enc.deb
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	unpacker	4332a3f8fa974013f54f3bf39bab0de4
+_md5_=4a4bfeee17a8db511c366a6904ee3554

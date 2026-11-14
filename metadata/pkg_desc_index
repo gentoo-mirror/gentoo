@@ -14433,7 +14433,8 @@ media-tv/xmltv 1.0.0-r1 1.4.0-r1: Set of utilities to manage TV listings stored 
 media-video/acidrip 0.14-r4: A gtk-perl mplayer/mencoder frontend for ripping DVDs
 media-video/aegisub 3.4.2-r1 3.4.2-r3 3.5.1 9999: Advanced subtitle editor
 media-video/alevt 1.8.2-r1: Teletext viewer for X11
-media-video/amdgpu-pro-amf 1.4.36.2125445 1.4.37.2203192 25.20.399 25.30.422: AMD's closed source Advanced Media Framework (AMF) driver for AMD GPUs
+media-video/amdgpu-pro-amf 25.20.399 25.30.422 26.10.499: AMD's closed source GPU video encode/decode binary driver, for RDNA3 or newer
+media-video/amdgpu-pro-amf-legacy 25.10.2203192: AMD's closed source GPU video encode/decode binary driver, for RDNA2 or older
 media-video/aravis 0.8.34-r1 9999: Library for video acquisition using Genicam cameras
 media-video/asfrecorder 1.1-r2: Linux WindowsMedia streaming client
 media-video/atomicparsley 0.9.6_p20210715_p151551: Command line program for manipulating iTunes-style metadata in MPEG4 files
@@ -14466,9 +14467,9 @@ media-video/dvdimagecmp 0.3-r1: Tool to compare a burned DVD with an image to ch
 media-video/dvdstyler 3.2.1-r2 3.2.1-r3: A cross-platform free DVD authoring application
 media-video/dvgrab 3.5-r2: Digital Video (DV) grabber for GNU/Linux
 media-video/ffcast 2.4.8: Record screencasts using ffmpeg
-media-video/ffmpeg 4.4.8 6.1.6 7.1.5 8.1.3 9.0.2 9999: Complete solution to record/convert/stream audio and video
+media-video/ffmpeg 4.4.8 6.1.6-r1 7.1.5-r1 8.1.3-r1 9.0.2-r1 9999: Complete solution to record/convert/stream audio and video
 media-video/ffmpeg-chromium 150.0.7871.124 151 152 153 154 155.0.8059.85 156.0.8078.35 157.0.8103.39 158.0.8105.1 9999: FFmpeg built specifically for codec support in Chromium-based browsers
-media-video/ffmpeg-compat 4.4.8 6.1.6 7.1.5 8.1.3: Complete solution to record/convert/stream audio and video
+media-video/ffmpeg-compat 4.4.8 6.1.6-r1 7.1.5-r1 8.1.3-r1: Complete solution to record/convert/stream audio and video
 media-video/ffmpeg-soc-udev-rules 0: Common udev rules for ffmpeg and ffmpeg-compat with USE=soc
 media-video/ffmpegthumbnailer 2.2.3: Lightweight video thumbnailer that can be used by file managers
 media-video/flvstreamer 2.1c: Open source command-line RTMP client to stream audio or video flash content
@@ -14478,7 +14479,7 @@ media-video/gnome-video-effects 0.6.0: Effects for Cheese, the webcam video and 
 media-video/gpac 2.4.0-r1 2.4.0-r2: Implementation of the MPEG-4 Systems standard developed from scratch in ANSI C
 media-video/guvcview 2.2.1 2.2.2: Simple Qt6 or GTK+3 interface for capturing and viewing video from v4l2 devices
 media-video/h264enc 10.4.7-r1: Script to encode H.264/AVC/MPEG-4 Part 10 formats
-media-video/handbrake 1.11.2-r1 9999: Open-source, GPL-licensed, multiplatform, multithreaded video transcoder
+media-video/handbrake 1.11.2-r2 9999: Open-source, GPL-licensed, multiplatform, multithreaded video transcoder
 media-video/haruna 1.8.1-r1 1.9.0: Video player built with Qt/QML and libmpv
 media-video/harvid 0.9.1: HTTP Ardour Video Daemon
 media-video/hevc-hm 17.0: HEVC HM reference software
@@ -18218,6 +18219,7 @@ sys-process/wait_on_pid 0.0.2-r2: Small utility to wait for an arbitrary process
 sys-process/watchpid 0.1-r2: Watches a process for termination
 sys-process/xjobs 20241010 20250529: Reads commands line by line and executes them in parallel
 virtual/acl 0-r2 2.4.0: Virtual for acl support (sys/acl.h)
+virtual/amdgpu-pro-amf 0: Virtual for AMD's closed source GPU video encode/decode binary driver
 virtual/blas 3.8-r1: Virtual for FORTRAN 77 BLAS implementation
 virtual/cblas 3.8-r1: Virtual for BLAS C implementation
 virtual/checkpassword 0-r2: Virtual for checkpassword compatible applications
