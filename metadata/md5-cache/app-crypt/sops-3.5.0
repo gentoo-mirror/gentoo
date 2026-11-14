@@ -1,0 +1,14 @@
+BDEPEND=test? ( app-crypt/gnupg ) >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Simple and flexible tool for managing secrets
+EAPI=8
+HOMEPAGE=https://getsops.io/ https://github.com/getsops/sops
+INHERIT=go-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MPL-2.0 Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/getsops/sops/archive/v3.5.0.tar.gz -> sops-3.5.0.tar.gz https://github.com/gentoo-golang-dist/sops/releases/download/v3.5.0/sops-3.5.0-vendor.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b
+_md5_=f72e737feccdbd6b0124632dce1d8046
