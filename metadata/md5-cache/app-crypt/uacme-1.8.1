@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/ndilieto/uacme https://ndilieto.github.io/uacme/uacme.html https://ndilieto.github.io/uacme/ualpn.html
 INHERIT=autotools
 IUSE=doc gnutls +openssl +ualpn
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3+
 RDEPEND=net-misc/curl:= openssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= )
 REQUIRED_USE=^^ ( gnutls openssl )
 SLOT=0
 SRC_URI=https://github.com/ndilieto/uacme/archive/refs/tags/v1.8.1.tar.gz -> uacme-1.8.1.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0bc520f407fb0152b3e41189803c83f7
-_md5_=603097b89920494d3655b910f972196a
+_md5_=f90345bfcf705b9170aeeb33cab6d3b9
