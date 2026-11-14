@@ -5,9 +5,9 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="AWS C MQTT: C99 implementation"
-HOMEPAGE="https://github.com/awslabs/aws-c-mqtt"
-SRC_URI="https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="AWS C Http: C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
+HOMEPAGE="https://github.com/awslabs/aws-c-http"
+SRC_URI="https://github.com/awslabs/aws-c-http/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1-2)"
@@ -17,7 +17,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/aws-c-common-1.0.0:=
-	>=dev-libs/aws-c-http-1.0.0:=
+	>=dev-libs/aws-c-compression-1.0.0:=
 	>=dev-libs/aws-c-io-1.0.0:=
 "
 RDEPEND="${DEPEND}"
@@ -28,12 +28,19 @@ src_configure() {
 		-DAWS_GET_VERSION_MODULE="${ESYSROOT}/usr/$(get_libdir)/cmake/aws-c-common/modules/AwsGetVersion.cmake"
 		-DBUILD_TESTING=$(usex test)
 	)
+	use test && mycmakeargs+=(
+		-DENABLE_NET_TESTS=OFF # Network Sandbox cause these to fail.
+	)
+
 	cmake_src_configure
 }
 
-src_install() {
+src_install()
+{
 	cmake_src_install
+
 	if use test; then
-		rm -r "${ED}/usr/bin" || die
+		rm "${ED}/usr/bin/elasticurl" || die
+		rm "${ED}/usr/bin/h2benchmark" || die
 	fi
 }

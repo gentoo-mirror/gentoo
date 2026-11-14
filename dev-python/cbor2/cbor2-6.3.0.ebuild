@@ -10,32 +10,32 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 RUST_MIN_VER="1.85.0"
 CRATES="
-	autocfg@1.5.0
-	bigdecimal@0.4.10
-	cfg-if@1.0.4
+	autocfg@1.5.1
+	bigdecimal@0.4.11
+	cfg-if@1.0.5
 	crunchy@0.2.4
 	half@2.7.1
 	heck@0.5.0
-	libc@0.2.182
+	libc@0.2.191
 	libm@0.2.16
-	num-bigint@0.4.6
-	num-integer@0.1.46
+	num-bigint@0.4.8
+	num-integer@0.1.47
 	num-traits@0.2.19
-	once_cell@1.21.3
-	portable-atomic@1.13.1
-	proc-macro2@1.0.106
-	pyo3-build-config@0.28.2
-	pyo3-build-config@0.29.0
-	pyo3-ffi@0.29.0
-	pyo3-macros-backend@0.29.0
-	pyo3-macros@0.29.0
-	pyo3@0.29.0
-	quote@1.0.44
-	syn@2.0.117
+	once_cell@1.21.4
+	portable-atomic@1.15.0
+	proc-macro2@1.0.107
+	pyo3-build-config@0.30.1
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
+	quote@1.0.47
+	syn@2.0.119
+	syn@3.0.9
 	target-lexicon@0.13.5
-	unicode-ident@1.0.24
-	zerocopy-derive@0.8.40
-	zerocopy@0.8.40
+	unicode-ident@1.0.27
+	zerocopy-derive@0.8.63
+	zerocopy@0.8.63
 "
 
 inherit cargo distutils-r1 pypi
@@ -53,7 +53,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	>=dev-python/setuptools-61[${PYTHON_USEDEP}]

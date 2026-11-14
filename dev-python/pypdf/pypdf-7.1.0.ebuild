@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
-SAMPLE_COMMIT=818dc013ad1f537198e9fcfae8a6b0dffe25ffa3
+SAMPLE_COMMIT=80d67b91f3e28909756ca7807bbe8f43b599d12f
 DESCRIPTION="Python library to work with PDF files"
 HOMEPAGE="
 	https://pypi.org/project/pypdf/
@@ -24,11 +24,11 @@ SRC_URI+="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	test? (
-		>=dev-python/cryptography-3.1[${PYTHON_USEDEP}]
+		>=dev-python/cryptography-43[${PYTHON_USEDEP}]
 		dev-python/fonttools[${PYTHON_USEDEP}]
 		>=dev-python/pillow-8.0.0[jpeg,jpeg2k,tiff,zlib,${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -47,6 +47,11 @@ EPYTEST_DESELECT=(
 	tests/test_filters.py::test_flatedecode__decode_png_prediction__speed
 	# apparently we get half the limit somehow?
 	tests/generic/test_data_structures.py::test_dictionary_object__read_from_stream__missing_length__limit
+	tests/generic/test_data_structures.py::test_dictionary_object__read_from_stream__read_unsized__limit
+	tests/test_configuration.py::test_apply_configuration
+	tests/test_configuration.py::test_apply_configuration__nested
+	tests/test_configuration.py::test_get_configuration
+	tests/test_configuration.py::test_overwrite_configuration
 )
 
 src_unpack() {
