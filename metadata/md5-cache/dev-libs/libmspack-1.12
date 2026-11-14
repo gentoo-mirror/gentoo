@@ -1,0 +1,13 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.20:1.20 >=dev-build/automake-1.19:1.19 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
+DESCRIPTION=Library for Microsoft compression formats
+EAPI=8
+HOMEPAGE=https://www.cabextract.org.uk/libmspack/
+INHERIT=autotools
+IUSE=debug doc
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
+LICENSE=LGPL-2.1
+SLOT=0
+SRC_URI=https://github.com/kyz/libmspack/archive/refs/tags/v1.12.tar.gz -> libmspack-1.12.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0bc520f407fb0152b3e41189803c83f7
+_md5_=5f87edd5051bce993de5999a81998363

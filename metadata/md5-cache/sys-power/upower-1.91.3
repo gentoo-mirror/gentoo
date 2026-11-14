@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://upower.freedesktop.org/
 INHERIT=eapi9-ver meson python-any-r1 systemd udev xdg-utils
 IUSE=doc +introspection ios policykit selinux test
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.76:2 sys-apps/dbus:= introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) policykit? ( >=sys-auth/polkit-103 ) kernel_linux? ( >=dev-libs/libgudev-238:= virtual/udev ios? ( >=app-pda/libimobiledevice-1:= >=app-pda/libplist-2:= ) ) selinux? ( sec-policy/selinux-devicekit )
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.3/upower-v1.91.3.tar.bz2
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	8f31ee3f713c71ef36964e0c381dc3c8	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=a04307b5462d7b872db7378e2078123b
+_md5_=77d8ffb98cb833904f1017c0979af36d
