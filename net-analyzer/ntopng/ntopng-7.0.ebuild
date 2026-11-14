@@ -1,13 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools toolchain-funcs
 
-# Check this on bumps, get latest commit from the relevant branch (e.g. 6.0-stable)
+# Check this on bumps, get latest commit from the relevant branch (e.g. 7.0-stable)
 # See bug #894152 and https://github.com/ntop/ntopng/issues/7203
-NTOPNG_DIST_COMMIT="34c53388e8da61e6e04b3efd8e98dcd9b9e4fe1b"
+NTOPNG_DIST_COMMIT="c7bb4b80afae70a17a016409dc07c269be05d4af"
 DESCRIPTION="Network traffic analyzer with web interface"
 HOMEPAGE="https://www.ntop.org/"
 SRC_URI="https://github.com/ntop/ntopng/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -16,17 +16,19 @@ SRC_URI+=" https://github.com/ntop/ntopng-dist/archive/${NTOPNG_DIST_COMMIT}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="snmp"
 
-DEPEND="dev-db/mysql-connector-c:=
-	dev-db/sqlite:3
+DEPEND="dev-db/sqlite:3
+	dev-libs/expat
 	dev-libs/hiredis:=
 	dev-libs/json-c:=
 	dev-libs/libmaxminddb
 	dev-libs/libsodium:=
 	dev-libs/openssl:=
+	snmp? ( net-analyzer/net-snmp:= )
 	net-analyzer/rrdtool
 	net-libs/libpcap
-	~net-libs/nDPI-4.8
+	~net-libs/nDPI-6.0:=
 	>=net-libs/zeromq-3:=
 	net-misc/curl
 	sys-libs/libcap
@@ -36,12 +38,6 @@ RDEPEND="${DEPEND}
 	acct-group/ntopng
 	dev-db/redis"
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.2.1-mysqltool.patch
-	"${FILESDIR}"/${PN}-5.4-ndpi-linking.patch
-	"${FILESDIR}"/${PN}-6.0-dont-const-cast-argv.patch
-)
 
 src_prepare() {
 	default
@@ -61,11 +57,23 @@ src_prepare() {
 src_configure() {
 	tc-export PKG_CONFIG
 
+	# Avoid automagic dependencies
+	local -x ac_cv_lib_ldap_ldap_initialize=no
+	local -x ac_cv_lib_nl_nl_handle_alloc=no
+	local -x ac_cv_lib_radcli_rc_read_config=no
+	local -x ac_cv_lib_rdkafka_rd_kafka_metadata=no
+	if ! use snmp; then
+		local -x ac_cv_lib_netsnmp_init_snmp=no
+		local -x ac_cv_lib_snmp_init_snmp=no
+	fi
+
 	# configure.ac.in at least has some bashisms(?) which get lost(?)
 	# in conversion to configure.ac (like [ -> nothing?) so just force
 	# bash for now. It's still not quite right but at least upstream will be
 	# testing with it. TODO: fix this!
-	CONFIG_SHELL="${BROOT}/bin/bash" econf --with-ndpi-includes="${ESYSROOT}"/usr/include/ndpi
+	CONFIG_SHELL="${BROOT}/bin/bash" econf \
+		--with-dynamic-ndpi \
+		--with-ndpi-includes="${ESYSROOT}"/usr/include/ndpi
 }
 
 src_compile() {
