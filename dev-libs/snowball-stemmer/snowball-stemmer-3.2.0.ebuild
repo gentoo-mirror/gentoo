@@ -5,7 +5,7 @@ EAPI=8
 
 inherit dot-a edo toolchain-funcs
 
-MY_TESTDATA_COMMIT="39dde6129dfc7c65520704ad159d486396e4dbc5"
+MY_TESTDATA_COMMIT="019921c3a41c2b70063ee3feb215a00c8e594597"
 DESCRIPTION="Snowball compiler and stemming algorithms"
 HOMEPAGE="https://snowballstem.org/ https://github.com/snowballstem/snowball/"
 SRC_URI="
@@ -17,7 +17,7 @@ SRC_URI="
 S="${WORKDIR}/snowball-${PV}"
 
 LICENSE="BSD"
-SONAME="$(ver_cut 1-2)"
+SONAME="3.1"
 SLOT="0/${SONAME}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="static-libs test"
@@ -31,9 +31,6 @@ BDEPEND="
 PATCHES=(
 	# Shared-library: export only public sb_stemmer_* symbols (matching libstemmer.h)
 	"${FILESDIR}"/${PN}-3.1.0-public_symbols.patch
-
-	# PR merged
-	"${FILESDIR}/${P}-fix_segfault.patch"
 )
 
 src_configure() {
@@ -48,9 +45,9 @@ src_compile() {
 	tc-export CC AR
 	emake CFLAGS="${CFLAGS} -fPIC" all
 
-	# Created shared library contains a lot of relocations, which slow down loading.
-	# It is known issue and probably the main reason why upstream does not support shared library yet.
+	# upstream has historycally not provided the shared library, mainly due to the large number of relocation,
 	# see https://github.com/snowballstem/snowball/issues/34
+	# SO support depends on the build system changes, see https://github.com/snowballstem/snowball/issues/225
 	edo "${CC}" \
 		${CFLAGS} \
 		${LDFLAGS} \
