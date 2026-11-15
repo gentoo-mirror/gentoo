@@ -41,6 +41,10 @@ PATCHES=(
 	"${FILESDIR}/config-implicit.patch"
 	"${FILESDIR}/binutils-2.47.patch"
 	"${FILESDIR}/libcxx.patch"
+	"${FILESDIR}/musl-realpath.patch"
+	"${FILESDIR}/musl-sscanf.patch"
+	"${FILESDIR}/musl-regex-bre.patch"
+	"${FILESDIR}/fstream.patch"
 )
 
 pkg_setup() {
