@@ -1,13 +1,14 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-ldbraun ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= media-libs/libao >=media-video/ffmpeg-3.3:= net-misc/curl
-DESCRIPTION=A console-based replacement for Pandora's flash player
-EAPI=8
+DEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= media-libs/libao >=media-video/ffmpeg-6:= net-misc/curl
+DESCRIPTION=Console-based replacement for Pandora's flash player
+EAPI=9
 HOMEPAGE=https://6xq.net/pianobar/
-INHERIT=toolchain-funcs flag-o-matic git-r3
+INHERIT=flag-o-matic toolchain-funcs verify-sig git-r3
+IUSE=verify-sig
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= media-libs/libao >=media-video/ffmpeg-3.3:= net-misc/curl
+RDEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= media-libs/libao >=media-video/ffmpeg-6:= net-misc/curl
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=413a1a7145129367284486a7d72e373c
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	verify-sig	f0b3a8c93ad67e5137bbf53281fed014	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=740a72ec1e455ea47e75a6be960160f9
