@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm setup
+DEPEND=X? ( x11-apps/xdpyinfo x11-base/xorg-proto x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
+DESCRIPTION=The spacenavd daemon provides free alternative to the 3dxserv daemon
+EAPI=8
+HOMEPAGE=http://spacenav.sourceforge.net/
+INHERIT=flag-o-matic linux-info systemd toolchain-funcs udev
+IUSE=X
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=X? ( x11-apps/xdpyinfo x11-base/xorg-proto x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
+SLOT=0
+SRC_URI=https://github.com/FreeSpacenav/spacenavd/releases/download/v1.4/spacenavd-1.4.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34
+_md5_=727fec2af3a7f2278aa643e936e330b9
