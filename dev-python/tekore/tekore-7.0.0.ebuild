@@ -17,14 +17,14 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/httpx[${PYTHON_USEDEP}]
+	dev-python/httpx2[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( pytest-{asyncio,httpx} )
+EPYTEST_PLUGINS=( pytest-asyncio httpx2-pytest )
 distutils_enable_tests pytest
 # TODO: package sphinx_codeautolink
 # distutils_enable_sphinx docs/src \
@@ -36,10 +36,3 @@ EPYTEST_DESELECT=(
 	# Internet
 	tests/auth/expiring.py::TestCredentialsOnline::test_bad_arguments_raises_error
 )
-
-src_prepare() {
-	# unpin dependencies
-	sed -i -e 's:,<[0-9.]*::' pyproject.toml || die
-
-	distutils-r1_src_prepare
-}
