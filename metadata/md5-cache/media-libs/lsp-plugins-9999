@@ -1,17 +1,17 @@
 BDEPEND=doc? ( dev-lang/php:* ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
-DEPEND=media-libs/libglvnd[X] media-libs/libsndfile jack? ( media-libs/freetype virtual/jack x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) ladspa? ( media-libs/ladspa-sdk ) lv2? ( media-libs/freetype media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) vst? ( media-libs/freetype x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
+DEPEND=media-libs/libsndfile gstreamer? ( media-libs/gst-plugins-base media-libs/gstreamer ) jack? ( virtual/jack ) lv2? ( x11-libs/cairo ) pipewire? ( media-video/pipewire:= ) X? ( media-libs/fontconfig media-libs/freetype media-libs/libglvnd[X] x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
 DESCRIPTION=Linux Studio Plugins
 EAPI=8
 HOMEPAGE=https://lsp-plug.in
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=flag-o-matic toolchain-funcs xdg git-r3
-IUSE=doc jack ladspa +lv2 test vst X
+IUSE=clap doc gstreamer jack ladspa lv2 pipewire standalone test vst2 +vst3 +X
 LICENSE=LGPL-3
 PROPERTIES=live
-RDEPEND=media-libs/libglvnd[X] media-libs/libsndfile jack? ( media-libs/freetype virtual/jack x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) ladspa? ( media-libs/ladspa-sdk ) lv2? ( media-libs/freetype media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr ) vst? ( media-libs/freetype x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
-REQUIRED_USE=|| ( jack ladspa lv2 )
+RDEPEND=media-libs/libsndfile gstreamer? ( media-libs/gst-plugins-base media-libs/gstreamer ) jack? ( virtual/jack ) lv2? ( x11-libs/cairo ) pipewire? ( media-video/pipewire:= ) X? ( media-libs/fontconfig media-libs/freetype media-libs/libglvnd[X] x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
+REQUIRED_USE=|| ( clap gstreamer ladspa lv2 standalone vst2 vst3 ) standalone? ( || ( jack pipewire ) )
 RESTRICT=!test? ( test ) test
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=f3a0e7dbfb98b2f30aa14a2b6c5fc8e8
+_md5_=162b58d77785c5379ca89da015910ca5

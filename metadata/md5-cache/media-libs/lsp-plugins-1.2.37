@@ -1,0 +1,18 @@
+BDEPEND=doc? ( dev-lang/php:* )
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=media-libs/libsndfile gstreamer? ( media-libs/gst-plugins-base media-libs/gstreamer ) jack? ( virtual/jack ) lv2? ( x11-libs/cairo ) pipewire? ( media-video/pipewire:= ) X? ( media-libs/fontconfig media-libs/freetype media-libs/libglvnd[X] x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
+DESCRIPTION=Linux Studio Plugins
+EAPI=8
+HOMEPAGE=https://lsp-plug.in
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic toolchain-funcs xdg
+IUSE=clap doc gstreamer jack ladspa lv2 pipewire standalone test vst2 +vst3 +X
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=LGPL-3
+RDEPEND=media-libs/libsndfile gstreamer? ( media-libs/gst-plugins-base media-libs/gstreamer ) jack? ( virtual/jack ) lv2? ( x11-libs/cairo ) pipewire? ( media-video/pipewire:= ) X? ( media-libs/fontconfig media-libs/freetype media-libs/libglvnd[X] x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrandr )
+REQUIRED_USE=|| ( clap gstreamer ladspa lv2 standalone vst2 vst3 ) standalone? ( || ( jack pipewire ) )
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/lsp-plugins/lsp-plugins/releases/download/1.2.37/lsp-plugins-src-1.2.37.tar.gz -> lsp-plugins-1.2.37.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=162b58d77785c5379ca89da015910ca5
