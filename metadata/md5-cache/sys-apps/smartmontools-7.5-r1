@@ -11,6 +11,6 @@ LICENSE=GPL-2
 RDEPEND=caps? ( static? ( sys-libs/libcap-ng:=[static-libs] ) !static? ( sys-libs/libcap-ng:= ) ) selinux? ( sys-libs/libselinux:= ) daemon? ( virtual/mailx ) selinux? ( sec-policy/selinux-smartmon ) systemd? ( sys-apps/systemd ) update-drivedb? ( app-alternatives/gpg || ( net-misc/curl net-misc/wget www-client/lynx dev-vcs/subversion ) )
 REQUIRED_USE=( caps? ( daemon ) static? ( !systemd ) )
 SLOT=0
-SRC_URI=https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz verify-sig? ( https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz.asc )
+SRC_URI=https://github.com/smartmontools/smartmontools/releases/download/RELEASE_7_5/smartmontools-7.5.tar.gz verify-sig? ( https://github.com/smartmontools/smartmontools/releases/download/RELEASE_7_5/smartmontools-7.5.tar.gz.asc )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=b17cb3012b663e424afcdb7d97b94b40
+_md5_=e1e704981ac8513fcdf46d85943c0d65
