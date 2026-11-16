@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.9.0
-QTMIN=6.7.2
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Collection manager based on KDE Frameworks"
@@ -14,12 +14,12 @@ HOMEPAGE="https://tellico-project.org/"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="https://tellico-project.org/files/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
-IUSE="bibtex cddb discid pdf scanner semantic-desktop taglib v4l xmp yaz"
+IUSE="bibtex cddb csv discid pdf scanner semantic-desktop taglib v4l xmp yaz"
 
 # tests need network access
 RESTRICT="test"
@@ -54,6 +54,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	bibtex? ( >=dev-perl/Text-BibTeX-0.780.0-r1 )
 	cddb? ( kde-apps/libkcddb:6 )
+	csv? ( dev-libs/libcsv )
 	discid? ( dev-libs/libcdio:= )
 	pdf? ( app-text/poppler[qt6] )
 	scanner? ( kde-apps/libksane:6 )
@@ -63,16 +64,14 @@ DEPEND="
 	xmp? ( >=media-libs/exempi-2:= )
 	yaz? ( >=dev-libs/yaz-2:0= )
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5
-"
+RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Csv=ON
 		-DENABLE_BTPARSE=$(usex bibtex)
 		$(cmake_use_find_package cddb KCddb6)
+		$(cmake_use_find_package csv Csv)
 		$(cmake_use_find_package discid CDIO)
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package scanner KSaneWidgets6)
