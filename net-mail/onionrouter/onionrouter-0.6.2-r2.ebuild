@@ -36,6 +36,10 @@ BDEPEND="$(python_gen_cond_dep '
 	)
 ')"
 
+PATCHES=(
+	"${FILESDIR}/${P}-python3.14.patch"
+)
+
 distutils_enable_tests pytest
 
 src_prepare() {
