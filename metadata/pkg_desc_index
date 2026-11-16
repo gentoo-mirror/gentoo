@@ -1384,11 +1384,11 @@ app-containers/devcontainer 0.89.0 0.90.0: Reference implementation of the Devel
 app-containers/distrobox 1.8.2.5 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2 3.3.1 3.4.0: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
-app-containers/docker 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0 29.9.3: The core functions you need to create Docker images and run Docker containers
+app-containers/docker 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0 29.9.3 29.10.0: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.6.0 1.6.1: Test for best practices around deploying docker containers
-app-containers/docker-buildx 0.36.1 0.37.0 0.37.1 0.38.2 9999: Docker CLI plugin for extended build capabilities with BuildKit
-app-containers/docker-cli 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0 29.9.3: the command line binary for docker
-app-containers/docker-compose 2.40.3 5.5.0 5.5.1 5.6.0 5.7.0: Multi-container orchestration for Docker
+app-containers/docker-buildx 0.36.1 0.37.0 0.37.1 0.38.2 0.39.0 9999: Docker CLI plugin for extended build capabilities with BuildKit
+app-containers/docker-cli 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0 29.9.3 29.10.0: the command line binary for docker
+app-containers/docker-compose 2.40.3 5.5.0 5.5.1 5.6.0 5.7.0 5.7.1: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.9.8 0.9.9 0.9.12: Suite of programs to use native stores to keep Docker credentials safe
 app-containers/docker-pushrm 1.9.0: Docker CLI plugin to update container repository documentation
 app-containers/docker-registry 3.0.0_rc2 3.0.0_rc3 3.1.1: Docker Registry 2.0
@@ -1410,7 +1410,7 @@ app-containers/podman 6.1.4 6.2.0 9999: A tool for managing OCI containers and p
 app-containers/podman-compose 1.5.0 1.6.0: A script to run docker-compose.yml using Podman
 app-containers/podman-tui 2.0.0 9999: Terminal UI frontend for Podman
 app-containers/reg 0.16.1-r1: Docker registry v2 command line client
-app-containers/runc 1.3.6 1.4.2 1.4.3 1.5.2: CLI tool for spawning and running containers
+app-containers/runc 1.3.6 1.4.2 1.4.3 1.5.2 1.5.3: CLI tool for spawning and running containers
 app-containers/s6-overlay 2.1.0.2-r1: an s6-based init system for containers
 app-containers/sen 0.8.0 0.8.1: Terminal User Interface for docker engine
 app-containers/skopeo 1.24.1 1.25.1 9999: Work with remote container images registries
@@ -2678,7 +2678,7 @@ app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbo
 app-metrics/ceph_exporter 4.1.1-r1 4.2.5: Prometheus exporter that scrapes metrics from a ceph cluster
 app-metrics/chrony_exporter 0.13.3 0.14.0 0.15.0: Chrony NTP exporter for Prometheus
 app-metrics/collectd 5.12.0-r12: Collects system statistics and provides mechanisms to store the values
-app-metrics/consul_exporter 0.13.0: Prometheus exporter for consul metrics
+app-metrics/consul_exporter 0.13.0-r1: Prometheus exporter for consul metrics
 app-metrics/dnsmasq_exporter 0.3.0: prometheus exporter for dnsmasq
 app-metrics/elasticsearch_exporter 1.3.0 1.8.0: Elasticsearch stats exporter for Prometheus
 app-metrics/exabgp_exporter 1.1.3: Prometheus exporter for exabgp
@@ -2694,7 +2694,7 @@ app-metrics/nftables-exporter 0.2.7 0.3.1: prometheus exporter for nftables metr
 app-metrics/nginx-lua-prometheus 0.1_pre20170610-r101: Library that exports Nginx metrics to Prometheus
 app-metrics/nginx-vts-exporter 0.10.8: Nginx virtual host traffic stats exporter for Prometheus
 app-metrics/node_exporter 1.8.2 1.9.0 1.9.1 1.10.2 1.11.1 1.12.1 9999: Prometheus exporter for machine metrics
-app-metrics/openvpn_exporter 0.3.0: Prometheus Exporter for OpenVPN
+app-metrics/openvpn_exporter 0.3.0 1.2.5: Prometheus Exporter for OpenVPN
 app-metrics/portage-exporter 0.1.0: Prometheus exporter for Gentoo Portage
 app-metrics/postfix_exporter 0.3.0: Prometheus Exporter for Postfix
 app-metrics/postgres_exporter 0.15.0 0.16.0 0.17.1 0.19.1: PostgreSQL stats exporter for Prometheus
@@ -14920,7 +14920,7 @@ net-firewall/ufw 0.36.2: A program used to manage a netfilter firewall
 net-firewall/xtables-addons 3.29 3.31: iptables extensions not yet accepted in the main kernel
 net-fs/autofs 5.1.9-r2: Kernel based automounter
 net-fs/btfs 2.24: Bittorrent filesystem based on FUSE
-net-fs/cifs-utils 7.5-r1 7.6-r1 7.7-r1 7.8-r1: Tools for Managing Linux CIFS Client Filesystems
+net-fs/cifs-utils 7.5-r1 7.6-r1 7.7-r1 7.8-r1 7.9: Tools for Managing Linux CIFS Client Filesystems
 net-fs/curlftpfs 0.9.2-r5: File system for accessing ftp hosts based on FUSE
 net-fs/cvmfs 2.12.7 2.13.1 2.13.3 2.14.1: HTTP read-only file system for distributing software
 net-fs/davfs2 1.7.1 1.7.3: Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
@@ -15364,7 +15364,7 @@ net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if
 net-misc/dibbler 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
 net-misc/downloader-cli 0.3.4-r2 0.4.1: Simple downloader with an customizable progressbar
 net-misc/dropbear 2026.94: Small SSH 2 client/server designed for small memory environments
-net-misc/dropbox 275.4.3565 277.4.4974: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 275.4.3565 277.4.4974 279.4.5723: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2026.03.20: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electrum 4.8.3 4.8.4: User friendly Bitcoin client
@@ -15536,7 +15536,7 @@ net-misc/rclone 1.75.2 1.76.0: A program to sync files to and from various cloud
 net-misc/rdate 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.3-r1: Redir is a port redirector
-net-misc/remmina 1.4.40-r2 1.4.40-r3 1.4.41 1.4.41-r1 1.4.42 1.4.43: A GTK+ RDP, SPICE, VNC and SSH client
+net-misc/remmina 1.4.40-r2 1.4.40-r3 1.4.41 1.4.41-r1 1.4.42 1.4.43 1.4.44: A GTK+ RDP, SPICE, VNC and SSH client
 net-misc/rinetd 0.73-r1: redirects TCP connections from one IP address and port to another
 net-misc/rsync 3.5.2-r1 9999: File transfer program to keep remote files into sync
 net-misc/rsync-bpc 3.1.3.0_p20250706 3.1.3.0_p20251201-r1: Rsync-bpc is a customized version of rsync that is used as part of BackupPC
@@ -15772,7 +15772,7 @@ net-voip/umurmur 0.3.1: Minimalistic Murmur (Mumble server)
 net-voip/yate 6.2.0: The Yate AV Suite
 net-vpn/6tunnel 0.13-r1: TCP proxy for applications that don't speak IPv6
 net-vpn/candy 6.1.10 6.1.11: A reliable, low-latency, and anti-censorship virtual private network
-net-vpn/cloudflare-warp 2026.8.2100.0 2026.8.2110.0: Cloudflare Warp Client
+net-vpn/cloudflare-warp 2026.8.2100.0 2026.8.2110.0 2026.8.2115.0: Cloudflare Warp Client
 net-vpn/cloudflared 2026.8.2 2026.10.4 2026.11.0: A command-line client and tunneling daemon for Cloudflare Tunnel
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
 net-vpn/derper 1.100.0 1.102.2-r1: DERP server for tailscale network
@@ -17605,7 +17605,7 @@ sys-auth/libnss-pgsql 1.5.0_beta-r1: Name Service Switch module for use with Pos
 sys-auth/libyubikey 1.13-r1: Yubico C low-level library
 sys-auth/microsoft-identity-broker 3.0.2-r2: Microsoft Authentication Broker to access a corporate environment
 sys-auth/munge 0.5.18: An authentication service for creating and validating credentials
-sys-auth/nss-docker-ng 1.0.7 1.1.3 1.2.1: NSS plugin for finding Docker containers by their ID or name
+sys-auth/nss-docker-ng 1.0.7 1.1.3 1.2.1 1.3.0: NSS plugin for finding Docker containers by their ID or name
 sys-auth/nss-mdns 0.15.1 9999: Name Service Switch module for Multicast DNS
 sys-auth/nss-myhostname 0.3-r1: Name Service Switch module for resolving the local hostname
 sys-auth/nss-pam-ldapd 0.9.13: NSS module for name lookups using LDAP
@@ -17994,7 +17994,7 @@ sys-fs/treesize 0.54.1-r1: A disk consumption analyzing tool
 sys-fs/ubi_reader 0.8.5-r2 0.8.13: Collection of Python scripts for extracting data from UBI and UBIFS images
 sys-fs/udev-init-scripts 35 9999: udev startup scripts for openrc
 sys-fs/udftools 2.3: Ben Fennema's tools for packet writing and the UDF filesystem
-sys-fs/udiskie 2.5.7-r1 2.5.8 2.5.8-r1 2.6.1 2.6.2 2.7.0: An automatic disk mounting service using udisks
+sys-fs/udiskie 2.6.2 2.7.0 2.8.1: An automatic disk mounting service using udisks
 sys-fs/udisks 2.11.2: Daemon providing interfaces to work with storage devices
 sys-fs/unionfs-fuse 3.8 9999: Self-syncing tree-merging file system based on FUSE
 sys-fs/vhba 20260313: Virtual (SCSI) Host Bus Adapter kernel module for the CDEmu suite
