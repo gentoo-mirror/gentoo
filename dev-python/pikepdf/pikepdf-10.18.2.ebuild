@@ -33,7 +33,7 @@ RDEPEND="
 	>=dev-python/pillow-10.0.1[lcms,${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/nanobind-2.0[${PYTHON_USEDEP}]
+	>=dev-python/nanobind-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-77.0.3[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-scm-7.0.5[${PYTHON_USEDEP}]
 	test? (
@@ -58,4 +58,10 @@ src_prepare() {
 	sed -e '/-n auto/d' -i pyproject.toml || die
 	# remove bundled qpdf
 	rm -rf qpdf || die
+}
+
+src_configure() {
+	DISTUTILS_ARGS=(
+		-DPIKEPDF_LTO=OFF
+	)
 }
