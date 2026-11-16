@@ -1,15 +1,16 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
+BDEPEND=test? ( dev-ml/qcheck ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/ptime:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Syslog message parser
 EAPI=8
 HOMEPAGE=https://github.com/verbosemode/syslog-message
 INHERIT=dune
-IUSE=+ocamlopt
+IUSE=+ocamlopt test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
 RDEPEND=dev-ml/ptime:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
 SLOT=0/1.2.0
 SRC_URI=https://github.com/verbosemode/syslog-message/releases/download/1.2.0/syslog-message-1.2.0.tbz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=39878cca59476a0ec206174a9fb98958
+_md5_=6007997db332d0dc9f28fc730fb06ae5
