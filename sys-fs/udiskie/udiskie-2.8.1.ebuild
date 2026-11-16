@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYPI_VERIFY_REPO=https://github.com/coldfix/udiskie
+PYTHON_COMPAT=( python3_{13..14} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi xdg-utils
 
@@ -11,8 +13,8 @@ HOMEPAGE="https://pypi.org/project/udiskie/ https://github.com/coldfix/udiskie"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
-IUSE="libnotify"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="autostart libnotify"
 
 RDEPEND="dev-python/docopt[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -45,6 +47,11 @@ src_compile() {
 src_install() {
 	distutils-r1_src_install
 	doman doc/${PN}.8
+
+	if use autostart; then
+		insinto /etc/xdg/autostart
+		newins "${FILESDIR}/udiskie.desktop" udiskie.desktop
+	fi
 }
 
 pkg_postinst() {
