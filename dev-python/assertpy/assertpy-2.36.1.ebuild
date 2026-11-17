@@ -4,20 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-# py3.12, py3.15 crashes...
-PYTHON_COMPAT=( python3_{13..14} )
+PYPI_VERIFY_REPO=https://github.com/assertpy/assertpy
+PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Simple assertion library for unit testing in python with a fluent API"
 HOMEPAGE="
 	https://github.com/assertpy/assertpy/
 	https://pypi.org/project/assertpy/
-"
-# no tests in sdist
-SRC_URI="
-	https://github.com/assertpy/assertpy/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="BSD"
@@ -41,16 +36,17 @@ python_test() {
 		# tries to install stuff via pip (online)
 		tests/test_typing_from_a_wheel.py
 		# require ruff python module
+		tests/test_capable_protocol.py::test_the_facade_matches_what_the_generator_produces
 		tests/test_check_protocols.py::test_the_generated_twins_match_the_protocols_they_mirror
 		tests/test_complexity.py::test_no_function_grew_more_complex
 		tests/test_complexity.py::test_the_record_is_not_stale
+		tests/test_negated_protocols.py::test_the_file_is_what_the_generator_writes
 		tests/test_poll_protocols.py::test_the_generated_twins_match_the_views_they_mirror
 		tests/test_poll_protocols.py::test_the_generated_verdict_twin_matches_the_views_it_mirrors
-		tests/test_capable_protocol.py::test_the_facade_matches_what_the_generator_produces
-		tests/test_negated_protocols.py::test_the_file_is_what_the_generator_writes
 		# broken by explicit plugin loading
-		tests/test_dangling.py::TestUnderARealPytestRun
+		tests/test_absent_cells.py::TestWhatLeavesWithADistribution::test_what_requires_it_leaves_with_it
 		tests/test_dangling.py::TestEveryFindingReachesExactlyOneTest
+		tests/test_dangling.py::TestUnderARealPytestRun
 		# TODO
 		tests/test_structural.py::TestExactnessReachesDataclassesAndTypedDicts::test_a_tag_an_extra_was_put_over_tells_no_typed_dict_apart
 		# TODO: weird shutil.rmtree() errors over teardown

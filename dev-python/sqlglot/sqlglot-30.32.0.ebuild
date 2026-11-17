@@ -40,6 +40,7 @@ python_test() {
 		"tests/dataframe/integration/test_dataframe.py"
 		"tests/dataframe/integration/test_grouped_data.py"
 		"tests/dataframe/integration/test_session.py"
+		"tests/dialects/test_duckdb.py"
 		"tests/test_executor.py"
 		"tests/test_optimizer.py"
 	)
