@@ -11,9 +11,10 @@
     explicit type) for Gentoo maintainers is prohibited. -->
   <!ATTLIST maintainer type (person|project|unknown) "unknown">
   <!-- proxied attribute determines whether the maintainer is a proxied
-    maintainer (yes), regular dev (no) or a proxy for somebody (proxy). It is
-    valid only for Gentoo maintainers. -->
-  <!ATTLIST maintainer proxied (yes|no|proxy) "no">
+    maintainer (yes), regular dev (no), only a proxy for somebody (proxy) or
+    a regular dev who is also a proxy for somebody (maintainer-and-proxy).
+    It is valid only for Gentoo maintainers. -->
+  <!ATTLIST maintainer proxied (yes|no|proxy|maintainer-and-proxy) "no">
 
   <!-- A long description of the package in freetext-->
   <!ELEMENT longdescription (#PCDATA|pkg|cat)* >
@@ -49,6 +50,10 @@
       the usage of the status attribute is nevertheless _only_ allowed
       in the upstream maintainer element. -->
     <!ATTLIST maintainer status (active|inactive|unknown) "unknown" >
+    <!-- cc-on-bugs="yes" asks for the upstream maintainer to be CC-ed on
+      bugs for the package. Like status, it is only allowed in the upstream
+      maintainer element, and the element must then have an email. -->
+    <!ATTLIST maintainer cc-on-bugs (yes|no) "no" >
     <!-- URL where the upstream changelog can be found -->
     <!ELEMENT changelog (#PCDATA)>
     <!-- URL where the location of the upstream documentation can be found -->
