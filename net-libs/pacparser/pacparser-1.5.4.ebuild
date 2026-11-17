@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-r1 toolchain-funcs
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/manugarg/${PN}/archive/v${PV}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0/1"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc python"
 
 DEPEND="python? ( ${PYTHON_DEPS} )"
@@ -29,8 +29,6 @@ src_prepare() {
 
 	sed -e 's/^SMCFLAGS.*/SMCFLAGS = -DHAVE_VA_COPY -DVA_COPY=va_copy -DHAVE_VA_LIST_AS_ARRAY/' \
 		-i src/Makefile || die
-	sed -e '/CC = gcc/d' \
-		-i src/spidermonkey/js/src/config/Linux_All.mk || die
 
 	export NO_INTERNET=yes
 	export VERSION="${PV}"
