@@ -150,6 +150,7 @@
 			<xs:enumeration value='yes'/>
 			<xs:enumeration value='no'/>
 			<xs:enumeration value='proxy'/>
+			<xs:enumeration value='maintainer-and-proxy'/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -162,6 +163,8 @@
 		</xs:all>
 		<xs:attribute name='status' type='upstreamMaintainerStatusAttrType'
 			default='unknown'/>
+		<xs:attribute name='cc-on-bugs' type='upstreamMaintainerCcOnBugsAttrType'
+			default='no'/>
 	</xs:complexType>
 
 	<xs:simpleType name='upstreamMaintainerStatusAttrType'>
@@ -169,6 +172,13 @@
 			<xs:enumeration value='active'/>
 			<xs:enumeration value='inactive'/>
 			<xs:enumeration value='unknown'/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name='upstreamMaintainerCcOnBugsAttrType'>
+		<xs:restriction base='xs:token'>
+			<xs:enumeration value='yes'/>
+			<xs:enumeration value='no'/>
 		</xs:restriction>
 	</xs:simpleType>
 
