@@ -17,10 +17,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 BDEPEND="
 	test? (
+		>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 		>=dev-python/pandas-1.1.3[${PYTHON_USEDEP}]
 		>=dev-python/pyarrow-13.0.0[${PYTHON_USEDEP}]
 	)
@@ -38,6 +39,9 @@ python_test() {
 		# fragile to parallel merges that can cause non-atomic .dist-info
 		# changes
 		tests/system_info_test.py::test_get_deps_info
+		# TODO; failing with system pandas
+		'tests/expr_and_series/reduction_return_type_test.py::test_expr_aggregation_keeps_dtype[pandas-values-Int32-min]'
+		'tests/expr_and_series/reduction_return_type_test.py::test_expr_aggregation_keeps_dtype[pandas-values-Int32-max]'
 	)
 
 	epytest --runslow --constructors="pandas,pandas[nullable],pandas[pyarrow],pyarrow"

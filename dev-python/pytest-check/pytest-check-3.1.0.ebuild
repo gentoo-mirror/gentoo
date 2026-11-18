@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
@@ -24,5 +24,5 @@ RDEPEND="
 "
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
-EPYTEST_PLUGINS=( "${PN}" )
+EPYTEST_PLUGINS=( "${PN}" pytest-xdist )
 distutils_enable_tests pytest

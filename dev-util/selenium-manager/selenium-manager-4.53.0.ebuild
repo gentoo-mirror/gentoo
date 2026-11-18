@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.93.0"
 
 inherit cargo
 
@@ -20,12 +20,8 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/SeleniumHQ/selenium/archive/selenium-${PV}.tar.gz
 		-> ${MY_P}.gh.tar.gz
+	https://github.com/gentoo-crate-dist/selenium/releases/download/${CRATES_P}/${CRATES_P}-crates.tar.xz
 "
-if [[ ${PKGBUMPING} != ${PVR} ]]; then
-	SRC_URI+="
-		https://github.com/gentoo-crate-dist/selenium/releases/download/${CRATES_P}/${CRATES_P}-crates.tar.xz
-	"
-fi
 S="${WORKDIR}/${MY_P}/rust"
 
 LICENSE="Apache-2.0"
@@ -35,7 +31,7 @@ LICENSE+="
 	BZIP2
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="telemetry test"
 RESTRICT="!test? ( test )"
 

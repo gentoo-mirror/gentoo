@@ -21,11 +21,13 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	app-text/zotero-bin
-	<dev-python/bibtexparser-2[${PYTHON_USEDEP}]
-	>=dev-python/bibtexparser-1.4.3[${PYTHON_USEDEP}]
+	<dev-python/bibtexparser-3[${PYTHON_USEDEP}]
+	>=dev-python/bibtexparser-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/feedparser-6.0.12[${PYTHON_USEDEP}]
 	>=dev-python/httpx2-2.12.0[${PYTHON_USEDEP}]
-	>=dev-python/whenever-0.8.8[${PYTHON_USEDEP}]
+	<dev-python/pylatexenc-3[${PYTHON_USEDEP}]
+	>=dev-python/pylatexenc-2.10[${PYTHON_USEDEP}]
+	>=dev-python/whenever-0.10.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
