@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used to sign I2P releases
+EAPI=8
+HOMEPAGE=https://i2p.net/en/docs/development/release-signing-key/
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 ~arm64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://i2p.net/idk.key.asc -> idk-20261111.gpg https://i2p.net/zzz.key.asc -> zzz-20261111.gpg
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
+_md5_=c8410c6f6af8c9ed79210cb51f1fa2f7
