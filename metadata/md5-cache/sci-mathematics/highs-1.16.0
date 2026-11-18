@@ -1,0 +1,16 @@
+BDEPEND=dev-cpp/cli11 dev-libs/boost test? ( =dev-cpp/catch-2* ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=hipo? ( virtual/cblas )
+DESCRIPTION=Modern solver for linear, quadratic, and mixed-integer programs
+EAPI=8
+HOMEPAGE=https://highs.dev/ https://github.com/ERGO-Code/HiGHS
+INHERIT=cmake flag-o-matic toolchain-funcs
+IUSE=examples hipo index64 test +threads
+KEYWORDS=~amd64 ~riscv
+LICENSE=MIT
+RDEPEND=hipo? ( virtual/cblas )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/ERGO-Code/HiGHS/releases/download/v1.16.0/source-archive.tar.gz -> highs-1.16.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
+_md5_=58764078cffb768c9c1b7482bc20fcc4
