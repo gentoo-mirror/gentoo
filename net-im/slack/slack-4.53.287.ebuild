@@ -3,9 +3,12 @@
 
 EAPI=8
 
+CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fil fi
+	fr gu he hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro
+	ru sk sl sr sv sw ta te th tr uk ur vi zh-CN zh-TW"
 MULTILIB_COMPAT=( abi_x86_64 )
 
-inherit desktop multilib-build optfeature pax-utils unpacker xdg
+inherit chromium-2 desktop multilib-build optfeature pax-utils unpacker xdg
 
 DESCRIPTION="Team collaboration tool"
 HOMEPAGE="https://slack.com"
@@ -16,14 +19,13 @@ LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 IUSE="appindicator +seccomp suid wayland"
-RESTRICT="bindist mirror"
+RESTRICT="bindist mirror splitdebug"
 
 RDEPEND="app-accessibility/at-spi2-core:2[${MULTILIB_USEDEP}]
 	dev-libs/expat:0[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	dev-libs/nspr:0[${MULTILIB_USEDEP}]
 	dev-libs/nss:0[${MULTILIB_USEDEP}]
-	dev-libs/wayland[${MULTILIB_USEDEP}]
 	media-libs/alsa-lib:0[${MULTILIB_USEDEP}]
 	media-libs/mesa:0[${MULTILIB_USEDEP}]
 	net-print/cups:0[${MULTILIB_USEDEP}]
@@ -42,22 +44,26 @@ RDEPEND="app-accessibility/at-spi2-core:2[${MULTILIB_USEDEP}]
 	x11-libs/libxkbfile:0[${MULTILIB_USEDEP}]
 	x11-libs/libXrandr:0[${MULTILIB_USEDEP}]
 	x11-libs/pango:0[${MULTILIB_USEDEP}]
-	appindicator? ( dev-libs/libayatana-appindicator )"
+	appindicator? ( dev-libs/libayatana-appindicator )
+	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )"
 
 QA_PREBUILT="opt/slack/chrome-sandbox
 	opt/slack/chrome_crashpad_handler
-	opt/slack/libEGL.so
-	opt/slack/libGLESv2.so
 	opt/slack/libffmpeg.so
 	opt/slack/libvk_swiftshader.so
 	opt/slack/libvulkan.so.1
 	opt/slack/resources/app.asar.unpacked/node_modules/*
-	opt/slack/slack
-	opt/slack/swiftshader/libEGL.so
-	opt/slack/swiftshader/libGLESv2.so"
+	opt/slack/slack"
+
+pkg_pretend() {
+	use suid || chromium_suid_sandbox_check_kernel_config
+}
 
 src_prepare() {
 	default
+	pushd usr/lib/slack/locales || die "pushd failed"
+	chromium_remove_language_paks
+	popd || die "popd failed"
 
 	# remove hardcoded path, logging noise (wrt 694058, 711494)
 	sed -i  -e '/Icon/s|/usr/share/pixmaps/slack.png|slack|' \
@@ -65,10 +71,18 @@ src_prepare() {
 		usr/share/applications/slack.desktop \
 		|| die "sed failed in Icon for slack.desktop"
 
+	rm usr/lib/slack/LICENSE{,S-linux.json} \
+		usr/lib/slack/resources/LICENSES.chromium.html \
+		|| die "rm licenses failed"
+
 	if use appindicator ; then
 		sed -i '/Exec/s|=|=env XDG_CURRENT_DESKTOP=Unity |' \
 			usr/share/applications/slack.desktop \
 			|| die "sed failed for appindicator"
+	fi
+
+	if ! use suid ; then
+		rm usr/lib/slack/chrome-sandbox || die "rm failed"
 	fi
 
 	if ! use seccomp ; then
@@ -76,15 +90,6 @@ src_prepare() {
 			usr/share/applications/slack.desktop \
 			|| die "sed failed for seccomp"
 	fi
-
-	if use wayland ; then
-		sed -i '/Exec/s/%U/%U --enable-features=WebRTCPipeWireCapturer/' \
-			usr/share/applications/slack.desktop \
-			|| die "sed failed for wayland"
-	fi
-
-	rm usr/lib/slack/LICENSE{,S-linux.json} \
-		|| die "rm licenses failed"
 }
 
 src_install() {
@@ -96,18 +101,15 @@ src_install() {
 	cp -a usr/lib/slack "${ED}"/opt || die "cp failed"
 
 	use suid && fperms u+s /opt/slack/chrome-sandbox # wrt 713094
+
 	dosym ../../opt/slack/slack usr/bin/slack
+	use appindicator && dosym ../../usr/lib64/libayatana-appindicator3.so \
+		/opt/slack/libappindicator3.so
 
 	pax-mark -m "${ED}"/opt/slack/slack
-
-	# https://bugs.gentoo.org/898912
-	if use appindicator; then
-		dosym ../../usr/lib64/libayatana-appindicator3.so /opt/slack/libappindicator3.so
-	fi
 }
 
 pkg_postinst() {
-	optfeature "storing passwords via gnome-keyring" app-crypt/libsecret
-
+	optfeature "storing passwords via Secret Service API provider" virtual/secret-service
 	xdg_pkg_postinst
 }
