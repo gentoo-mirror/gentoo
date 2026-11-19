@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-13">
+    <title>PHP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in PHP, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">php</product>
+    <announced>2026-11-19</announced>
+    <revised count="1">2026-11-19</revised>
+    <bug>986771</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/php" auto="yes" arch="*">
+            <unaffected range="ge" slot="8.2">8.2.36</unaffected>
+            <unaffected range="ge" slot="8.3">8.3.37</unaffected>
+            <unaffected range="ge" slot="8.4">8.4.28</unaffected>
+            <unaffected range="ge" slot="8.5">8.5.13</unaffected>
+            <vulnerable range="lt" slot="8.2">8.2.36</vulnerable>
+            <vulnerable range="lt" slot="8.3">8.3.37</vulnerable>
+            <vulnerable range="lt" slot="8.4">8.4.28</vulnerable>
+            <vulnerable range="lt" slot="8.5">8.5.13</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PHP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PHP 8.2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.2.36:8.2"
+        </code>
+        
+        <p>All PHP 8.3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.3.37:8.3"
+        </code>
+        
+        <p>All PHP 8.4 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.4.28:8.4"
+        </code>
+        
+        <p>All PHP 8.5 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.5.13:8.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-4884">CVE-2026-4884</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-15353">CVE-2026-15353</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-115560">CVE-2026-115560</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-126714">CVE-2026-126714</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-127960">CVE-2026-127960</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-128064">CVE-2026-128064</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-128090">CVE-2026-128090</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129182">CVE-2026-129182</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129289">CVE-2026-129289</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129291">CVE-2026-129291</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129292">CVE-2026-129292</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129438">CVE-2026-129438</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129474">CVE-2026-129474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129481">CVE-2026-129481</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129496">CVE-2026-129496</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129501">CVE-2026-129501</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129506">CVE-2026-129506</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129538">CVE-2026-129538</uri>
+        <uri link="https://github.com/advisories/GHSA-2fjv-p558-g82m">GHSA-2fjv-p558-g82m</uri>
+        <uri link="https://github.com/advisories/GHSA-3mg3-cr28-46gc">GHSA-3mg3-cr28-46gc</uri>
+        <uri link="https://github.com/advisories/GHSA-4646-p932-gw34">GHSA-4646-p932-gw34</uri>
+        <uri link="https://github.com/advisories/GHSA-5j3f-64r7-f564">GHSA-5j3f-64r7-f564</uri>
+        <uri link="https://github.com/advisories/GHSA-658j-r8rw-q6mx">GHSA-658j-r8rw-q6mx</uri>
+        <uri link="https://github.com/advisories/GHSA-68fq-fh7h-f8gr">GHSA-68fq-fh7h-f8gr</uri>
+        <uri link="https://github.com/advisories/GHSA-8mjj-2r7p-4hg2">GHSA-8mjj-2r7p-4hg2</uri>
+        <uri link="https://github.com/advisories/GHSA-f6gg-rchx-xw8j">GHSA-f6gg-rchx-xw8j</uri>
+        <uri link="https://github.com/advisories/GHSA-fm2m-fjf5-v3cp">GHSA-fm2m-fjf5-v3cp</uri>
+        <uri link="https://github.com/advisories/GHSA-g3vh-838c-65v7">GHSA-g3vh-838c-65v7</uri>
+        <uri link="https://github.com/advisories/GHSA-gr4f-wgx5-jpfv">GHSA-gr4f-wgx5-jpfv</uri>
+        <uri link="https://github.com/advisories/GHSA-jm4m-qfqx-967m">GHSA-jm4m-qfqx-967m</uri>
+        <uri link="https://github.com/advisories/GHSA-mg3p-mxj9-g2mm">GHSA-mg3p-mxj9-g2mm</uri>
+        <uri link="https://github.com/advisories/GHSA-mmf9-xm3v-hg2x">GHSA-mmf9-xm3v-hg2x</uri>
+        <uri link="https://github.com/advisories/GHSA-q23r-hr55-xmpg">GHSA-q23r-hr55-xmpg</uri>
+        <uri link="https://github.com/advisories/GHSA-qc49-hpvq-g2w6">GHSA-qc49-hpvq-g2w6</uri>
+        <uri link="https://github.com/advisories/GHSA-x8r7-mg3g-74hg">GHSA-x8r7-mg3g-74hg</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-19T19:16:15.924437Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-19T19:16:15.930940Z">sam</metadata>
+</glsa>
