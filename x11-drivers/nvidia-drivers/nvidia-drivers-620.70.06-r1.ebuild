@@ -176,14 +176,6 @@ src_prepare() {
 	use wayland || sed -i 's/ WAYLAND_LIB_install$//' \
 		nvidia-settings/src/Makefile || die
 
-	# temporary dirty workaround for clang being stricter than gcc,
-	# reproducing requires a kernel with CONFIG_OF_GPIO enabled
-	# nv-linux.h:1737:51: error: passing 'const struct gpio_device *' [...]
-	if CC=${KERNEL_CC} tc-is-clang; then
-		sed -e 's/-Wno-error/& -Wno-error=incompatible-pointer-types-discards-qualifiers/' \
-			-i kernel-module-source/kernel-open/Kbuild || die
-	fi
-
 	# .py can be called by the shell script which ignores the shebang
 	sed -i "s/python3/${EPYTHON}/g" nvidia-bug-report.sh || die
 	python_fix_shebang nvidia-networking-bug-report.py
@@ -302,11 +294,12 @@ src_install() {
 	)
 	local skip_modules=(
 		$(usev !X "nvfbc vdpau xdriver")
-		$(usev !modules gsp)
+		$(usev !modules "dce gsp")
 		$(usev !powerd nvtopps)
 		installer nvpd # handled separately / built from source
 	)
 	local skip_types=(
+		FIRMWARE_SYMLINK # seems unnecessary?
 		GLVND_LIB GLVND_SYMLINK EGL_CLIENT.\* GLX_CLIENT.\* # media-libs/libglvnd
 		OPENCL_WRAPPER.\* # virtual/opencl
 		DOCUMENTATION DOT_DESKTOP .\*_SRC DKMS_CONF SYSTEMD_UNIT # handled separately / unused
@@ -431,8 +424,9 @@ documentation that is installed alongside this README."
 			dosym ${m[4]} ${into}/${m[0]}
 			continue
 		fi
-		# avoid portage warning due to missing soname links in manifest
-		[[ ${m[0]} =~ ^libnvidia-ngx.so ]] &&
+		# some _SYMLINK are missing from the .manifest for sonames
+		# TODO?: use scanelf -BSq to auto-create like nvidia-installer?
+		[[ ${m[0]} =~ ^libnvidia-(ngx|tileiras).so ]] &&
 			dosym ${m[0]} ${into}/${m[0]%.so*}.so.1
 
 		printf -v m[1] %o $((m[1] | 0200)) # 444->644

@@ -4,22 +4,20 @@
 EAPI=8
 
 MODULES_OPTIONAL_IUSE=+modules
-PYTHON_COMPAT=( python3_{12..15} )
-inherit desktop dot-a eapi9-pipestatus eapi9-ver flag-o-matic
-inherit linux-mod-r1 python-single-r1 readme.gentoo-r1 systemd
-inherit toolchain-funcs unpacker user-info
+inherit desktop dot-a eapi9-pipestatus eapi9-ver flag-o-matic linux-mod-r1
+inherit readme.gentoo-r1 systemd toolchain-funcs unpacker user-info
 
 MODULES_KERNEL_MAX=7.3
-NV_URI="https://download.nvidia.com/XFree86/"
+NV_PIN=595.112.07
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
-HOMEPAGE="https://www.nvidia.com/"
+HOMEPAGE="https://developer.nvidia.com/vulkan-driver/"
 SRC_URI="
-	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
-	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
-	$(printf "${NV_URI}%s/%s-${PV}.tar.bz2 " \
+	https://developer.nvidia.com/downloads/assets/gameworks/downloads/secure/Vulkan_Beta_Drivers/NVIDIA-Linux-x86_64-${PV}.run
+	$(printf "https://download.nvidia.com/XFree86/%s/%s-${NV_PIN}.tar.bz2 " \
 		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})
-	${NV_URI}NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-${PV}.tar.xz
+	https://github.com/NVIDIA/open-gpu-kernel-modules/archive/refs/tags/${PV}.tar.gz
+		-> open-gpu-kernel-modules-${PV}.tar.gz
 "
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S=${WORKDIR}
@@ -28,10 +26,9 @@ LICENSE="
 	NVIDIA-2025 Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2 MIT ZLIB
 	curl openssl public-domain
 "
-SLOT="0/${PV%%.*}"
-KEYWORDS="-* ~amd64 ~arm64"
+SLOT="0/vulkan"
+KEYWORDS="-* ~amd64"
 IUSE="+X abi_x86_32 abi_x86_64 persistenced powerd +static-libs +tools wayland"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
 	acct-group/video
@@ -59,12 +56,10 @@ COMMON_DEPEND="
 # (may use one or the other depending on setup)
 RDEPEND="
 	${COMMON_DEPEND}
-	${PYTHON_DEPS}
 	|| (
 		dev-libs/openssl-compat:3
 		dev-libs/openssl:0/3
 	)
-	sys-devel/gcc:*
 	sys-libs/glibc
 	X? (
 		media-libs/libglvnd[X,abi_x86_32(-)?]
@@ -97,7 +92,6 @@ DEPEND="
 	)
 "
 BDEPEND="
-	${PYTHON_DEPS}
 	sys-devel/m4
 	virtual/pkgconfig
 "
@@ -111,8 +105,6 @@ PATCHES=(
 )
 
 pkg_setup() {
-	python-single-r1_pkg_setup
-
 	use modules && [[ ${MERGE_TYPE} != binary ]] || return
 
 	# do early before linux-mod-r1 so can use chkconfig to setup CONFIG_CHECK
@@ -157,11 +149,11 @@ pkg_setup() {
 
 src_prepare() {
 	# make patches usable across versions
-	rm nvidia-modprobe && mv nvidia-modprobe{-${PV},} || die
-	rm nvidia-persistenced && mv nvidia-persistenced{-${PV},} || die
-	rm nvidia-settings && mv nvidia-settings{-${PV},} || die
-	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
-	mv NVIDIA-kernel-module-source-${PV} kernel-module-source || die
+	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
+	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
+	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
+	rm nvidia-xconfig && mv nvidia-xconfig{-${NV_PIN},} || die
+	mv open-gpu-kernel-modules-${PV} kernel-module-source || die
 
 	default
 
@@ -175,10 +167,6 @@ src_prepare() {
 	# makefile attempts to install wayland library even if not built
 	use wayland || sed -i 's/ WAYLAND_LIB_install$//' \
 		nvidia-settings/src/Makefile || die
-
-	# .py can be called by the shell script which ignores the shebang
-	sed -i "s/python3/${EPYTHON}/g" nvidia-bug-report.sh || die
-	python_fix_shebang nvidia-networking-bug-report.py
 }
 
 src_compile() {
@@ -294,12 +282,11 @@ src_install() {
 	)
 	local skip_modules=(
 		$(usev !X "nvfbc vdpau xdriver")
-		$(usev !modules "dce gsp")
+		$(usev !modules gsp)
 		$(usev !powerd nvtopps)
 		installer nvpd # handled separately / built from source
 	)
 	local skip_types=(
-		FIRMWARE_SYMLINK # seems unnecessary?
 		GLVND_LIB GLVND_SYMLINK EGL_CLIENT.\* GLX_CLIENT.\* # media-libs/libglvnd
 		OPENCL_WRAPPER.\* # virtual/opencl
 		DOCUMENTATION DOT_DESKTOP .\*_SRC DKMS_CONF SYSTEMD_UNIT # handled separately / unused
@@ -345,7 +332,7 @@ documentation that is installed alongside this README."
 		linux-mod-r1_src_install
 
 		insinto /etc/modprobe.d
-		newins "${FILESDIR}"/nvidia-615.conf nvidia.conf
+		newins "${FILESDIR}"/nvidia-595.conf nvidia.conf
 
 		# used for gpu verification with binpkgs (not kept, see pkg_preinst)
 		insinto /usr/share/nvidia
@@ -424,8 +411,9 @@ documentation that is installed alongside this README."
 			dosym ${m[4]} ${into}/${m[0]}
 			continue
 		fi
-		# avoid portage warning due to missing soname links in manifest
-		[[ ${m[0]} =~ ^libnvidia-ngx.so ]] &&
+		# some _SYMLINK are missing from the .manifest for sonames
+		# TODO?: use scanelf -BSq to auto-create like nvidia-installer?
+		[[ ${m[0]} =~ ^libnvidia-(ngx|tileiras).so ]] &&
 			dosym ${m[0]} ${into}/${m[0]%.so*}.so.1
 
 		printf -v m[1] %o $((m[1] | 0200)) # 444->644
@@ -438,7 +426,6 @@ documentation that is installed alongside this README."
 	# MODULE:installer non-skipped extras
 	# (sleep services skipped, obsoleted by NVreg_UseKernelSuspendNotifiers=1)
 	dobin nvidia-bug-report.sh
-	dobin nvidia-networking-bug-report.py
 
 	insinto /usr/share/nvidia/files.d
 	doins sandboxutils-filelist.json
