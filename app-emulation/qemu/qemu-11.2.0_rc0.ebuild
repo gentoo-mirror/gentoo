@@ -6,17 +6,20 @@ EAPI=8
 # Generate using https://github.com/thesamesam/sam-gentoo-scripts/blob/main/niche/generate-qemu-docs
 # Set to 1 if prebuilt, 0 if not
 # (the construct below is to allow overriding from env for script)
-QEMU_DOCS_PREBUILT=${QEMU_DOCS_PREBUILT:-1}
+QEMU_DOCS_PREBUILT=${QEMU_DOCS_PREBUILT:-0}
 QEMU_DOCS_PREBUILT_DEV=sam
 QEMU_DOCS_VERSION=$(ver_cut 1-2).0
 # Default to generating docs (inc. man pages) if no prebuilt; overridden later
 # bug #830088
 QEMU_DOC_USEFLAG="+doc"
 
-PYTHON_COMPAT=( python3_13 )
+DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_OPTIONAL=1
+PYTHON_COMPAT=( python3_{13..15} )
+# See bug #913084 for ensurepip
 PYTHON_REQ_USE="ensurepip(-),ncurses,readline"
 
-inherit eapi9-ver flag-o-matic linux-info toolchain-funcs python-r1 udev fcaps \
+inherit distutils-r1 eapi9-ver flag-o-matic linux-info toolchain-funcs udev fcaps \
 		readme.gentoo-r1 pax-utils xdg-utils
 
 if [[ ${PV} == *9999* ]]; then
@@ -48,7 +51,7 @@ else
 	fi
 
 	S="${WORKDIR}/${MY_P}"
-	[[ "${PV}" != *_rc* ]] && KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+	[[ "${PV}" != *_rc* ]] && KEYWORDS="-alpha ~amd64 -arm ~arm64 -hppa ~loong -m68k -mips -ppc ~ppc64 ~riscv -x86"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -60,26 +63,26 @@ SLOT="0"
 [[ ${QEMU_DOCS_PREBUILT} == 1 ]] && QEMU_DOC_USEFLAG="doc"
 
 IUSE="accessibility +aio alsa bpf bzip2 capstone +curl debug ${QEMU_DOC_USEFLAG}
-	+fdt fuse glusterfs +gnutls gtk infiniband iscsi io-uring
-	jack jemalloc +jpeg keyutils
+	elfutils +fdt fuse +gnutls gtk +hmp infiniband iscsi io-uring
+	jack +jpeg keyutils
 	lzo multipath
-	ncurses nfs nls numa opengl +oss pam +pin-upstream-blobs pipewire
+	ncurses nfs nls numa opengl +oss pam passt +pin-upstream-blobs pipewire
 	plugins +png pulseaudio python rbd sasl +seccomp sdl sdl-image selinux
 	+slirp
 	smartcard snappy spice ssh static-user systemtap test udev usb
-	usbredir vde +vhost-net virgl virtfs +vnc vte wayland X xattr xdp xen
+	usbredir valgrind vde +vhost-net virgl virtfs +vnc vte wayland X xattr xdp xen
 	zstd"
 
 COMMON_TARGETS="
 	aarch64
 	alpha
 	arm
+	hexagon
 	hppa
 	i386
 	loongarch64
 	m68k
 	microblaze
-	microblazeel
 	mips
 	mips64
 	mips64el
@@ -108,7 +111,7 @@ IUSE_USER_TARGETS="
 	${COMMON_TARGETS}
 	aarch64_be
 	armeb
-	hexagon
+	microblazeel
 	mipsn32
 	mipsn32el
 	ppc64le
@@ -147,6 +150,8 @@ for smname in ${IUSE_SOFTMMU_TARGETS} ; do
 	REQUIRED_USE+=" qemu_softmmu_targets_${smname}? ( kernel_linux? ( seccomp ) )"
 done
 
+# TODO: python bindings have an optional unpackaged dependency 'pyfuse'
+
 # Dependencies required for qemu tools (qemu-nbd, qemu-img, qemu-io, ...)
 # and user/softmmu targets (qemu-*, qemu-system-*).
 #
@@ -158,7 +163,10 @@ done
 ALL_DEPEND="
 	dev-libs/glib:2[static-libs(+)]
 	virtual/zlib:=[static-libs(+)]
-	python? ( ${PYTHON_DEPS} )
+	python? (
+		${PYTHON_DEPS}
+		>=dev-python/qemu-qmp-0.0.5[${PYTHON_USEDEP}]
+	)
 	systemtap? ( dev-debug/systemtap )
 	xattr? ( sys-apps/attr[static-libs(+)] )
 "
@@ -177,22 +185,24 @@ SOFTMMU_TOOLS_DEPEND="
 	bzip2? ( app-arch/bzip2[static-libs(+)] )
 	capstone? ( dev-libs/capstone:=[static-libs(+)] )
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
+	elfutils? ( dev-libs/elfutils[static-libs(+)] )
 	fdt? ( >=sys-apps/dtc-1.5.1[static-libs(+)] )
 	fuse? ( >=sys-fs/fuse-3.1:3=[static-libs(+)] )
-	glusterfs? ( >=sys-cluster/glusterfs-3.4.0[static-libs(+)] )
 	gnutls? (
-		>=net-libs/gnutls-3.0:=[static-libs(+)]
-		dev-libs/nettle:=[static-libs(+)]
+		dev-libs/gmp[static-libs(+)]
+		>=net-libs/gnutls-3.7.5:=[static-libs(+)]
+		>=dev-libs/nettle-3.7.3:=[gmp]
+		>=dev-libs/nettle-3.7.3:=[static-libs(+)]
 	)
 	gtk? (
 		x11-libs/gtk+:3[wayland?,X?]
+		x11-libs/libX11
 		vte? ( x11-libs/vte:2.91 )
 	)
 	infiniband? ( sys-cluster/rdma-core[static-libs(+)] )
 	iscsi? ( net-libs/libiscsi )
 	io-uring? ( sys-libs/liburing:=[static-libs(+)] )
 	jack? ( virtual/jack )
-	jemalloc? ( dev-libs/jemalloc )
 	jpeg? ( media-libs/libjpeg-turbo:=[static-libs(+)] )
 	kernel_linux? ( sys-libs/libcap-ng[static-libs(+)] )
 	keyutils? ( sys-apps/keyutils[static-libs(+)] )
@@ -211,6 +221,7 @@ SOFTMMU_TOOLS_DEPEND="
 		media-libs/mesa[egl(+),gbm(+)]
 	)
 	pam? ( sys-libs/pam )
+	passt? ( net-misc/passt )
 	pipewire? ( >=media-video/pipewire-0.3.60 )
 	png? ( >=media-libs/libpng-1.6.34:=[static-libs(+)] )
 	pulseaudio? ( media-libs/libpulse )
@@ -219,6 +230,7 @@ SOFTMMU_TOOLS_DEPEND="
 	sdl? (
 		media-libs/libsdl2[video]
 		media-libs/libsdl2[static-libs(+)]
+		x11-libs/libX11
 	)
 	sdl-image? ( media-libs/sdl2-image[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-2.1.0[static-libs(+)] )
@@ -226,7 +238,7 @@ SOFTMMU_TOOLS_DEPEND="
 	smartcard? ( >=app-emulation/libcacard-2.5.0[static-libs(+)] )
 	snappy? ( app-arch/snappy:= )
 	spice? (
-		>=app-emulation/spice-protocol-0.14.0
+		>=app-emulation/spice-protocol-0.14.5
 		>=app-emulation/spice-0.14.0[static-libs(+)]
 	)
 	ssh? ( >=net-libs/libssh-0.8.6[static-libs(+)] )
@@ -257,7 +269,7 @@ SOFTMMU_TOOLS_DEPEND="
 #
 
 FIRMWARE_ABI_VERSION="10.0.2"
-EDK2_OVMF_VERSION="202408"
+EDK2_OVMF_VERSION="202608"
 SEABIOS_VERSION="1.16.3"
 
 X86_FIRMWARE_DEPEND="
@@ -292,7 +304,6 @@ PPC_FIRMWARE_DEPEND="
 	)
 "
 
-# See bug #913084 for pip dep
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-python/distlib[${PYTHON_USEDEP}]
@@ -302,14 +313,18 @@ BDEPEND="
 	app-alternatives/ninja
 	virtual/pkgconfig
 	doc? (
-		>=dev-python/sphinx-1.6.0[${PYTHON_USEDEP}]
-		dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
+		>=dev-python/sphinx-7.2.7[${PYTHON_USEDEP}]
+		>=dev-python/sphinx-rtd-theme-1.2.2[${PYTHON_USEDEP}]
 	)
 	gtk? ( nls? ( sys-devel/gettext ) )
+	python? ( ${DISTUTILS_DEPS} )
 	test? (
 		app-alternatives/bc
 		dev-libs/glib[utils]
-		dev-python/pycotap[${PYTHON_USEDEP}]
+		>=dev-python/pycotap-1.1.0[${PYTHON_USEDEP}]
+		>=dev-python/qemu-qmp-0.0.5[${PYTHON_USEDEP}]
+		>=dev-python/setuptools-63.1.0[${PYTHON_USEDEP}]
+		>=dev-python/wheel-0.41.2[${PYTHON_USEDEP}]
 	)
 "
 if [[ ${PV} != 9999 ]]; then
@@ -329,6 +344,7 @@ DEPEND="
 	${CDEPEND}
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
 	static-user? ( ${ALL_DEPEND} )
+	valgrind? ( dev-debug/valgrind )
 "
 RDEPEND="
 	${CDEPEND}
@@ -340,26 +356,84 @@ RDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-10.1.2-fix_passt.patch
 	"${FILESDIR}"/${PN}-9.0.0-disable-keymap.patch
-	"${FILESDIR}"/${PN}-9.2.0-capstone-include-path.patch
+	"${FILESDIR}"/${PN}-11.1.50-capstone-include-path.patch
 	"${FILESDIR}"/${PN}-8.1.0-skip-tests.patch
 	"${FILESDIR}"/${PN}-8.1.0-find-sphinx.patch
 	"${FILESDIR}"/${PN}-10.2.2-optionrom-pass-Wl-no-error-rwx-segments.patch
 )
 
-QA_PREBUILT="
-	usr/share/qemu/hppa-firmware.img
-	usr/share/qemu/hppa-firmware64.img
-	usr/share/qemu/openbios-ppc
-	usr/share/qemu/openbios-sparc64
-	usr/share/qemu/openbios-sparc32
-	usr/share/qemu/opensbi-riscv64-generic-fw_dynamic.elf
-	usr/share/qemu/opensbi-riscv32-generic-fw_dynamic.elf
-	usr/share/qemu/palcode-clipper
-	usr/share/qemu/s390-ccw.img
-	usr/share/qemu/s390-netboot.img
-	usr/share/qemu/u-boot.e500
-"
+# see blobs in pc-bios/meson.build
+FIRMWARE_BLOBS=(
+	ast27x0_bootrom.bin
+	bios.bin
+	bios-256k.bin
+	bios-microvm.bin
+	qboot.rom
+	vgabios.bin
+	vgabios-cirrus.bin
+	vgabios-stdvga.bin
+	vgabios-vmware.bin
+	vgabios-qxl.bin
+	vgabios-virtio.bin
+	vgabios-ramfb.bin
+	vgabios-bochs-display.bin
+	vgabios-ati.bin
+	openbios-sparc32
+	openbios-sparc64
+	openbios-ppc
+	QEMU,tcx.bin
+	QEMU,cgthree.bin
+	pxe-e1000.rom
+	pxe-eepro100.rom
+	pxe-ne2k_pci.rom
+	pxe-pcnet.rom
+	pxe-rtl8139.rom
+	pxe-virtio.rom
+	efi-e1000.rom
+	efi-eepro100.rom
+	efi-ne2k_pci.rom
+	efi-pcnet.rom
+	efi-rtl8139.rom
+	efi-virtio.rom
+	efi-e1000e.rom
+	efi-vmxnet3.rom
+	qemu-nsis.bmp
+	multiboot_dma.bin
+	linuxboot_dma.bin
+	kvmvapic.bin
+	pvh.bin
+	s390-ccw.img
+	slof.bin
+	skiboot.lid
+	pnv-pnor.bin
+	palcode-clipper
+	u-boot.e500
+	u-boot-sam460.bin
+	qemu_vga.ndrv
+	edk2-licenses.txt
+	hppa-firmware.img
+	hppa-firmware64.img
+	hexagon_booter_qcs6490_cdsp
+	hexagon_loadlinux_qcs6490_cdsp
+	hexagon_booter_sm8975_nsp
+	hexagon_loadlinux_sm8975_nsp
+	hexagon_booter_sa8775p_cdsp
+	hexagon_loadlinux_sa8775p_cdsp
+	hexagon_booter_sc8480xp_nsp0
+	hexagon_loadlinux_sc8480xp_nsp0
+	hexagon_booter_sa8797p_nsp0
+	hexagon_loadlinux_sa8797p_nsp0
+	hexagon-hypervisor-license.txt
+	opensbi-riscv32-generic-fw_dynamic.bin
+	opensbi-riscv64-generic-fw_dynamic.bin
+	npcm7xx_bootrom.bin
+	npcm8xx_bootrom.bin
+	vof.bin
+	vof-nvram.bin
+)
+QA_PREBUILT="${FIRMWARE_BLOBS[@]/#/usr\/share\/qemu\/}"
 
 QA_WX_LOAD="
 	usr/bin/qemu-i386
@@ -515,8 +589,11 @@ src_prepare() {
 		EOF
 	fi
 
-	# Verbose builds
-	MAKEOPTS+=" V=1"
+	if use python; then
+		pushd python >/dev/null || die
+		distutils-r1_src_prepare
+		popd >/dev/null || die
+	fi
 
 	# Remove bundled modules
 	rm -r roms/*/ || die
@@ -545,6 +622,7 @@ qemu_src_configure() {
 		--localstatedir=/var
 		--disable-bsd-user
 		--disable-containers # bug #732972
+		--container-command=false # bug #984747
 		--disable-guest-agent
 		--disable-strip
 		--disable-download
@@ -573,6 +651,7 @@ qemu_src_configure() {
 		$(use_enable alsa)
 		$(use_enable debug debug-info)
 		$(use_enable debug debug-tcg)
+		$(use_enable hmp)
 		$(use_enable jack)
 		$(use_enable nls gettext)
 		$(use_enable oss)
@@ -580,7 +659,9 @@ qemu_src_configure() {
 		$(use_enable plugins)
 		$(use_enable pulseaudio pa)
 		$(use_enable selinux)
+		$(use_enable test tests)
 		$(use_enable xattr attr)
+		$(use_enable valgrind)
 	)
 
 	# Disable options not used by user targets. This simplifies building
@@ -623,16 +704,15 @@ qemu_src_configure() {
 		$(conf_notuser capstone)
 		$(conf_notuser curl)
 		$(conf_tools doc docs)
+		$(conf_notuser elfutils libdw)
 		$(conf_notuser fdt)
 		$(conf_notuser fuse)
-		$(conf_notuser glusterfs)
 		$(conf_notuser gnutls)
 		$(conf_notuser gnutls nettle)
 		$(conf_notuser gtk)
 		$(conf_notuser infiniband rdma)
 		$(conf_notuser iscsi libiscsi)
 		$(conf_notuser io-uring linux-io-uring)
-		$(conf_malloc jemalloc)
 		$(conf_notuser jpeg vnc-jpeg)
 		$(conf_notuser kernel_linux kvm)
 		$(conf_notuser keyutils libkeyutils)
@@ -643,6 +723,7 @@ qemu_src_configure() {
 		$(conf_notuser numa)
 		$(conf_notuser opengl)
 		$(conf_notuser pam auth-pam)
+		$(conf_notuser passt)
 		$(conf_notuser png)
 		$(conf_notuser rbd)
 		$(conf_notuser sasl vnc-sasl)
@@ -662,6 +743,10 @@ qemu_src_configure() {
 		$(conf_notuser virgl virglrenderer)
 		$(conf_softmmu virtfs)
 		$(conf_notuser vnc)
+		# Fails to build, otherwise automagically enabled for dbus+vnc+tools
+		# Fixing would involve untangling ui and keymaps out of the softmmu builds,
+		# as it implicitly requires softmmu targets in the tools build.
+		--disable-qemu-vnc
 		$(conf_notuser vte)
 		$(conf_softmmu xdp af-xdp)
 		$(conf_notuser xen)
@@ -672,6 +757,10 @@ qemu_src_configure() {
 	)
 
 	if [[ ! ${buildtype} == "user" ]] ; then
+		# used by passt and spice, enable it because glib is required anyway
+		conf_opts+=(
+			--enable-gio
+		)
 		# audio options
 		local audio_opts=(
 			# Note: backend order matters here: #716202
@@ -776,37 +865,47 @@ src_configure() {
 	[[ -n ${softmmu_targets} ]] && qemu_src_configure "softmmu"
 	[[ -n ${user_targets}    ]] && qemu_src_configure "user"
 	qemu_src_configure "tools"
+
+	if use python; then
+		pushd python >/dev/null || die
+		distutils-r1_src_configure
+		popd >/dev/null || die
+	fi
 }
 
 src_compile() {
 	if [[ -n ${user_targets} ]]; then
 		cd "${S}/user-build" || die
-		default
+		emake V=1
 	fi
 
 	if [[ -n ${softmmu_targets} ]]; then
 		cd "${S}/softmmu-build" || die
-		default
+		emake V=1
 	fi
 
 	cd "${S}/tools-build" || die
-	default
+	emake V=1
+
+	if use python; then
+		pushd python >/dev/null || die
+		distutils-r1_src_compile
+		popd >/dev/null || die
+	fi
 }
 
 src_test() {
 	if [[ -n ${softmmu_targets} ]]; then
 		cd "${S}/softmmu-build" || die
 		pax-mark m */qemu-system-* #515550
-		emake check
+		emake V=1 check
 	fi
 }
 
-qemu_python_install() {
-	python_domodule "${S}/python/qemu"
+python_install() {
+	distutils-r1_python_install
 
 	python_doscript "${S}/scripts/kvm/vmxcap"
-	python_doscript "${S}/scripts/qmp/qmp-shell"
-	python_doscript "${S}/scripts/qmp/qemu-ga-client"
 }
 
 # Generate binfmt support files.
@@ -886,10 +985,12 @@ src_install() {
 		if use kernel_linux; then
 			udev_newrules "${FILESDIR}"/65-kvm.rules-r2 65-kvm.rules
 		fi
+	fi
 
-		if use python; then
-			python_foreach_impl qemu_python_install
-		fi
+	if use python; then
+		pushd python >/dev/null || die
+		distutils-r1_src_install
+		popd >/dev/null || die
 	fi
 
 	cd "${S}/tools-build" || die
@@ -904,6 +1005,9 @@ src_install() {
 	pushd "${ED}"/usr/bin >/dev/null || die
 	pax-mark mr "${softmmu_bins[@]}" "${user_bins[@]}" # bug 575594
 	popd >/dev/null || die
+
+	# suid in src_install to allow FEATURES=suidctl to work properly
+	fperms u+s /usr/libexec/qemu-bridge-helper
 
 	# Install config file example for qemu-bridge-helper
 	insinto "/etc/qemu"
@@ -968,7 +1072,7 @@ pkg_postinst() {
 	xdg_icon_cache_update
 
 	[[ -z ${EPREFIX} ]] && [[ -f ${EROOT}/usr/libexec/qemu-bridge-helper ]] && \
-		fcaps -m u+s cap_net_admin "${EROOT}"/usr/libexec/qemu-bridge-helper
+		fcaps -M u-s cap_net_admin "${EROOT}"/usr/libexec/qemu-bridge-helper
 
 	DISABLE_AUTOFORMATTING=true
 	readme.gentoo_print_elog
