@@ -12,26 +12,25 @@ LICENSE="MIT LGPL-2.1 BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug +drm +fbdev freetype +gles2 libseat +pango test"
+IUSE="dbus debug +drm +fbdev freetype +gles2 libseat +pango test"
 RESTRICT="!test? ( test )"
 
-COMMON_DEPEND="app-text/docbook-xsl-stylesheets
-	>=dev-libs/libtsm-4.6.0:=
-	dev-libs/libxslt
-	media-libs/libglvnd[X(+)]
+DEPEND="app-text/docbook-xsl-stylesheets
+	>=dev-libs/libtsm-4.8.0:=
+	media-libs/libglvnd
 	>=virtual/udev-172
 	virtual/zlib:=
 	x11-libs/libxkbcommon
+	dbus? ( sys-apps/dbus )
 	drm? ( x11-libs/libdrm
 		>=media-libs/mesa-8.0.3[egl(+),gbm(+)] )
-	freetype? (	media-libs/fontconfig media-libs/freetype )
+	freetype? (	>=media-libs/fontconfig-2.16.0 media-libs/freetype )
 	libseat? ( sys-auth/seatd )
 	pango? ( x11-libs/pango dev-libs/glib:2 )"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	x11-misc/xkeyboard-config"
-DEPEND="${COMMON_DEPEND}
-	x11-base/xorg-proto"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="dev-libs/libxslt
+	virtual/pkgconfig"
 
 REQUIRED_USE="drm? ( gles2 )"
 
@@ -52,21 +51,23 @@ src_configure() {
 		$(meson_feature fbdev video_fbdev)
 		$(meson_feature drm video_drm2d)
 		$(meson_feature drm video_drm3d)
+		-Dfont_psf=enabled
 		-Dfont_unifont=enabled
 		$(meson_feature freetype font_freetype)
 		$(meson_feature pango font_pango)
 		$(meson_feature gles2 renderer_gltex)
 		$(meson_use test tests)
+		$(meson_feature dbus)
 	)
 
 	meson_src_configure
 }
 
 src_install() {
-        meson_src_install
+	meson_src_install
 
-        newinitd "${FILESDIR}"/kmsconvt.init kmsconvt
-        newconfd "${FILESDIR}"/kmsconvt.conf kmsconvt
+	newinitd "${FILESDIR}"/kmsconvt.init kmsconvt
+	newconfd "${FILESDIR}"/kmsconvt.conf kmsconvt
 }
 
 pkg_postinst() {
