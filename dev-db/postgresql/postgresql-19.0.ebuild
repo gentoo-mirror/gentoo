@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="POSTGRESQL GPL-2"
 SLOT=$(ver_cut 1)
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 
 IUSE="debug doc +icu kerberos ldap llvm +numa nls oauth pam perl python
 	+readline selinux +server systemd ssl static-libs tcl uuid +uring
@@ -116,7 +116,7 @@ src_prepare() {
 	# hardened and non-hardened environments. (Bug #528786)
 	sed 's/@install_bin@/install -c/' -i src/Makefile.global.in || die
 
-	use server || eapply "${FILESDIR}/${PN}-18.0-no-server.patch"
+	use server || eapply "${FILESDIR}/${PN}-19.0-no-server.patch"
 
 	if use pam ; then
 		sed "s/\(#define PGSQL_PAM_SERVICE \"postgresql\)/\1-${SLOT}/" \
