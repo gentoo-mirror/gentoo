@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-11">
+    <title>nginx: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in nginx, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">nginx</product>
+    <announced>2026-11-19</announced>
+    <revised count="1">2026-11-19</revised>
+    <bug>982593</bug>
+    <bug>984273</bug>
+    <bug>986768</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/nginx" auto="yes" arch="*">
+            <unaffected range="ge">1.30.7</unaffected>
+            <vulnerable range="lt">1.30.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>nginx is a robust, small, and high performance HTTP and reverse proxy server.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in nginx. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All nginx stable channel users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/nginx-1.30.7"
+        </code>
+        
+        <p>All nginx mainline channel users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/nginx-1.31.9"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-15176">CVE-2026-15176</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-90439">CVE-2026-90439</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-93479">CVE-2026-93479</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-95101">CVE-2026-95101</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-97205">CVE-2026-97205</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-97629">CVE-2026-97629</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-113425">CVE-2026-113425</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-118899">CVE-2026-118899</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-120967">CVE-2026-120967</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-120993">CVE-2026-120993</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-121810">CVE-2026-121810</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-123007">CVE-2026-123007</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-123633">CVE-2026-123633</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-123634">CVE-2026-123634</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-123640">CVE-2026-123640</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-125283">CVE-2026-125283</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-19T18:56:36.796466Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-19T18:56:36.807097Z">sam</metadata>
+</glsa>
