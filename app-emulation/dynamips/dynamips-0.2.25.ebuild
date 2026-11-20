@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,10 @@ DEPEND="${RDEPEND}"
 
 DOCS=( ChangeLog README.md README.hypervisor RELEASE-NOTES )
 
-PATCHES=( "${FILESDIR}/${PN}-0.2.18-docs.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-0.2.18-docs.patch"
+	"${FILESDIR}/${PN}-0.2.24-cmake-minimum.patch"
+)
 
 src_prepare() {
 	# comment out DYNAMIPS_FLAGS to respect CFLAGS

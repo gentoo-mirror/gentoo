@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 virtualx xdg
@@ -19,9 +19,10 @@ KEYWORDS="~amd64"
 #net-misc/gns3-server version should always match gns3-gui version
 RDEPEND="
 	>=dev-python/distro-1.9.0[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-6.1.0[${PYTHON_USEDEP}]
-	>=dev-python/truststore-0.10.0[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.25.1[${PYTHON_USEDEP}]
+	>=dev-python/psutil-7.2.2[${PYTHON_USEDEP}]
+	>=dev-python/truststore-0.10.4[${PYTHON_USEDEP}]
+	>=dev-python/qdarkstyle-3.2.3[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/pyqt6[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
