@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/ocaml-4.06 dev-ml/dune-configurator dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-db/sqlite-3.3.3 test? ( dev-ml/ppx_inline_test ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=SQLite3 bindings for OCaml
+EAPI=7
+HOMEPAGE=http://mmottl.github.io/sqlite3-ocaml/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=MIT
+RDEPEND=>=dev-db/sqlite-3.3.3 dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/5.0.2
+SRC_URI=https://github.com/mmottl/sqlite3-ocaml/archive/5.0.2.tar.gz -> ocaml-sqlite3-5.0.2.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	44a9750279aef8579ebe983de0bf61e7
+_md5_=0c4d7e53b98433ac39874871f43bbef0

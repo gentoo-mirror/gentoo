@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune-configurator:= dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Library to exploit multicore architectures for OCaml programs
+EAPI=8
+HOMEPAGE=https://www.dicosmo.org/code/parmap/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
+LICENSE=LGPL-2-with-linking-exception
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.2.5
+SRC_URI=https://github.com/rdicosmo/parmap/archive/1.2.5.tar.gz -> parmap-1.2.5.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	44a9750279aef8579ebe983de0bf61e7
+_md5_=c55e2f5066e936d2e09cb54988af51cb

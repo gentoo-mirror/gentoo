@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.36.0:=[ocamlopt?] dev-ml/cppo[ocamlopt?] test? ( dev-ml/ounit2 ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Type-driven code generation for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/ocaml-ppx/ppx_deriving
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.36.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/6.1.1
+SRC_URI=https://github.com/ocaml-ppx/ppx_deriving/archive/v6.1.1.tar.gz -> ppx_deriving-6.1.1.tar.gz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	44a9750279aef8579ebe983de0bf61e7
+_md5_=8ef3148cfdf84da40aa57c709f059543
