@@ -9,22 +9,21 @@ inherit java-pkg-2 prefix verify-sig
 
 MY_P="apache-${P}-src"
 
-DESCRIPTION="Tomcat Servlet-6.1/JSP-4.0/EL-6.0/WebSocket-2.2/JASPIC-3.1 Container"
+DESCRIPTION="Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container"
 HOMEPAGE="https://tomcat.apache.org/"
-SRC_URI="mirror://apache/${PN}/tomcat-$(ver_cut 1)/v${PV}/src/${MY_P}.tar.gz
+SRC_URI="mirror://apache/${PN}/tomcat-10/v${PV}/src/${MY_P}.tar.gz
 	verify-sig? ( https://downloads.apache.org/tomcat/tomcat-$(ver_cut 1)/v${PV}/src/${MY_P}.tar.gz.asc )"
 S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
-SLOT="11"
-
+SLOT="10.1"
 KEYWORDS="~amd64 ~arm64"
 IUSE="extra-webapps"
 
 RESTRICT="test" # can we run them on a production system?
 
 BND_MIN="7.4.0"
-ECJ_SLOT="4.41"
+ECJ_SLOT="4.26"
 
 COMMON_DEP="
 	>=dev-java/ant-1.10.15-r1:0
@@ -40,7 +39,7 @@ RDEPEND="
 	${COMMON_DEP}
 	acct-group/tomcat
 	acct-user/tomcat
-	>=virtual/jre-17:*"
+	>=virtual/jre-11:*"
 DEPEND="
 	${COMMON_DEP}
 	app-admin/pwgen
@@ -54,7 +53,7 @@ DEPEND="
 	dev-java/slf4j-api:0
 	|| ( virtual/jdk:21 virtual/jdk:17 )
 	test? (
-		>=dev-java/ant-1.10.15-r1:0[junit]
+		>=dev-java/ant-1.10.15:0[junit]
 		>=dev-java/easymock-5.7.0:0
 	)"
 
@@ -63,8 +62,9 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/tomcat-$(ver_cut 1).apache.
 
 PATCHES=(
 	"${FILESDIR}/tomcat-10.1.20-do-not-copy.patch"
-	"${FILESDIR}/tomcat-11.0.0-offline.patch"
+	"${FILESDIR}/tomcat-10.1.20-offline.patch"
 	"${FILESDIR}/tomcat-9.0.87-gentoo-bnd.patch"
+	"${FILESDIR}/tomcat-10.1.62-CVE-2026-133325.patch"
 )
 
 src_prepare() {
@@ -83,14 +83,14 @@ src_prepare() {
 		bnd-util.jar=$(java-pkg_getjars --build-only bnd-util)
 		bnd.jar=$(java-pkg_getjars --build-only bnd)
 		bndlib.jar=$(java-pkg_getjars --build-only bndlib)
-		jaxrpc-lib.jar=$(java-pkg_getjars --build-only jax-rpc-api)
+		jaxrpc-lib.jar=$(java-pkg_getjars jax-rpc-api)
 		jdt.jar=$(java-pkg_getjars eclipse-ecj-${ECJ_SLOT})
 		libg.jar=$(java-pkg_getjars --build-only libg)
 		migration-lib.jar=$(java-pkg_getjars jakartaee-migration)
 		osgi-cmpn.jar=$(java-pkg_getjars --build-only osgi-cmpn-8)
 		osgi-core.jar=$(java-pkg_getjars --build-only osgi-core)
 		slf4j-api.jar=$(java-pkg_getjars --build-only slf4j-api)
-		wsdl4j-lib.jar=$(java-pkg_getjars --build-only wsdl4j)
+		wsdl4j-lib.jar=$(java-pkg_getjars wsdl4j)
 	EOF
 	if use test; then
 		echo "easymock.jar=$(java-pkg_getjars --build-only easymock-3.2)" \
