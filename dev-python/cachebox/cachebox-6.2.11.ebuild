@@ -8,29 +8,29 @@ DISTUTILS_USE_PEP517=maturin
 PYPI_VERIFY_REPO=https://github.com/awolverp/cachebox
 PYTHON_COMPAT=( python3_{12..15} )
 
-RUST_MIN_VER="1.83.0"
+RUST_MIN_VER="1.95.0"
 CRATES="
 	allocator-api2@0.4.0
 	android_system_properties@0.1.6
 	autocfg@1.5.1
-	bitflags@2.13.1
-	bumpalo@3.20.3
-	cc@1.4.4
-	cfg-if@1.0.4
+	bitflags@2.13.2
+	bumpalo@3.20.4
+	cc@1.11.2
+	cfg-if@1.0.5
 	chrono@0.4.45
 	core-foundation-sys@0.8.7
 	fastrand@2.5.0
-	find-msvc-tools@0.1.11
+	find-msvc-tools@0.1.15
 	futures-core@0.3.34
 	futures-task@0.3.34
 	futures-util@0.3.34
 	heck@0.5.0
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.65
-	js-sys@0.3.104
-	libc@0.2.189
+	js-sys@0.3.107
+	libc@0.2.191
 	lock_api@0.4.14
-	log@0.4.34
+	log@0.4.35
 	num-traits@0.2.19
 	once_cell@1.21.4
 	parking_lot@0.12.5
@@ -38,25 +38,26 @@ CRATES="
 	pin-project-lite@0.2.17
 	portable-atomic@1.15.0
 	proc-macro2@1.0.107
-	pyo3-build-config@0.29.2
-	pyo3-ffi@0.29.2
-	pyo3-macros-backend@0.29.2
-	pyo3-macros@0.29.2
-	pyo3@0.29.2
+	pyo3-build-config@0.30.1
+	pyo3-ffi@0.30.1
+	pyo3-macros-backend@0.30.1
+	pyo3-macros@0.30.1
+	pyo3@0.30.1
 	quote@1.0.47
 	redox_syscall@0.5.18
 	rustversion@1.0.23
 	scopeguard@1.2.0
 	shlex@2.0.1
 	slab@0.4.12
-	smallvec@1.15.2
+	smallvec@1.16.6
 	syn@2.0.119
-	target-lexicon@0.13.5
-	unicode-ident@1.0.24
-	wasm-bindgen-macro-support@0.2.127
-	wasm-bindgen-macro@0.2.127
-	wasm-bindgen-shared@0.2.127
-	wasm-bindgen@0.2.127
+	syn@3.0.10
+	target-lexicon@0.13.6
+	unicode-ident@1.0.27
+	wasm-bindgen-macro-support@0.2.130
+	wasm-bindgen-macro@0.2.130
+	wasm-bindgen-shared@0.2.130
+	wasm-bindgen@0.2.130
 	windows-core@0.62.2
 	windows-implement@0.60.2
 	windows-interface@0.59.3
@@ -80,7 +81,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 EPYTEST_PLUGINS=( hypothesis pytest-asyncio )
 distutils_enable_tests pytest

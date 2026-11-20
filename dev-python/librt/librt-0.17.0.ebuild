@@ -18,12 +18,10 @@ HOMEPAGE="
 
 LICENSE="MIT PSF-2.4"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
-BDEPEND="
-	test? (
-		dev-python/mypy-extensions[${PYTHON_USEDEP}]
-	)
+RDEPEND="
+	>=dev-python/mypy-extensions-1.2.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
