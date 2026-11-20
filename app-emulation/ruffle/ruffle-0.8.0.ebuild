@@ -3,35 +3,34 @@
 
 EAPI=8
 
-RUST_MIN_VER=1.88.0
+RUST_MIN_VER=1.96.0
 inherit cargo desktop optfeature xdg
-
-MY_PV=nightly-${PV:3:4}-${PV:7:2}-${PV:9:2}
-MY_P=${PN}-${MY_PV}
 
 DESCRIPTION="Flash Player emulator written in Rust"
 HOMEPAGE="https://ruffle.rs/"
 SRC_URI="
-	https://github.com/ruffle-rs/ruffle/archive/refs/tags/${MY_PV}.tar.gz
-		-> ${MY_P}.tar.gz
-	https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/${MY_P}-vendor.tar.xz
+	https://github.com/ruffle-rs/ruffle/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
+	https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/${P}-vendor.tar.xz
 "
-S=${WORKDIR}/${MY_P}
 
 LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+="
-	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 OFL-1.1 openssl
-	UbuntuFontLicense-1.0 Unicode-3.0 ZLIB BZIP2
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT MPL-2.0
+	OFL-1.1 openssl UbuntuFontLicense-1.0 Unicode-3.0 ZLIB BZIP2
 " # crates
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 # X/wayland libraries are dlopen'ed and are unneeded to build, assume
 # users will have whichever they need rather than do USE or optfeatures
 RDEPEND="
+	dev-libs/openssl:=
 	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype
 	virtual/libudev:=
 "
 DEPEND="${RDEPEND}"
@@ -67,16 +66,6 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-
-	if [[ ! ${REPLACING_VERSIONS} ]]; then
-		elog "${PN} is experimental software that is still under heavy development"
-		elog "and only receiving nightly releases. Plans in Gentoo is to update"
-		elog "roughly every 3+ months if no known major regressions (feel free"
-		elog "to report if you feel a newer nightly right away)."
-		elog
-		elog "There is currently no plans to support wasm builds / browser"
-		elog "extensions, this provides the desktop viewer and other tools."
-	fi
 
 	optfeature "h264 video decoding" media-libs/openh264
 	optfeature "the in-application file picker" sys-apps/xdg-desktop-portal
