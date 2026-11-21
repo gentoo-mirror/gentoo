@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	|| ( app-text/aspell app-text/hunspell )
@@ -27,7 +27,7 @@ RDEPEND="
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/markdown[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	>=dev-python/soupsieve-1.8[${PYTHON_USEDEP}]
+	>=dev-python/soupsieve-3.0.1[${PYTHON_USEDEP}]
 	>=dev-python/wcmatch-6.5[${PYTHON_USEDEP}]
 "
 # The package can use either aspell or hunspell but tests both if both

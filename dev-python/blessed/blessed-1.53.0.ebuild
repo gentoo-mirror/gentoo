@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit-core
+PYPI_VERIFY_REPO=https://github.com/jquast/blessed
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -16,11 +17,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/jinxed-2.1[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.8.3[${PYTHON_USEDEP}]
+	>=dev-python/jinxed-2.1.1[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.9.4[${PYTHON_USEDEP}]
 "
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme

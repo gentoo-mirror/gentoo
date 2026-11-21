@@ -17,14 +17,12 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
-# TODO: rsa is now optional
 RDEPEND="
 	>=dev-python/cryptography-41.0.5[${PYTHON_USEDEP}]
 	>=dev-python/pyasn1-0.1.7[${PYTHON_USEDEP}]
 	>=dev-python/pyasn1-modules-0.2.1[${PYTHON_USEDEP}]
-	>=dev-python/rsa-3.1.4[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -54,10 +52,3 @@ EPYTEST_IGNORE=(
 	# disable them to unblock removal of that package
 	tests/test__oauth2client.py
 )
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# unpin deps
-	sed -i -e 's:,<[0-9.]*::' setup.py || die
-}

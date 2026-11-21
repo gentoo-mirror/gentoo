@@ -4,19 +4,20 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/PyCalendar/icalendar
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
 DESCRIPTION="RFC 5545 compatible parser and generator of iCalendar files"
 HOMEPAGE="
-	https://github.com/collective/icalendar/
+	https://github.com/PyCalendar/icalendar/
 	https://pypi.org/project/icalendar/
 "
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
@@ -39,4 +40,7 @@ EPYTEST_IGNORE=(
 	# upstream puts quite an effort for funding.json, but failed to
 	# include it in sdist
 	src/icalendar/tests/test_funding_json.py
+
+	# test for tools not included in sdist
+	src/icalendar/tests/test_generate_windows_to_olson_mapping.py
 )

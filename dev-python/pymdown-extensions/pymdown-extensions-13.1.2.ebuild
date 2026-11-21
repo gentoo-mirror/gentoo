@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/markdown-3.6[${PYTHON_USEDEP}]
+	>=dev-python/markdown-3.10.3[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 "
 
