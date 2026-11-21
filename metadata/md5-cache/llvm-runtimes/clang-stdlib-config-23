@@ -3,8 +3,8 @@ DESCRIPTION=Default C++ library configuration for clang
 EAPI=8
 HOMEPAGE=https://clang.llvm.org/
 IUSE=default-libcxx
-KEYWORDS=~amd64 ~arm arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos
+KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~arm64-macos ~x64-macos
 LICENSE=public-domain
 RDEPEND=default-libcxx? ( >=llvm-runtimes/libcxx-23[static-libs] ) !default-libcxx? ( sys-devel/gcc )
 SLOT=23
-_md5_=d45aeeb16bcacf8f6e47daf8514a7c92
+_md5_=b2cb596664c0270eacf2b8b28c462fb3
