@@ -1,13 +1,14 @@
 BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
-DEFINED_PHASES=compile install postinst postrm setup
+DEFINED_PHASES=compile install postinst postrm prepare setup
 DESCRIPTION=Monospaced bitmap fonts for consoles and terminals
 EAPI=8
 HOMEPAGE=https://www.cambus.net/spleen-monospaced-bitmap-fonts/ https://github.com/fcambus/spleen/
 INHERIT=edo font
 IUSE=X
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/fcambus/spleen/releases/download/2.1.0/spleen-2.1.0.tar.gz
+SRC_URI=https://github.com/fcambus/spleen/releases/download/2.3.0/spleen-2.3.0.tar.gz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	font	9248ee2e9ac35c888e1ae71773a632f4
-_md5_=ec355837e63021c0d4a5491b428a8b17
+_md5_=fd42c908efe63c956abbfecd3f454426
