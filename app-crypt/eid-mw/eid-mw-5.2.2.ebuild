@@ -35,7 +35,6 @@ PATCHES=(
 	"${FILESDIR}/0001-Do-not-build-xpi-module.patch"
 	"${FILESDIR}/0001-Fix-libdir-for-manifestdir.patch"
 	"${FILESDIR}/0001-Remove-uml-build.patch"
-	"${FILESDIR}/${P}-openssl-4.patch"
 	)
 
 src_prepare() {
