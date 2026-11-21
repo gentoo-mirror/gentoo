@@ -23,8 +23,8 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/acp-0.16.1
-	>=app-emacs/shell-maker-0.97.5
+	>=app-emacs/acp-0.18.1
+	>=app-emacs/shell-maker-0.98.2
 "
 BDEPEND="
 	${RDEPEND}
@@ -32,6 +32,11 @@ BDEPEND="
 
 DOCS=( CONTRIBUTING.org README.org blog-post.org )
 SITEFILE="50${PN}-gentoo.el"
+
+ELISP_REMOVE="
+	tests/agent-shell-chat-mode-tests.el
+	tests/agent-shell-markdown-tests.el
+"
 
 src_compile() {
 	elisp_src_compile

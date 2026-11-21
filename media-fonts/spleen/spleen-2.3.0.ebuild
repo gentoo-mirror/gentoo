@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,19 +11,23 @@ HOMEPAGE="https://www.cambus.net/spleen-monospaced-bitmap-fonts/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
-	EGIT_REPO_URI="https://github.com/fcambus/${PN}.git"
+	EGIT_REPO_URI="https://github.com/fcambus/${PN}"
 else
 	SRC_URI="https://github.com/fcambus/${PN}/releases/download/${PV}/${P}.tar.gz"
-
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD-2"
 SLOT="0"
+RESTRICT="test"
 
 DOCS=( AUTHORS ChangeLog README.md )
 FONT_SUFFIX="otf pcf.gz psfu.gz"
+
+src_prepare() {
+	rm Makefile || die
+	default
+}
 
 src_compile() {
 	edo gzip -n9 *.pcf *.psfu

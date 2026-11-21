@@ -13,12 +13,10 @@ HOMEPAGE="https://protesilaos.com/emacs/ef-themes/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/protesilaos/${PN}"
 else
 	SRC_URI="https://github.com/protesilaos/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -32,7 +30,7 @@ BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( CHANGELOG.org README.md README.org contrast-ratios.org )
+DOCS=( CHANGELOG.org README.md README.org contrasts.org )
 ELISP_TEXINFO="${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
 
