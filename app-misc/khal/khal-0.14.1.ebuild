@@ -33,10 +33,13 @@ BDEPEND="
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
-		dev-python/pkg-resources[${PYTHON_USEDEP}]
 		dev-python/vdirsyncer[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-urwid-test.patch
+)
 
 DOCS=( AUTHORS.txt CHANGELOG.rst CONTRIBUTING.rst README.rst khal.conf.sample )
 
