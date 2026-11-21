@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=poetry-core
 PYPI_VERIFY_REPO=https://github.com/python-poetry/poetry-plugin-export
 PYTHON_COMPAT=( python3_{12..13} )
 
@@ -17,11 +17,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=dev-python/poetry-2.3.0[${PYTHON_USEDEP}]
-	>=dev-python/poetry-core-2.3.0[${PYTHON_USEDEP}]
+	>=dev-python/poetry-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/poetry-core-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.11.4[${PYTHON_USEDEP}]
 "
 
