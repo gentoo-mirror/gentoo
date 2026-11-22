@@ -5,7 +5,7 @@ DESCRIPTION=Intel SPMD Program Compiler
 EAPI=8
 HOMEPAGE=https://ispc.github.io/ https://github.com/ispc/ispc/
 INHERIT=cmake dot-a llvm-r1 multiprocessing python-any-r1 toolchain-funcs
-IUSE=examples gpu openmp test +llvm_slot_22 llvm_slot_20 llvm_slot_21 llvm_slot_23
+IUSE=examples gpu openmp test +llvm_slot_23 llvm_slot_20 llvm_slot_21 llvm_slot_22
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD BSD-2 UoI-NCSA
 RDEPEND=llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) llvm_slot_22? ( llvm-core/clang:22 ) llvm_slot_23? ( llvm-core/clang:23 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( llvm_slot_20 llvm_slot_21 llvm_slot_22 llvm_slot_23 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ispc/ispc/archive/v1.32.0.tar.gz -> ispc-1.32.0.gh.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	dot-a	e5200fe17cfd2ed6fa66edd80201763a	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	d273b2052f283889d9b4d87365f425ac	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	dot-a	e5200fe17cfd2ed6fa66edd80201763a	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	8dd05714d79fa1a60821da5810e1ca3c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	025367880f07ae6444e6035a49db0dab	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=85e35812eca34fe10bc38180f9158aaf
