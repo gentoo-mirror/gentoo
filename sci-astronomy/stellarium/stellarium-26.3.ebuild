@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg verify-sig virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
@@ -37,8 +37,9 @@ SRC_URI="
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~riscv ~x86"
-IUSE="debug deep-sky doc gps +lens-distortion libcxx media nls +scripting +show-my-sky stars telescope test webengine +xlsx"
+KEYWORDS="~amd64 ~riscv ~x86"
+IUSE="debug deep-sky doc +gui gps +lens-distortion libcxx media nls +scripting +show-my-sky stars telescope test webengine +xlsx"
+RESTRICT="!test? ( test )"
 
 # Python interpreter is used while building RemoteControl plugin
 BDEPEND="
@@ -52,12 +53,13 @@ BDEPEND="
 RDEPEND="
 	dev-cpp/tbb:=
 	dev-libs/md4c
-	dev-qt/qtbase:6=[concurrent,gui,network,widgets]
+	dev-qt/qtbase:6=[concurrent,gui,network,opengl,widgets]
 	dev-qt/qtcharts:6
 	dev-qt/qtpositioning:6
 	dev-qt/qtsvg:6
 	media-fonts/dejavu
 	>=sci-astronomy/calcmysky-0.3.5:=
+	virtual/opengl
 	virtual/zlib:=
 	gps? (
 		dev-qt/qtserialport:6
@@ -70,21 +72,18 @@ RDEPEND="
 	media? (
 		dev-qt/qtmultimedia:6[gstreamer]
 		dev-qt/qtspeech:6
-		virtual/opengl
 	)
 	scripting? ( dev-qt/qtdeclarative:6 )
 	telescope? (
 		dev-qt/qtserialport:6
 		sci-libs/indilib:=
 	)
-	webengine? ( dev-qt/qtwebengine:6[widgets] )
+	webengine? ( gui? ( dev-qt/qtwebengine:6[widgets] ) )
 	xlsx? ( >=dev-libs/qxlsx-1.5.0:= )
 "
 DEPEND="${RDEPEND}
 	libcxx? ( dev-cpp/fast_float )
 "
-
-RESTRICT="!test? ( test )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/stellarium.asc
 
@@ -126,10 +125,15 @@ src_configure() {
 		-DENABLE_SCRIPTING=$(usex scripting)
 		-DENABLE_TESTING="$(usex test)"
 		-DENABLE_XLSX="$(usex xlsx)"
-		-DUSE_PLUGIN_LENSDISTORTIONESTIMATOR="$(usex lens-distortion)"
+		-DSTELLARIUM_GUI_MODE="$(usex gui Standard None)"
 		-DUSE_PLUGIN_TELESCOPECONTROL="$(usex telescope)"
 		"$(cmake_use_find_package doc Doxygen)"
 	)
+	if use gui; then
+		mycmakeargs+=(
+			-DUSE_PLUGIN_LENSDISTORTIONESTIMATOR="$(usex lens-distortion)"
+		)
+	fi
 	cmake_src_configure
 }
 
