@@ -3,19 +3,21 @@
 
 EAPI=8
 
+inherit meson
+
 DESCRIPTION="A set of scripts and m4/autoconf macros that ease build system maintenance"
 HOMEPAGE="
 	https://docs.xfce.org/xfce/xfce4-dev-tools/start
 	https://gitlab.xfce.org/xfce/xfce4-dev-tools/
 "
-SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
+SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-solaris"
 
 DEPEND="
-	>=dev-libs/glib-2.72.0
+	>=dev-libs/glib-2.80.0
 "
 RDEPEND="
 	${DEPEND}
@@ -23,7 +25,6 @@ RDEPEND="
 "
 # libxslt for xsltproc
 BDEPEND="
-	dev-build/meson
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
