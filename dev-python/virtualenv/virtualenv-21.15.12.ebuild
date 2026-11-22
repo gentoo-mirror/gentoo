@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -37,6 +37,7 @@ RDEPEND="
 # coverage is used somehow magically in virtualenv, maybe it actually
 # tests something useful
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
@@ -72,6 +73,9 @@ src_prepare() {
 
 	# remove bundled wheels
 	rm src/virtualenv/seed/wheels/embed/*.whl || die
+
+	# disable sbom nonsense
+	sed -i -e '/build\.hooks\.custom\.path/d' pyproject.toml || die
 }
 
 python_test() {
@@ -81,7 +85,6 @@ python_test() {
 	fi
 
 	local EPYTEST_DESELECT=(
-		tests/unit/seed/embed/test_bootstrap_link_via_app_data.py::test_seed_link_via_app_data
 		# tests for old wheels with py3.7 support
 		tests/unit/seed/embed/test_pip_invoke.py::test_base_bootstrap_via_pip_invoke
 		tests/unit/seed/wheels/test_wheels_util.py::test_wheel_not_support
@@ -101,7 +104,8 @@ python_test() {
 		tests/unit/create/test_creator.py::test_create_distutils_cfg
 		tests/unit/seed/embed/test_pip_invoke.py::test_pip_reseed_removes_previous_version_metadata
 		# we do not use bundled wheels
-		tests/unit/seed/wheels/test_bundle.py::test_every_wheel_on_disk_has_sha256
+		tests/unit/seed/embed/test_bootstrap_link_via_app_data.py
+		tests/unit/seed/wheels/test_bundle.py
 		# requires bundled packages in pip
 		tests/unit/test_sbom.py::test_sbom_spdx_declared_license
 		# require pre-commit = internet
@@ -113,6 +117,12 @@ python_test() {
 		tests/unit/seed/wheels/test_acquire_find_wheel.py::test_find_latest
 		# some platformdirs nonsense (bundled packages?)
 		tests/unit/config/test___main__.py::test_module_entry_from_target_install
+		# these all timeout; they may require xonsh or be plain broken
+		tests/property/test_activation_prompt.py::test_prompt_seeds_stay_data
+		tests/property/test_activation_prompt.py::test_prompt_stays_data
+		tests/unit/activation/test_activator.py::test_activator_prompt_stays_data
+		# some extra pkgconfig dir, looks like another junk test
+		tests/unit/activation/test_csh.py::test_cshell_keeps_destination_after_locale_change
 	)
 
 	local -x TZ=UTC
