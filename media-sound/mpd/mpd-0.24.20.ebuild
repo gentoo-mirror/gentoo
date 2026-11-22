@@ -3,13 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{13..15} )
 inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd verify-sig xdg
 
+PV_MAN="0.24.18"
 DESCRIPTION="The Music Player Daemon (mpd)"
 HOMEPAGE="https://www.musicpd.org https://github.com/MusicPlayerDaemon/MPD"
 SRC_URI="
 	https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz
+	!doc? ( https://raw.githubusercontent.com/PPN-SD/gentoo-manpages/refs/tags/${PN}-${PV_MAN}/${PN}-${PV_MAN}-manpages.tar.xz )
 	verify-sig? ( https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz.sig )
 "
 
@@ -23,12 +25,10 @@ IUSE="+alsa ao audiofile bzip2 cdio chromaprint +curl doc +dbus
 	recorder samba selinux shout sid signalfd snapcast sndfile sndio sqlite
 	systemd test tremor twolame upnp vorbis wav wavpack webdav wildmidi
 	zeroconf zip zlib"
-
 OUTPUT_PLUGINS="alsa ao jack httpd openal oss pipewire pulseaudio shout snapcast sndio recorder"
 DECODER_PLUGINS="audiofile faad ffmpeg flac fluidsynth mad mikmod
 	modplug mpg123 musepack opus openmpt flac sid tremor vorbis wavpack wildmidi"
 ENCODER_PLUGINS="flac lame opus twolame vorbis wav"
-
 REQUIRED_USE="
 	|| ( ${OUTPUT_PLUGINS} )
 	|| ( ${DECODER_PLUGINS} )
@@ -41,7 +41,6 @@ REQUIRED_USE="
 	upnp? ( curl expat )
 	webdav? ( curl expat )
 "
-
 RESTRICT="!test? ( test )"
 
 COMMON_ENCODERS="
@@ -68,7 +67,7 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )
 	expat? ( dev-libs/expat )
 	faad? ( media-libs/faad2 )
-	ffmpeg? ( media-video/ffmpeg:= )
+	ffmpeg? ( >=media-video/ffmpeg-6:= )
 	flac? ( media-libs/flac:= )
 	fluidsynth? ( media-sound/fluidsynth:= )
 	gme? ( media-libs/game-music-emu )
@@ -100,7 +99,7 @@ RDEPEND="
 	pipewire? ( media-video/pipewire:= )
 	qobuz? (
 		!ffmpeg? ( dev-libs/libgcrypt:= )
-		ffmpeg? ( media-video/ffmpeg )
+		ffmpeg? ( >=media-video/ffmpeg-6:= )
 	)
 	recorder? ( ${COMMON_ENCODERS} )
 	samba? ( net-fs/samba:= )
@@ -118,7 +117,7 @@ RDEPEND="
 		media-libs/libogg
 		media-libs/tremor
 	)
-	upnp? ( <net-libs/libupnp-1.18.0 )
+	upnp? ( net-libs/libupnp:= )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis
@@ -143,15 +142,14 @@ BDEPEND="
 			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 		')
 	)
+	test? (
+		cdio? ( app-cdr/cdrtools )
+		zip? ( app-arch/zip )
+	)
 	verify-sig? ( sec-keys/openpgp-keys-mpd )
 "
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.asc
-
-PATCHES=(
-	# PR merged
-	"${FILESDIR}"/${P}-fix_libcxx23.patch
-)
 
 python_check_deps() {
 	use doc || return 0
@@ -185,6 +183,13 @@ pkg_setup() {
 	if use eventfd || use signalfd || use inotify || use io-uring; then
 		linux-info_pkg_setup
 	fi
+}
+
+src_unpack() {
+	if use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}"/${P}.tar.xz{,.sig}
+	fi
+	default
 }
 
 src_configure() {
@@ -309,8 +314,7 @@ src_install() {
 	if use doc; then
 		local HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
 	else
-		newman "${FILESDIR}"/${PN}.1-0.24.2 ${PN}.1
-		newman "${FILESDIR}"/${PN}.conf.5-0.24.9 ${PN}.conf.5
+		doman "${WORKDIR}"/man/*
 	fi
 
 	meson_src_install
@@ -330,11 +334,16 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}-0.24.15.init" "${PN}"
 	newconfd "${FILESDIR}/${PN}-0.24.15.confd" "${PN}"
 
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}/${PN}-0.24.16.user.init" "${PN}"
+	exeinto /etc/user/conf.d
+	newexe "${FILESDIR}/${PN}-0.24.16.user.confd" "${PN}"
+
 	# set memlock limit for io-uring
 	# see https://mpd.readthedocs.io/en/latest/user.html#startup
 	if use io-uring; then
 		sed -e '/#rc_ulimit="${rc_ulimit} -l/s/^#//' \
-			-i "${ED}/etc/conf.d/mpd" || die
+			-i "${ED}/etc/conf.d/mpd" "${ED}/etc/user/conf.d/mpd" || die
 	fi
 
 	keepdir /var/lib/mpd
