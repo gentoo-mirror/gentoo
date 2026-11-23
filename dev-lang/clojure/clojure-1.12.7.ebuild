@@ -20,6 +20,7 @@ inherit java-pkg-2
 DESCRIPTION="General-purpose programming language with an emphasis on functional programming"
 HOMEPAGE="https://clojure.org/
 	https://github.com/clojure/clojure/"
+
 SRC_URI="
 	https://github.com/${PN}/${PN}/archive/${P}.tar.gz
 
@@ -47,7 +48,7 @@ S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="EPL-1.0 Apache-2.0 BSD"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
