@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-14">
+    <title>GPGME: Use-after-free</title>
+    <synopsis>A vulnerability has been discovered in GPGME which may result in remote code execution.</synopsis>
+    <product type="ebuild">gpgme</product>
+    <announced>2026-11-23</announced>
+    <revised count="1">2026-11-23</revised>
+    <bug>986919</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-crypt/gpgme" auto="yes" arch="*">
+            <unaffected range="ge">2.3.1</unaffected>
+            <vulnerable range="lt">2.3.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GnuPG Made Easy (GPGME) is a C language library that allows to add
+support for cryptography to a program.  It is designed to make access
+to public key crypto engines like GnuPG or GpgSM easier for
+applications.  GPGME provides a high-level crypto API for encryption,
+decryption, signing, signature verification and key management.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in gpgme. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A remote attacker may be able to achieve code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GPGME users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-crypt/gpgme-2.3.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-129975">CVE-2026-129975</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-23T23:38:07.313085Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-23T23:38:07.326137Z">sam</metadata>
+</glsa>
