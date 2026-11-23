@@ -1380,7 +1380,7 @@ app-containers/cri-o 1.36.1-r1 1.36.5: OCI-based implementation of Kubernetes Co
 app-containers/cri-tools 1.33.0 1.35.0 1.36.0 1.37.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.19.1 1.20 1.21 1.25.1 1.28-r1 1.29.1-r1 1.30.1 1.31: Fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.89.0 0.90.0 0.91.0: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.8.2.5 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.8.2.5 1.8.2.6 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2 3.3.1 3.4.0: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
 app-containers/docker 28.4.0 29.7.2 29.8.0 29.8.1 29.9.0 29.9.3 29.10.0: The core functions you need to create Docker images and run Docker containers
@@ -1899,7 +1899,7 @@ app-editors/zile 2.6.2-r2 2.6.4: Zile is a small Emacs clone
 app-emacs/a 1.0.0: Associative data structure functions for Emacs Lisp
 app-emacs/a68-mode 1.3_p20260615: Algol68 major mode for GNU Emacs
 app-emacs/ace-window 0.10.0: Quickly switch windows in Emacs
-app-emacs/acp 0.18.1 0.20.2 9999: Agent Client Protocol implementation for GNU Emacs
+app-emacs/acp 0.18.1 0.20.2 0.20.3 9999: Agent Client Protocol implementation for GNU Emacs
 app-emacs/actionscript-mode 7.2.2_p20180527-r1: A major mode for GNU Emacs for editing Actionscript 3 files
 app-emacs/adaptive-wrap 0.8: Smart line-wrapping with wrap-prefix
 app-emacs/agent-shell 0.88.3 0.89.4 0.94.3 0.98.4 9999: Many native agentic integrations inside GNU Emacs
@@ -1992,14 +1992,14 @@ app-emacs/ddskk 17.2: One Japanese input methods on Emacs
 app-emacs/deferred 0.5.1: Deferred and Concurrent - simple asynchronous functions for Emacs Lisp
 app-emacs/deft 08_p20210707: Quickly browse, filter and edit directories of plain text notes
 app-emacs/demap 1.4.0: Detachable minimap for Emacs
-app-emacs/denote 4.2.3: Simple notes for Emacs with an efficient file-naming scheme
+app-emacs/denote 4.2.3 4.3.1: Simple notes for Emacs with an efficient file-naming scheme
 app-emacs/desktop+ 0.2-r2: desktop+ extends standard desktop module
 app-emacs/desktop-entry-mode 0.28: GNU Emacs mode for handling freedesktop.org desktop entry files
 app-emacs/develock 0.47: An Emacs minor mode for highlighting broken formatting rules
 app-emacs/devil 0.6.0: Provides a modifier-free editing experience
 app-emacs/df-mode 20050509-r1: Minor mode to show space left on devices in the mode line
 app-emacs/dictionary 1.11: Emacs package for talking to a dictionary server
-app-emacs/diff-hl 1.10.0: Highlight uncommitted changes, jump between and revert them selectively
+app-emacs/diff-hl 1.10.0 1.11.2_p20261123: Highlight uncommitted changes, jump between and revert them selectively
 app-emacs/diminish 0.46_pre20220128 0.47_p20260904: Hiding or abbreviation of the mode line displays (lighters)
 app-emacs/dircolors 1.0-r2: Provide the same facility of ls --color inside Emacs
 app-emacs/dired-hacks 0.0.1_p20230621: Collection of useful dired additions for GNU Emacs
@@ -3219,7 +3219,7 @@ app-text/antixls 0.3b: Print out an XLS file with minimal formatting, or extract
 app-text/apvlv 0.4.0-r3: Alf's PDF/DJVU/EPUB Viewer like Vim
 app-text/asa 1.1-r1: ASA Carriage control conversion for ouput by Fortran programs
 app-text/asciidoc 10.2.1: A plain text human readable/writable document format
-app-text/aspell 0.60.8.2 0.60.8.3: Free and Open Source spell checker designed to replace Ispell
+app-text/aspell 0.60.8.3: Free and Open Source spell checker designed to replace Ispell
 app-text/atril 1.28.3 1.28.4: Atril document viewer for MATE
 app-text/bact 0.13-r2: Boosting Algorithm for Classification of Trees
 app-text/barcode 0.99-r2: barcode generator
@@ -5343,7 +5343,7 @@ dev-lang/cfortran 20210827 20210827-r1: Header file allowing to call Fortran rou
 dev-lang/clips 6.40-r1: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
-dev-lang/clojure 1.12.5 1.12.6: General-purpose programming language with an emphasis on functional programming
+dev-lang/clojure 1.12.6 1.12.7: General-purpose programming language with an emphasis on functional programming
 dev-lang/clojure-clr 1.12.2: Port of the functional programming language Clojure to the CLR and .NET
 dev-lang/closure-compiler-bin 20261021 20261109 20261118: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0 2.7.1: A little language that compiles into javascript
@@ -5355,7 +5355,7 @@ dev-lang/dafny-bin 4.11.0-r2: Verification-aware programming language
 dev-lang/deno-bin 2.9.8: Modern runtime for JavaScript and TypeScript
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.2 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 5.68 5.69: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 5.69: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.16.3-r2 1.16.3-r3 1.17.3-r2 1.17.3-r3 1.18.5 1.18.6 1.19.6 1.19.7 1.20.4 1.20.5: Elixir programming language
 dev-lang/elpi 1.19.6-r2 2.0.7-r1: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1-r1 26.2.5.16 26.2.5.20 27.3.4.6 27.3.4.11 28.1 28.2 28.3 28.3.1 28.5.0.3 29.0: Erlang programming language, runtime environment and libraries (OTP)
@@ -5900,7 +5900,7 @@ dev-libs/mpc 1.4.1: A library for multiprecision complex arithmetic with exact r
 dev-libs/mpdecimal 4.0.1: Correctly-rounded arbitrary precision decimal floating point arithmetic
 dev-libs/mpfr 4.2.2: Library for multiple-precision floating-point computations with exact rounding
 dev-libs/msgpack 6.0.0-r1 7.0.1: MessagePack is a binary-based efficient data interchange format
-dev-libs/mxml 3.3.1-r1 4.0.4 4.0.6: A small XML parsing library that you can use to read XML data files or strings
+dev-libs/mxml 3.3.1-r1 4.0.6: A small XML parsing library that you can use to read XML data files or strings
 dev-libs/nanomsg 1.2.1-r1 1.2.2: High-performance messaging interface for distributed applications
 dev-libs/ncnn 20250503: High-performance neural network inference framework
 dev-libs/nettle 3.10.2: Low-level cryptographic library
@@ -6151,7 +6151,7 @@ dev-lua/luafilesystem 1.9.0: File System Library for the Lua programming languag
 dev-lua/luajson 1.3.5: JSON Parser/Constructor for Lua
 dev-lua/lualdap 1.4.0: A lua binding for the OpenLDAP client libraries
 dev-lua/luaossl 20260910: Most comprehensive OpenSSL module in the Lua universe
-dev-lua/luaposix 36.3 37.0: Bindings for POSIX APIs
+dev-lua/luaposix 37.0: Bindings for POSIX APIs
 dev-lua/luarocks 3.13.0: A package manager for the Lua programming language
 dev-lua/luasec 1.3.2: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
@@ -15381,7 +15381,7 @@ net-misc/exabgp 4.2.23 4.2.25 5.0.8 5.0.12 5.0.14 5.0.15: The BGP swiss army kni
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 3.32.1 3.32.2 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.4-r2 10.1.5-r2 10.2.5-r2 10.2.6-r1 10.3.3-r2 10.3.4-r2 10.4.3-r2 10.4.4-r1 10.4.5-r1 10.5.3-r2 10.5.4-r1 10.5.5-r1 10.6.1-r1 10.6.2-r1 10.7.0 10.7.1-r1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.32.16 1.32.17-r1 1.32.18 1.32.19 1.32.20 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.32.18 1.32.19 1.32.20 1.32.21 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0 0.37.0 0.37.1: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5 3.0.4: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
@@ -16295,7 +16295,7 @@ sci-libs/flexiblas 3.5.0 9999: A BLAS and LAPACK wrapper library with runtime ex
 sci-libs/fplll 5.5.0: Implementations of the floating-point LLL reduction algorithm
 sci-libs/galib 2.4.7-r2: Library for genetic algorithms in C++ programs
 sci-libs/gamer 1.5-r2: Geometry-preserving Adaptive MeshER
-sci-libs/gaul-devel 0.1849-r2: Genetic Algorithm Utility Library
+sci-libs/gaul-devel 0.1849-r2 0.1850: Genetic Algorithm Utility Library
 sci-libs/gdal 3.12.4 3.13.2 3.13.3: Translator library for raster geospatial data formats (includes OGR support)
 sci-libs/geos 3.12.1 3.13.0 3.13.1 3.14.0 3.14.1 3.15.0: Geometry engine library for Geographic Information Systems
 sci-libs/gerris 20131206-r1: Gerris Flow Solver
@@ -17502,7 +17502,7 @@ sys-apps/progress 0.17: Coreutils Viewer: show progress for cp, rm, dd, and so f
 sys-apps/proot 5.3.0 5.4.0: User-space implementation of chroot, mount --bind, and binfmt_misc
 sys-apps/pv 1.12.0 1.12.7 9999: Pipe Viewer: a tool for monitoring the progress of data through a pipe
 sys-apps/qcontrol 0.4.2-r101: Send commands to some microcontrollers, e.g., to change LEDs or sound a buzzer
-sys-apps/qdirstat 2.0: Qt-based directory statistics
+sys-apps/qdirstat 2.0 2.0.1: Qt-based directory statistics
 sys-apps/qingy 1.0.0-r6: A DirectFB getty replacement
 sys-apps/radeontool 1.6.3_p20181127-r1: Utility to get/set registers and controlling backlight on radeon based GPUs
 sys-apps/razer-cli 2.3.1 2.3.2: Command line interface for controlling Razer devices on Linux
