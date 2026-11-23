@@ -9,10 +9,10 @@ PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="An implementation of QUIC and HTTP/3"
+DESCRIPTION="Python wrapper for the ls-qpack QPACK library"
 HOMEPAGE="
-	https://github.com/aiortc/aioquic/
-	https://pypi.org/project/aioquic/
+	https://github.com/aiortc/pylsqpack/
+	https://pypi.org/project/pylsqpack/
 "
 
 LICENSE="BSD"
@@ -20,17 +20,20 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 DEPEND="
-	dev-libs/openssl:=
+	>=dev-libs/ls-qpack-2.6.4:=
 "
 RDEPEND="
 	${DEPEND}
-	dev-python/certifi[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-43.0.0[${PYTHON_USEDEP}]
-	=dev-python/pylsqpack-1*[${PYTHON_USEDEP}]
-	>=dev-python/pyopenssl-24[${PYTHON_USEDEP}]
-	>=dev-python/service-identity-24.1.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
-EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}/${PN}-0.3.20-unbundle.patch"
+	)
+
+	distutils-r1_src_prepare
+	rm -r vendor || die
+}

@@ -25,9 +25,9 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	dev-python/certifi[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-43.0.0[${PYTHON_USEDEP}]
-	<dev-python/pylsqpack-0.4.0[${PYTHON_USEDEP}]
-	>=dev-python/pylsqpack-0.3.3[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-48.0.0[${PYTHON_USEDEP}]
+	<dev-python/pylsqpack-2[${PYTHON_USEDEP}]
+	>=dev-python/pylsqpack-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-24[${PYTHON_USEDEP}]
 	>=dev-python/service-identity-24.1.0[${PYTHON_USEDEP}]
 "
