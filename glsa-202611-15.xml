@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-15">
+    <title>GPL Ghostscript: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in GPL Ghostscript, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">ghostscript-gpl</product>
+    <announced>2026-11-23</announced>
+    <revised count="1">2026-11-23</revised>
+    <bug>962685</bug>
+    <bug>983404</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/ghostscript-gpl" auto="yes" arch="*">
+            <unaffected range="ge">10.08.0</unaffected>
+            <vulnerable range="lt">10.08.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ghostscript is an interpreter for the PostScript language and for PDF.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GPL Ghostscript. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GPL Ghostscript users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/ghostscript-gpl-10.08.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-59798">CVE-2025-59798</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-59799">CVE-2025-59799</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-59800">CVE-2025-59800</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-59801">CVE-2025-59801</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-19547">CVE-2026-19547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-39919">CVE-2026-39919</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-103226">CVE-2026-103226</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-110133">CVE-2026-110133</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-112922">CVE-2026-112922</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-125396">CVE-2026-125396</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-23T23:40:31.022938Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-23T23:40:31.029699Z">sam</metadata>
+</glsa>
