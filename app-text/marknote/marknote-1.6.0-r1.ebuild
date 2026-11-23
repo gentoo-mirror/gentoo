@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_TEST="true"
-KFMIN=6.22.0
-QTMIN=6.9.1
+KFMIN=6.27.0
+QTMIN=6.11.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Markdown editor with a wide range of formating options for everyday notes"
@@ -26,7 +26,6 @@ DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
-	=kde-apps/kmime-26.04*:6
 	>=kde-frameworks/breeze-icons-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
@@ -36,6 +35,7 @@ DEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-frameworks/kmime-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	plasma? (
@@ -49,7 +49,6 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF6Mime=ON
 		-DWITH_KRUNNER=$(usex plasma)
 	)
 
