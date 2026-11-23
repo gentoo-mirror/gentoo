@@ -3,24 +3,25 @@
 
 EAPI=8
 
+PATCHSET="${P}-patchset"
 ECM_HANDBOOK="optional"
-PVCUT=$(ver_cut 1-3)
-KFMIN=6.27.0
+PIMMIN=26.04.3
+KFMIN=6.29.0
 QTMIN=6.11.2
 inherit ecm gear.kde.org xdg
 
 DESCRIPTION="Application to manage alarms and other timer based alerts for the desktop"
 HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+pim speech X"
+IUSE="+pim speech vlc X"
 
-COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
-	>=kde-apps/kcalutils-${PVCUT}:6=
-	>=kde-apps/kidentitymanagement-${PVCUT}:6=
+DEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,X?]
+	>=kde-apps/kidentitymanagement-${PIMMIN}:6=
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcalendarcore-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -49,30 +50,31 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	>=media-video/mpv-0.37.0:=[libmpv]
 	pim? (
-		>=kde-apps/akonadi-${PVCUT}:6=
-		>=kde-apps/akonadi-contacts-${PVCUT}:6=
-		>=kde-apps/akonadi-mime-${PVCUT}:6=
-		>=kde-apps/kmailtransport-${PVCUT}:6=
+		>=kde-apps/akonadi-${PIMMIN}:6=
+		>=kde-apps/akonadi-contacts-${PIMMIN}:6=
+		>=kde-apps/akonadi-mime-${PIMMIN}:6=
+		>=kde-apps/kmailtransport-${PIMMIN}:6=
 	)
 	speech? ( >=dev-libs/ktextaddons-2.0.2:6=[speech] )
-	X? ( x11-libs/libX11 )
+	vlc? ( =media-video/vlc-3*:= )
+	!vlc? ( >=media-video/mpv-0.37.0:=[libmpv] )
 "
-RDEPEND="${COMMON_DEPEND}
-	pim? ( =kde-apps/kdepim-runtime-${PVCUT}*:6 )
+RDEPEND="${DEPEND}
+	pim? ( =kde-apps/kdepim-runtime-${PIMMIN}*:6 )
 "
-DEPEND="${COMMON_DEPEND}
-	X? ( x11-base/xorg-proto )
-"
+
+PATCHES=(
+	"${WORKDIR}/${PATCHSET}" # in 26.12; KDE-bug 529081
+)
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_LIBMPV=ON # default upstream
-		-DENABLE_LIBVLC=OFF # OFF as long as it is Qt5-based
+		-DENABLE_LIBMPV=$(usex !vlc)
+		-DENABLE_LIBVLC=$(usex vlc)
 		-DENABLE_AKONADI_PLUGIN=$(usex pim)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
-		-DWITHOUT_X11=$(usex !X)
+		-DWITH_X11=$(usex X)
 	)
 
 	ecm_src_configure
