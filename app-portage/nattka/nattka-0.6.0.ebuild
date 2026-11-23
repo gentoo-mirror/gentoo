@@ -20,16 +20,15 @@ SRC_URI="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="depgraph-order"
 
 RDEPEND="
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/snakeoil[${PYTHON_USEDEP}]
 	dev-util/pkgcheck[${PYTHON_USEDEP}]
 	dev-vcs/git
-	>=sys-apps/pkgcore-0.12.35[${PYTHON_USEDEP}]
+	>=sys-apps/pkgcore-0.12.50[${PYTHON_USEDEP}]
 	depgraph-order? (
 		dev-python/networkx[${PYTHON_USEDEP}]
 	)
@@ -37,7 +36,7 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/flit-core-3.7.1[${PYTHON_USEDEP}]
 	test? (
-		dev-python/vcrpy[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
 	)
 "
 
