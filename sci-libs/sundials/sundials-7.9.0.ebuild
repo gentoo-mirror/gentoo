@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,10 +16,9 @@ SRC_URI="https://github.com/LLNL/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
-IUSE="doc fortran hypre +int64 lapack mpi openmp sparse +static-libs superlumt threads"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="doc fortran hypre +int64 lapack mpi openmp sparse superlumt threads"
 REQUIRED_USE="
-	fortran? ( static-libs )
 	hypre? ( mpi )
 "
 
@@ -34,10 +33,6 @@ RDEPEND="
 	superlumt? ( sci-libs/superlu_mt:=[int64=] )
 "
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.8.0-fix-license-install-path.patch
-)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -58,16 +53,10 @@ src_prepare() {
 }
 
 src_configure() {
-	# undefined reference to `psolve'
-	# undefined reference to `psetup'
-	# https://bugs.gentoo.org/862933
-	# https://github.com/LLNL/sundials/issues/97
-	filter-lto
-
 	mycmakeargs+=(
 		-DBUILD_FORTRAN_MODULE_INTERFACE=$(usex fortran)
 		-DBUILD_SHARED_LIBS=ON
-		-DBUILD_STATIC_LIBS=$(usex static-libs)
+		-DBUILD_STATIC_LIBS=OFF
 		-DENABLE_HYPRE=$(usex hypre)
 		-DENABLE_KLU=$(usex sparse)
 		-DENABLE_LAPACK=$(usex lapack)
@@ -75,8 +64,6 @@ src_configure() {
 		-DENABLE_OPENMP=$(usex openmp)
 		-DENABLE_PTHREAD=$(usex threads)
 		-DENABLE_SUPERLUMT=$(usex superlumt)
-		-DEXAMPLES_INSTALL=ON
-		-DEXAMPLES_INSTALL_PATH="/usr/share/doc/${PF}/examples"
 		-DSUNDIALS_INDEX_SIZE="$(usex int64 64 32)"
 		-DSUPERLUMT_INCLUDE_DIR="${EPREFIX}/usr/include/superlu_mt"
 		-DSUPERLUMT_LIBRARY="-lsuperlu_mt"
@@ -107,4 +94,6 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	use doc && dodoc doc/*/*.pdf
+	mv "${ED}"/usr/examples "${ED}"/usr/share/doc/"${PF}"/ || die
+	rm "${ED}"/usr/include/sundials/LICENSE || die
 }
