@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-11-24)
+# Dead upstream. KDE-bug: https://bugs.kde.org/show_bug.cgi?id=508169
+# Removal on 2026-12-15.
+kde-misc/kio-gdrive
+
 # Ionen Wolkens <ionen@gentoo.org> (2026-11-24)
 # Broken at runtime failing to load kernel32.dll, masking until cause
 # can be determined (mostly on our own given upstream does not support
@@ -501,12 +506,6 @@ dev-cpp/eigen:3/5.0
 # not just network. See bug #963106.
 =sys-kernel/linux-firmware-20250917
 =sys-kernel/linux-firmware-20251011
-
-# Michał Górny <mgorny@gentoo.org> (2025-06-29)
-# File collision against gnome-base/gnome-keyring[pam], which is
-# required via pambase.  Masked until the maintainer determines a good
-# solution.  Bug #959274.
-=app-crypt/libsecret-0.21.7-r1
 
 # Sam James <sam@gentoo.ogr> (2025-06-08)
 # Masked for testing (bug #957583).
