@@ -6,7 +6,6 @@ EAPI=8
 inherit toolchain-funcs cmake
 
 SIMDJSON_DATA_HASH="351949906abde446f0314bf79606fb5d884f5be7"
-CPM_SIMDJSON_DATA_HASH="3a55454e9d9a7133903378c28fb053f478f24537"
 CPM_VERSION="0.40.2"
 COUNTERS_HASH="2c9f1c5695230724ac9b2b7a88f43ec81761f3a0"
 COUNTERS_VER="3.1.0"
@@ -23,9 +22,9 @@ SRC_URI="
 "
 
 LICENSE="Apache-2.0 Boost-1.0 BSD MIT"
-SLOT="0/34"
+SLOT="0/38"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="+all-impls nan test tools"
+IUSE="+all-impls nan test tools trailing-commas"
 
 BDEPEND="
 	sys-apps/file
@@ -40,8 +39,8 @@ REQUIRED_USE="test? ( tools )"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}/simdjson-1.0.0-install-tools.patch"
 	"${FILESDIR}/simdjson-3.10.1-tests.patch"
+	"${FILESDIR}/simdjson-5.3.0-install-tools.patch"
 )
 
 DOCS=(
@@ -56,11 +55,9 @@ src_prepare() {
 	# Need to make sure that CPM finds the data package
 	mkdir "${WORKDIR}/cpm" "${WORKDIR}/${PN}-data" "${WORKDIR}/counters" || die
 	cp "${DISTDIR}/CPM_${CPM_VERSION}.cmake" "${WORKDIR}/cpm/CPM_${CPM_VERSION}.cmake" || die
-	ln -s "../${PN}-data-${SIMDJSON_DATA_HASH}" "${WORKDIR}/${PN}-data/${CPM_SIMDJSON_DATA_HASH}" || die
 	ln -s "../counters-${COUNTERS_VER}" "${WORKDIR}/counters/${COUNTERS_HASH}" || die
 
 	sed -e 's:-Werror ::' -i cmake/developer-options.cmake || die
-	sed -e '/Werror/ d ; /Werror/ d ' -i tests/ondemand/compilation_failure_tests/CMakeLists.txt || die
 	sed -e "s:^c++ :$(tc-getCXX) :" -i singleheader/README.md || die
 	mv tools/{,simd}jsonpointer.cpp || die
 	cmake_src_prepare
@@ -72,11 +69,13 @@ src_configure() {
 		-DSIMDJSON_ENABLE_THREADS:BOOL=ON
 		$(usex test '-DSIMDJSON_ENABLE_FUZZING:BOOL=OFF' '')
 		-DSIMDJSON_ENABLE_NAN_INF:BOOL=$(usex nan 'ON' 'OFF')
+		-DSIMDJSON_ALLOW_TRAILING_COMMAS:BOOL=$(usex nan 'ON' 'OFF')
 		-DCPM_SOURCE_CACHE:STRING="${WORKDIR}"
 		-Wno-dev
 	)
 	use test && mycmakeargs+=(
 		-DSIMDJSON_TESTS:BOOL=ON
+		-DCPM_simdjson-data_SOURCE:STRING="${WORKDIR}/${PN}-data-${SIMDJSON_DATA_HASH}"
 	)
 
 	if use tools; then
@@ -103,8 +102,10 @@ src_configure() {
 			impls+=("ppc64")
 		fi
 
+		local impl_list
+		IFS=';' impl_list="${impls[*]}"
 		mycmakeargs+=(
-			-DSIMDJSON_IMPLEMENTATION:STRING=$(printf '%s;' "${impls[@]}")
+			-DSIMDJSON_IMPLEMENTATION:STRING="${impl_list}"
 		)
 	fi
 
