@@ -21,11 +21,13 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="+native-extensions"
 
 BDEPEND="
 	test? (
+		<dev-python/pytest-9.2[${PYTHON_USEDEP}]
+		<dev-python/pytest-xdist-3.8.0-r1[${PYTHON_USEDEP}]
 		>=dev-python/unittest-mixins-1.4[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
 			dev-python/hypothesis[${PYTHON_USEDEP}]
@@ -83,7 +85,7 @@ python_test() {
 		tests/test_venv.py
 	)
 
-	"${EPYTHON}" igor.py zip_mods || die
+	"${EPYTHON}" tools/igor.py zip_mods || die
 
 	local -x COVERAGE_TESTING=True
 	# TODO: figure out why they can't be imported inside test env

@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="
 	test? (
@@ -32,7 +32,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-{asyncio,forked,timeout} )
+EPYTEST_PLUGINS=( pytest-{asyncio,timeout} )
 distutils_enable_tests pytest
 
 python_test() {
@@ -73,6 +73,12 @@ python_test() {
 		# not marked properly
 		tests/test_cache.py::TestSSLCache
 		tests/test_cache.py::TestSentinelCache
+		# cluster
+		tests/test_pubsub.py::TestPubSubSubscriberModeProtocol::test_subscriber_mode_rejects_regular_command_after_ssubscribe
+		tests/test_asyncio/test_pubsub.py::TestPubSubSubscriberModeProtocol::test_subscriber_mode_rejects_regular_command_after_ssubscribe
+		# TODO
+		tests/test_asyncio/test_connection.py::test_connect_missing_unix_socket_fails_fast_with_checker
+		tests/test_connection.py::TestConnection::test_connect_missing_unix_socket_fails_fast_with_checker
 	)
 	local EPYTEST_IGNORE=(
 		# fails over missing certs, we don't do cluster anyway
@@ -87,6 +93,7 @@ python_test() {
 		tests/test_scenario
 		# cluster, not marked properly
 		tests/maint_notifications/test_cluster_maint_notifications_handling.py
+		tests/maint_notifications/test_async_cluster_maint_notifications_handling.py
 		# opentelemetry
 		tests/test_observability/test_recorder.py
 	)

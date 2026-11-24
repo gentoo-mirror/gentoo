@@ -17,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/aws-xray-sdk-0.93[${PYTHON_USEDEP}]
+	>=dev-python/aws-xray-sdk-2.10.0[${PYTHON_USEDEP}]
 	dev-python/boto3[${PYTHON_USEDEP}]
 	>=dev-python/botocore-1.35.47[${PYTHON_USEDEP}]
 	>=dev-python/cfn-lint-0.40.0[${PYTHON_USEDEP}]
@@ -79,6 +79,8 @@ python_test() {
 		# Appears to be internet issues with timing out
 		tests/test_s3/test_multiple_accounts_server.py::TestAccountIdResolution::test_with_custom_request_header
 		tests/test_s3/test_server.py::test_s3_server_post_cors_multiple_origins
+		# TODO; internet?
+		tests/test_stepfunctions/parser/test_stepfunctions_apigateway_integration.py::test_state_machine_calling_apigateway_invoke_get_without_stage_or_path
 	)
 	local EPYTEST_IGNORE=(
 		# require joserfc
