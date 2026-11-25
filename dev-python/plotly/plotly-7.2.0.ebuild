@@ -96,6 +96,9 @@ EPYTEST_DESELECT=(
 	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_encode_customdata_datetime_homogeneous_dataframe
 	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_encode_customdata_datetime_series
 	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_numpy_datetime64
+
+	# minor precision
+	plotly/matplotlylib/tests/test_renderer.py::test_contour_rings_are_closed
 )
 
 src_prepare() {

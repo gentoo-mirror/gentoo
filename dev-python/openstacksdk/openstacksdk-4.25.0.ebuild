@@ -17,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-50.0[${PYTHON_USEDEP}]
 	>=dev-python/decorator-4.4.1[${PYTHON_USEDEP}]
 	>=dev-python/dogpile-cache-0.6.5[${PYTHON_USEDEP}]
 	>=dev-python/iso8601-0.1.11[${PYTHON_USEDEP}]
@@ -32,6 +32,9 @@ RDEPEND="
 	>=dev-python/platformdirs-3[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-3.13[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.16.0[${PYTHON_USEDEP}]
+	' 3.{12..14})
 "
 BDEPEND="
 	test? (
@@ -44,7 +47,7 @@ BDEPEND="
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/statsd-3.3.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
-		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.8.0[${PYTHON_USEDEP}]
 	)
 "
 

@@ -6,16 +6,12 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="API For huawei LAN/WAN LTE Modems"
 HOMEPAGE="
 	https://github.com/Salamek/huawei-lte-api/
 	https://pypi.org/project/huawei-lte-api/
-"
-SRC_URI="
-	https://github.com/Salamek/${PN}/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
@@ -30,7 +26,7 @@ RDEPEND="
 
 python_prepare_all() {
 	# make cryptodome-friendly
-	sed -i -e 's:pycryptodomex:pycryptodome:' setup.py || die
+	sed -i -e 's:pycryptodomex:pycryptodome:' pyproject.toml || die
 	find -name '*.py' -exec \
 		sed -i -e 's:Cryptodome:Crypto:g' {} + || die
 

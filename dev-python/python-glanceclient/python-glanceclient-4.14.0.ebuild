@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=pbr
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/keystoneauth1-3.6.2[${PYTHON_USEDEP}]
@@ -31,7 +31,6 @@ RDEPEND="
 	>=dev-python/wrapt-1.7.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ddt[${PYTHON_USEDEP}]
 		dev-python/fixtures[${PYTHON_USEDEP}]
@@ -46,7 +45,7 @@ distutils_enable_tests unittest
 
 PATCHES=(
 	# https://review.opendev.org/c/openstack/python-glanceclient/+/986313
-	"${FILESDIR}/${P}-py315.patch"
+	"${FILESDIR}/${PN}-4.12.0-py315.patch"
 )
 
 python_test() {
