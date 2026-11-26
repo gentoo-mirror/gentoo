@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ S="${WORKDIR}"/${MY_PN}-$(ver_cut 1-2)
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ipv6 kerberos pam ssl static-libs topal"
 
 RDEPEND="
@@ -47,9 +47,13 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2007f_p7-ldflags.patch"
 
 	# build fix for -Werror=implicit-function-declaration and
-	# incompatible function pointer types, bug #870478
+	# incompatible function pointer types, bug #870478 and bug #919252
 	"${FILESDIR}/${PN}-2007f-scandir-callback-types.patch"
 	"${FILESDIR}/${PN}-2007f_p7-implicit-declaration-fix.patch"
+	"${FILESDIR}/${PN}-2007f_p7-c99.patch"
+
+	# Make OpenSSL4 work.
+	"${FILESDIR}/${PN}-2007f_p7-r2-openssl4.patch"
 )
 
 src_prepare() {
