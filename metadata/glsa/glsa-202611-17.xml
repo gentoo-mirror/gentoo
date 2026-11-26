@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-17">
+    <title>ImageMagick: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in ImageMagick, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">imagemagick</product>
+    <announced>2026-11-26</announced>
+    <revised count="1">2026-11-26</revised>
+    <bug>986830</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/imagemagick" auto="yes" arch="*">
+            <unaffected range="ge">7.1.2.36</unaffected>
+            <vulnerable range="lt">7.1.2.36</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ImageMagick is a software suite to create, edit, and compose bitmap images, that can also read, write, and convert images in many other formats.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ImageMagick. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ImageMagick users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/imagemagick-7.1.2.36"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://github.com/advisories/GHSA-4cmr-g39q-mh38">GHSA-4cmr-g39q-mh38</uri>
+        <uri link="https://github.com/advisories/GHSA-4jg2-g974-7w79">GHSA-4jg2-g974-7w79</uri>
+        <uri link="https://github.com/advisories/GHSA-5545-xpgp-wj32">GHSA-5545-xpgp-wj32</uri>
+        <uri link="https://github.com/advisories/GHSA-58v3-cmwm-hj3w">GHSA-58v3-cmwm-hj3w</uri>
+        <uri link="https://github.com/advisories/GHSA-5c63-85hh-8vpj">GHSA-5c63-85hh-8vpj</uri>
+        <uri link="https://github.com/advisories/GHSA-6r6f-x5h8-fw8h">GHSA-6r6f-x5h8-fw8h</uri>
+        <uri link="https://github.com/advisories/GHSA-6rm4-qg7h-vvc4">GHSA-6rm4-qg7h-vvc4</uri>
+        <uri link="https://github.com/advisories/GHSA-7pvc-jpr7-9wxq">GHSA-7pvc-jpr7-9wxq</uri>
+        <uri link="https://github.com/advisories/GHSA-8c8r-vjh3-j578">GHSA-8c8r-vjh3-j578</uri>
+        <uri link="https://github.com/advisories/GHSA-8gpx-685q-62m9">GHSA-8gpx-685q-62m9</uri>
+        <uri link="https://github.com/advisories/GHSA-8xm2-q8hq-m68q">GHSA-8xm2-q8hq-m68q</uri>
+        <uri link="https://github.com/advisories/GHSA-949m-6h6h-4gj2">GHSA-949m-6h6h-4gj2</uri>
+        <uri link="https://github.com/advisories/GHSA-c8x7-2x5c-m4gv">GHSA-c8x7-2x5c-m4gv</uri>
+        <uri link="https://github.com/advisories/GHSA-cf7p-m88c-h9jh">GHSA-cf7p-m88c-h9jh</uri>
+        <uri link="https://github.com/advisories/GHSA-cvrx-j29f-c5q9">GHSA-cvrx-j29f-c5q9</uri>
+        <uri link="https://github.com/advisories/GHSA-f3r8-89f9-mx43">GHSA-f3r8-89f9-mx43</uri>
+        <uri link="https://github.com/advisories/GHSA-g3c3-wcx5-7qrw">GHSA-g3c3-wcx5-7qrw</uri>
+        <uri link="https://github.com/advisories/GHSA-h5qr-j3rh-p38h">GHSA-h5qr-j3rh-p38h</uri>
+        <uri link="https://github.com/advisories/GHSA-j4x4-q2rm-qxjf">GHSA-j4x4-q2rm-qxjf</uri>
+        <uri link="https://github.com/advisories/GHSA-mqmh-65w8-fgjp">GHSA-mqmh-65w8-fgjp</uri>
+        <uri link="https://github.com/advisories/GHSA-p5vf-jpj8-mmhm">GHSA-p5vf-jpj8-mmhm</uri>
+        <uri link="https://github.com/advisories/GHSA-qw9c-mq27-w844">GHSA-qw9c-mq27-w844</uri>
+        <uri link="https://github.com/advisories/GHSA-rm4h-gcc3-55wx">GHSA-rm4h-gcc3-55wx</uri>
+        <uri link="https://github.com/advisories/GHSA-rqg8-7wq4-54hj">GHSA-rqg8-7wq4-54hj</uri>
+        <uri link="https://github.com/advisories/GHSA-v56x-r6p7-8v88">GHSA-v56x-r6p7-8v88</uri>
+        <uri link="https://github.com/advisories/GHSA-vf87-6hhw-9hcj">GHSA-vf87-6hhw-9hcj</uri>
+        <uri link="https://github.com/advisories/GHSA-w85x-jcrh-64rr">GHSA-w85x-jcrh-64rr</uri>
+        <uri link="https://github.com/advisories/GHSA-wp55-fj9p-xx9q">GHSA-wp55-fj9p-xx9q</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-26T16:26:16.239815Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-26T16:26:16.247134Z">sam</metadata>
+</glsa>
