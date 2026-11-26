@@ -14,13 +14,11 @@ HOMEPAGE="https://openrazer.github.io/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
@@ -66,12 +64,10 @@ distutils_enable_tests unittest
 
 python_compile() {
 	cd "${S}/daemon" || die
-
 	distutils_pep517_install "${BUILD_DIR}/install"
 
 	if use client ; then
 		cd "${S}/pylib" || die
-
 		distutils_pep517_install "${BUILD_DIR}/install"
 	fi
 }
