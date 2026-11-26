@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/m4 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=app-arch/bzip2 app-arch/xz-utils dev-db/sqlite dev-libs/openssl sys-libs/gdbm[berkdb] sys-libs/ncurses sys-libs/readline tcl? ( dev-lang/tcl )
+DESCRIPTION=Phil Budne's port of Macro SNOBOL4 in C, for modern machines
+EAPI=9
+HOMEPAGE=https://www.regressive.org/snobol4/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=doc tcl
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=app-arch/bzip2 app-arch/xz-utils dev-db/sqlite dev-libs/openssl sys-libs/gdbm[berkdb] sys-libs/ncurses sys-libs/readline tcl? ( dev-lang/tcl )
+SLOT=0
+SRC_URI=https://ftp.regressive.org/snobol4/snobol4-2.3.5.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=b883ad3a462f9f3a76055fd000f5de28
