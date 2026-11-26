@@ -17,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/cliff-4.13.0[${PYTHON_USEDEP}]
+	>=dev-python/cliff-4.17.0[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
-	>=dev-python/openstacksdk-4.19.0[${PYTHON_USEDEP}]
-	>=dev-python/osc-lib-4.6.0[${PYTHON_USEDEP}]
+	>=dev-python/openstacksdk-4.24.0[${PYTHON_USEDEP}]
+	>=dev-python/osc-lib-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/python-keystoneclient-3.22.0[${PYTHON_USEDEP}]
 	>=dev-python/python-manilaclient-6.0.0[${PYTHON_USEDEP}]
@@ -33,7 +33,6 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
-		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/wrapt-1.7.0[${PYTHON_USEDEP}]
