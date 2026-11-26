@@ -10,18 +10,20 @@ DESCRIPTION="A backup program that is fast, efficient and secure"
 HOMEPAGE="https://restic.net/"
 SRC_URI="
 	https://github.com/restic/restic/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz
 	verify-sig? ( https://github.com/restic/restic/releases/download/v${PV}/${P}.tar.gz.asc )
 "
 
-SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-deps.tar.xz"
-
 LICENSE="Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="sys-fs/fuse:0"
 DEPEND="${RDEPEND}"
-BDEPEND="verify-sig? ( sec-keys/openpgp-keys-alexanderneumann )"
+BDEPEND="
+	>=dev-lang/go-1.26.10
+	verify-sig? ( sec-keys/openpgp-keys-alexanderneumann )
+"
 
 src_unpack() {
 	if use verify-sig; then

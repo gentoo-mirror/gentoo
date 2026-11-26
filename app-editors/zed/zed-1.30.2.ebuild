@@ -13,7 +13,7 @@ declare -A GIT_CRATES=(
 	[async-pipe]='https://github.com/zed-industries/async-pipe-rs;82d00a04211cf4e1236029aa03e6b6ce2a74c553;async-pipe-rs-%commit%'
 	[async-process]='https://github.com/zed-industries/async-process;0b6d6713570af61806e1e5cb40e0f757cb93fd9d;async-process-%commit%'
 	[async-tar]='https://github.com/zed-industries/async-tar;bd3ad6f89df9a9da7a8535958756d6bf465936a0;async-tar-%commit%'
-	[async-task]='https://github.com/zed-industries/async-task;015845a19fc31752c02367567d3b8900a406f9da;async-task-%commit%'
+	[async-task]='https://github.com/smol-rs/async-task;41fd3359c75e221bd8b187a8ee361aa309c1714c;async-task-%commit%'
 	[calloop]='https://github.com/zed-industries/calloop;3759371fee14c40066d64777e2a36b6ffcc22590;calloop-%commit%'
 	[cpal]='https://github.com/RustAudio/cpal;e1612d5d98152f8dc2a62e1b51ef7cbf4f7f26b7;cpal-%commit%'
 	[crash-context]='https://github.com/rust-minidump/minidump-writer;911b04e09b79b736cc15cbe712e83e2d3f348bb9;minidump-writer-%commit%/crates/crash-context'
@@ -102,7 +102,7 @@ RUST_MIN_VER="1.98.1"
 RUST_NEEDS_LLVM=1
 WEBRTC_COMMIT="0001d84-4"
 
-inherit cargo check-reqs desktop flag-o-matic toolchain-funcs xdg
+inherit cargo check-reqs desktop flag-o-matic optfeature toolchain-funcs xdg
 
 DESCRIPTION="The fast, collaborative code editor"
 HOMEPAGE="https://zed.dev https://github.com/zed-industries/zed"
@@ -136,6 +136,16 @@ CHECKREQS_MEMORY="8G"
 
 DEPEND="
 	dev-libs/glib:2
+	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/vulkan-loader[X]
+	virtual/zlib:=
+	x11-libs/libX11
+	x11-libs/libxcb:=
+	x11-libs/libxkbcommon[X]
+"
+RDEPEND="${DEPEND}
 	dev-libs/wayland
 	|| (
 		media-fonts/dejavu
@@ -143,23 +153,10 @@ DEPEND="
 		media-fonts/noto
 		media-fonts/ubuntu-font-family
 	)
-	media-libs/alsa-lib
-	media-libs/fontconfig
-	media-libs/freetype
-	media-libs/vulkan-loader[X]
-	media-video/pipewire
-	sys-apps/xdg-desktop-portal
-	virtual/zlib:=
-	x11-libs/libX11
-	x11-libs/libxcb:=
-	x11-libs/libxkbcommon[X]
-"
-RDEPEND="${DEPEND}"
+	x11-misc/xdg-utils"
 BDEPEND="
 	app-arch/unzip
 	dev-build/cmake
-	dev-libs/wayland-protocols
-	dev-util/wayland-scanner
 	dev-util/vulkan-headers
 	sys-devel/gettext
 	$(llvm_gen_dep '
@@ -203,14 +200,15 @@ src_prepare() {
 	export APP_ARGS="%U"
 	export DO_STARTUP_NOTIFY="true"
 	envsubst < "crates/zed/resources/zed.desktop.in" > ${APP_ID}.desktop || die
+	sed -i '/^Keywords=zed;$/d' ${APP_ID}.desktop || die
 
 	# Cargo offline fetch workaround
 	local ASYNC_PROCESS_COMMIT="0b6d6713570af61806e1e5cb40e0f757cb93fd9d"
 	local ASYNC_PROCESS_GIT="async-process = { git = \"https://github.com/zed-industries/async-process.git\", rev = \"${ASYNC_PROCESS_COMMIT}\""
 	local ASYNC_PROCESS_PATH="async-process = \\{ path = \"${WORKDIR}/async-process-${ASYNC_PROCESS_COMMIT}\""
 
-	local ASYNC_TASK_COMMIT="015845a19fc31752c02367567d3b8900a406f9da"
-	local ASYNC_TASK_GIT="async-task = { git = \"https://github.com/zed-industries/async-task.git\", rev = \"${ASYNC_TASK_COMMIT}\""
+	local ASYNC_TASK_COMMIT="41fd3359c75e221bd8b187a8ee361aa309c1714c"
+	local ASYNC_TASK_GIT="async-task = { git = \"https://github.com/smol-rs/async-task\", rev = \"${ASYNC_TASK_COMMIT}\""
 	local ASYNC_TASK_PATH="async-task = \\{ path = \"${WORKDIR}/async-task-${ASYNC_TASK_COMMIT}\""
 
 	local CALLOOP_COMMIT="3759371fee14c40066d64777e2a36b6ffcc22590"
@@ -297,4 +295,11 @@ src_test () {
 
 	SHELL=/usr/bin/sh RUST_BACKTRACE=full cargo_src_test -vv \
 		-- --skip zed::tests::test_window_edit_state_restoring_enabled
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature "native file dialogs" sys-apps/xdg-desktop-portal
+	optfeature "screensharing on Wayland" "sys-apps/xdg-desktop-portal media-video/pipewire"
 }

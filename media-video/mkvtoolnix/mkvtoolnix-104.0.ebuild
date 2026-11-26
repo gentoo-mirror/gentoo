@@ -17,7 +17,7 @@ else
 		https://mkvtoolnix.download/sources/${P}.tar.xz
 		verify-sig? ( https://mkvtoolnix.download/sources/${P}.tar.xz.sig )
 	"
-	KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Tools to create, alter, and inspect Matroska files"
@@ -32,8 +32,9 @@ RESTRICT="!test? ( test )"
 
 # check NEWS.md for build system changes entries for boost/libebml/libmatroska
 # version requirement updates and other packaging info
+# boost[nls] bug #979450
 RDEPEND="
-	>=dev-libs/boost-1.74.0:=
+	>=dev-libs/boost-1.74.0:=[nls]
 	dev-libs/gmp:=
 	>=dev-libs/libebml-1.4.7:=
 	>=dev-libs/libfmt-8.0.1:=

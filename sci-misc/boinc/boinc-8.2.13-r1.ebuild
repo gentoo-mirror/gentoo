@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 MY_PV=$(ver_cut 1-2)
 WX_GTK_VER=3.2-gtk3
 
-inherit autotools bash-completion-r1 linux-info optfeature wxwidgets xdg-utils
+inherit autotools linux-info optfeature shell-completion wxwidgets xdg-utils
 
 DESCRIPTION="The Berkeley Open Infrastructure for Network Computing"
 HOMEPAGE="https://boinc.berkeley.edu/"
@@ -16,6 +16,7 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/BOINC/boinc/archive/client_release/${MY_PV}/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI+=" https://distfiles.s3.rbx.io.cloud.ovh.net/${P}-openssl-updates.tar.xz"
 	S="${WORKDIR}/${PN}-client_release-${MY_PV}-${PV}"
 
 	# We don't mark "stable" and "alpha" release channels in any special way but
@@ -35,12 +36,12 @@ SLOT="0"
 
 # - "X" builds idle tracking via XScrnSaver and the libboinc_graphics2 library
 # - "gui" builds the manager app and the screensaver
-IUSE="X gui"
+IUSE="X gui selinux"
 
 DEPEND="
-	acct-user/boinc
+	>=acct-user/boinc-1
 	app-misc/ca-certificates
-	dev-libs/openssl:=
+	>=dev-libs/openssl-3.0:=
 	net-misc/curl[ssl]
 	virtual/zlib:=
 	X? (
@@ -58,12 +59,22 @@ DEPEND="
 		x11-libs/xcb-util
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-boinc )
+"
 BDEPEND="
 	app-text/docbook-xml-dtd:4.4
 	app-text/docbook2X
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# Upstream OpenSSL 4 compatibility patchset
+	# See https://github.com/BOINC/boinc/issues/7185 and
+	# https://github.com/BOINC/boinc/pull/7209
+	"${WORKDIR}"/${P}-openssl-updates/
+)
 
 pkg_setup() {
 	# Bug 578750
@@ -92,7 +103,10 @@ src_prepare() {
 	default
 
 	# prevent bad changes in compile flags, bug 286701
-	sed -i -e "s:BOINC_SET_COMPILE_FLAGS::" configure.ac || die "sed failed"
+	sed -e "s:BOINC_SET_COMPILE_FLAGS::" \
+		-e "/-mavx/d" \
+		-e "/-msse3/d" \
+		-i configure.ac || die "sed failed"
 
 	eautoreconf
 }
@@ -166,6 +180,9 @@ pkg_postinst() {
 	# OpenCL and CUDA libraries are loaded with dlopen(),
 	# no headers used at build time and no linking occurs.
 	optfeature "CUDA applications support" x11-drivers/nvidia-drivers
+	optfeature "Docker applications support" \
+		"app-containers/podman app-containers/podman-compose" \
+		"app-containers/docker app-containers/docker-compose:2"
 	optfeature "OpenCL applications support" virtual/opencl
 	optfeature "VirtualBox applications support" app-emulation/virtualbox
 
