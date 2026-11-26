@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<!-- Licensed under CC-BY-SA-4.0 -->
+<glsa id="202611-16">
+    <title>FreeType: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in FreeType, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">freetype</product>
+    <announced>2026-11-26</announced>
+    <revised count="1">2026-11-26</revised>
+    <bug>976862</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/freetype" auto="yes" arch="*">
+            <unaffected range="ge">2.15.0</unaffected>
+            <vulnerable range="lt">2.15.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeType is a software font engine that is designed to be small, efficient, highly customizable, and portable while capable of producing high-quality output (glyph images).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeType. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeType users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/freetype-2.15.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50811">CVE-2026-50811</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-95512">CVE-2026-95512</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-11-26T16:09:05.337132Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-11-26T16:09:05.344129Z">sam</metadata>
+</glsa>
