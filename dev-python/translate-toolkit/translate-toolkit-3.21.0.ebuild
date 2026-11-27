@@ -23,11 +23,12 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+html +ical +ini +subtitles +yaml"
 
 RDEPEND="
 	app-text/iso-codes
+	>=dev-python/babel-2.18[${PYTHON_USEDEP}]
 	>=dev-python/chardet-3.0.4[${PYTHON_USEDEP}]
 	dev-python/cheroot[${PYTHON_USEDEP}]
 	>=dev-python/levenshtein-0.12.0[${PYTHON_USEDEP}]

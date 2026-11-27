@@ -34,7 +34,7 @@ BDEPEND="
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/${PN}-4.2-disable-update-check.patch"
+		"${FILESDIR}/${PN}-4.4-disable-update-check.patch"
 	)
 	distutils-r1_src_prepare
 
