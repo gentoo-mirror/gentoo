@@ -22,11 +22,13 @@ RDEPEND="
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/pefile[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
 "
 
 # Need systemd-detect-virt
 BDEPEND="
 	test? (
+		dev-libs/libisoburn
 		sys-apps/systemd
 	)
 "
