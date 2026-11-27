@@ -1,0 +1,16 @@
+BDEPEND=test? ( net-misc/wget sys-apps/iproute2 ) www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=www-servers/nginx:=[modules(-)]
+DESCRIPTION=Fancy indexes module for the NGINX web server
+EAPI=8
+HOMEPAGE=https://github.com/aperezdc/ngx-fancyindex
+INHERIT=edo nginx-module
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=BSD-2
+RDEPEND=www-servers/nginx:=[modules(-)]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/aperezdc/ngx-fancyindex/releases/download/v0.6.0/ngx-fancyindex-0.6.0.tar.xz
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	nginx-module	bd36172a645386a122635a74da116b20
+_md5_=c4913718c8494d07080aa369d4e84407
