@@ -18,8 +18,7 @@ KEYWORDS="~amd64 ~arm64"
 IUSE=""
 
 DEPEND="
-	dev-libs/libical
-	>=dev-libs/ktextaddons-2.0.2:6=
+	dev-libs/libical:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
 	>=kde-apps/akonadi-calendar-${PVCUT}:6=
@@ -40,3 +39,5 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-26.04.3-bogus-ktextaddons.patch" ) # in 27.04
