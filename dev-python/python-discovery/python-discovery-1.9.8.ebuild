@@ -17,14 +17,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/filelock-3.16.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
 		>=dev-python/setuptools-75.1[${PYTHON_USEDEP}]
 	)
 "
@@ -32,6 +34,13 @@ BDEPEND="
 EPYTEST_PLUGINS=( pytest-mock )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# disable sbom nonsense
+	sed -i -e '/build\.hooks\.custom\.path/d' pyproject.toml || die
+}
 
 python_test() {
 	local EPYTEST_IGNORE=(
@@ -51,5 +60,6 @@ python_test() {
 			;;
 	esac
 
+	local -x TMPDIR=/tmp
 	epytest
 }

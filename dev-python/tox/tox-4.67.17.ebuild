@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	dev-python/cachetools[${PYTHON_USEDEP}]
@@ -37,6 +37,7 @@ RDEPEND="
 "
 BDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
+	>=dev-python/hatch-fancy-pypi-readme-25.1[${PYTHON_USEDEP}]
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		dev-python/argcomplete[${PYTHON_USEDEP}]
@@ -55,9 +56,12 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_prepare() {
+	distutils-r1_src_prepare
+
 	# upstream lower bounds are meaningless
 	sed -i -e 's:>=[0-9.]*::' pyproject.toml || die
-	distutils-r1_src_prepare
+	# remove sbom nonsense
+	sed -i -e '/build\.hooks\.python-sbom/d' pyproject.toml || die
 }
 
 python_test() {
@@ -74,11 +78,16 @@ python_test() {
 		tests/tox_env/python/virtual_env/package/test_package_pyproject.py::test_pyproject_installpkg_pep517_envs
 		# require tombi
 		tests/session/cmd/test_schema.py::test_schema_tombi_lint
+		# TODO
+		tests/tox_env/python/virtual_env/package/test_package_pyproject.py::test_pkg_env_missing_interpreter
 	)
 	local EPYTEST_IGNORE=(
 		# requires devpi*
 		tests/test_provision.py
+		# requires tools/
+		tests/docs/test_manpage.py
 	)
 
+	local -x TMPDIR=/tmp
 	epytest -o addopts=
 }

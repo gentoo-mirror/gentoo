@@ -23,7 +23,7 @@ S=${WORKDIR}/lxml-${P}
 
 LICENSE="BSD ElementTree GPL-2 PSF-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="doc examples +threads test"
 RESTRICT="!test? ( test )"
 
@@ -92,6 +92,8 @@ python_test() {
 	# this one needs to be copied, because upstream uses doc/../../../doc
 	cp -r "${S}"/doc "${dir}"/../../ || die
 	ln -s "${S}"/doc "${dir}"/../../../../ || die
+	# ano now ../../test.py, I guess
+	cp "${S}"/test.py "${dir}"/../../ || die
 
 	"${EPYTHON}" test.py --no-src -vv --all-levels -p ||
 		die "Tests fail on ${EPYTHON}"
