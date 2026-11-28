@@ -8,7 +8,7 @@ KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
 KFMIN=6.27.0
 QTMIN=6.11.2
-inherit ecm flag-o-matic gear.kde.org xdg
+inherit ecm flag-o-matic gear.kde.org udev xdg
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
@@ -16,7 +16,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="amd64 arm64 ~ppc64 ~x86"
-IUSE="bluetooth pulseaudio telephony X"
+IUSE="bluetooth +digitizer pulseaudio telephony X"
 
 RESTRICT="test"
 
@@ -49,6 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:6
 	sys-apps/dbus
 	bluetooth? ( >=dev-qt/qtconnectivity-${QTMIN}:6[bluetooth] )
+	digitizer? ( dev-libs/libevdev )
 	pulseaudio? ( >=media-libs/pulseaudio-qt-1.4:= )
 	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:6 )
 	X? (
@@ -70,6 +71,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kdnssd-${KFMIN}:6
 	kde-plasma/libplasma:6
 	net-fs/sshfs
+	digitizer? ( virtual/udev )
 "
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
@@ -79,6 +81,8 @@ BDEPEND="
 
 src_prepare() {
 	ecm_src_prepare
+
+	use digitizer || cmake_comment_add_subdirectory -f plugins digitizer
 
 	# TODO: make conditional on X upstream (uses private/qxkbcommon_p.h):
 	use X || cmake_comment_add_subdirectory -f plugins shareinputdevices
@@ -101,9 +105,15 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	use digitizer && udev_reload
 
 	elog "The Android .apk file is available via"
 	elog "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
 	elog "or via"
 	elog "https://f-droid.org/packages/org.kde.kdeconnect_tp/"
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	use digitizer && udev_reload
 }
